@@ -65,9 +65,14 @@
                                 <td ><strong>#<?= $jo_id?></strong></td>
                             </tr>
                             <tr>
-                                <td width="30%">Tanggal</td>
+                                <td width="30%">Tgl. JO</td>
                                 <td width="5%">:</td>
                                 <td ><?= change_tanggal($data["tanggal_surat"])?></td>
+                            </tr>
+                            <tr>
+                                <td width="30%">Tgl. Penyerahan UJ</td>
+                                <td width="5%">:</td>
+                                <td >tanggal payment</td>
                             </tr>
                             <tr>
                                 <td width="30%">Supir</td>
@@ -85,49 +90,54 @@
                                 <td><?= $customer["customer_name"]?></td>
                             </tr>
                             <tr>
-                                <td width="30%">Rute</td>
+                                <td width="30%">Muatan</td>
                                 <td width="5%">:</td>
-                                <td>
-                                    <table class="small">
-                                        <tbody>
-                                            
-                                                    <tr>
-                                                        <td><?= $data["asal"]?></td>
-                                                        <td>-<?= $data["tujuan"]?></td>
-                                                        <td> (<?= $data["muatan"]?>)</td>
-                                                    </tr>
-                                            
-                                        </tbody>
-                                    </table>
-                                </td>
+                                <td><?= $data["muatan"]?></td>
                             </tr>
                             <tr>
+                                <td width="30%">Dari</td>
+                                <td width="5%">:</td>
+                                <td><?= $data["asal"]?></td>
+                            </tr>
+                            <tr>
+                                <td width="30%">Ke</td>
+                                <td width="5%">:</td>
+                                <td><?= $data["tujuan"]?></td>
+                            </tr>
+                            <!-- <tr>
                                 <td width="30%">Uang Jalan</td>
                                 <td width="5%">:</td>
-                                <td>Rp.<?= number_format($data["uang_jalan"],2,',','.')?></td>
-                            </tr>
-                                <tr>
+                                <td>Rp.<?= number_format($data["uang_jalan"],0,',','.')?></td>
+                            </tr> -->
+                                <!-- <tr>
                                     <td width="30%">Tambahan/Potongan UJ</td>
                                     <td width="5%">:</td>
-                                        <td>Rp.<?= number_format($data["nominal_tambahan"],2,",",".")?> (<?= $data["jenis_tambahan"]?>)</td>
-                                </tr>
+                                        <td>Rp.<?= number_format($data["nominal_tambahan"],0,",",".")?> (<?= $data["jenis_tambahan"]?>)</td>
+                                </tr> -->
                             <tr>
-                                <td width="30%">Total Uang Jalan</td>
+                                <td width="30%">Total UJ</td>
                                 <td width="5%">:</td>
-                                <td>Rp.<?= number_format($data["uang_total"],2,',','.')?></td>
+                                <td>Rp.<?= number_format($data["uang_total"],0,',','.')?></td>
+                            </tr>
+                            <tr>
+                                <td width="30%">Sisa UJ</td>
+                                <td width="5%">:</td>
+                                <td>Rp.<?= number_format($data["sisa"],0,',','.')?></td>
+                            </tr>
+                            <tr>
+                                <td width="30%">UJ Yang Diserahkan</td>
+                                <td width="5%">:</td>
+                                <td>Rp.<?= number_format($data["uang_total"]-$data["sisa"],0,',','.')?></td>
                             </tr>
                             <tr>
                                 <td width="30%">Terbilang</td>
                                 <td width="5%">:</td>
-                                <td><?= generate_terbilang($data["uang_total"])?> Rupiah</td>
+                                <td><?= generate_terbilang($data["uang_total"]-$data["sisa"])?> Rupiah</td>
                             </tr>
                             <tr>
                                 <td width="30%">Keterangan</td>
                                 <td width="5%">:</td>
                                 <td><?= $data["keterangan"]?></td>
-                            </tr>
-                            <tr>
-                                <td colspan=3>Bandar Lampung,<?= change_tanggal($data["tanggal_surat"])?></td>
                             </tr>
                             <tr>
                                 <td colspan=3><hr></td>
@@ -137,8 +147,8 @@
                     <table width="100%">
                         <tbody>
                             <tr class="text-center">
-                                <td width="30%">Yang Menyerahkan,</td>
                                 <td width="30%">Yang Membuat</td>
+                                <td width="30%">Yang Menyerahkan,</td>
                                 <td width="30%" >Yang Menerima</td>
                             </tr>
                             <tr class="text-center" style="height:200px">

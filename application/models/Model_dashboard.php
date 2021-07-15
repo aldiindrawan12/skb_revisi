@@ -371,6 +371,7 @@ class Model_Dashboard extends CI_model
                     "asal"=>$record->asal,
                     "tujuan"=>$record->tujuan,
                     "tanggal_surat"=>$record->tanggal_surat,
+                    "tanggal_bongkar"=>$record->tanggal_bongkar,
                     "status"=>$record->status
                 ); 
                 $n++;

@@ -75,41 +75,32 @@
                         <td colspan=3><?= $customer["customer_name"] ?></td>
                     </tr>
                     <tr>
-                        <td class="font-weight-bold" style="width: 25%;">Rute Muatan</td>
-                        <td colspan=3>
-                            <table class="table table-bordered small">
-                                <thead>
-                                    <tr>
-                                        <th>Dari</th>
-                                        <th>Ke</th>
-                                        <th>Muatan</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><?= $jo["asal"]?></td>
-                                        <td><?= $jo["tujuan"]?></td>
-                                        <td><?= $jo["muatan"]?></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </td>
+                        <td class="font-weight-bold" style="width: 25%;">Muatan</td>
+                        <td colspan=3><?= $jo["muatan"] ?></td>
+                    </tr>
+                    <tr>
+                        <td class="font-weight-bold" style="width: 25%;">Dari</td>
+                        <td colspan=3><?= $jo["asal"] ?></td>
+                    </tr>
+                    <tr>
+                        <td class="font-weight-bold" style="width: 25%;">Ke</td>
+                        <td colspan=3><?= $jo["tujuan"] ?></td>
                     </tr>
                     <tr>
                         <td class="font-weight-bold " style="width: 25%;">Uang Jalan</td>
-                        <td colspan=3><p>Rp.<?= number_format($jo["uang_jalan"],2,',','.') ?></p></td>
+                        <td colspan=3><p>Rp.<?= number_format($jo["uang_jalan"],0,',','.') ?></p></td>
                     </tr>
                     <tr>
                         <td class="font-weight-bold " style="width: 25%;">Tambahan/Potongan Uang Jalan</td>
-                            <td colspan=3><p>Rp.<?= number_format($jo["nominal_tambahan"],2,',','.') ?> (<?= $jo["jenis_tambahan"]?>)</p></td>
+                            <td colspan=3><p>Rp.<?= number_format($jo["nominal_tambahan"],0,',','.') ?> (<?= $jo["jenis_tambahan"]?>)</p></td>
                     </tr>
                     <tr>
                         <td class="font-weight-bold " style="width: 25%;">Total Uang Jalan</td>
-                        <td colspan=3><p>Rp.<?= number_format($jo["uang_total"],2,',','.')?></p></td>
+                        <td colspan=3><p>Rp.<?= number_format($jo["uang_total"],0,',','.')?></p></td>
                     </tr>
                     <tr>
                         <td class="font-weight-bold " style="width: 25%;">Sisa Uang Jalan</td>
-                        <td colspan=3>Rp.<?=number_format($jo["sisa"],2,',','.')?></td>
+                        <td colspan=3>Rp.<?=number_format($jo["sisa"],0,',','.')?></td>
                     </tr>
                     <tr>
                         <td class="font-weight-bold" style="width: 20%;">Catatan/Keterangan</td>
@@ -133,7 +124,7 @@
                     </tr>
                     <tr>
                         <td class="font-weight-bold" style="width: 25%;">Biaya Lain-lain</td>
-                        <td colspan=3>Rp.<?= number_format($jo["biaya_lain"],2,',','.')?></td>
+                        <td colspan=3>Rp.<?= number_format($jo["biaya_lain"],0,',','.')?></td>
                     </tr>
                     <tr>
                         <td class="font-weight-bold" style="width: 25%;">No Slip Gaji</td>
@@ -145,7 +136,7 @@
                     </tr>
                     <tr>
                         <td class="font-weight-bold" style="width: 25%;">Nominal Gaji</td>
-                        <td colspan=3>Rp.<?= number_format($jo["upah"],2,',','.')?></td>
+                        <td colspan=3>Rp.<?= number_format($jo["upah"],0,',','.')?></td>
                     </tr>
                     <tr>
                         <td class="font-weight-bold" style="width: 25%;">No Invoice</td>
@@ -157,7 +148,7 @@
                     </tr>
                     <tr>
                         <td class="font-weight-bold" style="width: 25%;">Nominal Invoice</td>
-                        <td colspan=3>Rp.<?= number_format($jo["total_tagihan"],2,',','.')?></td>
+                        <td colspan=3>Rp.<?= number_format($jo["total_tagihan"],0,',','.')?></td>
                     </tr>
                     <tr>
                         <td class="font-weight-bold" style="width: 25%;">Pembuat JO</td>

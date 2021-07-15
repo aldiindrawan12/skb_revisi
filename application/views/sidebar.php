@@ -12,11 +12,11 @@
                     $link = redirect(base_url());
                 }
             ?>
-            <a class="sidebar-brand d-flex align-items-center justify-content-center my-2" href="<?= $link?>">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center my-2">
                 <div class="sidebar-brand-icon fa-flip-horizontal">
                     <i class="fa fa-truck"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3 ">TLEMU SKB</div>
+                <div class="sidebar-brand-text mx-3 "><h1>SKb</h1></div>
             </a>
             <!-- Divider -->
             <hr class="sidebar-divider" id="HR_Dashboard">
@@ -30,7 +30,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" id="DB_Izin_page" href="<?=base_url("index.php/dashboard")?>">
                             <i class="fas fa-clipboard"></i>
-                            <span>DB Izin dan Dokument</span>
+                            <span>DB Izin dan Dokumen</span>
                         </a>
                         <a class="collapse-item" id="DB_Operasional_page" href="<?=base_url("index.php/dashboard/dashboard_operasional")?>">
                             <i class="fas fa-truck"></i>

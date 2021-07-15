@@ -15,7 +15,7 @@ class Model_Home extends CI_model
     //function get
         public function gettruck() //all truck
         {
-            return $this->db->get_where("skb_mobil",array("status_hapus"=>"NO","validasi"=>"ACC"))->result_array();
+            return $this->db->get_where("skb_mobil",array("status_hapus"=>"NO","validasi"=>"ACC","validasi_edit"=>"ACC","validasi_delete"=>"ACC"))->result_array();
         }
 
         public function getmerk() //all truck
@@ -31,7 +31,7 @@ class Model_Home extends CI_model
 
         public function getcustomer() //all customer
         {
-            return $this->db->get_where("skb_customer",array("validasi"=>"ACC","status_hapus"=>"NO"))->result_array();
+            return $this->db->get_where("skb_customer",array("validasi"=>"ACC","validasi_edit"=>"ACC","validasi_delete"=>"ACC","status_hapus"=>"NO"))->result_array();
         }
 
         public function getallcustomer() //all customer
@@ -117,7 +117,13 @@ class Model_Home extends CI_model
                     mobil_jenis like '%".$searchValue."%') ";
             }
             $search_arr[] = " status_hapus='NO' ";
-
+            if($searchValue == 'Dump' || $searchValue == 'dump'){
+                $search_arr[] = " mobil_dump='Ya' ";
+            }else if($searchValue=="No Dump" || $searchValue == 'no dump'){
+                $search_arr[] = " mobil_dump='Tidak' ";
+            }else{
+                $search_arr[] = " mobil_dump='Tidak' ";
+            }
             if(count($search_arr) > 0){ //gabung kondisi where
                 $searchQuery = implode(" and ",$search_arr);
             }
@@ -669,7 +675,7 @@ class Model_Home extends CI_model
 
         public function filter_supir($asal,$search, $limit, $start, $order_field, $order_ascdesc)
         {
-            $this->db->where('(supir_name like "%'.$search.'%" or supir_panggilan like "%'.$search.'%")');
+            $this->db->where('(supir_name like "%'.$search.'%" or supir_panggilan like "%'.$search.'%" or supir_telp like "%'.$search.'%")');
             $this->db->where("status_hapus","NO");
             if($asal!="viewsupir"){
                 $this->db->where("validasi","ACC");
@@ -862,10 +868,11 @@ class Model_Home extends CI_model
         
             ## Total record with filtering
             $this->db->select('count(*) as allcount');
+            $this->db->join("skb_customer", "skb_customer.customer_id = skb_rute.customer_id", 'left');
             if($searchQuery != ''){
                 $this->db->where($searchQuery);
+                $this->db->where("skb_customer.customer_name",$searchValue);
             }
-            $this->db->join("skb_customer", "skb_customer.customer_id = skb_rute.customer_id", 'left');
             if($customer!="x"){
                 $this->db->where("skb_customer.customer_id",$customer);
             }

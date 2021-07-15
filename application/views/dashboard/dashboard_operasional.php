@@ -11,9 +11,9 @@
                     <table class="table table-bordered" id="Table-Supir-Tidak-Jalan" width="100%" cellspacing="0">
                         <thead>
                             <tr>
+                                <th class="text-center" width="20%" scope="col">No.</th>
                                 <th class="text-center" width="20%" scope="col">Nama</th>
                                 <th class="text-center" width="20%" scope="col">Nomor Telepon</th>
-                                <th class="text-center" width="20%" scope="col">Status</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -36,9 +36,9 @@
                     <table class="table table-bordered" id="Table-Truck-Tidak-Jalan" width="100%" cellspacing="0">
                         <thead>
                             <tr>
+                                <th class="text-center" width="20%" scope="col">No.</th>
                                 <th class="text-center" width="20%" scope="col">No Polisi</th>
                                 <th class="text-center" width="20%" scope="col">Merk</th>
-                                <th class="text-center" width="20%" scope="col">Type</th>
                                 <th class="text-center" width="20%" scope="col">Jenis</th>
                                 <th class="text-center" width="20%" scope="col">Dump</th>
                             </tr>
@@ -222,6 +222,14 @@
                     [10, 30, 50, 100]
                 ],
                 "columns": [
+                    {
+                        "data": "mobil_no",
+                        className: 'text-center',
+                        render: function(data, type, row) {
+                            let html = row["no"];
+                            return html;
+                        }
+                    },
                     {   
                         "data": "mobil_no"
                     },
@@ -229,13 +237,17 @@
                         "data": "mobil_merk"
                     },
                     {
-                        "data": "mobil_type"
-                    },
-                    {
                         "data": "mobil_jenis"
                     },
                     {
-                        "data": "mobil_dump"
+                        "data": "mobil_dump",
+                        render: function(data, type, row) {
+                            if(data=="Ya"){
+                                return "Dump";
+                            }else{
+                                return "No Dump"
+                            }
+                        }
                     },
                 ]
             });
@@ -264,22 +276,11 @@
                     {   
                         "data": "supir_name"
                     },
-                    {
-                        "data": "supir_telp"
+                    {   
+                        "data": "supir_name"
                     },
                     {
-                        "data": "status_jalan",
-                        className: 'text-center',
-                        "orderable": false,
-                            render: function(data, type, row) {
-                                if (data == "Jalan") {
-                                    let html = "<span class='btn-sm btn-block btn-success'><i class='fa fa-fw fa-check mr-2'></i>" + data + "</span>";
-                                    return html;
-                                } else {
-                                    let html = "<span class='btn-sm btn-block btn-warning'><i class='fa fa-fw fa-exclamation-circle mr-2'></i>" + data + "</span>";
-                                    return html;
-                                }
-                            }
+                        "data": "supir_telp"
                     },
                 ]
             });

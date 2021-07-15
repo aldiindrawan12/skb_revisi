@@ -80,17 +80,17 @@
                 </div>                
                 <div class="col-md-6 border rounded">
                     <div class="form-group row mt-3">
+                        <label for="payment_jo_tgl" class="form-label font-weight-bold col-sm-5">Tgl.Pembayaran</label>
+                        <div class="col-sm-7">
+                            <input autocomplete="off" type="text" class="form-control" id="payment_jo_tgl" name="payment_jo_tgl" required readonly value="<?= date('d-m-Y')?>">
+                        </div>
+                    </div>    
+                    <div class="form-group row mt-3">
                         <label for="payment_jo_nominal" class="col-form-label col-sm-5 font-weight-bold">Nominal Pembayaran</label>
                         <div class="col-sm-7">
                             <input autocomplete="off" type="text" class="form-control" id="payment_jo_nominal" name="payment_jo_nominal" required onkeyup="cek_bayar(this)">
                         </div>
                     </div>
-                    <div class="form-group row mt-3">
-                        <label for="payment_jo_tgl" class="form-label font-weight-bold col-sm-5">Tgl.Pembayaran</label>
-                        <div class="col-sm-7">
-                            <input autocomplete="off" type="text" class="form-control" id="payment_jo_tgl" name="payment_jo_tgl" required onclick="tanggal_berlaku(this)">
-                        </div>
-                    </div>    
                     <div class="form-group row mt-3">
                         <label class="form-label font-weight-bold col-sm-5" for="payment_jo_jenis">Jenis Pembayaran</label>
                         <div class="col-sm-7">
@@ -344,22 +344,9 @@
     <!-- end cek password -->
     <script>    
         $(function(){     
-            $("#payment_jo_tgl").datepicker({
-                format: 'dd-mm-yyyy',
-                autoclose: true,
-                todayHighlight: true
-            });
             $("#payment_jo_tgl_update").datepicker({
                 format: 'dd-mm-yyyy'
             });
-            var date = new Date();
-                if((date.getMonth()+1)<10){
-                    $("#payment_jo_tgl").val(date.getDate()+"-0"+(date.getMonth()+1)+"-"+date.getFullYear());
-                    // $("#payment_jo_tgl_update").val(date.getDate()+"-0"+(date.getMonth()+1)+"-"+date.getFullYear());
-                }else{
-                    $("#payment_jo_tgl").val(date.getDate()+"-"+(date.getMonth()+1)+"-"+date.getFullYear());
-                    // $("#payment_jo_tgl_update").val(date.getDate()+"-"+(date.getMonth()+1)+"-"+date.getFullYear());
-                }
         });
         function rupiah(uang){
             var bilangan = uang;
@@ -384,6 +371,10 @@
             location.replace("<?= base_url("index.php/home")?>");
         }
         function cek_bayar(a){
+            if($("#"+a.id).val()[0]=="0"){
+                var string_now = $("#"+a.id).val().replace("0","");
+                $("#"+a.id).val(string_now);
+            }
             var sisa = 0;
             if($("#uang_sisa").val().replaceAll(".","") == ""){
                 sisa = 0;

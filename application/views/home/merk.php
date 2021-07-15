@@ -67,7 +67,6 @@
                         </div>
                         <div class="form-group mt-1 ">
                             <button type="submit" class="btn btn-success float-right">Simpan</button>
-                            <button type="reset" class="btn btn-outline-danger mr-3 float-md-right" onclick="reset_form()">Reset</button>
                         </div>
                     </form>
             </div>
@@ -114,7 +113,6 @@
                         </div>
                         <div class="form-group mt-1  ">
                             <button type="submit" class="btn btn-success float-right">Simpan</button>
-                            <button type="reset" class="btn btn-outline-danger mr-3 float-md-right" onclick="reset_form()">Reset</button>
                         </div>
                     </form>
             </div>

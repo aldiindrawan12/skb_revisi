@@ -7,6 +7,8 @@
             return $tanggal_array[2]."-".$tanggal_array[1]."-".$tanggal_array[0];   
         }
     }
+    $tanggal_now = date("d-m-Y");
+    $tgl_invoice = strtotime($invoice["tanggal_invoice"]);
 ?>
 <div class="container">
     <div class="card shadow mb-2">
@@ -63,17 +65,17 @@
                     </div>
                     <div class="col-md-6 border rounded">
                         <div class="form-group row mt-3">
+                            <label for="payment_invoice_tgl" class="form-label font-weight-bold col-sm-5">Tgl.Pembayaran</label>
+                            <div class="col-sm-7">
+                                <input autocomplete="off" type="text" class="form-control" id="payment_invoice_tgl" name="payment_invoice_tgl" required onclick="tanggal_berlaku(this)" onchange="check_tanggal(this)" value="<?= date('d-m-Y')?>">
+                            </div>
+                        </div>    
+                        <div class="form-group row mt-3">
                             <label for="payment_invoice_nominal" class="col-form-label col-sm-5 font-weight-bold">Nominal Pembayaran</label>
                             <div class="col-sm-7">
                                 <input autocomplete="off" type="text" class="form-control" id="payment_invoice_nominal" name="payment_invoice_nominal" required onkeyup="cek_bayar(this)">
                             </div>
                         </div>
-                        <div class="form-group row mt-3">
-                            <label for="payment_invoice_tgl" class="form-label font-weight-bold col-sm-5">Tgl.Pembayaran</label>
-                            <div class="col-sm-7">
-                                <input autocomplete="off" type="text" class="form-control" id="payment_invoice_tgl" name="payment_invoice_tgl" required onclick="tanggal_berlaku(this)">
-                            </div>
-                        </div>    
                         <div class="form-group row mt-3">
                             <label class="form-label font-weight-bold col-sm-5" for="payment_invoice_jenis">Jenis Pembayaran</label>
                             <div class="col-sm-7">
@@ -327,14 +329,6 @@
     <!-- end cek password -->
     <!-- scrip angka rupiah -->
     <script>    
-        $(function(){     
-            var date = new Date();
-                if((date.getMonth()+1)<10){
-                    $("#payment_invoice_tgl").val(date.getDate()+"-0"+(date.getMonth()+1)+"-"+date.getFullYear());
-                }else{
-                    $("#payment_invoice_tgl").val(date.getDate()+"-"+(date.getMonth()+1)+"-"+date.getFullYear());
-                }
-        });
         function rupiah(uang){
             var bilangan = uang;
             var	number_string = bilangan.toString(),
@@ -356,12 +350,10 @@
                 icon: "success",
                 text: "Mohon Tunggu Sebentar",
                 type: "success",
-                timer: 500
+                timer: 1
             });
             $("#"+a.id).datepicker({
-                format: 'dd-mm-yyyy',
-                autoclose: true,
-                todayHighlight: true,
+                format: 'dd-mm-yyyy'
             });
         }
     </script>
@@ -378,6 +370,10 @@
     </script>
     <script>
         function cek_bayar(a){
+            if($("#"+a.id).val()[0]=="0"){
+                var string_now = $("#"+a.id).val().replace("0","");
+                $("#"+a.id).val(string_now);
+            }
             var sisa = 0;
             if($("#invoice_sisa_tagihan").val().replaceAll(".","") == ""){
                 sisa = 0;
@@ -395,6 +391,10 @@
             }
         }
         function cek_bayar_edit(a){
+            if($("#"+a.id).val()[0]=="0"){
+                var string_now = $("#"+a.id).val().replace("0","");
+                $("#"+a.id).val(string_now);
+            }
             $( '#'+a.id ).mask('000.000.000', {reverse: true});
             bayar_saat_ini = parseInt($("#payment_now").val().replaceAll(".",""))+parseInt($("#invoice_sisa_tagihan").val().replaceAll(".",""));
             var bayar = $("#"+a.id).val().replaceAll(".","");   
@@ -468,4 +468,13 @@
                      timer: 2000
                  });
         }
+    function check_tanggal(a){
+        var data_tanggal = $("#"+a.id).val().split("-");
+        var tanggal = data_tanggal[2]+"-"+data_tanggal[1]+"-"+data_tanggal[0];
+
+        if(Date.parse(tanggal)<Date.parse("<?= $invoice["tanggal_invoice"]?>")){
+            alert("Maaf Silakan Isi Tanggal Setelah Tanggal "+change_tanggal("<?= $invoice["tanggal_invoice"]?>"));
+            $("#"+a.id).val("<?= $tanggal_now?>");
+        }
+    }
     </script>

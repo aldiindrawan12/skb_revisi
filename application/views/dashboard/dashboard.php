@@ -11,11 +11,11 @@
                     <table class="table table-bordered" id="Table-Supir-Sim" width="100%" cellspacing="0">
                         <thead>
                             <tr>
+                                <th class="text-center" width="10%" scope="col">No.</th>
                                 <th class="text-center" width="20%" scope="col">Nama</th>
-                                <th class="text-center" width="15%" scope="col">Telp</th>
-                                <th class="text-center" width="20%" scope="col">No Sim</th>
-                                <th class="text-center" width="15%" scope="col">Tgl Sim</th>
-                                <th class="text-center" width="30%" scope="col">Sisa Sim</th>
+                                <th class="text-center" width="15%" scope="col">No. HP</th>
+                                <th class="text-center" width="15%" scope="col">Tgl Expired Sim</th>
+                                <th class="text-center" width="30%" scope="col">Sisa Masa Berlaku Sim</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -41,8 +41,8 @@
                             <tr>
                                 <th class="text-center" width="10%" scope="col">No</th>
                                 <th class="text-center" width="20%" scope="col">No Polisi</th>
-                                <th class="text-center" width="40%" scope="col">Berlaku Pajak STNK</th>
-                                <th class="text-center" width="30%" scope="col">Sisa Berlaku</th>
+                                <th class="text-center" width="40%" scope="col">Tgl. Expired</th>
+                                <th class="text-center" width="30%" scope="col">Sisa Masa Berlaku</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -58,8 +58,8 @@
                             <tr>
                                 <th class="text-center" width="10%" scope="col">No</th>
                                 <th class="text-center" width="20%" scope="col">No Polisi</th>
-                                <th class="text-center" width="40%" scope="col">Berlaku Pajak STNK</th>
-                                <th class="text-center" width="30%" scope="col">Sisa Berlaku</th>
+                                <th class="text-center" width="40%" scope="col">Tgl. Expired</th>
+                                <th class="text-center" width="30%" scope="col">Sisa Masa Berlaku</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -73,10 +73,10 @@
                     <table class="table table-bordered" id="Table-Truck-Kir" width="100%" cellspacing="0">
                         <thead>
                             <tr>
+                                <th class="text-center" width="10%" scope="col">No</th>
                                 <th class="text-center" width="20%" scope="col">No Polisi</th>
-                                <th class="text-center" width="20%" scope="col">No KIR</th>
-                                <th class="text-center" width="20%" scope="col">Berlaku No KIR</th>
-                                <th class="text-center" width="30%" scope="col">Sisa Berlaku</th>
+                                <th class="text-center" width="20%" scope="col">Tgl. Expired</th>
+                                <th class="text-center" width="30%" scope="col">Sisa Masa Berlaku</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -90,10 +90,10 @@
                     <table class="table table-bordered" id="Table-Truck-Ijin-Bongkar" width="100%" cellspacing="0">
                         <thead>
                             <tr>
+                                <th class="text-center" width="10%" scope="col">No</th>
                                 <th class="text-center" width="20%" scope="col">No Polisi</th>
-                                <th class="text-center" width="20%" scope="col">No Ijin BM</th>
-                                <th class="text-center" width="20%" scope="col">Berlaku Ijin BM</th>
-                                <th class="text-center" width="30%" scope="col">Sisa Berlaku</th>
+                                <th class="text-center" width="20%" scope="col">Tgl. Expired</th>
+                                <th class="text-center" width="30%" scope="col">Sisa Masa Berlaku</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -107,10 +107,10 @@
                     <table class="table table-bordered" id="Table-Truck-Ijin-Usaha" width="100%" cellspacing="0">
                         <thead>
                             <tr>
+                                <th class="text-center" width="10%" scope="col">No</th>
                                 <th class="text-center" width="20%" scope="col">No Polisi</th>
-                                <th class="text-center" width="20%" scope="col">No Ijin Usaha</th>
-                                <th class="text-center" width="20%" scope="col">Berlaku Ijin Usaha</th>
-                                <th class="text-center" width="30%" scope="col">Sisa Berlaku</th>
+                                <th class="text-center" width="20%" scope="col">Tgl. Expired</th>
+                                <th class="text-center" width="30%" scope="col">Sisa Masa Berlaku</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -408,10 +408,15 @@
                 ],
                 "columns": [
                     {
-                        "data": "mobil_no"
+                        "data": "mobil_no",
+                        className: 'text-center',
+                        render: function(data, type, row) {
+                            let html = row["no"];
+                            return html;
+                        }
                     },
                     {
-                        "data": "mobil_kir"
+                        "data": "mobil_no"
                     },
                     {
                         "data": "mobil_berlaku_kir",
@@ -457,11 +462,16 @@
                     [10, 30, 50, 100]
                 ],
                 "columns": [
+                    {
+                        "data": "mobil_no",
+                        className: 'text-center',
+                        render: function(data, type, row) {
+                            let html = row["no"];
+                            return html;
+                        }
+                    },
                     {   
                         "data": "mobil_no"
-                    },
-                    {
-                        "data": "mobil_ijin_bongkar"
                     },
                     {
                         "data": "mobil_berlaku_ijin_bongkar",
@@ -507,11 +517,16 @@
                     [10, 30, 50, 100]
                 ],
                 "columns": [
+                    {
+                        "data": "mobil_no",
+                        className: 'text-center',
+                        render: function(data, type, row) {
+                            let html = row["no"];
+                            return html;
+                        }
+                    },
                     {   
                         "data": "mobil_no"
-                    },
-                    {
-                        "data": "mobil_usaha"
                     },
                     {
                         "data": "mobil_berlaku_usaha",
@@ -519,7 +534,8 @@
                         render: function(data, type, row) {
                             return change_tanggal(data);
                         }
-                    },{
+                    },
+                    {
                         "data": "mobil_berlaku_usaha",
                         className: 'text-center',
                         "orderable": false,
@@ -557,14 +573,14 @@
                     [10, 30, 50, 100]
                 ],
                 "columns": [
+                    {
+                        "data": "supir_name",
+                    },
                     {   
                         "data": "supir_name"
                     },
                     {
                         "data": "supir_telp"
-                    },
-                    {
-                        "data": "supir_sim"
                     },
                     {
                         "data": "supir_tgl_sim",

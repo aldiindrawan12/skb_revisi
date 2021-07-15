@@ -19,8 +19,10 @@
                         <th class="text-center" width="3%" scope="col">No</th>
                         <th class="text-center" width="8%" scope="col">No Polisi</th>
                         <th class="text-center" width="12%" scope="col">Merk</th>
-                        <th class="text-center" width="12%" scope="col">Type</th>
+                        <th class="text-center" width="12%" scope="col">Tipe</th>
                         <th class="text-center" width="10%" scope="col">Jenis</th>
+                        <th class="text-center" width="10%" scope="col">Dump</th>
+                        <th class="text-center" width="10%" scope="col">Tahun</th>
                         <th class="text-center" width="15%" scope="col">Status Validasi</th>
                         <th class="text-center" width="15%" scope="col">Aksi</th>
                         <th class="text-center" width="30%" scope="col">Validasi</th>
@@ -52,7 +54,7 @@
                         <tr>    
                             <th class="text-center" width="5%" scope="col">No</th>
                             <th class="text-center" width="12%" scope="col">Merk</th>
-                            <th class="text-center" width="12%" scope="col">Type</th>
+                            <th class="text-center" width="12%" scope="col">Tipe</th>
                             <th class="text-center" width="15%" scope="col">Jenis Kendaraan</th>
                             <th class="text-center" width="10%" scope="col">Dump</th>
                             <th class="text-center" width="30%" scope="col">Aksi</th>
@@ -107,11 +109,11 @@
                             <input autocomplete="off" type="text" class="form-control" id="mobil_bpkb" name="mobil_bpkb">
                         </div>
                         <div class="form-group">
-                            <label for="mobil_berlaku" class="form-label font-weight-bold">Tgl Pajak 1 Tahunan STNK</label>
+                            <label for="mobil_berlaku" class="form-label font-weight-bold">Masa Beralaku STNK (1 Th)</label>
                             <input autocomplete="off" type="text" class="form-control" id="mobil_berlaku" name="mobil_berlaku" onclick="tanggal_berlaku(this)">
                         </div>
                         <div class="form-group">
-                            <label for="mobil_pajak" class="form-label font-weight-bold">Tgl Pajak 5 Tahunan STNK</label>
+                            <label for="mobil_pajak" class="form-label font-weight-bold">Masa Beralaku STNK (5 Th)</label>
                             <input autocomplete="off" type="text" class="form-control" id="mobil_pajak" name="mobil_pajak" onclick="tanggal_berlaku(this)">
                         </div>
                         <div class="form-group">
@@ -119,11 +121,11 @@
                             <input autocomplete="off" type="text" class="form-control" id="mobil_stnk" name="mobil_stnk">
                         </div>
                         <div class="form-group">
-                            <label for="mobil_usaha" class="form-label font-weight-bold">No Usaha</label>
+                            <label for="mobil_usaha" class="form-label font-weight-bold">No Izin Usaha</label>
                             <input autocomplete="off" type="text" class="form-control" id="mobil_usaha" name="mobil_usaha">
                         </div>
                         <div class="form-group">
-                            <label for="mobil_berlaku_usaha" class="form-label font-weight-bold">Berlaku No Usaha</label>
+                            <label for="mobil_berlaku_usaha" class="form-label font-weight-bold">Masa Berlaku Izin Usaha</label>
                             <input autocomplete="off" type="text" class="form-control" id="mobil_berlaku_usaha" name="mobil_berlaku_usaha" onclick="tanggal_berlaku(this)">
                         </div>
                     </div>
@@ -133,15 +135,15 @@
                             <input autocomplete="off" type="text" class="form-control" id="mobil_kir" name="mobil_kir">
                         </div>
                         <div class="form-group">
-                            <label for="mobil_berlaku_kir" class="form-label font-weight-bold">Berlaku KIR</label>
+                            <label for="mobil_berlaku_kir" class="form-label font-weight-bold">Masa Berlaku KIR</label>
                             <input autocomplete="off" type="text" class="form-control" id="mobil_berlaku_kir" name="mobil_berlaku_kir" onclick="tanggal_berlaku(this)">
                         </div>
                         <div class="form-group">
-                            <label for="mobil_ijin_bongkar" class="form-label font-weight-bold">No Izin Bongkar</label>
+                            <label for="mobil_ijin_bongkar" class="form-label font-weight-bold">No Izin Bongkar Muat</label>
                             <input autocomplete="off" type="text" class="form-control" id="mobil_ijin_bongkar" name="mobil_ijin_bongkar" >
                         </div>
                         <div class="form-group">
-                            <label for="mobil_berlaku_ijin_bongkar" class="form-label font-weight-bold">Berlaku Izin Bongkar</label>
+                            <label for="mobil_berlaku_ijin_bongkar" class="form-label font-weight-bold">Masa Berlaku Izin Bongkar Muat</label>
                             <input autocomplete="off" type="text" class="form-control" id="mobil_berlaku_ijin_bongkar" name="mobil_berlaku_ijin_bongkar" onclick="tanggal_berlaku(this)">
                         </div>
                         <div class="form-group">
@@ -157,7 +159,6 @@
             </div>
             <div class="form-group mt-1 mr-4 ">
                 <button type="submit" class="btn btn-success float-right">Simpan</button>
-                <button type="reset" class="btn btn-outline-danger mr-3 float-md-right" onclick="reset_form()">Reset</button>
             </div>
             <?php echo form_close();?>
             
@@ -198,7 +199,7 @@
                             <input autocomplete="off" type="text" class="form-control" id="mobil_merk_update" name="mobil_merk_update" readonly>
                         </div>
                         <div class="form-group">
-                            <label for="mobil_type_update" class="form-label font-weight-bold">Type</label>
+                            <label for="mobil_type_update" class="form-label font-weight-bold">Tipe</label>
                             <input autocomplete="off" type="text" class="form-control" id="mobil_type_update" name="mobil_type_update" readonly>
                         </div>
                         <div class="form-group">
@@ -224,11 +225,11 @@
                             <input autocomplete="off" type="text" class="form-control" id="mobil_bpkb_update" name="mobil_bpkb_update">
                         </div>
                         <div class="form-group">
-                            <label for="mobil_berlaku_update" class="form-label font-weight-bold">Tgl Pajak 1 Tahunan STNK</label>
+                            <label for="mobil_berlaku_update" class="form-label font-weight-bold">Masa Beralaku STNK (1 Th)</label>
                             <input autocomplete="off" type="text" class="form-control" id="mobil_berlaku_update" name="mobil_berlaku_update" onclick="tanggal_berlaku(this)">
                         </div>
                         <div class="form-group">
-                            <label for="mobil_pajak_update" class="form-label font-weight-bold">Tgl Pajak 5 Tahunan STNK</label>
+                            <label for="mobil_pajak_update" class="form-label font-weight-bold">Masa Beralaku STNK (5 Th)</label>
                             <input autocomplete="off" type="text" class="form-control" id="mobil_pajak_update" name="mobil_pajak_update" onclick="tanggal_berlaku(this)">
                         </div>
                         <div class="form-group">
@@ -236,11 +237,11 @@
                             <input autocomplete="off" type="text" class="form-control" id="mobil_stnk_update" name="mobil_stnk_update">
                         </div>
                         <div class="form-group">
-                            <label for="mobil_usaha_update" class="form-label font-weight-bold">No Usaha</label>
+                            <label for="mobil_usaha_update" class="form-label font-weight-bold">No Izin Usaha</label>
                             <input autocomplete="off" type="text" class="form-control" id="mobil_usaha_update" name="mobil_usaha_update">
                         </div>
                         <div class="form-group">
-                            <label for="mobil_berlaku_usaha_update" class="form-label font-weight-bold">Berlaku No Usaha</label>
+                            <label for="mobil_berlaku_usaha_update" class="form-label font-weight-bold">Masa Berlaku Izin Usaha</label>
                             <input autocomplete="off" type="text" class="form-control" id="mobil_berlaku_usaha_update" name="mobil_berlaku_usaha_update" onclick="tanggal_berlaku(this)">
                         </div>
                     </div>
@@ -250,15 +251,15 @@
                             <input autocomplete="off" type="text" class="form-control" id="mobil_kir_update" name="mobil_kir_update">
                         </div>
                         <div class="form-group">
-                            <label for="mobil_berlaku_kir_update" class="form-label font-weight-bold">Berlaku KIR</label>
+                            <label for="mobil_berlaku_kir_update" class="form-label font-weight-bold">Masa Berlaku KIR</label>
                             <input autocomplete="off" type="text" class="form-control" id="mobil_berlaku_kir_update" name="mobil_berlaku_kir_update" onclick="tanggal_berlaku(this)">
                         </div>
                         <div class="form-group">
-                            <label for="mobil_ijin_bongkar_update" class="form-label font-weight-bold">No Izin Bongkar</label>
+                            <label for="mobil_ijin_bongkar_update" class="form-label font-weight-bold">No Izin Bongkar Muat</label>
                             <input autocomplete="off" type="text" class="form-control" id="mobil_ijin_bongkar_update" name="mobil_ijin_bongkar_update" >
                         </div>
                         <div class="form-group">
-                            <label for="mobil_berlaku_ijin_bongkar_update" class="form-label font-weight-bold">Berlaku Izin Bongkar</label>
+                            <label for="mobil_berlaku_ijin_bongkar_update" class="form-label font-weight-bold">Masa Berlaku Izin Bongkar Muat</label>
                             <input autocomplete="off" type="text" class="form-control" id="mobil_berlaku_ijin_bongkar_update" name="mobil_berlaku_ijin_bongkar_update" onclick="tanggal_berlaku(this)">
                         </div>
                         <div class="form-group">
@@ -274,7 +275,6 @@
             </div>
             <div class="form-group mt-1 mr-4 ">
                 <button type="submit" class="btn btn-success float-right">Simpan</button>
-                <button type="reset" class="btn btn-outline-danger mr-3 float-md-right" onclick="reset_form()">Reset</button>
             </div>
             <?php echo form_close();?>
             </div>

@@ -9,14 +9,14 @@
                 <div class="mb-2 form-group row">
                     <label for="Status" class="form-label font-weight-bold col-md-3">Status</label>
                     <select name="Status" id="Status" class="form-control selectpicker col-md-9" data-live-search="true">
-                        <option class="font-w700" disabled="disabled" selected value="">Status</option>
+                        <option class="font-w700" selected value="">Semua Status</option>
                         <option value="Dibatalkan">Dibatalkan</option>
                         <option value="Dalam Perjalanan">Dalam Perjalanan</option>
                         <option value="Sampai Tujuan">Sampai Tujuan</option>
                     </select>
                 </div>
                 <div class="mb-2 form-group row">
-                    <label class="form-label font-weight-bold col-md-3" for="Supir">Supir</label>
+                    <label class="form-label font-weight-bold col-md-3" for="Supir">Driver</label>
                     <select name="Supir" id="Supir" class="form-control selectpicker col-md-9" data-live-search="true">
                         <option class="font-w700" disabled="disabled" selected value="">Supir Pengiriman</option>
                         <?php foreach($supir as $value){?>
@@ -25,7 +25,7 @@
                     </select>
                 </div>
                 <div class="mb-2 form-group row">
-                    <label class="form-label font-weight-bold col-md-3" for="Kendaraan">Kendaraan</label>
+                    <label class="form-label font-weight-bold col-md-3" for="Kendaraan">No. Polisi</label>
                     <select name="Kendaraan" id="Kendaraan" class="form-control selectpicker col-md-9" data-live-search="true">
                         <option class="font-w700 font-weight-bold" disabled="disabled" selected value="">Kendaraan Pengiriman</option>
                         <?php foreach($mobil as $value){?>
@@ -96,7 +96,7 @@
                             <th class="text-center" scope="col">Tanggal</th>
                             <th  scope="col">Status</th>
                             <th class="text-center" scope="col">Driver</th>
-                            <th class="text-center" scope="col">No Pol</th>
+                            <th class="text-center" scope="col">No. Polisi</th>
                             <th class="text-center" scope="col">Jenis Mobil</th>
                             <th  class="text-center" scope="col">Customer</th>
                             <th  class="text-center" scope="col">Muatan</th>

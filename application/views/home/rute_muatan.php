@@ -23,6 +23,7 @@
                         <th class="text-center" scope="col">Dari</th>
                         <th class="text-center" scope="col">Ke</th>
                         <th class="text-center" scope="col">Muatan</th>
+                        <th class="text-center" scope="col">Jenis Mobil</th>
                         <th class="text-center" scope="col">Uang Jalan</th>
                         <!-- <th class="text-center" scope="col">Inv./Tagihan</th> -->
                         <th class="text-center" scope="col">Status Validasi</th>
@@ -127,7 +128,6 @@
                     </div>
                     <div class="form-group">
                     <button type="submit" class="btn btn-success mt-3 float-right">Simpan</button>
-                    <button type="reset" class="btn btn-outline-danger mr-3  mt-3 float-md-right" onclick="reset_form()">Reset</button>
                     </div>
                 </form>
             </div>

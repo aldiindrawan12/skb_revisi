@@ -1,30 +1,3 @@
-    <div class="info-invoice">
-        <div class="card shadow mb-4">
-            <div class="card-header py-3 text-center">
-                <h6 class="m-0 font-weight-bold btn-warning disabled h4 p-3 " style="border-radius:10px; background-color:#ffcc29;">Invoice Jatuh Tempo</h6>
-            </div>  
-            <div class="card-body row justify-content-md-center small">
-                <div class="table-responsive col-md-12 border border-primary rounded p-1">
-                    <table class="table table-bordered" id="Table-Invoice-Jatuh-Tempo" width="100%" cellspacing="0">
-                        <thead>
-                            <tr>
-                                <th class="text-center" scope="col">No Invoice</th>
-                                <th class="text-center" scope="col">Customer</th>
-                                <th class="text-center" scope="col">Tgl Invoice</th>
-                                <th class="text-center" scope="col">Tgl Batas Pembayaran</th>
-                                <th class="text-center" scope="col">Jatuh Tempo</th>
-                                <th class="text-center" scope="col">Status Pembayaran</th>
-                                <th class="text-center" scope="col">Grand Total</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div class="info-jo">
         <div class="card shadow mb-4">
             <div class="card-header py-3 text-center">
@@ -37,15 +10,16 @@
                         <thead>
                             <tr>
                                 <th width ="10%" class="text-center" scope="col">No</th>
-                                <th width ="10%" class="text-center" scope="col">No JO</th>
+                                <th width ="10%" class="text-center" scope="col">ID Job Order</th>
+                                <th width ="1%" class="text-center" scope="col">Tgl. Job Order</th>
                                 <th width ="10%" class="text-center" scope="col">Driver</th>
-                                <th width ="10%" class="text-center" scope="col">No Pol</th>
-                                <th width ="10%" class="text-center" scope="col">Mobil</th>
+                                <th width ="10%" class="text-center" scope="col">No Polisi</th>
+                                <th width ="10%" class="text-center" scope="col">Jenis Mobil</th>
                                 <th width ="17%" class="text-center" scope="col">Customer</th>
                                 <th width ="15%" class="text-center" scope="col">Muatan</th>
-                                <th width ="15%" class="text-center" scope="col">Asal</th>
-                                <th width ="15%" class="text-center" scope="col">Tujuan</th>
-                                <th width ="1%" class="text-center" scope="col">Tanggal</th>
+                                <th width ="15%" class="text-center" scope="col">Dari</th>
+                                <th width ="15%" class="text-center" scope="col">Ke</th>
+                                <th width ="15%" class="text-center" scope="col">Tgl. Closing</th>
                                 <th width ="5%" scope="col">Detail</th>
                             </tr>
                         </thead>
@@ -56,6 +30,31 @@
             </div>
         </div>
     </div>  
+    <div class="info-invoice">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3 text-center">
+                <h6 class="m-0 font-weight-bold btn-warning disabled h4 p-3 " style="border-radius:10px; background-color:#ffcc29;">Invoice Jatuh Tempo</h6>
+            </div>  
+            <div class="card-body row justify-content-md-center small">
+                <div class="table-responsive col-md-12 border border-primary rounded p-1">
+                    <table class="table table-bordered" id="Table-Invoice-Jatuh-Tempo" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th class="text-center" scope="col">No.</th>
+                                <th class="text-center" scope="col">No. Invoice</th>
+                                <th class="text-center" scope="col">Tgl Invoice</th>
+                                <th class="text-center" scope="col">Customer</th>
+                                <th class="text-center" scope="col">Nominal Invoice</th>
+                                <th class="text-center" scope="col">Due Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
         <!-- Footer -->
         <footer class="sticky-footer bg-dark">
             <div class="container my-auto">
@@ -231,10 +230,14 @@
                 "columns": [
                     {
                         "data": "invoice_kode",
-                        className: 'text-center'
+                        render: function(data, type, row) {
+                            let html = row["no"];
+                            return html;
+                        }
                     },
                     {
-                        "data": "customer_name"
+                        "data": "invoice_kode",
+                        className: 'text-center'
                     },
                     {
                         "data": "tanggal_invoice",
@@ -244,32 +247,7 @@
                         }
                     },
                     {
-                        "data": "batas_pembayaran",
-                        className: 'text-center',
-                        render: function(data, type, row) {
-                            return change_tanggal(row["tgl_batas_pembayaran"]);
-                        }
-                    },
-                    {
-                        "data": "batas_pembayaran",
-                        className: 'text-center',
-                        render: function(data, type, row) {
-                            let html ="<a class='btn btn-block btn-sm btn-danger'><i class='fa fa-fw fa-exclamation-circle mr-2'></i>+"+row["batas_pembayaran"]+" hari</a>";
-                            return html;
-                        }
-                    },
-                    {
-                        "data": "status_bayar",
-                        className: 'text-center',
-                        render: function(data, type, row) {
-                            if (data == "Lunas") {
-                                    let html = "<span class='btn-sm btn-block btn-success'><i class='fa fa-fw fa-check mr-2'></i>" + data + "</span>";
-                                    return html;
-                                } else {
-                                    let html = "<span class='btn-sm btn-block btn-warning'><i class='fa fa fa-fw fa-exclamation-circle mr-2'></i>" + data + "</span>";
-                                    return html;
-                                }
-                        }
+                        "data": "customer_name"
                     },
                     {
                         "data": "grand_total",
@@ -277,7 +255,14 @@
                             let html = 'Rp.'+rupiah(data);
                             return html;
                         }
-                    }
+                    },
+                    {
+                        "data": "batas_pembayaran",
+                        className: 'text-center',
+                        render: function(data, type, row) {
+                            return change_tanggal(row["tgl_batas_pembayaran"]);
+                        }
+                    },
                 ]
             });
         });
@@ -314,6 +299,12 @@
                         className: 'text-center'
                     },
                     {
+                        "data": "tanggal_surat",
+                        render: function(data, type, row) {
+                            return change_tanggal(data);
+                        }
+                    },
+                    {
                         "data": "supir_name"
                     },
                     {
@@ -335,7 +326,7 @@
                         "data": "tujuan"
                     },
                     {
-                        "data": "tanggal_surat",
+                        "data": "tanggal_bongkar",
                         render: function(data, type, row) {
                             return change_tanggal(data);
                         }
@@ -344,7 +335,7 @@
                         "data": "Jo_id",
                         "orderable": false,
                         render: function(data, type, row) {
-                            let html = "<a class='btn btn-light' href='<?= base_url('index.php/detail/detail_jo/"+data+"/JO')?>'><i class='fas fa-eye'></i></a>";
+                            let html = "<a class='btn btn-light' target='_blank' href='<?= base_url('index.php/detail/detail_jo/"+data+"/JO')?>'><i class='fas fa-eye'></i></a>";
                             return html;
                         }
                     }

@@ -18,11 +18,12 @@
                 <thead>
                     <tr>        
                         <th class="text-center" width="1%" scope="col">ID Driver</th>
-                        <th class="text-center" width="13%" scope="col">Nama Driver</th>
-                        <th class="text-center" width="14%" scope="col">Kasbon</th>
+                        <th class="text-center" width="13%" scope="col">Nama Lengkap</th>
+                        <th class="text-center" width="14%" scope="col">Nama Panggilan</th>
+                        <th class="text-center" width="14%" scope="col">No. HP</th>
                         <!-- <th width="12%" scope="col">Berlaku SIM</th> -->
                         <!-- <th width="13%" scope="col">Status Jalan</th> -->
-                        <th width="13%" scope="col">Status Aktif</th>
+                        <th width="13%" scope="col">Status</th>
                         <th class="text-center" width="15%" scope="col">Status Validasi</th>
                         <th width="20%" scope="col">Aksi</th>
                         <th width="20%" scope="col">Validasi</th>
@@ -117,7 +118,6 @@
                         <div class="form-group">
                         <button type="submit" class="btn btn-success mb-3 float-right">Simpan</button>
                         </div>
-                        <button type="reset" class="btn btn-outline-danger mr-3 float-md-right" onclick="reset_form()">Reset</button>
                         <!-- </form> -->
                         <?php echo form_close();?>
                     </div>

@@ -8,35 +8,39 @@
                 <!-- form Job Order Baru -->
                 <!-- <small>Pilih Rute Yang Tersedia Pada Tabel Rute Dibawah</small> -->
                 <form action="<?=base_url("index.php/form/insert_JO")?>" method="POST" class="row">
-                    <div class="col-md-12 mb-4">
-                        <label for="Jo_id" class="form-label font-weight-bold">ID Job Order(JO)</label>
-                        <input autocomplete="off" type="text" class="form-control" id="Jo_id" name="Jo_id" required value="<?= $new_jo_id?>" readonly>
+                    <div class="col-md-12 mb-4 row">
+                        <label for="Jo_id" class="form-label font-weight-bold col-md-5">ID Job Order(JO)</label>
+                        <input autocomplete="off" type="text" class="form-control col-md-7" id="Jo_id" name="Jo_id" required value="<?= $new_jo_id?>" readonly>
                     </div>
-                    <div class="col-md-12 mb-4">
-                        <label for="tanggal_jo" class="form-label font-weight-bold">Tanggal</label>
-                        <input autocomplete="off" type="text" class="form-control" id="tanggal_jo" name="tanggal_jo" required onclick="tanggal_berlaku(this)">
+                    <div class="col-md-12 mb-4 row">
+                        <label for="tanggal_jo" class="form-label font-weight-bold col-md-5">Tanggal</label>
+                        <input autocomplete="off" type="text" class="form-control col-md-7" id="tanggal_jo" name="tanggal_jo" required readonly value="<?= date('d-m-Y')?>">
                     </div>
-                    <div class="col-md-12 mb-4">
-                        <label class="form-label font-weight-bold" for="Supir">Supir</label>
-                        <select name="Supir" id="Supir" class="form-control selectpicker" data-live-search="true" required>
+                    <div class="col-md-12 mb-4 row">
+                        <label class="form-label font-weight-bold col-md-5" for="Supir">Driver</label>
+                        <select name="Supir" id="Supir" class="form-control col-md-7 selectpicker" data-live-search="true" required>
                             <option class="font-w700" disabled="disabled" selected value="">Supir Pengiriman</option>
                             <?php foreach($supir as $value){?>
-                                    <option value="<?=$value["supir_id"]?>"><?=$value["supir_name"]?></option>
+                                    <option value="<?=$value["supir_id"]?>"><?=$value["supir_name"]." (".$value["supir_panggilan"].")"?></option>
                             <?php }?>
                         </select>
                     </div>
-                    <div class="col-md-12 mb-4">
-                        <label class="form-label font-weight-bold " for="Kendaraan">Kendaraan</label>
-                        <select name="Kendaraan" id="Kendaraan" class="form-control" required onchange="set_jenis_mobil(this)">
+                    <div class="col-md-12 mb-4 row">
+                        <label class="form-label font-weight-bold col-md-5 " for="Kendaraan">No. Polisi</label>
+                        <select name="Kendaraan" id="Kendaraan" class="form-control col-md-7" required onchange="set_jenis_mobil(this)">
                             <option class="font-w700 font-weight-bold" disabled="disabled" selected value="">Kendaraan Pengiriman</option>
-                            <?php foreach($mobil as $value){?>
-                                    <option value="<?=$value["mobil_no"]?>"><?=$value["mobil_no"]?></option>
-                            <?php }?>
+                            <?php foreach($mobil as $value){
+                                if($value["mobil_dump"]=="Ya"){?>
+                                    <option value="<?=$value["mobil_no"]?>"><?=$value["mobil_no"]." (".$value["mobil_jenis"].") (Dump)"?></option>
+                                <?php }else{?>
+                                    <option value="<?=$value["mobil_no"]?>"><?=$value["mobil_no"]." (".$value["mobil_jenis"].") (No Dump)"?></option>
+                            <?php }
+                            }?>
                         </select>
                     </div>
-                    <div class="col-md-12 mb-4">
-                        <label class="form-label font-weight-bold" for="Jenis">Jenis Mobil</label>
-                        <input autocomplete="off" type="text" class="form-control" name="Jenis" id="Jenis" required readonly>
+                    <div class="col-md-12 mb-4 row">
+                        <label class="form-label font-weight-bold col-md-5" for="Jenis">Jenis Mobil</label>
+                        <input autocomplete="off" type="text" class="form-control col-md-7" name="Jenis" id="Jenis" required readonly>
                     </div>
                     <!-- <div class="table-responsive">
                         <table class="table table-bordered" id="Table-Pilih-Rute" width="100%" cellspacing="0">
@@ -56,48 +60,48 @@
                             </tbody>
                         </table>
                     </div> -->
-                    <div class="col-md-12 mb-4">
-                        <label class="form-label font-weight-bold " for="Customer">Customer</label>
-                        <select name="Customer" value="DESC" id="Customer" class="form-control selectpicker" data-live-search="true" required onchange="set_muatan(this)">
+                    <div class="col-md-12 mb-4 row">
+                        <label class="form-label font-weight-bold col-md-5 " for="Customer">Customer</label>
+                        <select name="Customer" value="DESC" id="Customer" class="form-control col-md-7 selectpicker" data-live-search="true" required onchange="set_muatan(this)">
                             <option class="font-w700" disabled="disabled" selected value="">Customer</option>
                             <?php foreach($customer as $value){?>
                                 <option value="<?=$value["customer_id"]?>"><?=$value["customer_name"]?></option>
                             <?php } ?>
                         </select>
                     </div>
-                    <div class="col-md-12 mb-4">
-                        <label for="Muatan" class="form-label font-weight-bold ">Muatan</label> 
-                        <select name="Muatan" id="Muatan" class="form-control" onchange="set_asal(this)">
+                    <div class="col-md-12 mb-4 row">
+                        <label for="Muatan" class="form-label font-weight-bold col-md-5 ">Muatan</label> 
+                        <select name="Muatan" id="Muatan" class="form-control col-md-7" onchange="set_asal(this)"  required>
                             <option class="font-w700" disabled="disabled" selected value="">Muatan</option>
                         </select>
                     </div>
-                    <div class="col-md-12 mb-4 mb-4">
-                        <label class="form-label font-weight-bold" for="Asal ">Asal</label>
-                        <select name="Asal" id="Asal" class="form-control" onchange="set_tujuan(this)">
+                    <div class="col-md-12 mb-4 row mb-4">
+                        <label class="form-label font-weight-bold col-md-5" for="Asal ">Dari</label>
+                        <select name="Asal" id="Asal" class="form-control col-md-7" onchange="set_tujuan(this)" required>
                             <option class="font-w700" disabled="disabled" selected value="">Asal</option>
                         </select>
                     </div>
-                    <div class="col-md-12 mb-4 mb-4">
-                        <label class="form-label font-weight-bold" for="Tujuan">Tujuan</label>
-                        <select name="Tujuan" id="Tujuan" class="form-control" onchange="set_uj(this)">
+                    <div class="col-md-12 mb-4 row mb-4">
+                        <label class="form-label font-weight-bold col-md-5" for="Tujuan">Ke</label>
+                        <select name="Tujuan" id="Tujuan" class="form-control col-md-7" onchange="set_uj(this)" required>
                             <option class="font-w700" disabled="disabled" selected value="">Tujuan</option>
                         </select>
                     </div>
                     <!-- <div class="col-md-4 col-md-offset-4 mb-4">
-                        <label class="form-label font-weight-bold" for="Type_Tonase">Tipe Tonase</label>
-                        <input autocomplete="off" type="text" class="form-control" name="Type_Tonase" id="Type_Tonase" required readonly>
+                        <label class="form-label font-weight-bold col-md-5" for="Type_Tonase">Tipe Tonase</label>
+                        <input autocomplete="off" type="text" class="form-control col-md-7" name="Type_Tonase" id="Type_Tonase" required readonly>
                     </div>
                     <div class="col-md-4 col-md-offset-4 mb-4 Tonase">
-                        <label class="form-label font-weight-bold" for="Tonase">Tonase</label>
-                        <input autocomplete="off" type="text" class="form-control" name="Tonase" id="Tonase" required readonly>
+                        <label class="form-label font-weight-bold col-md-5" for="Tonase">Tonase</label>
+                        <input autocomplete="off" type="text" class="form-control col-md-7" name="Tonase" id="Tonase" required readonly>
                     </div> -->
-                    <div class="col-md-12 mb-4">
-                        <label for="Uang" class="form-label font-weight-bold">Uang Jalan</label>
-                        <input autocomplete="off" type="text" class="form-control" id="Uang" name="Uang" value=0 required readonly>
+                    <div class="col-md-12 mb-4 row">
+                        <label for="Uang" class="form-label font-weight-bold col-md-5">Uang Jalan</label>
+                        <input autocomplete="off" type="text" class="form-control col-md-7" id="Uang" name="Uang" value=0 required readonly>
                     </div>
-                    <div class="col-md-12 mb-4">
-                        <label class="form-label font-weight-bold" for="jenis_tambahan">Tambahan/Potongan UJ</label>
-                        <select name="jenis_tambahan" id="jenis_tambahan" class="form-control" onchange="tambahan(this)">
+                    <div class="col-md-12 mb-4 row">
+                        <label class="form-label font-weight-bold col-md-5" for="jenis_tambahan">Tambahan/Potongan UJ</label>
+                        <select name="jenis_tambahan" id="jenis_tambahan" class="form-control col-md-7" onchange="tambahan(this)">
                             <option class="font-w700" disabled="disabled" selected value="">Tambahan/Potongan UJ</option>
                             <option class="font-w700" value="Tidak Ada">Tidak Ada</option>
                             <option class="font-w700" value="Tambahan">Tambahan</option>
@@ -105,23 +109,23 @@
                         </select>
                     </div>
                     <div class="col-md-12 mb-4">
-                        <div style="display:none" id="nominal_tambahan_id">
-                            <label for="nominal_tambahan" class="form-label font-weight-bold">Nominal Tambahan/Potongan UJ</label>
-                            <input autocomplete="off" type="text" class="form-control" id="nominal_tambahan" name="nominal_tambahan" onkeyup="set_uj_tambahan(this),uang_format(this)">
+                        <div style="display:none" id="nominal_tambahan_id" class="row">
+                            <label for="nominal_tambahan" class="form-label font-weight-bold col-md-5">Nominal Tambahan/Potongan UJ</label>
+                            <input autocomplete="off" type="text" class="form-control col-md-7" id="nominal_tambahan" name="nominal_tambahan" onkeyup="set_uj_tambahan(this),uang_format(this)">
                         </div>
                     </div>
-                    <div class="col-md-12 mb-4">
-                        <label for="uang_jalan_total" class="form-label font-weight-bold">Total Uang Jalan</label>
-                        <input autocomplete="off" type="text" class="form-control" id="uang_jalan_total" name="uang_jalan_total" value=0 readonly>
+                    <div class="col-md-12 mb-4 row">
+                        <label for="uang_jalan_total" class="form-label font-weight-bold col-md-5">Total Uang Jalan</label>
+                        <input autocomplete="off" type="text" class="form-control col-md-7" id="uang_jalan_total" name="uang_jalan_total" value=0 readonly>
                     </div>
-                    <div class="col-md-12 mb-4">
-                        <label for="Keterangan" class="form-label font-weight-bold">Keterangan/Catatan</label>
-                        <textarea class="form-control" name="Keterangan" id="Keterangan" rows="3"></textarea>
+                    <div class="col-md-12 mb-4 row">
+                        <label for="Keterangan" class="form-label font-weight-bold col-md-5">Keterangan/Catatan</label>
+                        <textarea class="form-control col-md-7" name="Keterangan" id="Keterangan" rows="3"></textarea>
                     </div>
-                    <input autocomplete="off" type="text" class="form-control" id="Upah" name="Upah" required hidden>
-                    <input autocomplete="off" type="text" class="form-control" id="Tagihan" name="Tagihan" required hidden>
+                    <input autocomplete="off" type="text" class="form-control col-md-7" id="Upah" name="Upah" required hidden>
+                    <input autocomplete="off" type="text" class="form-control col-md-7" id="Tagihan" name="Tagihan" required hidden>
                     <div class="col-md-12 ">
-                        <button type="submit" class="btn btn-success ml-3 mt-5 float-md-right">Simpan dan Cetak</button>
+                        <button type="submit" class="btn btn-success ml-3 mt-5 float-md-right">Simpan</button>
                         <button type="reset" class="btn btn-outline-danger mb-3 mt-5  float-md-right" onclick="reset_form()">Reset</button>
                     </div>
                 </form>
