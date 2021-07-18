@@ -68,7 +68,7 @@
                     </select>
                 </div>
                 <div class="mb-2 form-group text-center">
-                    <button class="btn btn-primary" id="btn-cari">Cari</button>
+                    <button class="btn btn-primary" id="btn-cari-bon">Cari</button>
                     <button class="btn btn-danger" onclick="reset_form()">Reset</button>
                 </div>
             </div>

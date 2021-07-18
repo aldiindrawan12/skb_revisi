@@ -1394,7 +1394,7 @@
                     });
                 }
             });
-            $("#btn-cari").click(function() {
+            $("#btn-cari-bon").click(function() {
                 if($('#Tanggal1').val()==""){
                     if($('#Tanggal2').val()!=""){
                         alert("Silakan Isi Kedua Tgl. Nota Kasbon / Tidak Diisi Keduanya");
