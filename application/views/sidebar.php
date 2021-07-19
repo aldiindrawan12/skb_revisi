@@ -281,6 +281,30 @@
             $("#HR_Master_Data").hide();
             $("#LI_Master_Data").hide();
         }
+        if(konfigurasi_page[15]==0 && konfigurasi_page[16]==0 && konfigurasi_page[17]==0){
+            $("#HR_Dashboard").hide();
+            $("#LI_Dashboard").hide();
+        }
+        if(konfigurasi_page[14]==0 && konfigurasi_page[1]==0 && konfigurasi_page[2]==0){
+            $("#HR_Job_Order").hide();
+            $("#LI_Job_Order").hide();
+        }
+        if(konfigurasi_page[5]==0 && konfigurasi_page[10]==0 && konfigurasi_page[13]==0){
+            $("#HR_Kasbon").hide();
+            $("#LI_Kasbon").hide();
+        }
+        if(konfigurasi_page[3]==0 && konfigurasi_page[4]==0){
+            $("#HR_Invoice").hide();
+            $("#LI_Invoice").hide();
+        }
+        if(konfigurasi_page[6]==0 && konfigurasi_page[9]==0){
+            $("#HR_Penggajian").hide();
+            $("#LI_Penggajian").hide();
+        }
+        if(konfigurasi_page[11]==0){
+            $("#HR_Konfigurasi").hide();
+            $("#LI_Konfigurasi").hide();
+        }
         for(i=0;i<konfigurasi_page.length;i++){
             if(konfigurasi_page[i]==0){
                 $("#"+page[i]).hide();

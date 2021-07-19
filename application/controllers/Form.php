@@ -242,13 +242,14 @@ class Form extends CI_Controller {
                 "uang_total"=>str_replace(".","",$this->input->post("uang_jalan_total")),
                 "sisa"=>str_replace(".","",$this->input->post("uang_jalan_total")),
             );
+            $this->session->set_flashdata("addjo","berhasil");
             $this->model_form->insert_JO($data["data"]);
             $data["jo_id"] = $data["data"]["Jo_id"];
             $data["asal"] = "insert";
             $data["tipe_jo"] = "reguler";
             $data["supir"] = $this->model_home->getsupirbyid($data["data"]["supir_id"]);
             $data["mobil"] = $this->model_home->getmobilbyid($data["data"]["mobil_no"]);
-            $this->load->view("print/jo_print",$data);
+            redirect(base_url('index.php/home'));
         }
         public function insert_bon(){
             date_default_timezone_set('Asia/Jakarta');
@@ -273,14 +274,15 @@ class Form extends CI_Controller {
             $data_akun=array(
                 "akun_name"=>$this->input->post("nama"),
                 "akun_role"=>$this->input->post("role"),
-                "akses"=>'["1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1"]'
+                "akses"=>'["0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0"]'
             );
             $this->model_form->insert_akun($data_akun);
             $akun = $this->model_form->getakunbyname($data_akun["akun_name"]);
             $data_user=array(
                 "akun_id" => $akun["akun_id"],
                 "username"=>$this->input->post("username"),
-                "password"=>sha1($this->input->post("password"))
+                "password"=>sha1($this->input->post("password")),
+                "status_aktif"=>"Tidak Aktif"
             );
             $this->model_form->insert_user($data_user);
 			$this->session->set_flashdata('status-add-akun', 'Berhasil');
@@ -525,7 +527,7 @@ class Form extends CI_Controller {
         public function update_truck(){
             $file_foto = null;
             $file_stnk = null;
-            $data_mobil = $this->model_detail->gettruckbyid( $this->input->post("mobil_no_update"));
+            $data_mobil = $this->model_detail->gettruckbyid( $this->input->post("mobil_no_old"));
             $config['upload_path'] = './assets/berkas/kendaraan'; //letak folder file yang akan diupload
             $config['allowed_types'] = 'jpg|png|img|jpeg'; //jenis file yang dapat diterima
             $config['max_size'] = '2000'; // kb
@@ -568,7 +570,7 @@ class Form extends CI_Controller {
                 "file_foto"=>$file_foto,
                 "file_stnk"=>$file_stnk
             );
-            $this->model_form->update_truck($data);
+            $this->model_form->update_truck($data,$this->input->post("mobil_no_old"));
             $this->session->set_flashdata('status-update-truck', 'Berhasil');
             redirect(base_url("index.php/home/truck"));
         }
@@ -609,7 +611,7 @@ class Form extends CI_Controller {
                 "akun_name" => $this->input->post("akun_name"),
                 "akun_role" => $this->input->post("role_update"),
                 "username" => $this->input->post("username_update"),
-                "password" => $password
+                "password" => $password,
             );
             $this->model_form->update_akun($data);
             $this->session->set_flashdata('status-update-akun', 'Berhasil');
@@ -640,33 +642,33 @@ class Form extends CI_Controller {
         public function updatejobatal($Jo_id){
             $data_jo = $this->model_home->getjobyid($Jo_id);
             $data["data_jo"]=$data_jo;
-            $bon_id = $this->model_form->getbonid();
-            $isi_bon_id = [];
-            for($i=0;$i<count($bon_id);$i++){
-                $explode_bon = explode("-",$bon_id[$i]["bon_id"]);
-                if(count($explode_bon)>1){
-                    if($explode_bon[2]==date("m") && $explode_bon[3]==date('Y')){
-                        $isi_bon_id[] = $explode_bon[0];
-                    }
-                }
-            }
-            if(count($isi_bon_id)==0){
-                $isi_bon_id[]=0;
-            }
-            date_default_timezone_set('Asia/Jakarta');
-            $data["data"]=array(
-                "bon_id"=>(max($isi_bon_id)+1)."-BON-".date("m")."-".date("Y"),
-                "supir_id"=>$data_jo["supir_id"],
-                "bon_jenis"=>"Pembatalan JO",
-                "bon_nominal"=>$data_jo["uang_jalan_bayar"],
-                "bon_keterangan"=>"Pembatalan JO",
-                "bon_tanggal"=>date("Y-m-d"),
-                "pembayaran_upah_id"=>"-",
-                "user"=>$_SESSION["user"]."(".date("d-m-Y H:i:s").")",
-                "status_hapus"=>"NO"
-            );
-            $data["bon_id"] = (max($isi_bon_id)+1)."-BON-".date("m")."-".date("Y");
-            $this->model_form->insert_bon($data["data"]);
+            // $bon_id = $this->model_form->getbonid();
+            // $isi_bon_id = [];
+            // for($i=0;$i<count($bon_id);$i++){
+            //     $explode_bon = explode("-",$bon_id[$i]["bon_id"]);
+            //     if(count($explode_bon)>1){
+            //         if($explode_bon[2]==date("m") && $explode_bon[3]==date('Y')){
+            //             $isi_bon_id[] = $explode_bon[0];
+            //         }
+            //     }
+            // }
+            // if(count($isi_bon_id)==0){
+            //     $isi_bon_id[]=0;
+            // }
+            // date_default_timezone_set('Asia/Jakarta');
+            // $data["data"]=array(
+            //     "bon_id"=>(max($isi_bon_id)+1)."-BON-".date("m")."-".date("Y"),
+            //     "supir_id"=>$data_jo["supir_id"],
+            //     "bon_jenis"=>"Pembatalan JO",
+            //     "bon_nominal"=>$data_jo["uang_jalan_bayar"],
+            //     "bon_keterangan"=>"Pembatalan JO",
+            //     "bon_tanggal"=>date("Y-m-d"),
+            //     "pembayaran_upah_id"=>"-",
+            //     "user"=>$_SESSION["user"]."(".date("d-m-Y H:i:s").")",
+            //     "status_hapus"=>"NO"
+            // );
+            // $data["bon_id"] = (max($isi_bon_id)+1)."-BON-".date("m")."-".date("Y");
+            // $this->model_form->insert_bon($data["data"]);
             $this->model_detail->update_jo_dibatalkan($data_jo["Jo_id"],$data_jo["supir_id"],$data_jo["mobil_no"],$data_jo["uang_jalan"]);
             $data["supir"] = $this->model_home->getsupirbyid($data["data"]["supir_id"]);
             $data["asal"] = "batal JO";
@@ -855,37 +857,38 @@ class Form extends CI_Controller {
         public function deletejo($jo_id){
             $data_jo = $this->model_home->getjobyid($jo_id);
             $data["data_jo"]=$data_jo;
-            $bon_id = $this->model_form->getbonid();
-            $isi_bon_id = [];
-            for($i=0;$i<count($bon_id);$i++){
-                $explode_bon = explode("-",$bon_id[$i]["bon_id"]);
-                if(count($explode_bon)>1){
-                    if($explode_bon[2]==date("m") && $explode_bon[3]==date('Y')){
-                        $isi_bon_id[] = $explode_bon[0];
-                    }
-                }
-            }
-            if(count($isi_bon_id)==0){
-                $isi_bon_id[]=0;
-            }
-            date_default_timezone_set('Asia/Jakarta');
-            $data["data"]=array(
-                "bon_id"=>(max($isi_bon_id)+1)."-BON-".date("m")."-".date("Y"),
-                "supir_id"=>$data_jo["supir_id"],
-                "bon_jenis"=>"Pembatalan JO",
-                "bon_nominal"=>$data_jo["uang_jalan_bayar"],
-                "bon_keterangan"=>"Pembatalan JO",
-                "bon_tanggal"=>date("Y-m-d"),
-                "user"=>$_SESSION["user"]."(".date("d-m-Y H:i:s").")",
-                "pembayaran_upah_id"=>"-",
-                "status_hapus"=>"NO"
-            );
-            $data["bon_id"] = (max($isi_bon_id)+1)."-BON-".date("m")."-".date("Y");
-            $this->model_form->insert_bon($data["data"]);
+            // $bon_id = $this->model_form->getbonid();
+            // $isi_bon_id = [];
+            // for($i=0;$i<count($bon_id);$i++){
+            //     $explode_bon = explode("-",$bon_id[$i]["bon_id"]);
+            //     if(count($explode_bon)>1){
+            //         if($explode_bon[2]==date("m") && $explode_bon[3]==date('Y')){
+            //             $isi_bon_id[] = $explode_bon[0];
+            //         }
+            //     }
+            // }
+            // if(count($isi_bon_id)==0){
+            //     $isi_bon_id[]=0;
+            // }
+            // date_default_timezone_set('Asia/Jakarta');
+            // $data["data"]=array(
+            //     "bon_id"=>(max($isi_bon_id)+1)."-BON-".date("m")."-".date("Y"),
+            //     "supir_id"=>$data_jo["supir_id"],
+            //     "bon_jenis"=>"Pembatalan JO",
+            //     "bon_nominal"=>$data_jo["uang_jalan_bayar"],
+            //     "bon_keterangan"=>"Pembatalan JO",
+            //     "bon_tanggal"=>date("Y-m-d"),
+            //     "user"=>$_SESSION["user"]."(".date("d-m-Y H:i:s").")",
+            //     "pembayaran_upah_id"=>"-",
+            //     "status_hapus"=>"NO"
+            // );
+            // $data["bon_id"] = (max($isi_bon_id)+1)."-BON-".date("m")."-".date("Y");
+            // $this->model_form->insert_bon($data["data"]);
             $data["supir"] = $this->model_home->getsupirbyid($data["data"]["supir_id"]);
             $data["asal"] = "Hapus JO";
-            $this->load->view("print/bon_print",$data);
             $this->model_form->deletejo($jo_id);
+            $this->session->set_flashdata("deletejo","berhasil");
+            redirect(base_url('index.php/home'));
         }
         public function deleteinvoice($invoice_id){
             $this->model_form->deleteinvoice($invoice_id);

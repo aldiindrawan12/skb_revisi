@@ -54,36 +54,42 @@
                     <!-- <form action="<?= base_url("index.php/form/insert_supir")?>" method="POST"> -->
                     <?php echo form_open_multipart('form/insert_supir'); ?>
                         <div class="form-group row">
-                            <!-- <label for="Supir" class="form-label font-weight-bold">Nama Driver</label> -->
-                            <input autocomplete="off" type="text" class="form-control col-md-7" id="Supir" name="Supir" required placeholder="Nama Driver">
-                            <input autocomplete="off" type="text" class="form-control col   " id="supir_panggilan" name="supir_panggilan" placeholder="Panggilan">
+                            <div class="col row">
+                                <label for="Supir" class="form-label font-weight-bold col-md-12">Nama Driver</label>
+                                <input autocomplete="off" type="text" class="form-control col-md-12" id="Supir" name="Supir" required placeholder="Nama Driver">
+                            </div>
+                            <div class="col row">
+                                <label for="Supir" class="form-label font-weight-bold col-md-12">Nama Panggilan Driver</label>
+                                <input autocomplete="off" type="text" class="form-control col-md-12" id="supir_panggilan" name="supir_panggilan" placeholder="Panggilan">
+                            </div>
                         </div>
                         <div class="form-group row">
-                            <!-- <label for="supir_ttl" class="form-label font-weight-bold">Alamat</label> -->
+                            <label for="supir_ttl" class="form-label font-weight-bold col-md-12">Alamat</label>
                             <input autocomplete="off" type="text" class="form-control col" id="supir_tempat_lahir" name="supir_tempat_lahir" placeholder="Tempat Lahir">
                             <input autocomplete="off" type="text" class="form-control col" id="supir_tgl_lahir" name="supir_tgl_lahir" placeholder="Tanggal Lahir" onclick="tanggal_berlaku(this)">
                         </div>
                         <div class="form-group">
-                            <!-- <label for="supir_alamat" class="form-label font-weight-bold">Alamat</label> -->
+                            <label for="supir_alamat" class="form-label font-weight-bold">Alamat</label>
                             <input autocomplete="off" type="text" class="form-control" id="supir_alamat" name="supir_alamat" placeholder="Alamat">
                         </div>
                         <div class="form-group">
-                            <!-- <label for="supir_telp" class="form-label font-weight-bold">Telp./HP</label> -->
+                            <label for="supir_telp" class="form-label font-weight-bold">Telp./HP</label>
                             <input autocomplete="off" type="text" class="form-control" id="supir_telp" name="supir_telp" placeholder="Telp Driver">
                         </div>
                         <div class="form-group">
-                            <!-- <label for="supir_ktp" class="form-label font-weight-bold">No.KTP</label> -->
+                            <label for="supir_ktp" class="form-label font-weight-bold">No.KTP</label>
                             <input autocomplete="off" type="text" class="form-control" id="supir_ktp" name="supir_ktp" placeholder="No KTP">
                         </div>
                         <div class="form-group">
-                            <!-- <label for="supir_sim" class="form-label font-weight-bold">No.SIM</label> -->
+                            <label for="supir_sim" class="form-label font-weight-bold">No.SIM</label>
                             <input autocomplete="off" type="text" class="form-control" id="supir_sim" name="supir_sim" placeholder="No SIM">
                         </div>
                         <div class="form-group">
-                            <!-- <label for="supir_tgl_sim" class="form-label font-weight-bold">Tanggal Berlaku SIM</label> -->
+                            <label for="supir_tgl_sim" class="form-label font-weight-bold">Tanggal Berlaku SIM</label>
                             <input autocomplete="off" type="text" class="form-control" id="supir_tgl_sim" name="supir_tgl_sim" placeholder="Berlaku SIM" onclick="tanggal_berlaku(this)">
                         </div>
                         <div class="form-group">
+                            <label for="supir_tgl_aktif" class="form-label font-weight-bold">Tanggal Aktif Supir</label>
                             <input autocomplete="off" type="text" class="form-control" id="supir_tgl_aktif" name="supir_tgl_aktif" placeholder="Tanggal Aktif Supir" onclick="tanggal_berlaku(this)">
                         </div>
                         <div class="form-group">
@@ -95,12 +101,15 @@
                     <div class="col">
                         <span>Data Keluarga yang Dapat Dihubungi</span>
                         <div class="form-group">
+                            <label for="darurat_nama_update" class="form-label font-weight-bold">Nama</label>
                             <input autocomplete="off" type="text" class="form-control" id="darurat_nama" name="darurat_nama" placeholder="Nama Keluarga">
                         </div>
                         <div class="form-group">
+                            <label for="darurat_telp_update" class="form-label font-weight-bold">Telp</label>
                             <input autocomplete="off" type="text" class="form-control" id="darurat_telp" name="darurat_telp" placeholder="Telp Keluarga">
                         </div>
                         <div class="form-group">
+                            <label for="darurat_referensi_update" class="form-label font-weight-bold">Referensi</label>
                             <input autocomplete="off" type="text" class="form-control" id="darurat_referensi" name="darurat_referensi" placeholder="Referensi">
                         </div>
                         <div class="form-group">
@@ -186,9 +195,14 @@
                     <?php echo form_open_multipart('form/update_supir'); ?>
                         <input type="text" name=supir_id id=supir_id hidden>
                         <div class="form-group row">
-                            <label for="supir_name" class="form-label font-weight-bold col-md-12">Nama Driver</label>
-                            <input autocomplete="off" type="text" class="form-control col-md-7" id="supir_name" name="supir_name" required>
-                            <input autocomplete="off" type="text" class="form-control col" id="supir_panggilan_update" name="supir_panggilan_update" placeholder="Panggilan">
+                            <div class="col row">
+                                <label for="supir_name" class="form-label font-weight-bold col-md-12">Nama Driver</label>
+                                <input autocomplete="off" type="text" class="form-control col-md-12" id="supir_name" name="supir_name" required>
+                            </div>
+                            <div class="col row">
+                                <label for="supir_name" class="form-label font-weight-bold col-md-12">Nama Panggilan Driver</label>
+                                <input autocomplete="off" type="text" class="form-control col" id="supir_panggilan_update" name="supir_panggilan_update" placeholder="Panggilan">
+                            </div>
                         </div>
                         <div class="form-group row">
                             <label for="supir_ttl_update" class="form-label font-weight-bold col-md-12">Tempat,Tanggal Lahir</label>

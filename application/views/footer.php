@@ -188,26 +188,11 @@
                         "data": "validasi",
                         className: 'text-center',
                         render: function(data, type, row) {
-                            tambah = "";
-                            edit = "";
-                            hapus = "";
-                            if(data=="ACC"){
-                                tambah = "<a class='btn btn-success rounded-pill btn-sm'><i class='fas fa-check'></i></a>";
+                            if(data=="ACC" && row['validasi_edit']=="ACC" && row['validasi_delete']=="ACC"){
+                                return "<span class='small'><a class='btn btn-success rounded-pill btn-sm'><i class='fas fa-check'></i></a></span>";
                             }else{
-                                tambah = "<a class='btn btn-danger rounded-pill btn-sm'><i class='fas fa-exclamation'></i></a>";
+                                return "<span class='small'><a class='btn btn-danger rounded-pill btn-sm'><i class='fas fa-exclamation'></i></a></span>";
                             }
-                            if(row['validasi_edit']=="ACC"){
-                                edit = "<a class='btn btn-success rounded-pill btn-sm'><i class='fas fa-check'></i></a>";
-                            }else{
-                                edit = "<a class='btn btn-danger rounded-pill btn-sm'><i class='fas fa-exclamation'></i></a>";
-                            }
-                            if(row['validasi_delete']=="ACC"){
-                                hapus = "<a class='btn btn-success rounded-pill btn-sm'><i class='fas fa-check'></i></a>";
-                            }else{
-                                hapus = "<a class='btn btn-danger rounded-pill btn-sm'><i class='fas fa-exclamation'></i></a>";
-                            }
-                            let html = "<span class='small'>"+tambah+"<br>"+edit+"<br>"+hapus+"</span>";
-                            return html;
                         }
                     },
                     {
@@ -328,6 +313,7 @@
                                 id: pk
                             },
                             success: function(data) { //jika ambil data sukses
+                                $('#mobil_no_old').val(data["mobil_no"]);
                                 $('#mobil_no_update').val(data["mobil_no"]); //set value
                                 $('#mobil_no_rangka_update').val(data["mobil_no_rangka"]); //set value
                                 $('#mobil_no_mesin_update').val(data["mobil_no_mesin"]); //set value
@@ -412,20 +398,20 @@
                             },
                             success: function(data) { //jika ambil data sukses
                                 data_temp = JSON.parse(data["temp_mobil"])
-                                $('td[name="mobil_no_edit"]').text(data["mobil_no"]); //set value
+                                $('td[name="mobil_no_edit"]').text(data_temp["mobil_no"]); //set value
                                 $('td[name="mobil_no_rangka_edit"]').text(data_temp["mobil_no_rangka"]); //set value
                                 $('td[name="mobil_no_mesin_edit"]').text(data_temp["mobil_no_mesin"]); //set value
                                 $('td[name="mobil_bpkb_edit"]').text(data_temp["mobil_bpkb"]); //set value
                                 $('td[name="mobil_usaha_edit"]').text(data_temp["mobil_usaha"]); //set value
                                 $('td[name="mobil_berlaku_usaha_edit"]').text(change_tanggal(data_temp["mobil_berlaku_usaha"])); //set value
-                                $('td[name="mobil_jenis_edit"]').text(data["mobil_jenis"]); //set value
+                                $('td[name="mobil_jenis_edit"]').text(data_temp["mobil_jenis"]); //set value
                                 $('td[name="status_jalan_edit"]').text(data["status_jalan"]); //set value
                                 $('td[name="mobil_max_load_edit"]').text(data["mobil_max_load"]); //set value
                                 $('td[name="mobil_keterangan_edit"]').text(data_temp["mobil_keterangan"]); //set value
-                                $('td[name="mobil_merk_edit"]').text(data["mobil_merk"]); //set value
-                                $('td[name="mobil_type_edit"]').text(data["mobil_type"]); //set value
-                                $('td[name="mobil_dump_edit"]').text(data["mobil_dump"]); //set value
-                                $('td[name="mobil_tahun_edit"]').text(data["mobil_tahun"]); //set value
+                                $('td[name="mobil_merk_edit"]').text(data_temp["mobil_merk"]); //set value
+                                $('td[name="mobil_type_edit"]').text(data_temp["mobil_type"]); //set value
+                                $('td[name="mobil_dump_edit"]').text(data_temp["mobil_dump"]); //set value
+                                $('td[name="mobil_tahun_edit"]').text(data_temp["mobil_tahun"]); //set value
                                 $('td[name="mobil_berlaku_edit"]').text(change_tanggal(data_temp["mobil_berlaku"])); //set value
                                 $('td[name="mobil_pajak_edit"]').text(change_tanggal(data_temp["mobil_pajak"])); //set value
                                 $('#file_foto_edit').attr('src','<?= base_url("assets/berkas/kendaraan/")?>'+data_temp["file_foto"]);
@@ -562,26 +548,11 @@
                         "data": "validasi",
                         className: 'text-center',
                         render: function(data, type, row) {
-                            tambah = "";
-                            edit = "";
-                            hapus = "";
-                            if(data=="ACC"){
-                                tambah = "<a class='btn btn-success rounded-pill btn-sm'><i class='fas fa-check'></i></a>";
+                            if(data=="ACC" && row['validasi_edit']=="ACC" && row['validasi_delete']=="ACC"){
+                                return "<span class='small'><a class='btn btn-success rounded-pill btn-sm'><i class='fas fa-check'></i></a></span>";
                             }else{
-                                tambah = "<a class='btn btn-danger rounded-pill btn-sm'><i class='fas fa-exclamation'></i></a>";
+                                return "<span class='small'><a class='btn btn-danger rounded-pill btn-sm'><i class='fas fa-exclamation'></i></a></span>";
                             }
-                            if(row['validasi_edit']=="ACC"){
-                                edit = "<a class='btn btn-success rounded-pill btn-sm'><i class='fas fa-check'></i></a>";
-                            }else{
-                                edit = "<a class='btn btn-danger rounded-pill btn-sm'><i class='fas fa-exclamation'></i></a>";
-                            }
-                            if(row['validasi_delete']=="ACC"){
-                                hapus = "<a class='btn btn-success rounded-pill btn-sm'><i class='fas fa-check'></i></a>";
-                            }else{
-                                hapus = "<a class='btn btn-danger rounded-pill btn-sm'><i class='fas fa-exclamation'></i></a>";
-                            }
-                            let html = "<span class='small'>"+tambah+"<br>"+edit+"<br>"+hapus+"</span>";
-                            return html;
                         }
                     },
                     {   
@@ -889,6 +860,84 @@
     </script>
     <!-- end pilih merk -->
 
+    <!-- pilih merk -->
+    <script> //script datatables merk
+        $(document).ready(function() {
+            var table = null;
+            table = $('#Table-Pilih-Merk-Edit').DataTable({
+                "processing": true,
+                "serverSide": true,
+                "ordering": true,
+                "order": [
+                    [0, 'asc']
+                ],
+                "ajax": {
+                    "url": "<?php echo base_url('index.php/home/view_merk/addtruck') ?>",
+                    "type": "POST",
+                },
+                "deferRender": true,
+                "aLengthMenu": [
+                    [10, 30, 50, 100],
+                    [10, 30, 50, 100]
+                ],
+                "columns": [
+                    {
+                        "data": "merk_id",
+                        render: function(data, type, row) {
+                            let html = row["no"];
+                            return html;
+                        }
+                    },
+                    {
+                        "data": "merk_nama"
+                    },
+                    
+                    {
+                        "data": "merk_type"
+                    },
+                    {
+                        "data": "merk_jenis"
+                    },
+                    
+                    {
+                        "data": "merk_dump"
+                    },
+                    {
+                        "data": "merk_id",
+                        className: 'text-center font-weight-bold',
+                        "orderable": false,
+                        render: function(data, type, row) {
+                            let html ="<a class='btn btn-light btn-pilih-merk-edit' href='javascript:void(0)' data-pk='"+data+"'>Pilih <i class='fas fa-check-circle'></i></a>";
+                            return html;
+                        }
+                    }
+                ],
+                drawCallback: function() {
+                    $('.btn-pilih-merk-edit').click(function() {
+                        let pk = $(this).data('pk');
+                        $.ajax({ //ajax ambil data bon
+                            type: "GET",
+                            url: "<?php echo base_url('index.php/detail/getmerk') ?>",
+                            dataType: "JSON",
+                            data: {
+                                id: pk
+                            },
+                            success: function(data) { //jika ambil data sukses
+                                $('#merk_id_update').val(data["merk_id"]); //set value
+                                $('#mobil_type_update').val(data["merk_type"]); //set value
+                                $('#mobil_merk_update').val(data["merk_nama"]); //set value
+                                $('#mobil_jenis_update').val(data["merk_jenis"]); //set value
+                                $('#mobil_dump_update').val(data["merk_dump"]); //set value
+                            }
+                        });
+                    });
+                },
+                
+            });
+        });
+    </script>
+    <!-- end pilih merk -->
+
     <!-- JO -->
     <script> //script datatables job order
         $(document).ready(function() {
@@ -1010,7 +1059,7 @@
                         render: function(data, type, row) {
                             var role_user = "<?=$_SESSION['role']?>";
                             let html = "";
-                            html += "<a class='btn btn-sm' href='<?= base_url('index.php/detail/detail_jo/"+data+"/JO')?>'><i class='fas fa-eye'></i></a>";
+                            html += "<a class='btn btn-sm' target='_blank' href='<?= base_url('index.php/detail/detail_jo/"+data+"/JO')?>'><i class='fas fa-eye'></i></a>";
                             html += "<a class='btn btn-sm ' href='<?= base_url('index.php/print_berkas/uang_jalan/')?>"+data+"/home'><i class='fas fa-print'></i></a>";
                             if(role_user=="Supervisor"){
                                 html += "<a class='btn btn-light btn-update-jo' data-toggle='modal' data-target='#popup-update-jo' href='javascript:void(0)' data-pk="+data+"><i class='fas fa-pen-square'></i></a>"+
@@ -1049,9 +1098,11 @@
                             },
                             success: function(data) { //jika ambil data sukses
                                     $("#Jo_id_update").val(data["Jo_id"]);
-                                    $("#Kendaraan_now").text(data["mobil_no"]);
+ 
+                                    $("#Kendaraan_update").val(data["mobil_no"]);
+                                    $("#Supir_update").val(data["supir_name"]);
+
                                     $("#Jenis_update").val(data["mobil_jenis"]);
-                                    $("#Supir_now").text(data["supir_name"]);
                                     $("#tanggal_jo_update").val(change_tanggal(data["tanggal_surat"]));
                                     $("#Keterangan_update").text(data["keterangan"].replaceAll("<br>",""));
                                     $("#jenis_tambahan_update").val(data["jenis_tambahan"]);
@@ -1091,7 +1142,7 @@
             //     $('#link_cetaklaporanexcel').attr('href','<?=base_url("index.php/print_berkas/cetaklaporanexcel/")?>'+$('#Tanggal').val()+'/'+$('#Bulan').val()+'/'+$('#Tahun').val()+'/'+$('#status-JO').val());
             // });
             $("#btn-cari").click(function() {
-                if($("#Jo_id").val().length != 6){
+                if($("#Jo_id").val().length != 6 && $("#Jo_id").val().length != 0){
                     alert("silakan Isi Jo Id 6 Digit Atau Tidak Diisi");
                     $("#Jo_id").val("");
                 }else{
@@ -1220,7 +1271,7 @@
                 },
                 "processing": true,
                 "serverSide": true,
-                "ordering": true,
+                "ordering": false,
                 "searching":false,
                 "order": [
                     [0, 'desc']
@@ -1506,26 +1557,11 @@
                         "data": "validasi",
                         className: 'text-center',
                         render: function(data, type, row) {
-                            tambah = "";
-                            edit = "";
-                            hapus = "";
-                            if(data=="ACC"){
-                                tambah = "<a class='btn btn-success rounded-pill btn-sm'><i class='fas fa-check'></i></a>";
+                            if(data=="ACC" && row['validasi_edit']=="ACC" && row['validasi_delete']=="ACC"){
+                                return "<span class='small'><a class='btn btn-success rounded-pill btn-sm'><i class='fas fa-check'></i></a></span>";
                             }else{
-                                tambah = "<a class='btn btn-danger rounded-pill btn-sm'><i class='fas fa-exclamation'></i></a>";
+                                return "<span class='small'><a class='btn btn-danger rounded-pill btn-sm'><i class='fas fa-exclamation'></i></a></span>";
                             }
-                            if(row['validasi_edit']=="ACC"){
-                                edit = "<a class='btn btn-success rounded-pill btn-sm'><i class='fas fa-check'></i></a>";
-                            }else{
-                                edit = "<a class='btn btn-danger rounded-pill btn-sm'><i class='fas fa-exclamation'></i></a>";
-                            }
-                            if(row['validasi_delete']=="ACC"){
-                                hapus = "<a class='btn btn-success rounded-pill btn-sm'><i class='fas fa-check'></i></a>";
-                            }else{
-                                hapus = "<a class='btn btn-danger rounded-pill btn-sm'><i class='fas fa-exclamation'></i></a>";
-                            }
-                            let html = "<span class='small'>"+tambah+"<br>"+edit+"<br>"+hapus+"</span>";
-                            return html;
                         }
                     },
                     {
@@ -1842,26 +1878,11 @@
                         "data": "validasi",
                         className: 'text-center',
                         render: function(data, type, row) {
-                            tambah = "";
-                            edit = "";
-                            hapus = "";
-                            if(data=="ACC"){
-                                tambah = "<a class='btn btn-success rounded-pill btn-sm'><i class='fas fa-check'></i></a>";
+                            if(data=="ACC" && row['validasi_edit']=="ACC" && row['validasi_delete']=="ACC"){
+                                return "<span class='small'><a class='btn btn-success rounded-pill btn-sm'><i class='fas fa-check'></i></a></span>";
                             }else{
-                                tambah = "<a class='btn btn-danger rounded-pill btn-sm'><i class='fas fa-exclamation'></i></a>";
+                                return "<span class='small'><a class='btn btn-danger rounded-pill btn-sm'><i class='fas fa-exclamation'></i></a></span>";
                             }
-                            if(row['validasi_edit']=="ACC"){
-                                edit = "<a class='btn btn-success rounded-pill btn-sm'><i class='fas fa-check'></i></a>";
-                            }else{
-                                edit = "<a class='btn btn-danger rounded-pill btn-sm'><i class='fas fa-exclamation'></i></a>";
-                            }
-                            if(row['validasi_delete']=="ACC"){
-                                hapus = "<a class='btn btn-success rounded-pill btn-sm'><i class='fas fa-check'></i></a>";
-                            }else{
-                                hapus = "<a class='btn btn-danger rounded-pill btn-sm'><i class='fas fa-exclamation'></i></a>";
-                            }
-                            let html = "<span class='small'>"+tambah+"<br>"+edit+"<br>"+hapus+"</span>";
-                            return html;
                         }
                     },
                     {
@@ -2261,7 +2282,7 @@
                         className: 'text-center font-weight-bold',
                         "orderable": false,
                         render: function(data, type, row) {
-                            let html = "<a class='btn btn-light' href='<?= base_url('index.php/detail/pilih_gaji/"+data+"/home/x/x')?>'><i class='fas fa-dollar-sign'></i></a>";
+                            let html = "<a class='btn btn-light' href='<?= base_url('index.php/detail/pilih_gaji/"+data+"/home/').date('m')."/".date('Y')?>'><i class='fas fa-dollar-sign'></i></a>";
                             return html;
                         }
                     }
@@ -2374,7 +2395,7 @@
                         render: function(data, type, row) {
                             var role_user = "<?=$_SESSION['role']?>";
                             let html = "";
-                            html += "<a class='btn btn-light' href='<?= base_url('index.php/detail/detail_invoice/"+data+"')?>'><i class='fas fa-eye'></i></a>";
+                            html += "<a class='btn btn-light' target='_blank' href='<?= base_url('index.php/detail/detail_invoice/"+data+"')?>'><i class='fas fa-eye'></i></a>";
                             if(role_user=="Supervisor"){
                                 $.ajax({
                                     type: "GET",
@@ -2586,9 +2607,12 @@
                         className: 'text-center',
                         "orderable": false,
                         render: function(data, type, row) {
-                            let html = "<a class='btn btn-light btn-update-akun' data-toggle='modal' data-target='#popup-update-akun' href='javascript:void(0)' data-pk="+data+"><i class='fas fa-pen-square'></i></a> || "+
-                            "<a class='btn btn-light btn-update-akun' href='<?= base_url('index.php/form/konfigurasi/"+data+"')?>' data-pk="+data+"><i class='fas fa-user-cog'></i></a> || "+
-                            "<a class='btn btn-light btn-delete-akun' href='javascript:void(0)' data-pk="+data+"><i class='fas fa-trash-alt'></i></a>";
+                            var html = "";
+                            <?php if($_SESSION["role"] != "Operator"){?>
+                                html += "<a class='btn btn-light btn-update-akun' data-toggle='modal' data-target='#popup-update-akun' href='javascript:void(0)' data-pk="+data+"><i class='fas fa-pen-square'></i></a> || "+
+                                "<a class='btn btn-light btn-update-akun' href='<?= base_url('index.php/form/konfigurasi/"+data+"')?>' data-pk="+data+"><i class='fas fa-user-cog'></i></a> || "+
+                                "<a class='btn btn-light btn-delete-akun' href='javascript:void(0)' data-pk="+data+"><i class='fas fa-trash-alt'></i></a>";
+                            <?php }?>
                             return html;
                         }
                     }
@@ -2704,26 +2728,11 @@
                         "data": "validasi_rute",
                         className: 'text-center',
                         render: function(data, type, row) {
-                            tambah = "";
-                            edit = "";
-                            hapus = "";
-                            if(data=="ACC"){
-                                tambah = "<a class='btn btn-success rounded-pill btn-sm'><i class='fas fa-check'></i></a>";
+                            if(data=="ACC" && row['validasi_rute_edit']=="ACC" && row['validasi_rute_delete']=="ACC"){
+                                return "<span class='small'><a class='btn btn-success rounded-pill btn-sm'><i class='fas fa-check'></i></a></span>";
                             }else{
-                                tambah = "<a class='btn btn-danger rounded-pill btn-sm'><i class='fas fa-exclamation'></i></a>";
+                                return "<span class='small'><a class='btn btn-danger rounded-pill btn-sm'><i class='fas fa-exclamation'></i></a></span>";
                             }
-                            if(row['validasi_rute_edit']=="ACC"){
-                                edit = "<a class='btn btn-success rounded-pill btn-sm'><i class='fas fa-check'></i></a>";
-                            }else{
-                                edit = "<a class='btn btn-danger rounded-pill btn-sm'><i class='fas fa-exclamation'></i></a>";
-                            }
-                            if(row['validasi_rute_delete']=="ACC"){
-                                hapus = "<a class='btn btn-success rounded-pill btn-sm'><i class='fas fa-check'></i></a>";
-                            }else{
-                                hapus = "<a class='btn btn-danger rounded-pill btn-sm'><i class='fas fa-exclamation'></i></a>";
-                            }
-                            let html = "<span class='small'>"+tambah+"<br>"+edit+"<br>"+hapus+"</span>";
-                            return html;
                         }
                     },
                     {
@@ -2792,11 +2801,8 @@
                                 $("#rute_tagihan_update").val(rupiah(data["rute_tagihan"]));
                                 $("#rute_gaji_engkel_update").val(rupiah(data["rute_gaji_engkel"]));
                                 // $("#rute_gaji_tronton_update").val(rupiah(data["rute_gaji_tronton"]));
-                                $("#rute_gaji_engkel_rumusan_update").val(rupiah(data["rute_gaji_engkel_rumusan"]));
                                 // $("#rute_gaji_tronton_rumusan_update").val(rupiah(data["rute_gaji_tronton_rumusan"]));
-                                $("#rute_tonase_update").val(rupiah(data["rute_tonase"]));
                                 $("#rute_keterangan_update").val(data["rute_keterangan"]);
-                                $("#Ritase_update").val(data["ritase"]);
                             }
                         });
                     });
@@ -2851,11 +2857,11 @@
                                 $("#rute_tagihan_detail").val(rupiah(data["rute_tagihan"]));
                                 $("#rute_gaji_engkel_detail").val(rupiah(data["rute_gaji_engkel"]));
                                 // $("#rute_gaji_tronton_detail").val(rupiah(data["rute_gaji_tronton"]));
-                                $("#rute_gaji_engkel_rumusan_detail").val(rupiah(data["rute_gaji_engkel_rumusan"]));
+                                // $("#rute_gaji_engkel_rumusan_detail").val(rupiah(data["rute_gaji_engkel_rumusan"]));
                                 // $("#rute_gaji_tronton_rumusan_detail").val(rupiah(data["rute_gaji_tronton_rumusan"]));
-                                $("#rute_tonase_detail").val(rupiah(data["rute_tonase"]));
+                                // $("#rute_tonase_detail").val(rupiah(data["rute_tonase"]));
                                 $("#rute_keterangan_detail").val(data["rute_keterangan"]);
-                                $("#Ritase_detail").val(data["ritase"]);
+                                // $("#Ritase_detail").val(data["ritase"]);
 
                             }
                         });
@@ -3045,6 +3051,8 @@
             var insert_payment_jo = '<?= $this->session->flashdata('status-insert-payment-jo'); ?>';
             var supir_jo = '<?= $this->session->flashdata('supir_jo'); ?>';
             var mobil_jo = '<?= $this->session->flashdata('mobil_jo'); ?>';
+            var addjo = '<?= $this->session->flashdata('addjo'); ?>';
+            var deletejo = '<?= $this->session->flashdata('deletejo'); ?>';
             if(login == "Berhasil"){
                 Swal.fire({
                         title: "Berhasil Login",
@@ -3059,6 +3067,15 @@
                         title: "Berhasil",
                         icon: "success",
                         text: "Menambahkan akun baru",
+                        type: "success",
+                        timer: 2000
+                    });
+            }
+            if(addjo == "berhasil"){
+                Swal.fire({
+                        title: "Berhasil",
+                        icon: "success",
+                        text: "Menambahkan Job Order Baru",
                         type: "success",
                         timer: 2000
                     });
@@ -3185,6 +3202,15 @@
                         title: "Berhasil",
                         icon: "success",
                         text: "Menghapus akun",
+                        type: "error",
+                        timer: 2000
+                    });
+            }
+            if(deletejo == "berhasil"){
+                Swal.fire({
+                        title: "Berhasil",
+                        icon: "success",
+                        text: "Menghapus Job Order",
                         type: "error",
                         timer: 2000
                     });
@@ -3575,6 +3601,16 @@
                 if(idleTimeout){
                     clearTimeout(idleTimeout);
                 }
+                $.ajax({
+                    type: "GET",
+                    url: "<?php echo base_url('index.php/detail/getuseraktif') ?>",
+                    dataType: "text",
+                    success: function(data) { //jika ambil data sukses
+                        if(data=="Tidak Aktif" || data=="x"){
+                            location.href = redirectUrl;
+                        }
+                    }
+                });
                 idleTimeout = setTimeout(() => location.href = redirectUrl, idleDurationSecs * 1000);
             };
             

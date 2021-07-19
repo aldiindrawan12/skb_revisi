@@ -45,6 +45,11 @@ class Model_Form extends CI_model
             $this->db->select("pembayaran_upah_id");
             return $this->db->get("skb_pembayaran_upah")->result_array();
         }
+        public function getpembayaranupahidnow($bulan,$tahun){
+            $this->db->select("pembayaran_upah_id");
+            $this->db->like("pembayaran_upah_tanggal",$tahun."-".$bulan."-");
+            return $this->db->get("skb_pembayaran_upah")->result_array();
+        }
         public function getinvoiceid(){
             $this->db->select("invoice_kode");
             return $this->db->get("skb_invoice")->result_array();
@@ -512,10 +517,10 @@ class Model_Form extends CI_model
             $this->db->where("customer_id",$data["customer_id"]);
             $this->db->update("skb_customer");
         }
-        public function update_truck($data){
+        public function update_truck($data,$mobil_no_old){
             $this->db->set("temp_mobil",json_encode($data));
             $this->db->set("validasi_edit","Pending");
-            $this->db->where("mobil_no",$data["mobil_no"]);
+            $this->db->where("mobil_no",$mobil_no_old);
             $this->db->update("skb_mobil");
         }
         public function update_akun($data){
@@ -523,13 +528,15 @@ class Model_Form extends CI_model
             if($user){
                 $this->db->set("username",$data["username"]);
                 $this->db->set("password",$data["password"]);
+                $this->db->set("status_aktif","Tidak Aktif");
                 $this->db->where("akun_id",$data["akun_id"]);
                 $this->db->update("user");
             }else{
                 $data_user = array(
                     "akun_id"=>$data["akun_id"],
                     "username"=>$data["username"],
-                    "password"=>$data["password"]
+                    "password"=>$data["password"],
+                    "status_aktif"=>"Tidak Aktif"
                 );
                 $this->db->insert("user",$data_user);
             }
@@ -783,6 +790,7 @@ class Model_Form extends CI_model
             return $this->db->get_where("skb_mobil",array("mobil_no"=>$mobil_no))->row_array();
         }
         public function getallmobil(){
+            $this->db->order_by("mobil_jenis","ASC");
             return $this->db->get_where("skb_mobil",array("status_hapus"=>"No"))->result_array();
         }
         public function getrutefix($data){

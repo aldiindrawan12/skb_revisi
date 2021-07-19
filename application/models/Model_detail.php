@@ -41,6 +41,10 @@ class Model_Detail extends CI_model
             return $this->db->get_where("skb_mobil",array("mobil_no"=>$truck_id))->row_array();
         }
 
+        public function get_user_by_id($user_id){ //truck by ID
+            return $this->db->get_where("user",array("user_id"=>$user_id))->row_array();
+        }
+
         public function getmerkbyid($merk_id){ //merk by ID
             return $this->db->get_where("skb_merk_kendaraan",array("merk_id"=>$merk_id))->row_array();
         }

@@ -379,12 +379,8 @@ class Home extends CI_Controller {
             );
             $limit = $_POST['length'];
             $start = $_POST['start'];
-            // $status = $this->input->post('searchStatus');
-            $order_index = $_POST['order'][0]['column'];
-            $order_field = $_POST['columns'][$order_index]['data'];
-            $order_ascdesc = $_POST['order'][0]['dir'];
             $sql_total = $this->model_home->count_all_bon();
-            $sql_data = $this->model_home->filter_bon( $limit, $start, $order_field, $order_ascdesc,$data);
+            $sql_data = $this->model_home->filter_bon( $limit, $start,$data);
             $sql_filter = $this->model_home->count_filter_bon($data);
             $callback = array(
                 'draw' => $_POST['draw'],

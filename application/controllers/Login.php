@@ -15,6 +15,7 @@ class Login extends CI_Controller {
 
     public function logout(){
         session_destroy();
+        $this->model_login->update_tidak_aktif($_SESSION["user_aktif"]);
         redirect(base_url());
     }
     
@@ -31,17 +32,23 @@ class Login extends CI_Controller {
         if($user){
             $save_password = $user["password"];
             if($password == $save_password){
-                $this->session->set_flashdata('status-login', 'Berhasil');
-                $_SESSION["password"] = $save_password;
-                $_SESSION["user_id"] = $user["akun_id"];
-                $_SESSION["user"] = $user["akun_name"];
-                $_SESSION["role"] = $user["akun_role"];
-                $data["akun_akses"] = $this->model_form->getakunbyid($_SESSION["user_id"]);
-                $_SESSION["payment_jo"] = json_decode($data["akun_akses"]["akses"])[20];
-                $_SESSION["payment_invoice"] = json_decode($data["akun_akses"]["akses"])[18];
-                $_SESSION["payment_slip"] = json_decode($data["akun_akses"]["akses"])[19];
-                
-                redirect(base_url("index.php/dashboard/"));
+                if($user["status_aktif"]=="Tidak Aktif"){
+                    $this->session->set_flashdata('status-login', 'Berhasil');
+                    $this->model_login->update_aktif($user["user_id"]);
+                    $_SESSION["password"] = $save_password;
+                    $_SESSION["user_id"] = $user["akun_id"];
+                    $_SESSION["user_aktif"] = $user["user_id"];
+                    $_SESSION["user"] = $user["akun_name"];
+                    $_SESSION["role"] = $user["akun_role"];
+                    $data["akun_akses"] = $this->model_form->getakunbyid($_SESSION["user_id"]);
+                    $_SESSION["payment_jo"] = json_decode($data["akun_akses"]["akses"])[20];
+                    $_SESSION["payment_invoice"] = json_decode($data["akun_akses"]["akses"])[18];
+                    $_SESSION["payment_slip"] = json_decode($data["akun_akses"]["akses"])[19];
+                    redirect(base_url("index.php/dashboard/"));
+                }else{
+                    $this->session->set_flashdata('status-login', 'Aktif');
+                    redirect(base_url());                                    
+                }
             }else{
                 $this->session->set_flashdata('status-login', 'Password');
                 redirect(base_url());                

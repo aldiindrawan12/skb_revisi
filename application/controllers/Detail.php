@@ -13,7 +13,14 @@ class Detail extends CI_Controller {
         }
     // end contruck
 
-    
+    public function getuseraktif(){
+        $user = $this->model_detail->get_user_by_id($_SESSION["user_aktif"]);
+        if($user){
+            echo $user["status_aktif"];
+        }else{
+            echo "x";
+        }
+    }
     public function change_tanggal($tanggal){
         if($tanggal==""){
             return "";
@@ -279,9 +286,9 @@ class Detail extends CI_Controller {
             $this->load->view('footer');
         }
 
-        public function pilih_gaji($supir_id,$asal,$tahun,$bulan)
+        public function pilih_gaji($supir_id,$asal,$bulan,$tahun)
         {
-            $slip_id = $this->model_form->getpembayaranupahid();
+            $slip_id = $this->model_form->getpembayaranupahidnow($bulan,$tahun);
             $isi_slip_id = [];
             for($i=0;$i<count($slip_id);$i++){
                 $explode_slip = explode("-",$slip_id[$i]["pembayaran_upah_id"]);
@@ -295,26 +302,12 @@ class Detail extends CI_Controller {
                 $isi_slip_id[]=0;
             }
             $data["no_slip_gaji"]=(max($isi_slip_id)+1)."-GAJI-".date("m")."-".date('Y');
-
-            if($asal=="form"){
-                if($tahun=="x"){
-                    $data["tahun"]="x";
-                }else{
-                    $data["tahun"]=$tahun;
-                }
-                if($bulan=="x"){
-                    $data["bulan_index"]='x';
-                }else{
-                    $data["bulan_index"]=$bulan;
-                }
-            }else{
-                $data["tahun"]="x";
-                $data["bulan_index"]="x";
-            }
             if(!$_SESSION["user"]){
     			$this->session->set_flashdata('status-login', 'False');
                 redirect(base_url());
             }
+            $data["bulan_index"]=$bulan;
+            $data["tahun"]=$tahun;
             $data["jo"] = $this->model_detail->getjobbysupirbulan($supir_id,$data["tahun"],$data["bulan_index"]);
             $data["supir"] = $this->model_home->getsupirbyid($supir_id);
             $data["page"] = "Gaji_page";

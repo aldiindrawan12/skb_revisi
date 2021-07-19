@@ -92,7 +92,7 @@
                 <table class="table table-bordered  small" id="Table-Job-Order" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th  class="text-center" scope="col">No JO</th>
+                            <th  class="text-center" scope="col">ID JO</th>
                             <th class="text-center" scope="col">Tanggal</th>
                             <th  scope="col">Status</th>
                             <th class="text-center" scope="col">Driver</th>
@@ -147,28 +147,28 @@
                                 <input type="text" name="Muatan" id="Muatan" class="form-control" required readonly>
                             </div>
                             <div class="mb-4 mb-4">
-                                <label class="form-label font-weight-bold" for="Asal ">Asal</label>
+                                <label class="form-label font-weight-bold" for="Asal ">Dari</label>
                                 <input type="text" name="Asal" id="Asal" class="form-control" required readonly>
                             </div>
                             <div class="mb-4 mb-4">
-                                <label class="form-label font-weight-bold" for="Tujuan">Tujuan</label>
+                                <label class="form-label font-weight-bold" for="Tujuan">Ke</label>
                                 <input type="text" name="Tujuan" id="Tujuan" class="form-control" required readonly>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="mb-4">
-                                <label class="form-label font-weight-bold" for="Supir_update">Supir <small>(Supir Saat Ini : <span id="Supir_now"></span>)</small></label>
+                                <label class="form-label font-weight-bold" for="Supir_update">Driver </label>
                                 <select name="Supir_update" id="Supir_update" class="form-control selectpicker" data-live-search="true">
-                                    <option class="font-w700 font-weight-bold" disabled="disabled" selected value="">Supir Pengiriman</option>
+                                    <!-- <option class="font-w700 font-weight-bold" disabled="disabled" selected value="">Supir Pengiriman</option> -->
                                     <?php foreach($supir as $value){?>
                                             <option value="<?=$value["supir_id"]?>"><?=$value["supir_name"]?></option>
                                     <?php }?>
                                 </select>
                             </div>
                             <div class="mb-4">
-                                <label class="form-label font-weight-bold " for="Kendaraan_update">Kendaraan <small>(Kendaraan Saat Ini : <span id="Kendaraan_now"></span>)</small></label>
+                                <label class="form-label font-weight-bold " for="Kendaraan_update">No. Polisi</label>
                                 <select name="Kendaraan_update" id="Kendaraan_update" class="form-control  selectpicker" data-live-search="true" onchange="set_jenis_mobil(this)">
-                                    <option class="font-w700 font-weight-bold" disabled="disabled" selected value="">Kendaraan Pengiriman</option>
+                                    <!-- <option class="font-w700 font-weight-bold" disabled="disabled" selected value="">Kendaraan Pengiriman</option> -->
                                     <?php foreach($mobil as $value){?>
                                             <option value="<?=$value["mobil_no"]?>"><?=$value["mobil_no"]?></option>
                                     <?php }?>
@@ -250,11 +250,18 @@
 <script type="text/javascript">
     $(document).ready(function() {
         $('#convert').click(function() {
+            var tabel = document.getElementById("Table-Job-Order").rows;
+            var bacabaris = tabel.length;
+            for(var i=0;i<bacabaris;i++){
+                tabel[i].deleteCell(-1);
+                tabel[i].deleteCell(-1);
+            }
             var table_content = '<table>';
             table_content += $("head").html()+$('#Table-Job-Order').html();
             table_content += '</table>';
             $('#file_content').val(table_content);
             $('#convert_form').html();
+            location.reload();
         });
     });
     function pdf(){
@@ -269,6 +276,7 @@
         document.body.innerHTML = printcontent;
         window.print();
         document.body.innerHTML = restorepage;
+        location.reload();
     }
 </script>
 <script>

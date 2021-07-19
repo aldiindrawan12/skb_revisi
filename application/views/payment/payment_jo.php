@@ -18,7 +18,7 @@
             <div class="row">
                 <div class="col-md-6 border rounded">
                     <div class="form-group row mt-3">
-                        <label for="jo_id" class="form-label col-sm-5 font-weight-bold">NO Job Order</label>
+                        <label for="jo_id" class="form-label col-sm-5 font-weight-bold">ID Job Order(JO)</label>
                         <div class="col-sm-7">  
                             <input autocomplete="off" type="text" class="form-control col-md-10" id="jo_id" name="jo_id" readonly value="<?= $jo["Jo_id"]?>">
                         </div>
@@ -462,4 +462,37 @@
                      timer: 2000
                  });
         }
+    </script>
+        <script>
+        $(document).ready(function() {
+            const idleDurationSecs = 900;
+            const redirectUrl = '<?= base_url("index.php/login/logout")?>';
+            let idleTimeout;
+
+            const resetIdleTimeout = function() {
+                if(idleTimeout){
+                    clearTimeout(idleTimeout);
+                }
+                $.ajax({
+                    type: "GET",
+                    url: "<?php echo base_url('index.php/detail/getuseraktif') ?>",
+                    dataType: "text",
+                    success: function(data) { //jika ambil data sukses
+                        if(data=="Tidak Aktif" || data=="x"){
+                            location.href = redirectUrl;
+                        }
+                    }
+                });
+                idleTimeout = setTimeout(() => location.href = redirectUrl, idleDurationSecs * 1000);
+            };
+            
+            // Key events for reset time
+            resetIdleTimeout();
+            window.onkeypress = resetIdleTimeout;
+            window.click = resetIdleTimeout;
+            window.onclick = resetIdleTimeout;
+            window.onmousemove = resetIdleTimeout;
+            window.onscroll = resetIdleTimeout;
+
+        });
     </script>

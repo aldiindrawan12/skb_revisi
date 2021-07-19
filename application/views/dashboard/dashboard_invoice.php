@@ -455,6 +455,16 @@
                 if(idleTimeout){
                     clearTimeout(idleTimeout);
                 }
+                $.ajax({
+                    type: "GET",
+                    url: "<?php echo base_url('index.php/detail/getuseraktif') ?>",
+                    dataType: "text",
+                    success: function(data) { //jika ambil data sukses
+                        if(data=="Tidak Aktif" || data=="x"){
+                            location.href = redirectUrl;
+                        }
+                    }
+                });
                 idleTimeout = setTimeout(() => location.href = redirectUrl, idleDurationSecs * 1000);
             };
             

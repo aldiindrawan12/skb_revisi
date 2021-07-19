@@ -16,4 +16,15 @@ class Model_Login extends CI_model
         $this->db->where("akun_id",$_SESSION["user_id"]);
         $this->db->update("user");
     }
+
+    public function update_aktif($user_id){
+        $this->db->set("status_aktif","Aktif");
+        $this->db->where("user_id",$user_id);
+        $this->db->update("user");
+    }
+    public function update_tidak_aktif($user_id){
+        $this->db->set("status_aktif","Tidak Aktif");
+        $this->db->where("user_id",$user_id);
+        $this->db->update("user");
+    }
 }

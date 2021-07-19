@@ -179,10 +179,25 @@
             </div>
             <div class="font-size-sm m-3 text-justify">
                 <?php echo form_open_multipart('form/update_truck'); ?>
+                <div class="table-responsive py-2 mb-3">
+                    <table class="table table-bordered " id="Table-Pilih-Merk-Edit" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>    
+                                <th class="text-center" width="5%" scope="col">No</th>
+                                <th class="text-center" width="12%" scope="col">Merk</th>
+                                <th class="text-center" width="12%" scope="col">Tipe</th>
+                                <th class="text-center" width="15%" scope="col">Jenis Kendaraan</th>
+                                <th class="text-center" width="10%" scope="col">Dump</th>
+                                <th class="text-center" width="30%" scope="col">Aksi</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
                 <div class="row">
                     <div class="col">
                         <div class="form-group ">
                             <label for="mobil_no_update" class="form-label font-weight-bold">Plat No Mobil</label>
+                            <input autocomplete="off" type="text" class="form-control" id="mobil_no_old" name="mobil_no_old" hidden>
                             <input autocomplete="off" type="text" class="form-control" id="mobil_no_update" name="mobil_no_update" required>
                         </div>
                         <div class="form-group ">
@@ -194,7 +209,7 @@
                             <input autocomplete="off" type="text" class="form-control" id="mobil_no_mesin_update" name="mobil_no_mesin_update">
                         </div>
                         <div class="form-group">
-                            <input autocomplete="off" type="text" class="form-control" id="merk_id_update" name="merk_id_update" hidden>
+                            <input autocomplete="off" type="text" class="form-control" id="merk_id_update" name="merk_id_update">
                             <label for="mobil_merk_update" class="form-label font-weight-bold" onclick="merk()"">Merk</label>
                             <input autocomplete="off" type="text" class="form-control" id="mobil_merk_update" name="mobil_merk_update" readonly>
                         </div>

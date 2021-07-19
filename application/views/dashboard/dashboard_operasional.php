@@ -274,7 +274,12 @@
                 ],
                 "columns": [
                     {   
-                        "data": "supir_name"
+                        "data": "supir_name",
+                        className: 'text-center',
+                        render: function(data, type, row) {
+                            let html = row["no"];
+                            return html;
+                        }
                     },
                     {   
                         "data": "supir_name"
@@ -322,6 +327,16 @@
                 if(idleTimeout){
                     clearTimeout(idleTimeout);
                 }
+                $.ajax({
+                    type: "GET",
+                    url: "<?php echo base_url('index.php/detail/getuseraktif') ?>",
+                    dataType: "text",
+                    success: function(data) { //jika ambil data sukses
+                        if(data=="Tidak Aktif" || data=="x"){
+                            location.href = redirectUrl;
+                        }
+                    }
+                });
                 idleTimeout = setTimeout(() => location.href = redirectUrl, idleDurationSecs * 1000);
             };
             

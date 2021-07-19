@@ -15,6 +15,7 @@ class Model_Home extends CI_model
     //function get
         public function gettruck() //all truck
         {
+            $this->db->order_by("mobil_no","ASC");
             return $this->db->get_where("skb_mobil",array("status_hapus"=>"NO","validasi"=>"ACC","validasi_edit"=>"ACC","validasi_delete"=>"ACC"))->result_array();
         }
 
@@ -31,11 +32,13 @@ class Model_Home extends CI_model
 
         public function getcustomer() //all customer
         {
+            $this->db->order_by("customer_name","ASC");
             return $this->db->get_where("skb_customer",array("validasi"=>"ACC","validasi_edit"=>"ACC","validasi_delete"=>"ACC","status_hapus"=>"NO"))->result_array();
         }
 
         public function getallcustomer() //all customer
         {
+            $this->db->order_by("customer_name","ASC");
             return $this->db->get_where("skb_customer",array("validasi"=>"ACC","status_hapus"=>"NO"))->result_array();
         }
 
@@ -46,11 +49,13 @@ class Model_Home extends CI_model
 
         public function getsupir() //all supir
         {
+            $this->db->order_by("supir_name","ASC");
             return $this->db->get_where("skb_supir",array("status_hapus"=>"NO","status_aktif"=>"Aktif","validasi"=>"ACC","validasi_edit"=>"ACC","validasi_delete"=>"ACC"))->result_array();
         }
 
         public function getallsupir() //all supir
         {
+            $this->db->order_by("supir_name","ASC");
             return $this->db->get_where("skb_supir",array("status_hapus"=>"NO","validasi"=>"ACC"))->result_array();
         }
 
@@ -120,8 +125,6 @@ class Model_Home extends CI_model
             if($searchValue == 'Dump' || $searchValue == 'dump'){
                 $search_arr[] = " mobil_dump='Ya' ";
             }else if($searchValue=="No Dump" || $searchValue == 'no dump'){
-                $search_arr[] = " mobil_dump='Tidak' ";
-            }else{
                 $search_arr[] = " mobil_dump='Tidak' ";
             }
             if(count($search_arr) > 0){ //gabung kondisi where
@@ -496,7 +499,7 @@ class Model_Home extends CI_model
             return $this->db->count_all_results("skb_bon");
         }
 
-        public function filter_bon($limit, $start, $order_field, $order_ascdesc,$data)
+        public function filter_bon($limit, $start,$data)
         {
             $search_arr = array();
             $searchQuery = "";
@@ -527,15 +530,19 @@ class Model_Home extends CI_model
                     }
                 }
             }
-            $search_arr[] = " bon_id like '%".$no_bon_fix."%'";
+            if($no_bon_fix!="BON-"){
+                $search_arr[] = " bon_id like '%".$no_bon_fix."%'";
+            }
             if(count($search_arr) > 0){ //gabung kondisi where
                 $searchQuery = implode(" and ",$search_arr);
             }
             if($searchQuery != ''){
                 $this->db->where($searchQuery);
+                $this->db->order_by("bon_tanggal", "ASC");
+            }else{
+                $this->db->order_by("bon_tanggal", "DESC");
             }
             $this->db->where("skb_bon.status_hapus","NO");
-            $this->db->order_by($order_field, $order_ascdesc);
             $this->db->limit($limit, $start);
             $this->db->join("skb_supir", "skb_supir.supir_id = skb_bon.supir_id", 'left');
             return $this->db->get('skb_bon')->result_array();

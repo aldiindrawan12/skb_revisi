@@ -186,7 +186,9 @@ class Model_Dashboard extends CI_model
         $records = $this->db->get('skb_supir')->result();
     
         $data = array();
+        $n=0;
         foreach($records as $record ){
+            $n++;
             $sisa="";
             if($fungsi=="sim"){
                 $tanggal = $record->supir_tgl_sim;
@@ -204,6 +206,7 @@ class Model_Dashboard extends CI_model
             }
 
             $data[] = array(
+                "no"=>$n,
                 "sisa"=>$sisa,
                 "supir_id"=>$record->supir_id,
                 "supir_name"=>$record->supir_name,

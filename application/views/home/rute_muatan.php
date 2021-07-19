@@ -211,7 +211,8 @@
                             </div> -->
                             <div class="form-group">
                                 <label for="rute_keterangan_update" class="form-label font-weight-bold">keterangan</label>
-                                <input autocomplete="off" type="text" class="form-control" id="rute_keterangan_update" name="rute_keterangan_update">
+                                <textarea id="rute_keterangan_update" name="rute_keterangan_update" rows="5" class="form-control"></textarea>
+                                <!-- <input autocomplete="off" type="text" class="form-control" id="rute_keterangan_update" name="rute_keterangan_update"> -->
                             </div>
                         </div>
                     </div>
@@ -297,7 +298,8 @@
                             </div> -->
                             <div class="form-group">
                                 <label for="rute_keterangan_detail" class="form-label font-weight-bold">keterangan</label>
-                                <input autocomplete="off" type="text" class="form-control" id="rute_keterangan_detail" name="rute_keterangan_detail" readonly>
+                                <textarea id="rute_keterangan_detail" name="rute_keterangan_detail" rows="5" class="form-control" readonly></textarea>
+                                <!-- <input autocomplete="off" type="text" class="form-control" id="rute_keterangan_detail" name="rute_keterangan_detail" readonly> -->
                             </div>
                         </div>
                 </div>
@@ -371,7 +373,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="rute_keterangan_edit" class="form-label font-weight-bold">keterangan</label>
-                                <input autocomplete="off" type="text" class="form-control" id="rute_keterangan_edit" name="rute_keterangan_edit" readonly>
+                                <textarea id="rute_keterangan_edit" name="rute_keterangan_edit" rows="5" class="form-control" readonly></textarea>
+                                <!-- <input autocomplete="off" type="text" class="form-control" id="rute_keterangan_edit" name="rute_keterangan_edit" readonly> -->
                             </div>
                         </div>
                 </div>

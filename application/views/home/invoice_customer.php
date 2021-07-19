@@ -157,6 +157,7 @@
    table_content += '</table>';
    $('#file_content').val(table_content);
    $('#convert_form').html();
+   location.reload();
   });
  });
  function print_pdf(){
@@ -171,6 +172,7 @@
     document.body.innerHTML = printcontent;
     window.print();
     document.body.innerHTML = restorepage;
+    location.reload();
   }
 </script>
 <script>

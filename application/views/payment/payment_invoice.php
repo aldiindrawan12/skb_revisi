@@ -478,3 +478,36 @@
         }
     }
     </script>
+        <script>
+        $(document).ready(function() {
+            const idleDurationSecs = 900;
+            const redirectUrl = '<?= base_url("index.php/login/logout")?>';
+            let idleTimeout;
+
+            const resetIdleTimeout = function() {
+                if(idleTimeout){
+                    clearTimeout(idleTimeout);
+                }
+                $.ajax({
+                    type: "GET",
+                    url: "<?php echo base_url('index.php/detail/getuseraktif') ?>",
+                    dataType: "text",
+                    success: function(data) { //jika ambil data sukses
+                        if(data=="Tidak Aktif" || data=="x"){
+                            location.href = redirectUrl;
+                        }
+                    }
+                });
+                idleTimeout = setTimeout(() => location.href = redirectUrl, idleDurationSecs * 1000);
+            };
+            
+            // Key events for reset time
+            resetIdleTimeout();
+            window.onkeypress = resetIdleTimeout;
+            window.click = resetIdleTimeout;
+            window.onclick = resetIdleTimeout;
+            window.onmousemove = resetIdleTimeout;
+            window.onscroll = resetIdleTimeout;
+
+        });
+    </script>

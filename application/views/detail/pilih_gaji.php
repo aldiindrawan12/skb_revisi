@@ -28,12 +28,8 @@
                                     <?php $bulan = ["Sadasd","Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
                                     if($bulan_index!=10){
                                         $bulan_index=str_replace("0","",$bulan_index);
-                                    }
-                                    if($bulan_index=='x'){?>
-                                        <option class="font-w700" selected value="x">Bulan</option>
-                                    <?php }else{ ?>
+                                    }?>
                                         <option class="font-w700" selected value="<?= $bulan_index?>"><?= $bulan[$bulan_index]?></option>
-                                    <?php } ?>
                                     <option value="01"><?=$bulan[1]?></option>
                                     <option value="02"><?=$bulan[2]?></option>
                                     <option value="03"><?=$bulan[3]?></option>
@@ -333,12 +329,12 @@
             // document.getElementById("form-pilih-jo").reset();
             tahun = $("#tahun_kerja").val();
             bulan = $("#bulan_kerja").val();
-            location.replace('<?= base_url("index.php/detail/pilih_gaji/").$supir["supir_id"]."/form/"?>'+tahun+"/"+bulan);
+            location.replace('<?= base_url("index.php/detail/pilih_gaji/").$supir["supir_id"]."/form/"?>'+bulan+"/"+tahun);
         }
     </script>
     <script>
         function reset_form(){
-            location.reload();
+            location.replace('<?= base_url("index.php/detail/pilih_gaji/").$supir["supir_id"]."/form/".date('m').'/'.date('Y')?>');
         }
     </script>
     <script> //script set tanggal saat ini

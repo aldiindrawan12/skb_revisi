@@ -362,7 +362,7 @@
                         render: function(data, type, row) {
                             var role_user = "<?=$_SESSION['role']?>";
                             let html = "";
-                            html += "<a class='btn btn-light' href='<?= base_url('index.php/detail/detail_penggajian_report_pembayaran/')?>"+row["supir_id"]+"/"+data+"'><i class='fas fa-eye'></i></a>";
+                            html += "<a class='btn btn-light' target='_blank' href='<?= base_url('index.php/detail/detail_penggajian_report_pembayaran/')?>"+row["supir_id"]+"/"+data+"'><i class='fas fa-eye'></i></a>";
                             if(role_user=="Supervisor"){
                                 $.ajax({
                                     type: "GET",
@@ -520,6 +520,7 @@
                 table_content += '</table>';
                 $('#file_content').val(table_content);
                 $('#convert_form').html();
+                location.reload();
             });
         });
         function print_pdf(){
@@ -534,6 +535,7 @@
             document.body.innerHTML = printcontent;
             window.print();
             document.body.innerHTML = restorepage;
+            location.reload();
         }
     </script>
     <script>
@@ -623,6 +625,16 @@
                 if(idleTimeout){
                     clearTimeout(idleTimeout);
                 }
+                $.ajax({
+                    type: "GET",
+                    url: "<?php echo base_url('index.php/detail/getuseraktif') ?>",
+                    dataType: "text",
+                    success: function(data) { //jika ambil data sukses
+                        if(data=="Tidak Aktif" || data=="x"){
+                            location.href = redirectUrl;
+                        }
+                    }
+                });
                 idleTimeout = setTimeout(() => location.href = redirectUrl, idleDurationSecs * 1000);
             };
             
