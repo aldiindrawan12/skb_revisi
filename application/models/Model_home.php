@@ -84,6 +84,12 @@ class Model_Home extends CI_model
             $this->db->join("skb_customer", "skb_customer.customer_id = skb_job_order.customer_id", 'left');
             return $this->db->get_where("skb_job_order",array("Jo_id"=>$jo_id))->row_array();
         }
+
+        public function getjobyidpayment($payment_id) //JO by ID
+        {
+            $this->db->join("skb_job_order", "skb_job_order.Jo_id = payment_jo.jo_id", 'left');
+            return $this->db->get_where("payment_jo",array("payment_jo_id"=>$payment_id))->row_array();
+        }
         public function getjobyidkonfirmasi($jo_id) //JO by ID
         {
             $this->db->join("skb_mobil", "skb_mobil.mobil_no = skb_job_order.mobil_no", 'left');

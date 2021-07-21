@@ -212,16 +212,16 @@ class Print_Berkas extends CI_Controller {
 			$data["asal"] = $asal;
 			$this->load->view("print/invoice_print",$data);
 		}
-		public function uang_jalan($jo_id,$asal){
+		public function uang_jalan($payment_jo,$jo_id){
             if(!$_SESSION["user"]){
     			$this->session->set_flashdata('status-login', 'False');
                 redirect(base_url());
             }
-			$data["data"] = $this->model_home->getjobyid($jo_id);
+			$data["data"] = $this->model_home->getjobyidpayment($payment_jo);
+			$data["data_customer"] = $this->model_home->getjobyid($payment_jo);
 			$data["customer"] = $this->model_home->getcustomerbyid($data["data"]["customer_id"]);
 			$data["tipe_jo"] = "reguler";
 			$data["jo_id"] = $data["data"]["Jo_id"];
-			$data["asal"] = $asal;
             $data["supir"] = $this->model_home->getsupirbyid($data["data"]["supir_id"]);
             $data["mobil"] = $this->model_home->getmobilbyid($data["data"]["mobil_no"]);
 			$this->load->view("print/jo_print",$data);

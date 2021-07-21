@@ -150,7 +150,14 @@
                                 <td><?= $value["payment_jo_keterangan"]?></td>
                                 <td>
                                 <?php if($_SESSION['role']=="Supervisor"){?>
-                                    <a class='btn btn-light' id="<?= $value["payment_jo_id"]?>" onclick="edit_payment_jo(this)" data-toggle="modal" data-target="#popup-edit-payment-jo"><i class='fas fa-pen-square'></i></a>
+                                    <a class='btn btn-light' target='_blank' href='<?= base_url('index.php/detail/detail_jo/'.$jo["Jo_id"].'/JO')?>'><i class='fas fa-eye'></i></a>
+                                    <a class='btn btn-light ' href='<?= base_url('index.php/print_berkas/uang_jalan/'.$value["payment_jo_id"].'/'.$jo["Jo_id"])?>'><i class='fas fa-print'></i></a>
+                                    <a class='btn btn-light' id="<?= $value["payment_jo_id"]?>" 
+                                        <?php if($jo["status"]!="Sampai Tujuan"){?>
+                                            data-toggle="modal" data-target="#popup-edit-payment-jo"
+                                        <?php }?>
+                                        onclick="edit_payment_jo(this)"
+                                        ><i class='fas fa-pen-square'></i></a>
                                     <a class='btn btn-light' id="<?= $value["payment_jo_id"]?>" onclick="delete_payment_jo(this)"><i class='fas fa-trash-alt'></i></a>
                                 <?php }?>
                                 </td>
@@ -404,50 +411,69 @@
             }
         }
         function delete_payment_jo(a){
-                        let pk = a.id;
-                        Swal.fire({
-                            title: 'Hapus Data Payment Job Order',
-                            text:'Yakin Anda Ingin Menghapus Data Payment Job Order Ini?',
-                            showDenyButton: true,
-                            denyButtonText: `Batal`,
-                            confirmButtonText: 'Hapus',
-                            denyButtonColor: '#808080',
-                            confirmButtonColor: '#FF0000',
-                            icon: "warning",
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                window.location.replace("<?= base_url('index.php/form/deletepaymentjo/')?>"+pk);
-                            }
-                        })
-        };
+            var status_jo='<?= $jo["status"]?>';
+            if(status_jo!="Sampai Tujuan"){
+                Swal.fire({
+                    title: 'Hapus Data Payment Job Order',
+                    text:'Yakin Anda Ingin Menghapus Data Payment Job Order Ini?',
+                    showDenyButton: true,
+                    denyButtonText: `Batal`,
+                    confirmButtonText: 'Hapus',
+                    denyButtonColor: '#808080',
+                    confirmButtonColor: '#FF0000',
+                    icon: "warning",
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.replace("<?= base_url('index.php/form/deletepaymentjo/')?>"+pk);
+                    }
+                })
+            }else{
+                Swal.fire({
+                    title: 'Hapus Data Payment Jo',
+                    text:'Maaf Tidak Bisa Hapus Payment,Job Order Ini Sudah Selesai',
+                    icon: "warning",
+                    time: 2000
+                });
+            }
+        }
         
-                    function edit_payment_jo(a) {
-                        let pk = a.id;
-                        $.ajax({ //ajax ambil data bon
-                            type: "GET",
-                            url: "<?php echo base_url('index.php/detail/getpaymentjo') ?>",
-                            dataType: "JSON",
-                            data: {
-                                id: pk
-                            },
-                            success: function(data) { //jika ambil data sukses
-                                $('#payment_now').val(data["payment_jo_nominal"]); //set value
-                                $('#payment_jo_id_update').val(data["payment_jo_id"]); //set value
-                                $('#payment_jo_tgl_update').val(change_tanggal(data["payment_jo_tgl"])); //set value
-                                $('#payment_jo_nominal_update').val(rupiah(data["payment_jo_nominal"])); //set value
-                                $('#payment_jo_keterangan_update').val(data["payment_jo_keterangan"]); //set value
-                                $('#payment_jo_jenis_update').val(data["payment_jo_jenis"]); //set value
-                            }
-                        });
-                    };
+        function edit_payment_jo(a) {
+            var status_jo="<?= $jo["status"]?>";
+            let pk = a.id;
+            if(status_jo!="Sampai Tujuan"){
+                $.ajax({ //ajax ambil data bon
+                    type: "GET",
+                    url: "<?php echo base_url('index.php/detail/getpaymentjo') ?>",
+                    dataType: "JSON",
+                    data: {
+                        id: pk
+                    },
+                    success: function(data) { //jika ambil data sukses
+                        $('#payment_now').val(data["payment_jo_nominal"]); //set value
+                        $('#payment_jo_id_update').val(data["payment_jo_id"]); //set value
+                        $('#payment_jo_tgl_update').val(change_tanggal(data["payment_jo_tgl"])); //set value
+                        $('#payment_jo_nominal_update').val(rupiah(data["payment_jo_nominal"])); //set value
+                        $('#payment_jo_keterangan_update').val(data["payment_jo_keterangan"]); //set value
+                        $('#payment_jo_jenis_update').val(data["payment_jo_jenis"]); //set value
+                    }
+                });
+            }else{
+                Swal.fire({
+                    title: 'Edit Data Payment Jo',
+                    text:'Maaf Tidak Bisa Edit Payment,Job Order Ini Sudah Selesai',
+                    icon: "warning",
+                    time: 2000
+                })
+            }
+        };
     </script>
     <script>
     var delete_payment = '<?= $this->session->flashdata('status-delete-payment-jo'); ?>';
     var update_payment = '<?= $this->session->flashdata('status-edit-payment-jo'); ?>';
         if(delete_payment == "Berhasil"){
             Swal.fire({
-                     title: "Hapus Data Payment Job Order",
-                     icon: "success",
+                    title: "Hapus Data Payment Job Order",
+                    icon: "success",
                      text: "Berhasil Hapus Data Payment Job Order",
                      type: "error",
                      timer: 2000

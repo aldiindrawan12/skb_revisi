@@ -72,7 +72,7 @@
                             <tr>
                                 <td width="30%">Tgl. Penyerahan UJ</td>
                                 <td width="5%">:</td>
-                                <td >tanggal payment</td>
+                                <td ><?= change_tanggal($data["payment_jo_tgl"])?></td>
                             </tr>
                             <tr>
                                 <td width="30%">Supir</td>
@@ -82,7 +82,9 @@
                             <tr>
                                 <td width="30%">No Pol</td>
                                 <td width="5%">:</td>
-                                <td><?= $mobil["mobil_no"]." || ".$mobil["mobil_jenis"]?></td>
+                                <?php if($mobil!=null){?>
+                                    <td><?= $mobil["mobil_no"]." || ".$mobil["mobil_jenis"]?></td>
+                                <?php }?>
                             </tr>
                             <tr>
                                 <td width="30%">Customer</td>
@@ -127,12 +129,12 @@
                             <tr>
                                 <td width="30%">UJ Yang Diserahkan</td>
                                 <td width="5%">:</td>
-                                <td>Rp.<?= number_format($data["uang_total"]-$data["sisa"],0,',','.')?></td>
+                                <td>Rp.<?= number_format($data["payment_jo_nominal"],0,',','.')?></td>
                             </tr>
                             <tr>
                                 <td width="30%">Terbilang</td>
                                 <td width="5%">:</td>
-                                <td><?= generate_terbilang($data["uang_total"]-$data["sisa"])?> Rupiah</td>
+                                <td><?= generate_terbilang($data["payment_jo_nominal"])?> Rupiah</td>
                             </tr>
                             <tr>
                                 <td width="30%">Keterangan</td>
@@ -164,11 +166,6 @@
 </body>
 <script>
     window.print();
-    var asal = '<?= $asal?>';
-    if(asal=="detail"){
-        window.location.replace("<?= base_url('index.php/detail/detail_jo/').$jo_id."/JO"?>");
-    }else{
-        window.location.replace("<?= base_url('index.php/home')?>");
-    }
+    window.location.replace("<?= base_url('index.php/payment/payment_jo/').$jo_id?>");
 </script>
 </html>
