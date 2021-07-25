@@ -983,18 +983,28 @@
                     {
                         "data": "status",
                         className: 'text-center',
-                            render: function(data, type, row) {
-                                if (data == "Sampai Tujuan") {
-                                    let html = "<span class='text-success'>" + data + "</span>";
-                                    return html;
-                                } else if(data == "Dalam Perjalanan"){
-                                    let html = "<span class='text-warning'>" + data + "</span>";
-                                    return html;
-                                }else{
-                                    let html = "<span class='text-danger'>" + data + "</span>";
-                                    return html;
-                                }
-                            }
+                        "orderable": false,
+                        render: function(data, type, row) {
+                            let html = "";
+                                    if(<?= $_SESSION["update_jo"]?>==0){
+                                        if(data=="Dalam Perjalanan"){
+                                            html += "<a class='btn btn-warning btn-sm btn-alert-update-jo'>ONGOING</a>";
+                                        }else{
+                                            html += "<a class='btn btn-success btn-sm'>DONE</a>";
+                                        }
+                                    }else{
+                                        if(data=="Dalam Perjalanan"){
+                                            if(row["sisa_uj"]==0){
+                                                html += "<a class='btn btn-warning btn-sm' href='<?= base_url('index.php/form/konfirmasi_jo/"+row["Jo_id"]+"')?>'>ONGOING</a>";
+                                            }else{
+                                                html += "<a class='btn btn-warning btn-sm btn-alert-update-jo-1'>ONGOING</a>";
+                                            }
+                                        }else{
+                                            html += "<a class='btn btn-success btn-sm'>DONE</a>";
+                                        }
+                                    }
+                            return html;
+                        }
                     },
                     {
                         "data": "supir_name",
@@ -1062,8 +1072,24 @@
                             html += "<a class='btn btn-sm' target='_blank' href='<?= base_url('index.php/detail/detail_jo/"+data+"/JO')?>'><i class='fas fa-eye'></i></a>";
                             // html += "<a class='btn btn-sm ' href='<?= base_url('index.php/print_berkas/uang_jalan/')?>"+data+"/home'><i class='fas fa-print'></i></a>";
                             if(role_user=="Supervisor"){
-                                html += "<a class='btn btn-light btn-update-jo' data-toggle='modal' data-target='#popup-update-jo' href='javascript:void(0)' data-pk="+data+"><i class='fas fa-pen-square'></i></a>"+
-                                "<a class='btn btn-light btn-delete-jo' href='javascript:void(0)' data-pk="+data+"><i class='fas fa-trash-alt'></i></a>";
+                                $.ajax({
+                                    type: "GET",
+                                    url: "<?php echo base_url('index.php/detail/getnumpaymentjo') ?>",
+                                    dataType: "text",
+                                    async:false,
+                                    data: {
+                                        id : data,
+                                    },
+                                    success: function(data_hasil) { //jika ambil data_hasil sukses
+                                        if(data_hasil>0){
+                                            html += "<a class='btn btn-light btn-alert-edit-jo' href='javascript:void(0)' data-pk="+data+"><i class='fas fa-pen-square'></i></a>";
+                                        }else{
+                                            html += "<a class='btn btn-light btn-update-jo' data-toggle='modal' data-target='#popup-update-jo' href='javascript:void(0)' data-pk="+data+"><i class='fas fa-pen-square'></i></a>";
+                                        }
+                                    }
+                                })
+                                
+                                html += "<a class='btn btn-light btn-delete-jo' href='javascript:void(0)' data-pk="+data+"><i class='fas fa-trash-alt'></i></a>";
                             }
                             return html;
                         }
@@ -1072,18 +1098,37 @@
                 drawCallback: function() {
                     $('.btn-delete-jo').click(function() {
                         let pk = $(this).data('pk');
-                        Swal.fire({
-                            title: 'Hapus Data Job Order',
-                            text:'Yakin Anda Ingin Menghapus Data Job Order Ini?',
-                            showDenyButton: true,
-                            denyButtonText: `Batal`,
-                            confirmButtonText: 'Hapus',
-                            denyButtonColor: '#808080',
-                            confirmButtonColor: '#FF0000',
-                            icon: "warning",
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                window.location.replace("<?= base_url('index.php/form/deletejo/')?>"+pk);
+                        $.ajax({
+                            type: "GET",
+                            url: "<?php echo base_url('index.php/detail/getnumpaymentjo') ?>",
+                            dataType: "text",
+                            data: {
+                                id : pk,
+                            },
+                            success: function(data) { //jika ambil data sukses
+                                if(data>0){
+                                    Swal.fire({
+                                        title: 'Hapus Data Job Order',
+                                        text:'Maaf Job Order Ini Sudah Melakukan Pembayaran',
+                                        icon: "warning",
+                                        time: 2000
+                                    })
+                                }else{
+                                    Swal.fire({
+                                        title: 'Hapus Data Job Order',
+                                        text:'Yakin Anda Ingin Menghapus Data Job Order Ini?',
+                                        showDenyButton: true,
+                                        denyButtonText: `Batal`,
+                                        confirmButtonText: 'Hapus',
+                                        denyButtonColor: '#808080',
+                                        confirmButtonColor: '#FF0000',
+                                        icon: "warning",
+                                    }).then((result) => {
+                                        if (result.isConfirmed) {
+                                            window.location.replace("<?= base_url('index.php/form/deletejo/')?>"+pk);
+                                        }
+                                    })
+                                }
                             }
                         })
                     });
@@ -1130,6 +1175,30 @@
                         Swal.fire({
                             title: 'Pembayaran Job Order',
                             text:'Maaf Anda Tidak Memiliki Akses Untuk Melakukan Pembayaran',
+                            icon: "warning",
+                            time: 2000
+                        })
+                    });
+                    $('.btn-alert-update-jo').click(function() {
+                        Swal.fire({
+                            title: 'Ubah Status Job Order',
+                            text:'Maaf Anda Tidak Memiliki Akses Untuk Melakukan Ubah Status',
+                            icon: "warning",
+                            time: 2000
+                        })
+                    });
+                    $('.btn-alert-update-jo-1').click(function() {
+                        Swal.fire({
+                            title: 'Ubah Status Job Order',
+                            text:'Maaf Anda Uang Jalan Job Order Masih Belum Lunas',
+                            icon: "warning",
+                            time: 2000
+                        })
+                    });
+                    $('.btn-alert-edit-jo').click(function() {
+                        Swal.fire({
+                            title: 'Edit Data Job Order',
+                            text:'Maaf Job Order Ini Sudah Melakukan Pembayaran',
                             icon: "warning",
                             time: 2000
                         })

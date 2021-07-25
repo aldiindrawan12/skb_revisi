@@ -42,31 +42,10 @@
                         <label class="form-label font-weight-bold col-md-5" for="Jenis">Jenis Mobil</label>
                         <input autocomplete="off" type="text" class="form-control col-md-7" name="Jenis" id="Jenis" required readonly>
                     </div>
-                    <!-- <div class="table-responsive">
-                        <table class="table table-bordered" id="Table-Pilih-Rute" width="100%" cellspacing="0">
-                            <thead>
-                                <tr>    
-                                    <th class="text-center" scope="col">Customer</th>
-                                    <th class="text-center" scope="col">Muatan</th>
-                                    <th class="text-center" scope="col">Dari</th>
-                                    <th class="text-center" scope="col">Ke</th>
-                                    <th class="text-center" scope="col">Jenis Mobil</th>
-                                    <th class="text-center" scope="col">Type Tonase</th>
-                                    <th class="text-center" scope="col">Tonase</th>
-                                    <th class="text-center" width="15%" scope="col">Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                        </table>
-                    </div> -->
                     <div class="col-md-12 mb-4 row">
                         <label class="form-label font-weight-bold col-md-5 " for="Customer">Customer</label>
-                        <select name="Customer" value="DESC" id="Customer" class="form-control col-md-7 selectpicker" data-live-search="true" required onchange="set_muatan(this)">
+                        <select name="Customer" value="DESC" id="Customer" class="form-control col-md-7" required onchange="set_muatan(this)">
                             <option class="font-w700" disabled="disabled" selected value="">Customer</option>
-                            <?php foreach($customer as $value){?>
-                                <option value="<?=$value["customer_id"]?>"><?=$value["customer_name"]?></option>
-                            <?php } ?>
                         </select>
                     </div>
                     <div class="col-md-12 mb-4 row">
@@ -133,7 +112,7 @@
             </div>
         </div>
     </div>
-<script>
+    <script>
     function reset_form(){
         location.reload();
     }
@@ -180,6 +159,13 @@
         }
     }
     function set_jenis_mobil(a){
+        $('#Muatan').find('option').remove().end();
+        $('#Asal').find('option').remove().end();
+        $('#Tujuan').find('option').remove().end();
+        $('#Customer').find('option').remove().end();
+        $("#Uang").val("");
+        $("#Upah").val("");
+        $("#Tagihan").val("");
         $.ajax({
             type: "POST",
             url: "<?php echo base_url('index.php/form/getmobilbyno') ?>",
@@ -191,9 +177,14 @@
                 $("#Jenis").val(data["mobil_jenis"]);
             }
         });
+        $('#Customer').append('<option class="font-w700" disabled="disabled" selected value="">Customer</option>'); 
+        <?php for($i=0;$i<count($customer);$i++){?>
+            $('#Customer').append('<option value="'+'<?= $customer[$i]["customer_id"]?>'+'">'+'<?= $customer[$i]["customer_name"]?>'+'</option>'); 
+        <?php }?>
     }
     function set_muatan(a){
         customer_id = $("#"+a.id).val();
+        mobil_no = $("#Jenis").val();
         $('#Muatan').find('option').remove().end();
         $('#Asal').find('option').remove().end();
         $('#Tujuan').find('option').remove().end();
@@ -203,8 +194,12 @@
         isi_muatan = [];
         $.ajax({ //ajax set option kendaraan
             type: "POST",
-            url: "<?php echo base_url('index.php/form/getrutebycustomer/') ?>"+customer_id,
+            url: "<?php echo base_url('index.php/form/getrutebycustomer/') ?>",
             dataType: "JSON",
+            data: {
+                customer_id: customer_id,
+                mobil_no: mobil_no,
+            },
             success: function(data) {
                 if(data.length==0){
                     $('#Muatan').append('<option class="font-w700" disabled="disabled" selected value="">Kosong</option>'); 
@@ -222,6 +217,7 @@
     }
     function set_asal(a){
         customer_id = $("#Customer").val();
+        mobil_no = $("#Jenis").val();
         muatan = $("#"+a.id).val();
         $('#Asal').find('option').remove().end();
         $('#Tujuan').find('option').remove().end();
@@ -235,6 +231,7 @@
             dataType: "JSON",
             data: {
                 customer_id: customer_id,
+                mobil_no: mobil_no,
                 rute_muatan: muatan,
             },
             success: function(data) {
@@ -256,6 +253,7 @@
         customer_id = $("#Customer").val();
         muatan = $("#Muatan").val();
         asal = $("#"+a.id).val();
+        mobil_no = $("#Jenis").val();
         $('#Tujuan').find('option').remove().end();
         $("#Uang").val("");
         $("#Upah").val("");
@@ -269,6 +267,7 @@
                 customer_id: customer_id,
                 rute_muatan: muatan,
                 rute_asal: asal,
+                mobil_no: mobil_no,
             },
             success: function(data) {
                 if(data.length==0){
@@ -290,6 +289,7 @@
         muatan = $("#Muatan").val();
         asal = $("#Asal").val();
         ke = $("#"+a.id).val();
+        mobil_no = $("#Jenis").val();
         $.ajax({ //ajax set option kendaraan
             type: "POST",
             url: "<?php echo base_url('index.php/form/getrutefix') ?>",
@@ -299,6 +299,7 @@
                 rute_muatan: muatan,
                 rute_asal: asal,
                 rute_ke: ke,
+                mobil_no: mobil_no,
             },
             success: function(data) {
                 if($("#jenis_tambahan").val()=="Potongan"){

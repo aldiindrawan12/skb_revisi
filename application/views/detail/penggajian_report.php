@@ -57,6 +57,15 @@
                     </select>
                 </div>
                 <div class="mb-2 form-group row">
+                    <label class="form-label font-weight-bold col-md-4" for="nopol">No Polisi</label>
+                    <select name="nopol" id="nopol" class="form-control selectpicker col-md-8" data-live-search="true">
+                        <option class="font-w700" selected value="">Semua No Polisi</option>
+                        <?php foreach($mobil as $value){?>
+                            <option value="<?=$value["mobil_no"]?>"><?=$value["mobil_no"]?></option>
+                        <?php }?>
+                    </select>
+                </div>
+                <div class="mb-2 form-group row">
                     <label for="No_Slip" class="form-label font-weight-bold col-md-4">No. Slip Gaji</label>
                     <input autocomplete="off" type="text" class="form-control col-md-2" id="No_Slip1" name="No_Slip1" value="x">
                     <input autocomplete="off" type="text" class="form-control col-md-2" id="No_Slip2" name="No_Slip2" value="Gaji" readonly>
@@ -120,6 +129,7 @@
                             <th class="text-center" width="5%" scope="col">No. Slip Gaji</th>
                             <th class="text-center" width="10%" scope="col">Tgl Slip Gaji</th>
                             <th class="text-center" width="10%" scope="col">Driver</th>
+                            <th class="text-center" width="10%" scope="col">No Polisi</th>
                             <th class="text-center" width="10%" scope="col">Bulan Kerja</th>
                             <th class="text-center" width="10%" scope="col">Total Gaji</th>
                             <th class="text-center" width="10%" scope="col">Sisa Gaji</th>
@@ -274,7 +284,7 @@
                 "ordering": true,
                 "searching":false,
                 "order": [
-                    [0, 'desc']
+                    [1, 'desc']
                 ],
                 "ajax": {
                     "url": "<?php echo base_url('index.php/detail/view_laporan_penggajian/')?>",
@@ -290,6 +300,7 @@
                         data.No_Slip4 = $('#No_Slip4').val();
                         data.Bulan = $('#Bulan').val();
                         data.Tahun = $('#Tahun').val();
+                        data.nopol = $('#nopol').val();
                     }
                 },
                 "deferRender": true,
@@ -310,6 +321,9 @@
                     },
                     {
                         "data":"supir_name"
+                    },
+                    {
+                        "data":"nopol"
                     },
                     {
                         "data":"bulan_kerja"
@@ -464,6 +478,7 @@
                                 No_Slip4 : $('#No_Slip4').val(),
                                 Bulan : $('#Bulan').val(),
                                 Tahun : $('#Tahun').val(),
+                                nopol : $('#nopol').val(),
                             },
                             success: function(data) { //jika ambil data sukses
                                 hasil = data.split("=");
@@ -494,6 +509,7 @@
                                 No_Slip4 : $('#No_Slip4').val(),
                                 Bulan : $('#Bulan').val(),
                                 Tahun : $('#Tahun').val(),
+                                nopol : $('#nopol').val(),
                             },
                             success: function(data) { //jika ambil data sukses
                                 hasil = data.split("=");

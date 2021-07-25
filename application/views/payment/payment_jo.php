@@ -411,6 +411,7 @@
             }
         }
         function delete_payment_jo(a){
+            let pk = a.id;
             var status_jo='<?= $jo["status"]?>';
             if(status_jo!="Sampai Tujuan"){
                 Swal.fire({

@@ -36,6 +36,12 @@
                         </div>
                     </div>          
                     <div class="form-group row">
+                        <label for="nopol" class="form-label col-sm-5 font-weight-bold">No Polisi</label>
+                        <div class="col-sm-7">
+                            <input autocomplete="off" type="text" class="form-control col-md-10" id="nopol" name="nopol" readonly value="<?= $pembayaran_upah["nopol"]?>">
+                        </div>
+                    </div>          
+                    <div class="form-group row">
                         <label for="bulan_kerja" class="form-label col-sm-5 font-weight-bold">Bulan Kerja</label>
                         <div class="col-sm-7">
                             <input autocomplete="off" type="text" class="form-control col-md-10" id="bulan_kerja" name="bulan_kerja" readonly value="<?= $pembayaran_upah["bulan_kerja"]?>">

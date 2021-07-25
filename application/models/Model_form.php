@@ -758,30 +758,44 @@ class Model_Form extends CI_model
         }
     //end fungsi delete
     // fungsi untuk form joborder
-        public function getrutebycustomer($customer_id){
+        public function getrutebycustomer($customer_id,$mobil_no){
             $this->db->select("rute_muatan");
-            return $this->db->get_where("skb_rute",array("customer_id"=>$customer_id,"rute_status_hapus"=>"NO","validasi_rute"=>"ACC","validasi_rute_edit"=>"ACC","validasi_rute_delete"=>"ACC"))->result_array();
+            return $this->db->get_where("skb_rute",array("customer_id"=>$customer_id,"jenis_mobil"=>$mobil_no,"rute_status_hapus"=>"NO","validasi_rute"=>"ACC","validasi_rute_edit"=>"ACC","validasi_rute_delete"=>"ACC"))->result_array();
         }
-        public function getrutebymuatan($customer_id,$muatan){
+        public function getrutebymuatan($customer_id,$muatan,$mobil_no){
             $data_where = array(
                 "customer_id"=>$customer_id,
                 "rute_muatan"=>$muatan,
-                "rute_status_hapus"=>"NO"
+                "rute_status_hapus"=>"NO",
+                "jenis_mobil"=>$mobil_no
             );
             $this->db->select("rute_dari");
             $this->db->where($data_where);
             return $this->db->get("skb_rute")->result_array();
         }
-        public function getrutebydari($customer_id,$muatan,$rute_dari){
+        public function getrutebydari($customer_id,$muatan,$rute_dari,$mobil_no){
             $data_where = array(
                 "customer_id"=>$customer_id,
                 "rute_muatan"=>$muatan,
                 "rute_dari"=>$rute_dari,
-                "rute_status_hapus"=>"NO"
+                "rute_status_hapus"=>"NO",
+                "jenis_mobil"=>$mobil_no
             );
             $this->db->select("rute_ke");
             $this->db->where($data_where);
             return $this->db->get("skb_rute")->result_array();
+        }
+        public function getrutefix($data){
+                $data_where = array(
+                    "customer_id"=>$data["customer_id"],
+                    "rute_muatan"=>$data["muatan"],
+                    "rute_dari"=>$data["rute_dari"],
+                    "rute_ke"=>$data["rute_ke"],
+                    "rute_status_hapus"=>"NO",
+                    "jenis_mobil"=>$data["mobil"]
+                );
+            $this->db->where($data_where);
+            return $this->db->get("skb_rute")->row_array();
         }
         public function getmobilbyjenis($mobil_jenis){
             return $this->db->get_where("skb_mobil",array("mobil_jenis"=>$mobil_jenis,"status_jalan"=>"Tidak Jalan","status_hapus"=>"NO","validasi"=>"ACC"))->result_array();
@@ -792,17 +806,6 @@ class Model_Form extends CI_model
         public function getallmobil(){
             $this->db->order_by("mobil_jenis","ASC");
             return $this->db->get_where("skb_mobil",array("status_hapus"=>"No"))->result_array();
-        }
-        public function getrutefix($data){
-                $data_where = array(
-                    "customer_id"=>$data["customer_id"],
-                    "rute_muatan"=>$data["muatan"],
-                    "rute_dari"=>$data["rute_dari"],
-                    "rute_ke"=>$data["rute_ke"],
-                    "rute_status_hapus"=>"NO",
-                );
-            $this->db->where($data_where);
-            return $this->db->get("skb_rute")->row_array();
         }
         public function getrutetonase($data){
             $data_where = array(

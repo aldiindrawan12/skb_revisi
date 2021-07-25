@@ -24,7 +24,11 @@ class Model_Home extends CI_model
             // ,"validasi"=>"ACC","validasi_edit"=>"ACC","validasi_delete"=>"ACC"
             return $this->db->get_where("skb_merk_kendaraan",array("status_hapus"=>"NO"))->result_array();
         }
-
+        public function getallmobil() //all customer
+        {
+            $this->db->order_by("mobil_no","ASC");
+            return $this->db->get_where("skb_mobil",array("status_hapus"=>"NO"))->result_array();
+        }
         public function getmobilbyid($mobil_no) //mobil by ID
         {
             return $this->db->get_where("skb_mobil",array("mobil_no"=>$mobil_no))->row_array();
@@ -81,7 +85,9 @@ class Model_Home extends CI_model
 
         public function getjobyid($jo_id) //JO by ID
         {
+            $this->db->join("skb_supir", "skb_supir.supir_id = skb_job_order.supir_id", 'left');
             $this->db->join("skb_customer", "skb_customer.customer_id = skb_job_order.customer_id", 'left');
+            $this->db->join("skb_mobil", "skb_mobil.mobil_no = skb_job_order.mobil_no", 'left');
             return $this->db->get_where("skb_job_order",array("Jo_id"=>$jo_id))->row_array();
         }
 

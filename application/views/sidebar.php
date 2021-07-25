@@ -102,10 +102,10 @@
                             <i class="fas fa-envelope-open-text"></i>
                             <span id="coba">Data Job Order</span>
                         </a>
-                        <a class="collapse-item" id="Konfirmasi_JO_page" href="<?=base_url("index.php/home/konfirmasi_jo")?>">
+                        <!-- <a class="collapse-item" id="Konfirmasi_JO_page" href="<?=base_url("index.php/home/konfirmasi_jo")?>">
                             <i class="fas fa-info-circle"></i>
                             <span id="coba">Konfirmasi Job Order</span>
-                        </a>
+                        </a> -->
                     </div>
                 </div>
             </li>
@@ -139,7 +139,7 @@
                 </a>
                 <div id="Penggajian" class="collapse" aria-labelledby="headingTwo">
                     <div class="bg-white collapse-inner rounded">
-                        <a class="collapse-item" id="Gaji_page" href="<?=base_url("index.php/home/gaji")?>">
+                        <a class="collapse-item" id="Gaji_page" href="<?= base_url('index.php/detail/pilih_gaji/x/x/home/').date('m')."/".date('Y')?>">
                             <i class="fas fa-dollar-sign"></i>
                             <span>Buat Slip Gaji</span>
                         </a>

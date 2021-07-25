@@ -8,15 +8,16 @@
             return $tanggal;
         }
     }
+    $array_keterangan = explode("===",$jo["keterangan"]);
 ?>
 <!-- Basic Card Example -->
 <div class="card shadow mb-4 ml-5 mr-5 py-2 px-2">
     <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary float-left">Detail Job Order</h6>
         <div class="float-right ml-3">
-                <a class='btn btn-primary btn-sm ' href='<?= base_url("index.php/print_berkas/uang_jalan/").$jo["Jo_id"]."/detail"?>' id="">
-                    <span>Print/PDF</span>
-                </a>
+            <a class='btn btn-primary btn-sm ' onclick="print_pdf()">
+                <span>Print/PDF</span>
+            </a>
         </div>
         <div class="float-right">
             <form method="POST" action="<?= base_url("index.php/print_berkas/jo_excel/")?>" id="convert_form">
@@ -103,10 +104,10 @@
                         <td colspan=3>Rp.<?=number_format($jo["sisa"],0,',','.')?></td>
                     </tr>
                     <tr>
-                        <td class="font-weight-bold" style="width: 20%;">Catatan/Keterangan</td>
-                        <td colspan=3><?= $jo["keterangan"]?></td>
+                        <td class="font-weight-bold" style="width: 20%;">Keterangan</td>
+                        <td colspan=3><?= $array_keterangan[0]?></td>
                     </tr>
-                                        <tr>
+                    <tr>
                         <td class="font-weight-bold" style="width: 25%;">Status</td>
                         <td colspan=3><?= $jo["status"] ?></td>
                     </tr>
@@ -125,6 +126,10 @@
                     <tr>
                         <td class="font-weight-bold" style="width: 25%;">Biaya Lain-lain</td>
                         <td colspan=3>Rp.<?= number_format($jo["biaya_lain"],0,',','.')?></td>
+                    </tr>
+                    <tr>
+                        <td class="font-weight-bold" style="width: 20%;">Keterangan Ubah Status</td>
+                        <td colspan=3><?= $array_keterangan[1]?></td>
                     </tr>
                     <tr>
                         <td class="font-weight-bold" style="width: 25%;">No Slip Gaji</td>
@@ -172,111 +177,6 @@
         <!-- end tampilan detail jo -->
     </div>
 </div>
-
-<!-- pop up update bayar uang jalan -->
-<div class="modal fade mt-4 py-5" id="update_ju" role="dialog" aria-labelledby="modal-block-large" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header bg-primary-dark">
-                <h5 class="block-title font-weight-bold">Konfirmasi Uang Jalan</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times</span>
-                </button>
-            </div>
-            <div class="font-size-sm m-3 text-justify">
-                <form action="<?php echo base_url("index.php/detail/updateUJ/").$jo["Jo_id"]?>" method="POST">
-                    <small>Sisa Uang Jalan Belum Dibayar = Rp.<span id="sisa_uj"></span></small>
-                    <div class="mb-3 row">
-                        <label for="uang_jalan_bayar" class="col-sm-5 col-form-label">Nominal Uang Jalan Yang Dibayar</label>
-                        <div class="col-sm-6">
-                            <input autocomplete="off" class="form-control" type="text" name="uang_jalan_bayar" id="uang_jalan_bayar" onkeyup="uang(this)" required>    
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label for="Keterangan" class="col-sm-5 col-form-label">Keterangan</label>
-                        <div class="col-sm-6">
-                            <input autocomplete="off" class="form-control" type="text" name="Keterangan" id="Keterangan" required>    
-                        </div>
-                    </div>
-                    <div class="float-right mr-5 px-3 mt-2">
-                        <button type="submit" class="btn btn-success">Simpan</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- end pop up update bayar uang jalan -->
-
-<!-- pop up update supir -->
-<div class="modal fade mt-4 py-5" id="supir_update" role="dialog" aria-labelledby="modal-block-large" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header bg-primary-dark">
-                <h5 class="block-title font-weight-bold">Ganti Supir</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times</span>
-                </button>
-            </div>
-            <div class="font-size-sm m-3 text-justify">
-                <form action="<?php echo base_url("index.php/detail/updatesupirjo/").$jo["Jo_id"]."/".$jo["supir_id"]?>" method="POST">
-                    <div class="col-md-4 col-md-offset-4 mb-4">
-                        <label class="form-label font-weight-bold" for="Supir">Supir</label>
-                        <select name="Supir" id="Supir" class="form-control selectpicker" data-live-search="true" required>
-                            <?php if(count($all_supir)==0){?>
-                                <option class="font-w700" disabled="disabled" selected value="">Supir Kosong</option>
-                            <?php }else{ ?>
-                                <option class="font-w700" disabled="disabled" selected value="">Nama Supir</option>
-                                <?php for($i=0;$i<count($all_supir);$i++){?>
-                                    <option value="<?= $all_supir[$i]["supir_id"]?>"><?= $all_supir[$i]["supir_name"]?></option>
-                                <?php }
-                            }?>
-                        </select>
-                    </div>
-                    <div class="float-right mr-5 px-3 mt-2">
-                        <button type="submit" class="btn btn-success">Simpan</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- end pop up update supir -->
-
-<!-- pop up update mobil -->
-<div class="modal fade mt-4 py-5" id="mobil_update" role="dialog" aria-labelledby="modal-block-large" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header bg-primary-dark">
-                <h5 class="block-title font-weight-bold">Ganti Mobil</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times</span>
-                </button>
-            </div>
-            <div class="font-size-sm m-3 text-justify">
-                <form action="<?php echo base_url("index.php/detail/updatemobiljo/").$jo["Jo_id"]."/".$jo["mobil_no"]?>" method="POST">
-                    <div class="col-md-4 col-md-offset-4 mb-4">
-                        <label class="form-label font-weight-bold" for="Mobil">Mobil</label>
-                        <select name="Mobil" id="Mobil" class="form-control selectpicker" data-live-search="true" required>
-                            <?php if(count($all_mobil)==0){?>
-                                <option class="font-w700" disabled="disabled" selected value="">Mobil Kosong</option>
-                            <?php }else{ ?>
-                                <option class="font-w700" disabled="disabled" selected value="">Mobil</option>
-                                <?php for($i=0;$i<count($all_mobil);$i++){?>
-                                    <option value="<?= $all_mobil[$i]["mobil_no"]?>"><?= $all_mobil[$i]["mobil_no"]."==".$all_mobil[$i]["mobil_jenis"]?></option>
-                                <?php }
-                            }?>
-                        </select>
-                    </div>
-                    <div class="float-right mr-5 px-3 mt-2">
-                        <button type="submit" class="btn btn-success">Simpan</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- end pop up update mobil -->
 <script src="<?=base_url("assets/vendor/jquery/jquery.min.js")?>"></script>
 
 <script>
@@ -308,9 +208,8 @@
   });
  });
  function print_pdf(){
-     alert("ASdsa");
     var restorepage = document.body.innerHTML;
-    var printcontent = document.getElementById('Table-Bon-Print').innerHTML;
+    var printcontent = document.getElementById('detail-jo').innerHTML;
     document.body.innerHTML = printcontent;
     window.print();
     document.body.innerHTML = restorepage;

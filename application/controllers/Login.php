@@ -44,6 +44,7 @@ class Login extends CI_Controller {
                     $_SESSION["payment_jo"] = json_decode($data["akun_akses"]["akses"])[20];
                     $_SESSION["payment_invoice"] = json_decode($data["akun_akses"]["akses"])[18];
                     $_SESSION["payment_slip"] = json_decode($data["akun_akses"]["akses"])[19];
+                    $_SESSION["update_jo"] = json_decode($data["akun_akses"]["akses"])[2];
                     redirect(base_url("index.php/dashboard/"));
                 }else{
                     $this->session->set_flashdata('status-login', 'Aktif');

@@ -61,6 +61,11 @@
                         <td><?= $supir["supir_name"]?></td>
                     </tr>
                     <tr>
+                        <td width="25%">No   Polisi</td>
+                        <td width="5%">:</td>
+                        <td><?= $pembayaran_upah[0]["nopol"]?></td>
+                    </tr>
+                    <tr>
                         <td width="25%">Bulan Kerja</td>
                         <td width="5%">:</td>
                         <td><?= $pembayaran_upah[0]["bulan_kerja"]?></td>

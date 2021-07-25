@@ -286,7 +286,7 @@ class Detail extends CI_Controller {
             $this->load->view('footer');
         }
 
-        public function pilih_gaji($supir_id,$asal,$bulan,$tahun)
+        public function pilih_gaji($supir_id,$no_pol,$asal,$bulan,$tahun)
         {
             $slip_id = $this->model_form->getpembayaranupahidnow($bulan,$tahun);
             $isi_slip_id = [];
@@ -308,8 +308,24 @@ class Detail extends CI_Controller {
             }
             $data["bulan_index"]=$bulan;
             $data["tahun"]=$tahun;
-            $data["jo"] = $this->model_detail->getjobbysupirbulan($supir_id,$data["tahun"],$data["bulan_index"]);
+            $data["jo"] = $this->model_detail->getjobbysupirbulan($supir_id,str_replace("%20"," ",$no_pol),$data["tahun"],$data["bulan_index"]);
             $data["supir"] = $this->model_home->getsupirbyid($supir_id);
+            $data["mobil"] = $this->model_home->getmobilbyid(str_replace("%20"," ",$no_pol));
+            if($data["supir"]==null){
+                $data["supir"] = array(
+                    "supir_id"=>"x",
+                    "supir_name"=>"Driver",
+                    "supir_panggilan"=>"Panggilan Driver",
+                    "supir_kasbon"=>0
+                );
+            }
+            if($data["mobil"]==null){
+                $data["mobil"] = array(
+                    "mobil_no"=>"No Polisi",
+                );
+            }
+            $data["all_supir"] = $this->model_detail->getsupir();
+            $data["all_mobil"] = $this->model_detail->getallmobil();
             $data["page"] = "Gaji_page";
             $data["collapse_group"] = "Penggajian";
             $data["akun_akses"] = $this->model_form->getakunbyid($_SESSION["user_id"]);
@@ -349,6 +365,7 @@ class Detail extends CI_Controller {
                 "Tanggal2" => $this->input->post('Tanggal2'),
                 "Bulan" => $this->input->post('Bulan'),
                 "Tahun" => $this->input->post('Tahun'),
+                "nopol" => $this->input->post('nopol'),
                 "No_Slip" => $No_Slip,
             );
             $postData = $this->input->post();
@@ -365,6 +382,7 @@ class Detail extends CI_Controller {
                 "Tanggal2" => $this->input->post('Tanggal2'),
                 "Bulan" => $this->input->post('Bulan'),
                 "Tahun" => $this->input->post('Tahun'),
+                "nopol" => $this->input->post('nopol'),
                 "No_Slip" => $No_Slip,
             );
             $data_filter = $this->model_detail->getDitemukanSlip($data);
@@ -451,11 +469,12 @@ class Detail extends CI_Controller {
                 "bulan_kerja"=>$data_bulan[$bulan]."-".$tahun,
                 "pembayaran_upah_id"=>$this->input->post("no_gaji"),
                 "keterangan"=>$this->input->post("Keterangan"),
-                "sisa"=>str_replace(".","",$this->input->post("gaji_grand_total"))
+                "sisa"=>str_replace(".","",$this->input->post("gaji_grand_total")),
+                "nopol"=>$this->input->post("nopol"),
             );
             $this->session->set_flashdata('status-insert-slip-gaji', 'Berhasil');
             $this->model_detail->insert_upah($data);
-            redirect (base_url("index.php/home/gaji"));
+            redirect(base_url('index.php/detail/pilih_gaji/x/x/home/').date('m')."/".date('Y'));
         }
 
         public function update_slip($pembayaran_upah_id){
@@ -539,6 +558,13 @@ class Detail extends CI_Controller {
     {
         $upah_id = $this->input->get('id');
         $data = $this->model_detail->getpaymentupah($upah_id);
+        echo count($data);
+    }
+
+    function getnumpaymentjo()
+    {
+        $jo_id = $this->input->get('id');
+        $data = $this->model_detail->getpaymentjo($jo_id);
         echo count($data);
     }
 }

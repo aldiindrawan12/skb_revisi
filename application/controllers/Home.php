@@ -294,6 +294,7 @@ class Home extends CI_Controller {
             }
             $data["gaji"]=$gaji;
             $data["supir"] = $this->model_home->getallsupir();
+            $data["mobil"] = $this->model_home->getallmobil();
             $data["page"] = "Laporan_Gaji_page";
             $data["collapse_group"] = "Penggajian";
             $data["akun_akses"] = $this->model_form->getakunbyid($_SESSION["user_id"]);

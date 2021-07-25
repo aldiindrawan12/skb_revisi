@@ -119,7 +119,7 @@ class Model_Detail extends CI_model
             return $this->db->get_where("skb_job_order",array("skb_job_order.supir_id"=>$supir_id,"skb_job_order.status"=>"Sampai Tujuan"))->result_array();
         }
         
-        public function getjobbysupirbulan($supir_id,$tahun,$bulan){ //JO by supir
+        public function getjobbysupirbulan($supir_id,$nopol,$tahun,$bulan){ //JO by supir
             if($bulan=="x" && $tahun=="x"){
                 $bulan_kerja = "";
             }else if($bulan=="x"){
@@ -136,7 +136,11 @@ class Model_Detail extends CI_model
             $this->db->where("upah!=","0");
             $this->db->join("skb_customer","skb_customer.customer_id=skb_job_order.customer_id","left");
             $this->db->join("skb_supir","skb_supir.supir_id=skb_job_order.supir_id","left");
-            return $this->db->get_where("skb_job_order",array("skb_job_order.supir_id"=>$supir_id,"skb_job_order.status"=>"Sampai Tujuan"))->result_array();
+            if($nopol!="No Polisi"){
+                return $this->db->get_where("skb_job_order",array("skb_job_order.supir_id"=>$supir_id,"skb_job_order.mobil_no"=>$nopol,"skb_job_order.status"=>"Sampai Tujuan"))->result_array();
+            }else{
+                return $this->db->get_where("skb_job_order",array("skb_job_order.supir_id"=>$supir_id,"skb_job_order.status"=>"Sampai Tujuan"))->result_array();
+            }
         }
         
         public function getpembayaranupah(){
@@ -213,7 +217,7 @@ class Model_Detail extends CI_model
                     "pembayaran_upah_id"=>$data["pembayaran_upah_id"],
                     "bon_tanggal"=>date("Y-m-d"),
                     "user"=>$_SESSION["user"]."(".date("d-m-Y H:i:s").")",
-                    "status_hapus"=>"NO"
+                    "status_hapus"=>"NO",
                 );
                 $this->db->insert("skb_bon",$data_bon);
             }
@@ -232,8 +236,8 @@ class Model_Detail extends CI_model
                 "bulan_kerja"=>$data["bulan_kerja"],
                 "user_upah"=>$_SESSION["user"]."(".date("d-m-Y H:i:s").")",
                 "keterangan"=>$data["keterangan"],
-                "sisa"=>$data["sisa"]
-
+                "sisa"=>$data["sisa"],
+                "nopol"=>$data["nopol"]
             );
             $this->db->insert("skb_pembayaran_upah",$data);
             //end insert pembayaran upah 
@@ -354,10 +358,13 @@ class Model_Detail extends CI_model
 
     //fungsi untuk update supir dan mobil JO
         public function getsupir(){
-            return $this->db->get_where("skb_supir",array("status_jalan"=>"Tidak Jalan","status_hapus"=>"NO","status_aktif"=>"Aktif","validasi"=>"ACC"))->result_array();
+            return $this->db->get_where("skb_supir",array("status_hapus"=>"NO"))->result_array();
         }
         public function getmobil($mobil_jenis){
             return $this->db->get_where("skb_mobil",array("status_jalan"=>"Tidak Jalan","status_hapus"=>"NO","validasi"=>"ACC","mobil_jenis"=>$mobil_jenis))->result_array();
+        }
+        public function getallmobil(){
+            return $this->db->get_where("skb_mobil",array("status_hapus"=>"NO"))->result_array();
         }
         public function updatesupirjo($jo_id,$supir_id,$supir_id_old){
             $this->db->where("Jo_id",$jo_id);
@@ -403,6 +410,9 @@ class Model_Detail extends CI_model
             ## Search 
             $search_arr = array();
             $searchQuery = "";
+            if($data["nopol"]!=""){
+                $search_arr[] = " nopol='".$data["nopol"]."' ";
+            }
             if($data["Status"]!=""){
                 $search_arr[] = " pembayaran_upah_status='".$data["Status"]."' ";
             }
@@ -487,6 +497,9 @@ class Model_Detail extends CI_model
             ## Search 
             $search_arr = array();
             $searchQuery = "";
+            if($data["nopol"]!=""){
+                $search_arr[] = " nopol='".$data["nopol"]."' ";
+            }
             if($data["Status"]!=""){
                 $search_arr[] = " pembayaran_upah_status='".$data["Status"]."' ";
             }

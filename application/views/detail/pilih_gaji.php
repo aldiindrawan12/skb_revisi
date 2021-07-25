@@ -15,11 +15,36 @@
                         </div>
                         <div class="form-group row">
                             <label for="no_gaji" class="col-form-label col-sm-7 font-weight-bold">No. Slip Gaji</label>
+
                             <input autocomplete="off" type="text" class="form-control col-md-5" id="no_gaji" name="no_gaji" value="<?= $no_slip_gaji?>" required readonly>
                         </div>
                         <div class="form-group row">
-                            <label for="nama_supir" class="col-form-label col-sm-7 font-weight-bold">Supir</label>
-                            <input autocomplete="off" type="text" class="form-control col-md-5" id="nama_supir" name="nama_supir" value="<?= $supir["supir_name"]?>" readonly>
+                            <label for="nama_supir" class="col-form-label col-sm-7 font-weight-bold">Driver</label>
+                            <select name="nama_supir" id="nama_supir" class="form-control col-sm-5 selectpicker" data-live-search="true" required onchange="redirect_url(this)">
+                                <?php if($supir["supir_id"]=="x"){?>
+                                    <option class="font-w700" disabled="disabled" selected value="<?= $supir["supir_id"]?>"><?= $supir["supir_name"]?></option>
+                                <?php }else{?>
+                                    <option value="<?= $supir["supir_id"]?>"><?= $supir["supir_name"]?></option>
+                                <?php }?>
+
+                                <?php foreach($all_supir as $value){?>
+                                        <option value="<?=$value["supir_id"]?>"><?=$value["supir_name"]?></option>
+                                <?php }?>
+                            </select>
+                        </div>
+                        <div class="form-group row">
+                            <label for="nopol" class="col-form-label col-sm-7 font-weight-bold">Bo Polisi</label>
+                            <select name="nopol" id="nopol" class="form-control col-sm-5 selectpicker" data-live-search="true" required onchange="redirect_url(this)">
+                                <?php if($mobil["mobil_no"]=="No Polisi"){?>
+                                    <option class="font-w700" disabled="disabled" selected value="x"><?= $mobil["mobil_no"]?></option>
+                                <?php }else{?>
+                                    <option value="<?= $mobil["mobil_no"]?>"><?= $mobil["mobil_no"]?></option>
+                                <?php }?>
+                                <option class="font-w700" value="No Polisi">No Polisi</option>
+                                <?php foreach($all_mobil as $value){?>
+                                        <option value="<?=$value["mobil_no"]?>"><?=$value["mobil_no"]?></option>
+                                <?php }?>
+                            </select>
                         </div>
                         <div class="form-group row">
                             <label for="bulan_kerja" class="col-form-label col-sm-6 font-weight-bold">Bulan Kerja</label>
@@ -29,7 +54,7 @@
                                     if($bulan_index!=10){
                                         $bulan_index=str_replace("0","",$bulan_index);
                                     }?>
-                                        <option class="font-w700" selected value="<?= $bulan_index?>"><?= $bulan[$bulan_index]?></option>
+                                    <option class="font-w700" selected value="<?= $bulan_index?>"><?= $bulan[$bulan_index]?></option>
                                     <option value="01"><?=$bulan[1]?></option>
                                     <option value="02"><?=$bulan[2]?></option>
                                     <option value="03"><?=$bulan[3]?></option>
@@ -106,6 +131,7 @@
                     <thead>
                         <tr>
                             <th class="text-center" width="10%" scope="col">JO ID</th>
+                            <th class="text-center" width="10%" scope="col">No Polisi</th>
                             <th class="text-center" width="10%" scope="col">Tgl Muat</th>
                             <th class="text-center" width="13%" scope="col">Tgl Bongkar</th>
                             <th class="text-center" width="13%" scope="col">Customer</th>
@@ -122,6 +148,7 @@
                     <?php foreach($jo as $value){?>
                         <tr>
                             <td><?= $value["Jo_id"]?></td>
+                            <td><?= $value["mobil_no"]?></td>
                             <td><?= $value["tanggal_muat"]?></td>
                             <td><?= $value["tanggal_bongkar"]?></td>
                             <td><?= $value["customer_name"]?></td>
@@ -347,7 +374,6 @@
             }
         });
     </script>
-
     <script> //script input tanggal
         function tanggal_berlaku(a){
             // alert(a.id);
@@ -386,6 +412,12 @@
             window.onclick = resetIdleTimeout;
             window.onmousemove = resetIdleTimeout;
             window.onscroll = resetIdleTimeout;
-
         });
+    </script>
+    <script>
+        function redirect_url(a){
+            var id_supir = $("#nama_supir").val();
+            var nopol = $("#nopol").val();
+            location.replace("<?= base_url('index.php/detail/pilih_gaji/"+id_supir+"/"+nopol+"/home/').date('m').'/'.date('Y')?>");
+        }
     </script>

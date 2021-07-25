@@ -31,7 +31,7 @@
             <form action="<?= base_url("index.php/form/update_konfigurasi/".$akun["akun_id"])?>" method="POST">
                 <?php
                 $urut = [0,14,1,20,2,3,4,18,6,9,19,13,5,10,11,15,16,17,7,8,12];
-                $page = ["Master Data","Data Job Order","Konfirmasi Job Order","Buat Invoice","Data Invoice",
+                $page = ["Master Data","Data Job Order","Ubah Status Job Order","Buat Invoice","Data Invoice",
                 "Data Nota Kasbon","Buat Slip Gaji","Laporan Job Order","Laporan Uang Jalan","Data Slip Supir",
                 "Mutasi Kasbon","Konfigurasi Akun","Saldo Kasbon","Buat Nota Kasbon","Buat Job Order","DB Izin","DB Operasional","DB Invoice"
                 ,"Payment Invoice","Payment Gaji","Payment JO"];?>
@@ -41,7 +41,7 @@
                             <tbody>
                                 <?php for($j=0;$j<count($urut);$j++){
                                     for($i=0;$i<21;$i++){
-                                        if($i==7 || $i==8 || $i==12){
+                                        if($i==7 || $i==8 || $i==12 ){
                                             continue;
                                         }else{
                                         if($urut[$j]==$i){

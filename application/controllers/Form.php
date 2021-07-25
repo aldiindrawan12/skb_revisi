@@ -620,7 +620,7 @@ class Form extends CI_Controller {
         public function update_jo_status($supir,$mobil){
             if($this->input->post("status")!="Dibatalkan"){
                 $data_jo = $this->model_home->getjobyid($this->input->post("jo_id"));
-                $keterangan = $data_jo["keterangan"]."<br>".$this->input->post("Keterangan");
+                $keterangan = $data_jo["keterangan"]."===<br>".$this->input->post("Keterangan");
                 $data = array(
                     "jo_id" => $this->input->post("jo_id"),
                     "status" => $this->input->post("status"),
@@ -634,7 +634,7 @@ class Form extends CI_Controller {
                     // "tanggal_bongkar"=>date('Y-m-d'),
                 );
                 $this->model_form->update_jo_status($data,$supir,$mobil);
-                redirect(base_url("index.php/home/konfirmasi_jo"));
+                redirect(base_url("index.php/home"));
             }else{
                 $this->updatejobatal($this->input->post("jo_id"));
             }
@@ -1061,21 +1061,36 @@ class Form extends CI_Controller {
     //end fungsi lain
 
     // fungsi form joborder
-        public function getrutebycustomer($customer_id){
-            $rute = $this->model_form->getrutebycustomer($customer_id);
-            echo json_encode($rute);        
+        public function getrutebycustomer(){
+            $customer_id = $this->input->post("customer_id");
+            $mobil_no = $this->input->post("mobil_no");
+            $rute = $this->model_form->getrutebycustomer($customer_id,$mobil_no);
+            echo json_encode($rute);      
         }
         public function getrutebymuatan(){
             $customer_id = $this->input->post("customer_id");
             $muatan = $this->input->post("rute_muatan");
-            $rute = $this->model_form->getrutebymuatan($customer_id,$muatan);
+            $mobil = $this->input->post("mobil_no");
+            $rute = $this->model_form->getrutebymuatan($customer_id,$muatan,$mobil);
             echo json_encode($rute);        
         }
         public function getrutebyasal(){
             $customer_id = $this->input->post("customer_id");
             $muatan = $this->input->post("rute_muatan");
             $rute_dari = $this->input->post("rute_asal");
-            $rute = $this->model_form->getrutebydari($customer_id,$muatan,$rute_dari);
+            $mobil = $this->input->post("mobil_no");
+            $rute = $this->model_form->getrutebydari($customer_id,$muatan,$rute_dari,$mobil);
+            echo json_encode($rute);        
+        }
+        public function getrutefix(){
+            $data = array(
+                "customer_id" => $this->input->post("customer_id"),
+                "muatan" => $this->input->post("rute_muatan"),
+                "rute_dari" => $this->input->post("rute_asal"),
+                "rute_ke" => $this->input->post("rute_ke"),
+                "mobil" => $this->input->post("mobil_no")
+            );   
+            $rute = $this->model_form->getrutefix($data);
             echo json_encode($rute);        
         }
         public function getmobilbyjenis(){
@@ -1087,16 +1102,6 @@ class Form extends CI_Controller {
             $mobil_no = $this->input->post("mobil_no");
             $mobil = $this->model_form->getmobilbyno($mobil_no);
             echo json_encode($mobil);        
-        }
-        public function getrutefix(){
-            $data = array(
-                "customer_id" => $this->input->post("customer_id"),
-                "muatan" => $this->input->post("rute_muatan"),
-                "rute_dari" => $this->input->post("rute_asal"),
-                "rute_ke" => $this->input->post("rute_ke")
-            );   
-            $rute = $this->model_form->getrutefix($data);
-            echo json_encode($rute);        
         }
         public function getrutetonase(){
             $data = array(
@@ -1134,6 +1139,18 @@ class Form extends CI_Controller {
         $this->load->view('form/konfigurasi',$data);
         $this->load->view('footer');
     }
-
     
+    public function konfirmasi_jo($jo_id){
+        if(!$_SESSION["user"]){
+            $this->session->set_flashdata('status-login', 'False');
+            redirect(base_url());
+        }
+        $data["page"] = "JO_page";
+        $data["collapse_group"] = "Job_Order";
+        $data["data_jo"]=$this->model_home->getjobyid($jo_id);
+        $this->load->view('header',$data);
+        $this->load->view('sidebar');
+        $this->load->view('form/konfirmasi_jo',$data);
+        $this->load->view('footer');
+    }
 }
