@@ -3,7 +3,7 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
+       
             <!-- Sidebar - Brand -->
             <?php
                 if($_SESSION["user"]){
@@ -12,11 +12,15 @@
                     $link = redirect(base_url());
                 }
             ?>
-            <a class="sidebar-brand d-flex align-items-center justify-content-center my-2">
+
+           
+
+            <ul class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center">
                 <div class="sidebar-brand-icon fa-flip-horizontal">
-                    <i class="fa fa-truck"></i>
+                    <i class="fa fa-truck "></i>
                 </div>
-                <div class="sidebar-brand-text mx-3 "><h1>SKb</h1></div>
+                <div class="sidebar-brand-text mx-3 "><h3>SKB</h3></div>
             </a>
             <!-- Divider -->
             <hr class="sidebar-divider" id="HR_Dashboard">
@@ -73,14 +77,7 @@
                             <i class="fas fa-weight"></i>
                             <span>MD Rute</span>
                         </a>
-                        <!-- <a class="collapse-item" id="Kosongan_page"href="<?=base_url("index.php/home/kosongan")?>">  
-                        <i class="fas fa-list-alt"></i>
-                            <span>Rute Kosongan</span>
-                        </a>
-                        <a class="collapse-item" id="Paketan_page"href="<?=base_url("index.php/home/paketan")?>">  
-                        <i class="fas fa-route"></i>
-                            <span>Rute Paketan</span>
-                        </a> -->
+                    
                     </div>
                 </div>
             </li>
@@ -179,31 +176,7 @@
                     </div>
                 </div>
             </li>
-            <!-- Divider -->
-            <!-- <hr class="sidebar-divider" id="HR_Laporan"> -->
-            <!-- Nav Item - Pages Collapse Menu -->
-            <!-- <li class="nav-item" id="LI_Laporan">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Laporan"
-                    aria-expanded="true" aria-controls="Laporan" onclick="aktifasi('Laporan')">
-                    <span>Laporan</span>
-                </a>
-                <div id="Laporan" class="collapse" aria-labelledby="headingTwo">
-                    <div class="bg-white collapse-inner rounded">
-                        <a class="collapse-item" id="Laporan_page" href="<?=base_url("index.php/home/report")?>">
-                            <i class="fas fa-mail-bulk"></i>
-                            <span>Laporan Job Order</span>
-                        </a>
-                        <a class="collapse-item" id="Laporan_Uang_Jalan_page" href="<?=base_url("index.php/home/report_uang_jalan")?>">
-                            <i class="fas fa-file-invoice-dollar"></i>
-                            <span>Laporan Uang Jalan</span>
-                        </a> -->
-                        <!-- <a class="collapse-item" id="Laporan_Gaji_page" href="<?=base_url("index.php/home/report_gaji")?>">
-                            <i class="fas fa-file-invoice-dollar"></i>
-                            <span>Laporan Gaji Supir</span>
-                        </a> -->
-                    <!-- </div>
-                </div>
-            </li> -->
+           
             <!-- Divider -->
             <hr class="sidebar-divider" id="HR_Konfigurasi">
             <!-- Nav Item - Pages Collapse Menu -->
@@ -221,15 +194,23 @@
                     </div>
                 </div>
             </li>
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block my-1">
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline my-1">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
-        </ul>
+
+            </ul>
         <!-- End of Sidebar -->
 
+            <!-- Divider -->
+            <!-- <hr class="sidebar-divider d-none d-md-block my-1"> -->
+            <!-- Sidebar Toggler (Sidebar) --> 
+            
+            <!-- <div class="text-center d-none d-md-inline my-1">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div> -->
+        
+        
+        
+       
+
+        
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column bg-light">
             <!-- Main Content -->
