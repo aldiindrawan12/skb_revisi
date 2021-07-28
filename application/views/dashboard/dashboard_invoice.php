@@ -1,10 +1,11 @@
+    <div class="container mt-3">
     <div class="info-jo">
         <div class="card shadow mb-4">
             <div class="card-header py-3 text-center">
                 <h6 class="m-0 font-weight-bold text-primary"></h6>
                 <h6 class="m-0 font-weight-bold btn-facebook disabled h4 p-3 " style="border-radius:10px;  background-color:#91c788;">Job Order Belum Ada Invoice</h6>
             </div>  
-            <div class="card-body row justify-content-md-center small">
+            <div class="card-body row justify-content-md-center ">
                 <div class="table-responsive col-md-12 border border-primary rounded p-1 small">
                     <table class="table table-bordered" id="Table-JO-Belum-Invoice" width="100%" cellspacing="0">
                         <thead>
@@ -29,7 +30,21 @@
                 </div>
             </div>
         </div>
-    </div>  
+    </div>
+    
+    </div>
+    
+     
+    
+    
+       
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+    <div class="container mt-3">
     <div class="info-invoice">
         <div class="card shadow mb-4">
             <div class="card-header py-3 text-center">
@@ -55,22 +70,8 @@
             </div>
         </div>
     </div>
-        <!-- Footer -->
-        <footer class="sticky-footer bg-dark">
-            <div class="container my-auto">
-                <div class="copyright text-center my-auto">
-                    <span class="text-light">Copyright &copy; 2021 PT.Sumber Karya Berkah</span>
-                </div>
-            </div>
-        </footer>
-        <!-- End of Footer -->
-
-        </div>
-        <!-- End of Content Wrapper -->
 
     </div>
-    <!-- End of Page Wrapper -->
-
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
