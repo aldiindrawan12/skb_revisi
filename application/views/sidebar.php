@@ -1,9 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-            <a class="sidebar-brand d-flex align-items-center justify-content-center">
-               
-
+            <a class="sidebar-brand d-flex align-items-center justify-content-center">               
                 <span><i class="fa-flip-horizontal fa fa-truck text-white mr-2"></i></span>
-                <div class="sidebar-brand-text text-white"><h2>SKB</h2></div>
+                <div class="sidebar-brand-text text-white mr-5 "><h2>SKB</h2></div>
             </a>
 
   
@@ -15,28 +13,31 @@
     <ul class="navbar-nav mr-auto">
 
 
-      <li class="nav-item dropdown" id="LI_Dashboard">
+      <li class="nav-item dropdown mr-3" id="LI_Dashboard">
         <a class="nav-link dropdown-toggle text-white" href="#" data-target="#Dashboard" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-controls="Dashboard" onclick="aktifasi('Dashboard')">
           Dashboard
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           
             <a class="dropdown-item" id="DB_Izin_page" href="<?=base_url("index.php/dashboard")?>">
+            <!-- <i class="fas fa-clipboard mr-2"></i> -->
             DB Izin dan Dokumen
             </a>
 
             <a class="dropdown-item" id="DB_Operasional_page" href="<?=base_url("index.php/dashboard/dashboard_operasional")?>">
+            <!-- <i class="fas fa-truck mr-1"></i> -->
             DB Operasional
             </a>
 
           <a class="dropdown-item" id="DB_Invoice_page" href="<?=base_url("index.php/dashboard/dashboard_invoice")?>">
+          <!-- <i class="fas fa-id-badge mr-2"></i> -->
           DB Invoice
           </a>
         
         </div>
       </li>
      
-      <li class="nav-item dropdown" id="LI_Master_Data">
+      <li class="nav-item dropdown mr-3" id="LI_Master_Data">
         <a class="nav-link dropdown-toggle text-white" href="#" data-target="#Master_Data" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-controls="Master_Data" onclick="aktifasi('Master_Data')">
           Master Data
         </a>
@@ -47,13 +48,114 @@
             </a>
 
             <a class="dropdown-item" id="Kendaraan_page" href="<?=base_url("index.php/home/truck")?>">
-            <i class="fas fa-truck"></i>
             MD Kendaraan
             </a>
 
-          <a class="dropdown-item" id="DB_Invoice_page" href="<?=base_url("index.php/dashboard/dashboard_invoice")?>">
-          DB Invoice
-          </a>
+            <a class="dropdown-item" id="Supir_page" href="<?=base_url("index.php/home/penggajian")?>">
+            MD Driver
+            </a>
+
+            <a class="dropdown-item" id="Customer_page" href="<?=base_url("index.php/home/customer")?>">
+            MD Customer
+            </a>
+
+            <a class="dropdown-item" id="Satuan_page" href="<?=base_url("index.php/home/satuan")?>">
+            MD Rute
+            </a>
+        
+        </div>
+      </li>
+
+      <li class="nav-item dropdown mr-3" id="LI_Job_Order">
+        <a class="nav-link dropdown-toggle text-white" href="#" data-target="#Job_Order" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-controls="Job_Order" onclick="aktifasi('Job_Order')">
+          Job Order
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          
+            <a class="dropdown-item" id="Buat_JO_page" href="<?=base_url("index.php/form/joborder")?>">
+            <!-- <i class="fas fa-clipboard mr-2"></i> -->
+            Buat Job Order
+            </a>
+
+            <a class="dropdown-item" id="JO_page" href="<?=base_url("index.php/home")?>">
+            <!-- <i class="fas fa-truck mr-1"></i> -->
+            Data Job Order
+            </a>
+
+          <!-- <a class="collapse-item" id="Konfirmasi_JO_page" href="<?=base_url("index.php/home/konfirmasi_jo")?>">
+                            <i class="fas fa-info-circle"></i>
+                            <span id="coba">Konfirmasi Job Order</span>
+                        </a> -->
+        
+        </div>
+      </li>
+
+      <li class="nav-item dropdown mr-3" id="LI_Invoice">
+        <a class="nav-link dropdown-toggle text-white" href="#" data-target="#Invoice" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-controls="Invoice" onclick="aktifasi('Invoice')">
+          Invoice
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          
+            <a class="dropdown-item" id="Invoice_page" href="<?=base_url("index.php/home/invoice")?>">
+            <!-- <i class="fas fa-clipboard mr-2"></i> -->
+            Buat Invoice
+            </a>
+
+            <a class="dropdown-item" id="Invoice_Customer_page" href="<?=base_url("index.php/home/invoice_customer")?>">
+            <!-- <i class="fas fa-truck mr-1"></i> -->
+            Data Invoice
+            </a>
+        
+        </div>
+      </li>
+
+      <li class="nav-item dropdown mr-3" id="LI_Penggajian">
+        <a class="nav-link dropdown-toggle text-white" href="#" data-target="#Penggajian" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-controls="Penggajian" onclick="aktifasi('Penggajian')">
+          Penggajian
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          
+            <a class="dropdown-item" id="Gaji_page" href="<?= base_url('index.php/detail/pilih_gaji/x/x/home/').date('m')."/".date('Y')?>">
+            Buat Slip Gaji
+            </a>
+
+            <a class="dropdown-item" id="Laporan_Gaji_page" href="<?=base_url("index.php/home/report_gaji")?>">
+            Data Slip Gaji
+            </a>
+        
+        </div>
+      </li>
+
+      <li class="nav-item dropdown mr-3" id="LI_Kasbon">
+        <a class="nav-link dropdown-toggle text-white" href="#" data-target="#Kasbon" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-controls="Kasbon" onclick="aktifasi('Kasbon')">
+          Kasbon
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          
+            <a class="dropdown-item" id="Buat_Bon_page" href="<?=base_url("index.php/form/bon")?>">
+            Buat Nota Kasbon
+            </a>
+
+            <a class="dropdown-item" id="Bon_page" href="<?=base_url("index.php/home/bon")?>">
+            Data Nota Kasbon
+            </a>
+
+            <a class="dropdown-item" id="Laporan_Bon_page" href="<?=base_url("index.php/home/report_bon")?>">
+            Mutasi Kasbon Driver
+            </a>
+        
+        </div>
+      </li>
+
+      <li class="nav-item dropdown mr-3" id="LI_Konfigurasi">
+        <a class="nav-link dropdown-toggle text-white" href="#" data-target="#Konfigurasi" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-controls="Konfigurasi" onclick="aktifasi('Konfigurasi')">
+        Sistem dan Konfigurasi
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          
+            <a class="dropdown-item" id="Akun_page" href="<?=base_url("index.php/home/akun")?>">
+            Data Akun
+            </a>
         
         </div>
       </li>
@@ -104,182 +206,9 @@
                     $link = redirect(base_url());
                 }
             ?>
-
-           
-
-            <ul class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
-            <a class="sidebar-brand d-flex align-items-center justify-content-center">
-                <div class="sidebar-brand-icon fa-flip-horizontal">
-                    <i class="fa fa-truck "></i>
-                </div>
-                <div class="sidebar-brand-text mx-3 "><h3>SKB</h3></div>
-            </a>
-          
-            <!-- Divider -->
-            <hr class="sidebar-divider" id="HR_Job_Order">
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item" id="LI_Job_Order">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Job_Order"
-                    aria-expanded="true" aria-controls="Job_Order" onclick="aktifasi('Job_Order')">
-                    <span>Job Order</span>
-                </a>
-                <div id="Job_Order" class="collapse" aria-labelledby="headingTwo">
-                    <div class="bg-white  collapse-inner rounded">
-                        <a class="collapse-item" id="Buat_JO_page" href="<?=base_url("index.php/form/joborder")?>">
-                            <i class="fas fa-envelope-open-text"></i>
-                            <span id="coba">Buat Job Order</span>
-                        </a>
-                        <a class="collapse-item" id="JO_page" href="<?=base_url("index.php/home")?>">
-                            <i class="fas fa-envelope-open-text"></i>
-                            <span id="coba">Data Job Order</span>
-                        </a>
-                        <!-- <a class="collapse-item" id="Konfirmasi_JO_page" href="<?=base_url("index.php/home/konfirmasi_jo")?>">
-                            <i class="fas fa-info-circle"></i>
-                            <span id="coba">Konfirmasi Job Order</span>
-                        </a> -->
-                    </div>
-                </div>
-            </li>
-            <hr class="sidebar-divider" id="HR_Invoice">
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item" id="LI_Invoice">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Invoice"
-                    aria-expanded="true" aria-controls="Invoice" onclick="aktifasi('Invoice')">
-                    <span>Invoice</span>
-                </a>
-                <div id="Invoice" class="collapse" aria-labelledby="headingTwo">
-                    <div class="bg-white  collapse-inner rounded">
-                        <a class="collapse-item" id="Invoice_page" href="<?=base_url("index.php/home/invoice")?>">   
-                            <i class="fas fa-plus-square"></i>
-                            <span>Buat Invoice</span>
-                        </a>
-                        <a class="collapse-item" id="Invoice_Customer_page" href="<?=base_url("index.php/home/invoice_customer")?>">   
-                            <i class="fas fa-receipt"></i>
-                            <span>Data Invoice</span>
-                        </a>
-                    </div>
-                </div>
-            </li>
-            <!-- Divider -->
-            <hr class="sidebar-divider" id="HR_Penggajian">
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item" id="LI_Penggajian">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Penggajian"
-                    aria-expanded="true" aria-controls="Penggajian" onclick="aktifasi('Penggajian')">
-                    <span>Penggajian</span>
-                </a>
-                <div id="Penggajian" class="collapse" aria-labelledby="headingTwo">
-                    <div class="bg-white collapse-inner rounded">
-                        <a class="collapse-item" id="Gaji_page" href="<?= base_url('index.php/detail/pilih_gaji/x/x/home/').date('m')."/".date('Y')?>">
-                            <i class="fas fa-dollar-sign"></i>
-                            <span>Buat Slip Gaji</span>
-                        </a>
-                        <a class="collapse-item" id="Laporan_Gaji_page" href="<?=base_url("index.php/home/report_gaji")?>">
-                            <i class="fas fa-file-invoice-dollar"></i>
-                            <span>Data Slip Gaji</span>
-                        </a>
-                    </div>
-                </div>
-            </li>
-            <!-- Divider -->
-            <hr class="sidebar-divider" id="HR_Kasbon">
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item" id="LI_Kasbon">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Kasbon"
-                    aria-expanded="true" aria-controls="Kasbon" onclick="aktifasi('Kasbon')">
-                    <span>Kasbon</span>
-                </a>
-                <div id="Kasbon" class="collapse" aria-labelledby="headingTwo">
-                    <div class="bg-white collapse-inner rounded">
-                        <a class="collapse-item" id="Buat_Bon_page" href="<?=base_url("index.php/form/bon")?>">
-                            <i class="fas fa-funnel-dollar"></i>
-                            <span>Buat Nota Kasbon</span>
-                        </a>
-                        <a class="collapse-item" id="Bon_page" href="<?=base_url("index.php/home/bon")?>">
-                            <i class="fas fa-funnel-dollar"></i>
-                            <span>Data Nota Kasbon</span>
-                        </a>
-                        <!-- <a class="collapse-item" id="Saldo_Bon_page" href="<?=base_url("index.php/home/saldo_bon")?>">
-                            <i class="fas fa-file-invoice-dollar"></i>
-                            <span>Saldo Kasbon Driver</span>
-                        </a> -->
-                        <a class="collapse-item" id="Laporan_Bon_page" href="<?=base_url("index.php/home/report_bon")?>">
-                            <i class="fas fa-file-invoice-dollar"></i>
-                            <span>Mutasi Kasbon Driver</span>
-                        </a>
-                    </div>
-                </div>
-            </li>
-           
-            <!-- Divider -->
-            <hr class="sidebar-divider" id="HR_Konfigurasi">
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item" id="LI_Konfigurasi">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Konfigurasi"
-                    aria-expanded="true" aria-controls="Konfigurasi" onclick="aktifasi('Konfigurasi')">
-                    <span>Sistem dan Konfigurasi</span>
-                </a>
-                <div id="Konfigurasi" class="collapse" aria-labelledby="headingTwo">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                            <a class="collapse-item" id="Akun_page" href="<?=base_url("index.php/home/akun")?>">
-                                <i class="fas fa-database"></i>
-                                <span>Data Akun </span>
-                            </a>
-                    </div>
-                </div>
-            </li>
-
-            </ul>
-        <!-- End of Sidebar -->
-
-            <!-- Divider -->
-            <!-- <hr class="sidebar-divider d-none d-md-block my-1"> -->
-            <!-- Sidebar Toggler (Sidebar) --> 
-            
-            <!-- <div class="text-center d-none d-md-inline my-1">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div> -->
+  
+                
         
-        
-        
-       
-
-        
-        <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column bg-light">
-            <!-- Main Content -->
-            <div id="content">
-                <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-dark topbar mb-4 static-top shadow">
-                    <!-- Sidebar Toggle (Topbar) -->
-                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                        <i class="fa fa-bars"></i>
-                    </button>
-                    <!-- Topbar Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Nav Item - User Information -->
-                        <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-light small"><strong><?= $_SESSION["user"]?></strong></span>
-                                <i class="fas fa-user-friends"></i>
-                            </a>
-                            <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#popup-ubah-password">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Ubah Password
-                                </a>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Keluar
-                                </a>
-                            </div>
-                        </li>
-                    </ul>
-                </nav>
-                <!-- End of Topbar -->
 
 <script>
     function asd(){
