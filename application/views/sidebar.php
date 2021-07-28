@@ -1,3 +1,95 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center">
+               
+
+                <span><i class="fa-flip-horizontal fa fa-truck text-white mr-2"></i></span>
+                <div class="sidebar-brand-text text-white"><h2>SKB</h2></div>
+            </a>
+
+  
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+
+      <li class="nav-item dropdown" id="LI_Dashboard">
+        <a class="nav-link dropdown-toggle text-white" href="#" data-target="#Dashboard" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-controls="Dashboard" onclick="aktifasi('Dashboard')">
+          Dashboard
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          
+            <a class="dropdown-item" id="DB_Izin_page" href="<?=base_url("index.php/dashboard")?>">
+            DB Izin dan Dokumen
+            </a>
+
+            <a class="dropdown-item" id="DB_Operasional_page" href="<?=base_url("index.php/dashboard/dashboard_operasional")?>">
+            DB Operasional
+            </a>
+
+          <a class="dropdown-item" id="DB_Invoice_page" href="<?=base_url("index.php/dashboard/dashboard_invoice")?>">
+          DB Invoice
+          </a>
+        
+        </div>
+      </li>
+     
+      <li class="nav-item dropdown" id="LI_Master_Data">
+        <a class="nav-link dropdown-toggle text-white" href="#" data-target="#Master_Data" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-controls="Master_Data" onclick="aktifasi('Master_Data')">
+          Master Data
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+            <a class="dropdown-item" id="Merk_page" href="<?=base_url("index.php/home/merk")?>">
+            MD Tipe Mobil
+            </a>
+
+            <a class="dropdown-item" id="Kendaraan_page" href="<?=base_url("index.php/home/truck")?>">
+            <i class="fas fa-truck"></i>
+            MD Kendaraan
+            </a>
+
+          <a class="dropdown-item" id="DB_Invoice_page" href="<?=base_url("index.php/dashboard/dashboard_invoice")?>">
+          DB Invoice
+          </a>
+        
+        </div>
+      </li>
+
+    </ul>
+    
+    
+        <ul class="navbar-nav ml-auto ">
+        <!-- Nav Item - User Information -->
+        <li class="nav-item dropdown no-arrow">
+            <a class="nav-link dropdown-toggle text-white" href="#" id="userDropdown" role="button"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline small"><strong><?= $_SESSION["user"]?></strong></span>
+                <i class="fas fa-user-friends"></i>
+            </a>
+            <!-- Dropdown - User Information -->
+            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in "
+                aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#popup-ubah-password">
+                    <i class="fas fa-key mr-2 text-gray-400"></i>
+                    Ubah Password
+                </a>
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                    Keluar
+                </a>
+            </div>
+        </li>
+        </ul>
+    
+  </div>
+</nav>
+
+
+
+
 
 <body id="page-top" onload="asd()">
     <!-- Page Wrapper -->
@@ -22,65 +114,7 @@
                 </div>
                 <div class="sidebar-brand-text mx-3 "><h3>SKB</h3></div>
             </a>
-            <!-- Divider -->
-            <hr class="sidebar-divider" id="HR_Dashboard">
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item" id="LI_Dashboard">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Dashboard"
-                    aria-expanded="true" aria-controls="Dashboard" onclick="aktifasi('Dashboard')">
-                    <span>Dashboard</span>
-                </a>
-                <div id="Dashboard" class="collapse" aria-labelledby="headingTwo">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" id="DB_Izin_page" href="<?=base_url("index.php/dashboard")?>">
-                            <i class="fas fa-clipboard"></i>
-                            <span>DB Izin dan Dokumen</span>
-                        </a>
-                        <a class="collapse-item" id="DB_Operasional_page" href="<?=base_url("index.php/dashboard/dashboard_operasional")?>">
-                            <i class="fas fa-truck"></i>
-                            <span>DB Operasional</span>
-                        </a>
-                        <a class="collapse-item" id="DB_Invoice_page" href="<?=base_url("index.php/dashboard/dashboard_invoice")?>">
-                            <i class="fas fa-id-badge"></i>
-                            <span>DB Invoice</span>
-                        </a>
-                    </div>
-                </div>
-            </li>
-            <!-- Divider -->
-            <hr class="sidebar-divider" id="HR_Master_Data">
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item" id="LI_Master_Data">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Master_Data"
-                    aria-expanded="true" aria-controls="Master_Data" onclick="aktifasi('Master_Data')">
-                    <span>Master Data</span>
-                </a>
-                <div id="Master_Data" class="collapse" aria-labelledby="headingTwo">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" id="Merk_page" href="<?=base_url("index.php/home/merk")?>">
-                            <i class="fas fa-clipboard"></i>
-                            <span>MD Tipe Mobil</span>
-                        </a>
-                        <a class="collapse-item" id="Kendaraan_page" href="<?=base_url("index.php/home/truck")?>">
-                            <i class="fas fa-truck"></i>
-                            <span>MD Kendaraan</span>
-                        </a>
-                        <a class="collapse-item" id="Supir_page" href="<?=base_url("index.php/home/penggajian")?>">
-                            <i class="fas fa-id-badge"></i>
-                            <span>MD Driver</span>
-                        </a>
-                        <a class="collapse-item"  id="Customer_page" href="<?=base_url("index.php/home/customer")?>">
-                            <i class="fas fa-users"></i>
-                            <span>MD Customer</span>
-                        </a>
-                        <a class="collapse-item" id="Satuan_page"href="<?=base_url("index.php/home/satuan")?>">  
-                            <i class="fas fa-weight"></i>
-                            <span>MD Rute</span>
-                        </a>
-                    
-                    </div>
-                </div>
-            </li>
+          
             <!-- Divider -->
             <hr class="sidebar-divider" id="HR_Job_Order">
             <!-- Nav Item - Pages Collapse Menu -->
