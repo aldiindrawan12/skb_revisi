@@ -1,5 +1,6 @@
+    <div class="container mt-3">
     <div class="info-supir">
-        <div class="card shadow mb-4 ml-2 mr-2">
+        <div class="card shadow ">
             <div class="card-header py-3 text-center">
             <h6 class="m-0 font-weight-bold btn-facebook disabled h4 p-3 " style="border-radius:10px; ">Informasi Driver</h6>
             </div>  
@@ -23,8 +24,12 @@
             </div>
         </div>
     </div>
+    </div>
+
+
+    <div class="container mt-3">
     <div class="info-kendaraan"> 
-        <div class="card shadow mb-4 ml-2 mr-2">
+        <div class="card shadow">
             <div class="card-header py-3 text-center">  
                 <h6 class="m-0 font-weight-bold btn-primary disabled h4 p-3 " style="border-radius:10px; background-color:#c19277;">Informasi Kendaraan</h6>
             </div>  
@@ -50,15 +55,9 @@
             </div>
         </div>
     </div>
-        <!-- Footer -->
-        <footer class="sticky-footer bg-dark">
-            <div class="container my-auto">
-                <div class="copyright text-center my-auto">
-                    <span class="text-light">Copyright &copy; 2021 PT.Sumber Karya Berkah</span>
-                </div>
-            </div>
-        </footer>
-        <!-- End of Footer -->
+    </div>
+    
+        
 
         </div>
         <!-- End of Content Wrapper -->
