@@ -1,4 +1,4 @@
-    <div class="container mt-3">
+    <div class="col-md-5 mt-3">
     <div class="info-supir">
         <div class="card shadow ">
             <div class="card-header py-3 text-center">
@@ -27,7 +27,7 @@
     </div>
 
 
-    <div class="container mt-3">
+    <div class="col-md-7 ">
     <div class="info-kendaraan"> 
         <div class="card shadow">
             <div class="card-header py-3 text-center">  

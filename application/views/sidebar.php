@@ -1,5 +1,6 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-dark">
-            <a class="sidebar-brand d-flex align-items-center justify-content-center">               
+<nav class="navbar navbar-expand-lg navbar-light bg-black navbar-fixed-top" style='background-color:#182039'; >
+   
+<a class="sidebar-brand d-flex align-items-center justify-content-center">               
                 <span><i class="fa-flip-horizontal fa fa-truck text-white mr-2"></i></span>
                 <div class="sidebar-brand-text text-white mr-5 "><h2>SKB</h2></div>
             </a>
@@ -9,8 +10,8 @@
         <span class="navbar-toggler-icon"></span>
         </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+  <div class="collapse navbar-collapse "  id="navbarSupportedContent" >
+    <ul class="navbar-nav mr-auto" >
 
 
       <li class="nav-item dropdown mr-3" id="LI_Dashboard">
@@ -206,9 +207,9 @@
                     $link = redirect(base_url());
                 }
             ?>
-  
-                
-        
+  </div>
+  </body>
+  </div>
 
 <script>
     function asd(){
