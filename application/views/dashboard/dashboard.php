@@ -1,23 +1,22 @@
-    <div class="info-supir"  style='background-color:#182039';>
-    
+<div class="info-supir mt-5"  style='background-color:#182039';>
     <div class="container p-5 " style='background-color:#182039';> 
     <div class="card shadow mb-4 bg-black " style='background-color:#212B4E';>
             <div class="card-header py-3 text-center" style='background-color:#212B4E';>
-            <h6 class="m-0 font-weight-bold btn-facebook disabled h4 p-3" style="border-radius:10px;background-color:#182039"; >Informasi Driver</h6>
+            <h6 class="m-0 font-weight-bold btn-facebook disabled h4 p-3" style="border-radius:10px";>Informasi Driver</h6>
             </div>  
             <div class="card-body row justify-content-md-center ">
                 <div class="table-responsive rounded">
-                    <div class="card-header  text-center" style='background-color:#212B4E';>
+                    <div class="text-center" style='background-color:#212B4E';>
                         <h6 class=" font-weight-bold text-light">Berlaku SIM</h6>
                     </div>
                     <table class="table table-bordered text-light" id="Table-Supir-Sim" width="100%" cellspacing="0" >
                         <thead>
                             <tr>
-                                <th class="text-center" width="8%" scope="col">No.</th>
-                                <th class="text-center" width="20%" scope="col">Nama</th>
-                                <th class="text-center" width="15%" scope="col">No. HP</th>
-                                <th class="text-center" width="15%" scope="col">Tgl Expired Sim</th>
-                                <th class="text-center" width="10%" scope="col">Sisa Masa Berlaku Sim</th>
+                                <th class="text-center" width="5%" scope="col">No.</th>
+                                <th class="text-center" width="28%" scope="col">Nama</th>
+                                <th class="text-center" width="8%" scope="col">No. HP</th>
+                                <th class="text-center" width="12%" scope="col">Tgl Expired Sim</th>
+                                <th class="text-center" width="15%" scope="col">Sisa Masa Berlaku Sim</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -26,17 +25,17 @@
                 </div>
             </div>
         </div>
-        <div class="info-kendaraan"> 
-        <div class="card shadow mb-4 ml-2 mr-2">
-            <div class="card-header py-3 text-center">  
-                <h6 class="m-0 font-weight-bold btn-primary disabled h4 p-3 " style="border-radius:10px; background-color:#c19277;">Informasi Kendaraan</h6>
+        <div class="info-kendaraan" > 
+        <div class="card shadow" style='background-color:#212B4E';>
+            <div class="card-header py-3 text-center" style='background-color:#212B4E';>  
+                <h6 class="m-0 font-weight-bold btn-primary disabled h4 p-3 text-light" style="border-radius:10px; background-color:#c19277;">Informasi Kendaraan</h6>
             </div>  
             <div class="card-body row justify-content-md-center small">
-                <div class="table-responsive col-md-6 border border-primary rounded p-1 mb-3">
-                    <div class="card-header py-3 text-center">
-                        <h6 class="m-0 font-weight-bold text-gray-900">Pajak 1 Tahun Kendaraan</h6>
+                <div class="table-responsive col-md-6 border border-light rounded p-1 mb-3">
+                    <div class=" py-3 text-center" style='background-color:#212B4E';>
+                        <h6 class="m-0 font-weight-bold text-light">Pajak 1 Tahun Kendaraan</h6>
                     </div>
-                    <table class="table table-bordered" id="Table-Truck" width="100%" cellspacing="0">
+                    <table class="table table-bordered text-light" id="Table-Truck" width="100%" cellspacing="0">
                         <thead>
                             <tr>
                                 <th class="text-center" width="10%" scope="col">No</th>
@@ -49,11 +48,11 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="table-responsive col-md-6 border border-primary  rounded p-1 mb-3">
-                    <div class="card-header py-3 text-center bg-dark text-light">
+                <div class="table-responsive col-md-6 border border-light  rounded p-1 mb-3" >
+                    <div class="py-3 text-center text-light" style='background-color:#212B4E';>
                         <h6 class="m-0 font-weight-bold ">Pajak 5 Tahun Kendaraan</h6>
                     </div>
-                    <table class="table table-dark" id="Table-Truck-Stnk" width="100%" cellspacing="0">
+                    <table class="table table-bordered text-light" id="Table-Truck-Stnk" width="100%" cellspacing="0" style='background-color:#212B4E';>
                         <thead>
                             <tr>
                                 <th class="text-center" width="10%" scope="col">No</th>
@@ -66,11 +65,11 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="table-responsive col-md-6 border border-primary rounded p-1 mb-3">
-                    <div class="card-header py-3 text-center">
-                        <h6 class="m-0 font-weight-bold  text-gray-900">KIR Kendaraan</h6>
+                <div class="table-responsive col-md-6 border border-light rounded p-1 mb-3">
+                    <div class="py-3 text-center text-light" style='background-color:#212B4E';>
+                        <h6 class="m-0 font-weight-bold ">KIR Kendaraan</h6>
                     </div>
-                    <table class="table table-bordered" id="Table-Truck-Kir" width="100%" cellspacing="0">
+                    <table class="table table-bordered text-light" id="Table-Truck-Kir" width="100%" cellspacing="0">
                         <thead>
                             <tr>
                                 <th class="text-center" width="10%" scope="col">No</th>
@@ -83,11 +82,11 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="table-responsive col-md-6 border border-primary rounded p-1 mb-3">
-                    <div class="card-header py-3 text-center">
-                        <h6 class="m-0 font-weight-bold  text-gray-900">Ijin Bongkar Muat (BM) Kendaraan</h6>
+                <div class="table-responsive col-md-6 border border-light rounded p-1 mb-3">
+                    <div class="py-3 text-center text-light" style='background-color:#212B4E';>
+                        <h6 class="m-0 font-weight-bold ">Ijin Bongkar Muat (BM) Kendaraan</h6>
                     </div>
-                    <table class="table table-bordered" id="Table-Truck-Ijin-Bongkar" width="100%" cellspacing="0">
+                    <table class="table table-bordered text-light" id="Table-Truck-Ijin-Bongkar" width="100%" cellspacing="0">
                         <thead>
                             <tr>
                                 <th class="text-center" width="10%" scope="col">No</th>
@@ -100,11 +99,11 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="table-responsive col-md-6 border border-primary rounded p-1 mb-3">
-                    <div class="card-header py-3 text-center">
-                        <h6 class="m-0 font-weight-bold  text-gray-900">Ijin Usaha</h6>
+                <div class="table-responsive col-md-6 border border-light rounded p-1 mb-3">
+                    <div class="py-3 text-center text-light">
+                        <h6 class="m-0 font-weight-bold ">Ijin Usaha</h6>
                     </div>
-                    <table class="table table-bordered" id="Table-Truck-Ijin-Usaha" width="100%" cellspacing="0">
+                    <table class="table table-bordered text-light" id="Table-Truck-Ijin-Usaha" width="100%" cellspacing="0">
                         <thead>
                             <tr>
                                 <th class="text-center" width="10%" scope="col">No</th>

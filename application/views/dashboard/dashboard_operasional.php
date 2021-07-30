@@ -1,19 +1,19 @@
-    <div class="col-md-5 mt-3">
-    <div class="info-supir">
-        <div class="card shadow ">
-            <div class="card-header py-3 text-center">
-            <h6 class="m-0 font-weight-bold btn-facebook disabled h4 p-3 " style="border-radius:10px; ">Informasi Driver</h6>
+<div class="info-supir mt-5"  style='background-color:#182039';>
+    <div class="container p-5 " style='background-color:#182039';> 
+    <div class="card shadow mb-4 bg-black " style='background-color:#212B4E';>
+            <div class="card-header py-3 text-center" style='background-color:#212B4E';>
+            <h6 class="m-0 font-weight-bold btn-light disabled h4 p-3" style="border-radius:10px";>Supir Tidak Jalan</h6>
             </div>  
-            <div class="card-body row justify-content-md-center small">
-                <div class="table-responsive border border-info rounded p-1">
-                    <div class="card-header py-3 text-center">
-                        <h6 class="m-0 font-weight-bold text-gray-900">Supir Tidak Jalan</h6>
-                    </div>
-                    <table class="table table-bordered" id="Table-Supir-Tidak-Jalan" width="100%" cellspacing="0">
+            <div class="card-body row justify-content-md-center ">
+                <div class="table-responsive rounded">
+                    <!-- <div class="text-center" style='background-color:#212B4E';>
+                        <h5 class=" font-weight-bold text-light">Supir Tidak Jalan</h5>
+                    </div> -->
+                    <table class="table table-bordered text-light" id="Table-Supir-Tidak-Jalan" width="100%" cellspacing="0" >
                         <thead>
                             <tr>
-                                <th class="text-center" width="20%" scope="col">No.</th>
-                                <th class="text-center" width="20%" scope="col">Nama</th>
+                                <th class="text-center" width="5%" scope="col">No.</th>
+                                <th class="text-center" width="25%" scope="col">Nama</th>
                                 <th class="text-center" width="20%" scope="col">Nomor Telepon</th>
                             </tr>
                         </thead>
@@ -23,25 +23,20 @@
                 </div>
             </div>
         </div>
-    </div>
-    </div>
-
-
-    <div class="col-md-7 ">
-    <div class="info-kendaraan"> 
-        <div class="card shadow">
-            <div class="card-header py-3 text-center">  
-                <h6 class="m-0 font-weight-bold btn-primary disabled h4 p-3 " style="border-radius:10px; background-color:#c19277;">Informasi Kendaraan</h6>
+        <div class="info-kendaraan" > 
+        <div class="card shadow" style='background-color:#212B4E';>
+            <div class="card-header py-3 text-center" style='background-color:#212B4E';>  
+                <h6 class="m-0 font-weight-bold btn-dark disabled h4 p-3 text-light" style="border-radius:10px";>Kendaraan Tidak Jalan</h6>
             </div>  
-            <div class="card-body row justify-content-md-center small">
-                <div class="table-responsive border border-primary rounded p-1">
-                    <div class="card-header py-3 text-center">
-                        <h6 class="m-0 font-weight-bold  text-gray-900">Kendaraan Tidak Jalan</h6>
-                    </div>
-                    <table class="table table-bordered" id="Table-Truck-Tidak-Jalan" width="100%" cellspacing="0">
+            <div class="card-body row justify-content-md-center ">
+                <div class="table-responsive p-1 mb-3">
+                    <!-- <div class=" py-3 text-center" style='background-color:#212B4E';>
+                        <h5 class="m-0 font-weight-bold text-light">Kendaraan Tidak Jalan</h5>
+                    </div> -->
+                    <table class="table table-bordered text-light" id="Table-Truck-Tidak-Jalan" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th class="text-center" width="20%" scope="col">No.</th>
+                            <th class="text-center" width="10%" scope="col">No.</th>
                                 <th class="text-center" width="20%" scope="col">No Polisi</th>
                                 <th class="text-center" width="20%" scope="col">Merk</th>
                                 <th class="text-center" width="20%" scope="col">Jenis</th>
@@ -52,11 +47,19 @@
                         </tbody>
                     </table>
                 </div>
+             
+               
+                
+                
             </div>
         </div>
     </div>
     </div>
+    </div> 
+
     
+   
+  
         
 
         </div>
@@ -154,6 +157,7 @@
     </div>
     <!-- end pop up add detail rute paketan -->
     <!-- Bootstrap core JavaScript-->
+    
     <script src="<?=base_url("assets/vendor/jquery/jquery.min.js")?>"></script>
     <script src="<?=base_url("assets/vendor/jquery/jquery.mask.min.js")?>"></script>
     <script src="<?=base_url("assets/vendor/bootstrap/js/bootstrap.bundle.min.js")?>"></script>    
