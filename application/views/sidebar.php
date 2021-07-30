@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-black navbar-fixed-top" style='background-color:#182039'; >
+<nav class="navbar navbar-expand-lg navbar-light bg-black fixed-top" style='background-color:#182039'; >
    
 <a class="sidebar-brand d-flex align-items-center justify-content-center">               
                 <span><i class="fa-flip-horizontal fa fa-truck text-white mr-2"></i></span>
