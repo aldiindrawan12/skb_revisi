@@ -2664,6 +2664,8 @@
 
     <!-- Akun -->
      <script> //script datatables customer
+        var data_akun_now = [];
+        var data_akun_new = [];       
         $(document).ready(function() {
             var table = null;
             table = $('#Table-Akun').DataTable({
@@ -2735,6 +2737,11 @@
                                 $("#username_update").val(data["username"]);
                                 $("#password_update").val(data["password"]);
                                 $("#role_update").val(data["akun_role"]);
+                                data_akun_now = new Object();
+                                data_akun_now.nama=data["akun_name"];
+                                data_akun_now.username=data["username"];
+                                data_akun_now.password=data["password"];
+                                data_akun_now.role=data["akun_role"];
                             }
                         });
                     });
@@ -2767,6 +2774,19 @@
                     });
                 }
             });
+        });
+        $( "#form-edit-akun" ).submit(function( event ) {
+            data_akun_new = new Object();
+            data_akun_new.nama=$("#akun_name").val();
+            data_akun_new.username=$("#username_update").val();
+            data_akun_new.password=$("#password_update").val();
+            data_akun_new.role=$("#role_update").val();
+            if(JSON.stringify(data_akun_now) == JSON.stringify(data_akun_new)){
+                alert( "Anda Belum Mengubah Data" );
+                return false;
+            }else{
+                return true;
+            }
         });
      </script>
     <!-- end Akun --> 

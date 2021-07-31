@@ -92,7 +92,7 @@
                 </button>
             </div>
             <div class="font-size-sm m-3 text-justify">
-                <form action="<?= base_url("index.php/form/update_akun")?>" method="POST">
+                <form action="<?= base_url("index.php/form/update_akun")?>" method="POST" id="form-edit-akun">
                     <input type="text" name=akun_id id=akun_id hidden>
                     <div class="form-group">
                         <label for="akun_name" class="form-label">Nama Akun</label>
