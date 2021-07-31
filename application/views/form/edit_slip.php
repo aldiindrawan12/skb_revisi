@@ -33,6 +33,10 @@ function change_tanggal($tanggal){
                             <input autocomplete="off" type="text" class="form-control col-md-5" id="nama_supir" name="nama_supir" value="<?= $supir["supir_name"]?>" readonly>
                         </div>
                         <div class="form-group row">
+                            <label for="nopol" class="col-form-label col-sm-7 font-weight-bold">No Polisi</label>
+                            <input autocomplete="off" type="text" class="form-control col-md-5" id="nopol" name="nopol" value="<?= $slip[0]["nopol"]?>" readonly>
+                        </div>
+                        <div class="form-group row">
                             <label for="bulan_kerja" class="col-form-label col-sm-7 font-weight-bold">Bulan Kerja</label>
                             <input autocomplete="off" type="text" class="form-control col-md-5" id="bulan_kerja" name="bulan_kerja" value="<?= $slip[0]["bulan_kerja"]?>" readonly>
                         </div>

@@ -134,7 +134,7 @@ class Form extends CI_Controller {
             for($i=0;$i<count($data["slip"]);$i++){
                 $data["isi_jo"] .= $data["slip"][$i]["Jo_id"].",";
             }
-            $data["jo"] = $this->model_detail->getjobbysupirbulan($data["slip"][0]["supir_id"],"x","x");
+            $data["jo"] = $this->model_detail->getjobbysupirbulan($data["slip"][0]["supir_id"],"x","x","x");
             $data["supir"] = $this->model_home->getsupirbyid($data["slip"][0]["supir_id"]);
             if(!$_SESSION["user"]){
     			$this->session->set_flashdata('status-login', 'False');
