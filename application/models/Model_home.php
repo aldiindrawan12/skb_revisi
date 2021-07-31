@@ -489,7 +489,7 @@ class Model_Home extends CI_model
             }
 
             ## Total record with filtering
-            $this->db->select('count(*) as allcount');
+            // $this->db->select('count(*) as allcount');
             if($searchQuery != ''){
                 $this->db->where($searchQuery);
             }
@@ -499,8 +499,8 @@ class Model_Home extends CI_model
             if($data["Jenis"]!=""){
                 $this->db->where("skb_mobil.mobil_jenis",$data["Jenis"]);
             }
-            $records = $this->db->get('skb_job_order')->result();
-            return $records[0]->allcount;
+            $records = $this->db->get('skb_job_order')->result_array();
+            return count($records);
         }
      //akhir function-fiunction datatable JO
 
