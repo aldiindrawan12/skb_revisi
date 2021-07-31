@@ -562,7 +562,7 @@
                         render: function(data, type, row) {
                             let html = "";
                             if(row["validasi"]!="Pending" && row["validasi_edit"]!="Pending" && row["validasi_delete"]!="Pending"){
-                                html +="<a class='btn btn-light btn-update-merk' href='javascript:void(0)' data-toggle='modal' data-target='#popup-update-merk' data-pk='"+data+"'><i class='fas fa-pen-square'></i></a>"+
+                                html +="<a class='btn btn-light btn-update-merk mr-2' href='javascript:void(0)' data-toggle='modal' data-target='#popup-update-merk' data-pk='"+data+"'><i class='fas fa-pen-square'></i></a>"+
                                 "<a class='btn btn-light btn-delete-merk' href='javascript:void(0)' data-pk='"+data+"'><i class='fas fa-trash-alt'></i></a>";
                             }
                             return html;
@@ -577,7 +577,7 @@
                             let html = "";
                             if(role_user=="Supervisor" || role_user=="Super User"){
                                 if(row["validasi"]=="Pending"){
-                                    html +="<a class='btn btn-success btn-sm btn-acc-merk mr-1' href='javascript:void(0)' data-pk='"+data+"'><i class='fas fa-check-circle'></i></a>";
+                                    html +="<a class='btn btn-success btn-sm btn-acc-merk mr-2' href='javascript:void(0)' data-pk='"+data+"'><i class='fas fa-check-circle'></i></a>";
                                     html +="<a class='btn btn-danger btn-sm btn-tolak-merk' href='javascript:void(0)' data-pk='"+data+"'><i class='fas fa-times'></i></a><br>";
                                 }
                                 if(row["validasi_edit"]=="Pending"){

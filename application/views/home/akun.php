@@ -1,4 +1,4 @@
-<div class="container mt-5 p-5" style='background-color:#182039';>
+<div class="container-fluid mt-5 p-5" style='background-color:#182039';>
     <div class="card shadow mx-5">
     <div class="card-header py-3" style='background-color:#212B4E';>
         <h6 class="m-0 font-weight-bold text-light float-left" >Seluruh Data Akun</h6>
