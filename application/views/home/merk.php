@@ -17,13 +17,13 @@
                 <thead>
                     <tr>
                         <th class="text-center" width="3%" scope="col">No</th>
-                        <th class="text-center" width="11%" scope="col">Merk</th>
-                        <th class="text-center" width="12%" scope="col">Type</th>
-                        <th class="text-center" width="12%" scope="col">Jenis</th>
-                        <th class="text-center" width="15%" scope="col">Dump</th>
-                        <th class="text-center" width="15%" scope="col">Status Validasi</th>
-                        <th class="text-center" width="15%" scope="col">Aksi</th>
-                        <th class="text-center" width="30%" scope="col">Validasi</th>
+                        <th class="text-center" width="15%" scope="col">Merk</th>
+                        <th class="text-center" width="15%" scope="col">Type</th>
+                        <th class="text-center" width="15%" scope="col">Jenis</th>
+                        <th class="text-center" width="6%" scope="col">Dump</th>
+                        <th class="text-center" width="10%" scope="col">Status Validasi</th>
+                        <th class="text-center" width="7%" scope="col">Aksi</th>
+                        <th class="text-center" width="5%" scope="col">Validasi</th>
                     </tr>
                 </thead>
                 <tbody>
