@@ -1,25 +1,28 @@
-    <div class="info-jo">
-        <div class="card shadow mb-4">
-            <div class="card-header py-3 text-center">
-                <h6 class="m-0 font-weight-bold text-primary"></h6>
-                <h6 class="m-0 font-weight-bold btn-facebook disabled h4 p-3 " style="border-radius:10px;  background-color:#91c788;">Job Order Belum Ada Invoice</h6>
+<div class="info-supir mt-5"  style='background-color:#182039';>
+    <div class=" p-5 " style='background-color:#182039';> 
+    <div class="card shadow mb-4 bg-black " style='background-color:#212B4E';>
+            <div class="card-header py-3 text-center" style='background-color:#212B4E';>
+            <h6 class="m-0 font-weight-bold btn-info disabled h4 p-3" style="border-radius:10px";>Job Order Belum Ada Invoice</h6>
             </div>  
-            <div class="card-body row justify-content-md-center small">
-                <div class="table-responsive col-md-12 border border-primary rounded p-1 small">
-                    <table class="table table-bordered" id="Table-JO-Belum-Invoice" width="100%" cellspacing="0">
+            <div class="card-body row justify-content-md-center ">
+                <div class="table-responsive rounded small">
+                    <!-- <div class="text-center" style='background-color:#212B4E';>
+                        <h5 class=" font-weight-bold text-light">Supir Tidak Jalan</h5>
+                    </div> -->
+                    <table class="table table-bordered text-light" id="Table-JO-Belum-Invoice"  cellspacing="0" >
                         <thead>
-                            <tr>
-                                <th width ="10%" class="text-center" scope="col">No</th>
-                                <th width ="10%" class="text-center" scope="col">ID Job Order</th>
-                                <th width ="1%" class="text-center" scope="col">Tgl. Job Order</th>
-                                <th width ="10%" class="text-center" scope="col">Driver</th>
-                                <th width ="10%" class="text-center" scope="col">No Polisi</th>
-                                <th width ="10%" class="text-center" scope="col">Jenis Mobil</th>
+                        <tr>
+                                <th width ="5%" class="text-center" scope="col">No</th>
+                                <th width ="7%" class="text-center" scope="col">ID JO</th>
+                                <th width ="9%"  class="text-center" scope="col">Tgl. JO</th>
+                                <th width ="14%" class="text-center" scope="col">Driver</th>
+                                <th width ="9%" class="text-center" scope="col">No Polisi</th>
+                                <th width ="9%" class="text-center" scope="col">Jenis Mobil</th>
                                 <th width ="17%" class="text-center" scope="col">Customer</th>
-                                <th width ="15%" class="text-center" scope="col">Muatan</th>
-                                <th width ="15%" class="text-center" scope="col">Dari</th>
+                                <th width ="12%" class="text-center" scope="col">Muatan</th>
+                                <th width ="9%" class="text-center" scope="col">Dari</th>
                                 <th width ="15%" class="text-center" scope="col">Ke</th>
-                                <th width ="15%" class="text-center" scope="col">Tgl. Closing</th>
+                                <th width ="22%" class="text-center" scope="col">Tgl. Closing</th>
                                 <th width ="5%" scope="col">Detail</th>
                             </tr>
                         </thead>
@@ -29,18 +32,20 @@
                 </div>
             </div>
         </div>
-    </div>  
-    <div class="info-invoice">
-        <div class="card shadow mb-4">
-            <div class="card-header py-3 text-center">
-                <h6 class="m-0 font-weight-bold btn-warning disabled h4 p-3 " style="border-radius:10px; background-color:#ffcc29;">Invoice Jatuh Tempo</h6>
+        <div class="info-kendaraan" > 
+        <div class="card shadow" style='background-color:#212B4E';>
+            <div class="card-header py-3 text-center" style='background-color:#212B4E';>  
+                <h6 class="m-0 font-weight-bold btn-warning disabled h4 p-3 text-dark" style="border-radius:10px";>Invoice Jatuh Tempo</h6>
             </div>  
-            <div class="card-body row justify-content-md-center small">
-                <div class="table-responsive col-md-12 border border-primary rounded p-1">
-                    <table class="table table-bordered" id="Table-Invoice-Jatuh-Tempo" width="100%" cellspacing="0">
+            <div class="card-body row justify-content-md-center ">
+                <div class="table-responsive p-1 mb-3">
+                    <!-- <div class=" py-3 text-center" style='background-color:#212B4E';>
+                        <h5 class="m-0 font-weight-bold text-light">Kendaraan Tidak Jalan</h5>
+                    </div> -->
+                    <table class="table table-bordered text-light" id="Table-Invoice-Jatuh-Tempo" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th class="text-center" scope="col">No.</th>
+                            <th class="text-center" scope="col">No.</th>
                                 <th class="text-center" scope="col">No. Invoice</th>
                                 <th class="text-center" scope="col">Tgl Invoice</th>
                                 <th class="text-center" scope="col">Customer</th>
@@ -52,18 +57,20 @@
                         </tbody>
                     </table>
                 </div>
+             
+               
+                
+                
             </div>
         </div>
     </div>
-        <!-- Footer -->
-        <footer class="sticky-footer bg-dark">
-            <div class="container my-auto">
-                <div class="copyright text-center my-auto">
-                    <span class="text-light">Copyright &copy; 2021 PT.Sumber Karya Berkah</span>
-                </div>
-            </div>
-        </footer>
-        <!-- End of Footer -->
+    </div>
+    </div> 
+
+    
+   
+  
+        
 
         </div>
         <!-- End of Content Wrapper -->
@@ -230,6 +237,7 @@
                 "columns": [
                     {
                         "data": "invoice_kode",
+                        className: 'text-center',
                         render: function(data, type, row) {
                             let html = row["no"];
                             return html;
@@ -289,6 +297,7 @@
                 "columns": [
                     {
                         "data": "Jo_id",
+                        className: 'text-center',
                         render: function(data, type, row) {
                             let html = row["no"];
                             return html;
@@ -300,6 +309,7 @@
                     },
                     {
                         "data": "tanggal_surat",
+                        className: 'text-center',
                         render: function(data, type, row) {
                             return change_tanggal(data);
                         }
@@ -308,7 +318,8 @@
                         "data": "supir_name"
                     },
                     {
-                        "data": "mobil_no"
+                        "data": "mobil_no",
+                        className: 'text-center'
                     },
                     {
                         "data": "mobil_jenis"
@@ -327,6 +338,7 @@
                     },
                     {
                         "data": "tanggal_bongkar",
+                        className: 'text-center',
                         render: function(data, type, row) {
                             return change_tanggal(data);
                         }

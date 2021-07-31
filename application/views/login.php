@@ -18,18 +18,19 @@
 
 </head>
 
-<body class="bg-gradient-light">
+<body class="bg-black" style='background-color:#182039';>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-5 mt-5 ">
-                <div class="card my-5">
+                <div class="card my-5 bg-black " style='background-color:#212B4E';>
                     <div class="card-body">
                         <div class="p-5">
                             <div class="text-center">
                             <img class="img-fluid mt-3 mb-3" src="<?php echo base_url('assets/img/logo.png')?> " alt="Gink Technology">
-                                <h1 class="h4 text-gray-900 mb-4 font-weight-bold">LOGIN</h1>
+                               
                                
                             </div>
+                            <h2 class="text-gray-200 mb-4 font-weight-bold mt-3">Login</h2>
                             <form action="<?= base_url("index.php/login/login")?>" method="POST">
                                 <div class="form-group">
                                     <input type="text" class="form-control" name="username"
@@ -39,8 +40,8 @@
                                     <input type="password" class="form-control" name="password"
                                         placeholder="Masukkan Password" autocomplete='off'required>
                                 </div>
-                                <hr>
-                                <button type="submit" class="btn btn-primary btn-block">Masuk</button>
+                              
+                                <button type="submit" class="btn btn-primary btn-block mt-5">Masuk</button>
                             </form>
                         </div>
                     </div>

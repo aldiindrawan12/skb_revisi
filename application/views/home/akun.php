@@ -1,7 +1,7 @@
-<div class="container">
-    <div class="card shadow mb-4">
-    <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary float-left">Seluruh Data Akun</h6>
+<div class="container mt-5 p-5" style='background-color:#182039';>
+    <div class="card shadow mx-5">
+    <div class="card-header py-3" style='background-color:#212B4E';>
+        <h6 class="m-0 font-weight-bold text-light float-left" >Seluruh Data Akun</h6>
         <?php if($_SESSION["role"] == "Super User"){?>
             <a class="btn btn-primary btn-icon-split float-right" data-toggle="modal" data-target="#popup-tambah-akun">
                 <span class="icon text-white-100">
@@ -14,9 +14,9 @@
         <?php }?>
     </div>
     <!-- tabel data cutomer -->
-    <div class="card-body">
-        <div class="table-responsive">
-            <table class="table table-bordered" id="Table-Akun" width="100%" cellspacing="0">
+    <div class="card-body" style='background-color:#212B4E';>
+        <div class="table-responsive text-light">
+            <table class="table table-bordered text-light" id="Table-Akun" width="100%" cellspacing="0">
                 <thead>
                     <tr>
                         <th class="text-center" width="3%" scope="col">ID</th>

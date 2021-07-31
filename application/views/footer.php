@@ -1,11 +1,11 @@
         <!-- Footer -->
-        <footer class="sticky-footer bg-dark">
+        <!-- <footer class="sticky-footer bg-dark">
             <div class="container my-auto">
                 <div class="copyright text-center my-auto">
                     <span class="text-light">Copyright &copy; 2021 PT.Sumber Karya Berkah</span>
                 </div>
             </div>
-        </footer>
+        </footer> -->
         <!-- End of Footer -->
 
         </div>
