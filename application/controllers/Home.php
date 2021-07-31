@@ -97,7 +97,7 @@ class Home extends CI_Controller {
                 "Status" => $this->input->post('Status')
             );
             $data_filter = $this->model_home->getDitemukanJo($data);
-            echo $data_filter;
+            echo json_encode($data_filter);
         }
     //end fungsi untuk JO
 

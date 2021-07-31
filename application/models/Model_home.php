@@ -76,6 +76,9 @@ class Model_Home extends CI_model
 
         public function getjo() //all JO
         {
+            $this->db->join("skb_customer", "skb_customer.customer_id = skb_job_order.customer_id", 'left');
+            $this->db->join("skb_supir", "skb_supir.supir_id = skb_job_order.supir_id", 'left');
+            $this->db->join("skb_mobil", "skb_mobil.mobil_no = skb_job_order.mobil_no", 'left');
             return $this->db->get("skb_job_order")->result_array();
         }
 
@@ -506,7 +509,7 @@ class Model_Home extends CI_model
                 $this->db->where("skb_mobil.mobil_jenis",$data["Jenis"]);
             }
             $records = $this->db->get('skb_job_order')->result_array();
-            return count($records);
+            return $records;
         }
      //akhir function-fiunction datatable JO
 
@@ -871,6 +874,7 @@ class Model_Home extends CI_model
             if($searchValue != ''){
                 $search_arr[] = " (rute_id like '%".$searchValue."%' or 
                     rute_dari like '%".$searchValue."%' or 
+                    skb_customer.customer_name like '%".$searchValue."%' or 
                     rute_muatan like '%".$searchValue."%' or 
                     rute_ke like '%".$searchValue."%') ";
             }

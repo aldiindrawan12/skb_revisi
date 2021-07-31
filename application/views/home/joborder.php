@@ -81,9 +81,9 @@
                 </div>
             </div>
             <hr>
-            <div class="container">
+            <div class="">
                     <form method="POST" action="<?= base_url("index.php/print_berkas/jo_excel_data/")?>" id="convert_form" class="col-md-2 float-right">
-                        <input type="hidden" name="file_content" id="file_content">
+                        <textarea cols="30" rows="10" name="file_content" id="file_content" hidden><?= json_encode($jo)?></textarea>
                         <button type="submit" name="convert" id="convert" class="btn btn-primary btn-sm btn-icon-split">
                             <span class="icon text-white-100">  
                                 <i class="fas fa-print"></i>
@@ -254,20 +254,20 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        $('#convert').click(function() {
-            var tabel = document.getElementById("Table-Job-Order").rows;
-            var bacabaris = tabel.length;
-            for(var i=0;i<bacabaris;i++){
-                tabel[i].deleteCell(-1);
-                tabel[i].deleteCell(-1);
-            }
-            var table_content = '<table>';
-            table_content += $("head").html()+$('#Table-Job-Order').html();
-            table_content += '</table>';
-            $('#file_content').val(table_content);
-            $('#convert_form').html();
-            location.reload();
-        });
+        // $('#convert').click(function() {
+        //     var tabel = document.getElementById("Table-Job-Order").rows;
+        //     var bacabaris = tabel.length;
+        //     for(var i=0;i<bacabaris;i++){
+        //         tabel[i].deleteCell(-1);
+        //         tabel[i].deleteCell(-1);
+        //     }
+        //     var table_content = '<table>';
+        //     table_content += $("head").html()+$('#Table-Job-Order').html();
+        //     table_content += '</table>';
+        //     $('#file_content').val(table_content);
+        //     $('#convert_form').html();
+        //     location.reload();
+        // });
     });
     function pdf(){
         var tabel = document.getElementById("Table-Job-Order").rows;
@@ -339,30 +339,31 @@
         }
     }
     function ditemukan(){
-            if($("#Jo_id").val().length != 6 && $("#Jo_id").val().length != 0){
-                    alert("silakan Isi Jo Id 6 Digit Atau Tidak Diisi");
-                    $("#Jo_id").val("");
-                }else{
-                    $.ajax({
-                        type: "POST",
-                        url: "<?php echo base_url('index.php/home/getditemukanjo') ?>",
-                        dataType: "text",
-                        data: {
-                            Status : $('#Status').val(),
-                            Supir : $('#Supir').val(),
-                            Kendaraan : $('#Kendaraan').val(),
-                            Jenis : $('#Jenis').val(),
-                            Customer : $('#Customer').val(),
-                            Jo_id : $('#Jo_id').val(),
-                            Tanggal1 : $('#Tanggal1').val(),
-                            Tanggal2 : $('#Tanggal2').val(),
-                        },
-                        success: function(data) { //jika ambil data sukses
-                            var ditemukan = data;
-                            $("#ditemukan").val(ditemukan+" Data");
-                        }
-                    });
-                }
+        if($("#Jo_id").val().length != 6 && $("#Jo_id").val().length != 0){
+            alert("silakan Isi Jo Id 6 Digit Atau Tidak Diisi");
+            $("#Jo_id").val("");
+        }else{
+            $.ajax({
+                    type: "POST",
+                    url: "<?php echo base_url('index.php/home/getditemukanjo') ?>",
+                    dataType: "text",
+                    data: {
+                        Status : $('#Status').val(),
+                        Supir : $('#Supir').val(),
+                        Kendaraan : $('#Kendaraan').val(),
+                        Jenis : $('#Jenis').val(),
+                        Customer : $('#Customer').val(),
+                        Jo_id : $('#Jo_id').val(),
+                        Tanggal1 : $('#Tanggal1').val(),
+                        Tanggal2 : $('#Tanggal2').val(),
+                    },
+                    success: function(data) { //jika ambil data sukses
+                        var ditemukan = JSON.parse(data).length;
+                        $("#ditemukan").val(ditemukan+" Data");
+                        $('#file_content').val(data);
+                    }
+                });
+            }
         }
 </script>
 

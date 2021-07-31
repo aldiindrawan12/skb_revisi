@@ -1,5 +1,5 @@
-<div class="container">
-    <div class="card shadow mb-4">
+<div class="mt-5 p-1">
+    <div class="card shadow mb-4 mt-3">
     <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary float-left">Seluruh Data Kendaraan</h6>
         <a class="btn btn-primary btn-icon-split float-right btn-sm" data-toggle='modal' data-target='#popup-truck'>

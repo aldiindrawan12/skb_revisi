@@ -165,10 +165,82 @@ class Print_Berkas extends CI_Controller {
 		echo $content;
 	}
 	public function jo_excel_data(){
-		$content = $this->input->post("file_content");
-		header("Content-type: application/vnd-ms-excel");
-		header("Content-Disposition: attachment; filename=Data_JO.xls");
-		echo $content;
+		$content = json_decode($this->input->post("file_content"),true);
+
+		$excel = new Spreadsheet();
+
+		// 	//set properti
+		$excel->getProperties()->setCreator('PT.Sumber Karya Berkah')
+		->setLastModifiedBy('PT.Sumber Karya Berkah');
+
+			//set tampilan judul file
+			$excel->setActiveSheetIndex(0)->setCellValue('A1', "DATA JOB ORDER");
+			$excel->getActiveSheet()->mergeCells('A1:L1');
+			$excel->getActiveSheet()->getStyle('A1')->getFont()->setBold(TRUE);
+			$excel->getActiveSheet()->getStyle('A1')->getFont()->setSize(15);
+
+			//header tabel
+			$excel->setActiveSheetIndex(0)->setCellValue('A3', "JO ID");
+			$excel->setActiveSheetIndex(0)->setCellValue('B3', "TANGGAL");
+			$excel->setActiveSheetIndex(0)->setCellValue('C3', "DRIVER");
+			$excel->setActiveSheetIndex(0)->setCellValue('D3', "NO. POLISI");
+			$excel->setActiveSheetIndex(0)->setCellValue('E3', "JENIS MOBIL");
+			$excel->setActiveSheetIndex(0)->setCellValue('F3', "CUSTOMER");
+			$excel->setActiveSheetIndex(0)->setCellValue('G3', "MUATAN");
+			$excel->setActiveSheetIndex(0)->setCellValue('H3', "DARI");
+			$excel->setActiveSheetIndex(0)->setCellValue('I3', "KE");
+			$excel->setActiveSheetIndex(0)->setCellValue('J3', "TOTAL UJ");
+			$excel->setActiveSheetIndex(0)->setCellValue('K3', "SISA UJ");
+			$excel->setActiveSheetIndex(0)->setCellValue('L3', "BIAYA LAIN");
+
+			//isi tabel
+			$numrow = 4;
+			for($i=0;$i<count($content);$i++){
+				$excel->setActiveSheetIndex(0)->setCellValue('A'.$numrow, $content[$i]["Jo_id"]);
+				$excel->setActiveSheetIndex(0)->setCellValue('B'.$numrow, $this->change_tanggal($content[$i]["tanggal_surat"]));
+				$excel->setActiveSheetIndex(0)->setCellValue('C'.$numrow, $content[$i]["supir_name"]);
+				$excel->setActiveSheetIndex(0)->setCellValue('D'.$numrow, $content[$i]["mobil_no"]);
+				$excel->setActiveSheetIndex(0)->setCellValue('E'.$numrow, $content[$i]["mobil_jenis"]);
+				$excel->setActiveSheetIndex(0)->setCellValue('F'.$numrow, $content[$i]["customer_name"]);
+				$excel->setActiveSheetIndex(0)->setCellValue('G'.$numrow, $content[$i]["muatan"]);
+				$excel->setActiveSheetIndex(0)->setCellValue('H'.$numrow, $content[$i]["asal"]);
+				$excel->setActiveSheetIndex(0)->setCellValue('I'.$numrow, $content[$i]["tujuan"]);
+				$excel->setActiveSheetIndex(0)->setCellValue('J'.$numrow, "Rp.".number_format($content[$i]["uang_total"]),0,',','.');
+				$excel->setActiveSheetIndex(0)->setCellValue('K'.$numrow, "Rp.".number_format($content[$i]["sisa"]),0,',','.');
+				$excel->setActiveSheetIndex(0)->setCellValue('L'.$numrow, "Rp.".number_format($content[$i]["biaya_lain"]),0,',','.');
+			
+				$numrow++; // Tambah BARIS
+			}
+
+			// Set width kolom
+			$excel->getActiveSheet()->getColumnDimension('A')->setWidth(10); // Set width kolom A
+			$excel->getActiveSheet()->getColumnDimension('B')->setWidth(10); // Set width kolom B
+			$excel->getActiveSheet()->getColumnDimension('C')->setWidth(15); // Set width kolom C
+			$excel->getActiveSheet()->getColumnDimension('D')->setWidth(15); // Set width kolom D
+			$excel->getActiveSheet()->getColumnDimension('E')->setWidth(15); // Set width kolom E
+			$excel->getActiveSheet()->getColumnDimension('F')->setWidth(15); // Set width kolom E
+			$excel->getActiveSheet()->getColumnDimension('G')->setWidth(15); // Set width kolom E
+			$excel->getActiveSheet()->getColumnDimension('H')->setWidth(15); // Set width kolom E
+			$excel->getActiveSheet()->getColumnDimension('I')->setWidth(15); // Set width kolom E
+			$excel->getActiveSheet()->getColumnDimension('J')->setWidth(15); // Set width kolom E
+			$excel->getActiveSheet()->getColumnDimension('K')->setWidth(15); // Set width kolom E
+			$excel->getActiveSheet()->getColumnDimension('L')->setWidth(15); // Set width kolom E
+			
+			// tinggi otomatis
+			$excel->getActiveSheet()->getDefaultRowDimension()->setRowHeight(-1);
+
+			// Set judul file excel nya
+			$excel->getActiveSheet(0)->setTitle("Laporan Data Job Order");
+			$excel->setActiveSheetIndex(0);
+
+			// Proses file excel
+			$header = 'Content-Disposition: attachment; filename=lapotan_jo.xlsx';
+			header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+			header($header);
+			header('Cache-Control: max-age=0');
+
+			$write = IOFactory::createWriter($excel, 'Xlsx');
+			$write->save('php://output');
 	}
 	public function invoice_excel(){
 		$content = $this->input->post("file_content");
