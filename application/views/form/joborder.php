@@ -1,4 +1,4 @@
-<div class="mt-5 p-1">
+<div class="container mt-5 p-1">
         <!-- Card Formulir JO -->
         <div class="card shadow mt-3 mb-4">
             <div class="card-header ">
@@ -74,6 +74,7 @@
                         <label class="form-label font-weight-bold col-md-5" for="Tonase">Tonase</label>
                         <input autocomplete="off" type="text" class="form-control col-md-7" name="Tonase" id="Tonase" required readonly>
                     </div> -->
+                        <input autocomplete="off" type="text" class="form-control col-md-7" id="Tipe_Tonase" name="Tipe_Tonase" value=0 required readonly hidden>
                     <div class="col-md-12 mb-4 row">
                         <label for="Uang" class="form-label font-weight-bold col-md-5">Uang Jalan</label>
                         <input autocomplete="off" type="text" class="form-control col-md-7" id="Uang" name="Uang" value=0 required readonly>
@@ -166,6 +167,7 @@
         $("#Uang").val("");
         $("#Upah").val("");
         $("#Tagihan").val("");
+        $("#Tipe_Tonase").val("");
         $.ajax({
             type: "POST",
             url: "<?php echo base_url('index.php/form/getmobilbyno') ?>",
@@ -191,6 +193,7 @@
         $("#Uang").val("");
         $("#Upah").val("");
         $("#Tagihan").val("");
+        $("#Tipe_Tonase").val("");
         isi_muatan = [];
         $.ajax({ //ajax set option kendaraan
             type: "POST",
@@ -224,6 +227,7 @@
         $("#Uang").val("");
         $("#Upah").val("");
         $("#Tagihan").val("");
+        $("#Tipe_Tonase").val("");
         isi_asal = [];
         $.ajax({ //ajax set option kendaraan
             type: "POST",
@@ -258,6 +262,7 @@
         $("#Uang").val("");
         $("#Upah").val("");
         $("#Tagihan").val("");
+        $("#Tipe_Tonase").val("");
         isi_tujuan = [];
         $.ajax({ //ajax set option kendaraan
             type: "POST",
@@ -310,6 +315,7 @@
                     total = rupiah( parseInt(data["rute_uj_engkel"])) ;
                 }
                 $( '#uang_jalan_total' ).val(total);
+                $("#Tipe_Tonase").val(data["ritase"]);
                 $("#Uang").val(rupiah(data["rute_uj_engkel"]));
                 $("#Upah").val(rupiah(data["rute_gaji_engkel"]));
                 $("#Tagihan").val(rupiah(data["rute_tagihan"]));

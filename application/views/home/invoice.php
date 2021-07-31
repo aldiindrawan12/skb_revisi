@@ -1,6 +1,6 @@
-<div class="container">
+<div class="p-5 w-75 m-auto">
     <!-- form invoice -->
-    <div class="card shadow mb-2">
+    <div class="card shadow mb-2 mt-5">
         <div class="card-header ">
             <h6 class="m-0 font-weight-bold text-primary">Buat Invoice</h6>
         </div>
@@ -98,7 +98,7 @@
                         <th class="text-center" width="" scope="col">Total</th>
                         <th class="text-center" width="" scope="col">Pilih</th>
                         <th class="text-center" width="" scope="col">Detail</th>
-                        <th>jenis</th>
+                        <th class="text-center" width="" scope="col">Tipe</th>
                     </tr>
                 </thead>
                 <tbody>

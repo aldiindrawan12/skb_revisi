@@ -40,6 +40,12 @@ class Model_Home extends CI_model
             return $this->db->get_where("skb_customer",array("validasi"=>"ACC","validasi_edit"=>"ACC","validasi_delete"=>"ACC","status_hapus"=>"NO"))->result_array();
         }
 
+        public function getcustomerall() //all customer
+        {
+            $this->db->order_by("customer_name","ASC");
+            return $this->db->get_where("skb_customer",array("status_hapus"=>"NO"))->result_array();
+        }
+
         public function getallcustomer() //all customer
         {
             $this->db->order_by("customer_name","ASC");

@@ -3506,7 +3506,7 @@
                         }
                     },
                     {
-                        "data":"ritase"
+                        "data":"tipe_tonase"
                     }
                 ],   
                 drawCallback: function() {

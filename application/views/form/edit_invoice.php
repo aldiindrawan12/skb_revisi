@@ -159,6 +159,7 @@
                         <th class="text-center" width="" scope="col">Total</th>
                         <th class="text-center" width="" scope="col">Pilih</th>
                         <th class="text-center" width="" scope="col">Detail</th>
+                        <th class="text-center" width="" scope="col">Ritase</th>
                     </tr>
                 </thead>
                 <tbody>

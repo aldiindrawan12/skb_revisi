@@ -241,6 +241,7 @@ class Form extends CI_Controller {
                 "nominal_tambahan"=>$nominal_tambahan,
                 "uang_total"=>str_replace(".","",$this->input->post("uang_jalan_total")),
                 "sisa"=>str_replace(".","",$this->input->post("uang_jalan_total")),
+                "tipe_tonase"=>$this->input->post("Tipe_Tonase")
             );
             $this->session->set_flashdata("addjo","berhasil");
             $this->model_form->insert_JO($data["data"]);
@@ -621,6 +622,11 @@ class Form extends CI_Controller {
             if($this->input->post("status")!="Dibatalkan"){
                 $data_jo = $this->model_home->getjobyid($this->input->post("jo_id"));
                 $keterangan = $data_jo["keterangan"]."===<br>".$this->input->post("Keterangan");
+                if($data_jo["tipe_tonase"]=="Ritase"){
+                    $total_tagihan=$data_jo["tagihan"]/str_replace(".","",$this->input->post("tonase"));
+                }else{
+                    $total_tagihan=$data_jo["tagihan"]*str_replace(".","",$this->input->post("tonase"));
+                }
                 $data = array(
                     "jo_id" => $this->input->post("jo_id"),
                     "status" => $this->input->post("status"),
@@ -629,7 +635,7 @@ class Form extends CI_Controller {
                     "biaya_lain"=>str_replace(".","",$this->input->post("biaya_lain")),
                     "user_closing"=>$_SESSION["user"],
                     "tonase"=>str_replace(".","",$this->input->post("tonase")),
-                    "total_tagihan"=>$data_jo["tagihan"]*str_replace(".","",$this->input->post("tonase")),
+                    "total_tagihan"=>$total_tagihan,
                     "keterangan"=>$keterangan,
                     // "tanggal_bongkar"=>date('Y-m-d'),
                 );
@@ -726,6 +732,7 @@ class Form extends CI_Controller {
                 "batas_pembayaran"=>$this->input->post("invoice_payment"),
                 "tanggal_batas_pembayaran"=>date('Y-m-d', strtotime('+'.$this->input->post("invoice_payment").' days', strtotime($this->change_tanggal($this->input->post("invoice_tgl_edit"))))),
                 "invoice_keterangan"=>$this->input->post("invoice_keterangan"),
+                "sisa"=>str_replace(".","",$this->input->post("invoice_grand_total")),
             );
             $this->session->set_flashdata('status-edit-invoice', 'Berhasil');
             $data_jo = explode(",",$this->input->post("data_jo"));
