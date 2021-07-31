@@ -1,7 +1,7 @@
-<div class="container">
-    <div class="card shadow mb-4">
-    <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary float-left">Seluruh Data Merk</h6>
+<div class="container-fluid mt-5 p-5" style='background-color:#182039';>
+    <div class="card shadow mb-4" >
+    <div class="card-header py-3" style='background-color:#212B4E';>
+        <h6 class="m-2 font-weight-bold text-light float-left">Seluruh Data Merk</h6>
         <a class="btn btn-primary btn-icon-split float-right btn-sm" data-toggle='modal' data-target='#popup-merk'>
             <span class="icon text-white-100">
                 <i class="fas fa-plus"></i> 
@@ -11,9 +11,9 @@
             </span>
         </a>
     </div>
-    <div class="card-body">
+    <div class="card-body" style='background-color:#212B4E';>
         <div class="table-responsive">
-            <table class="table table-bordered" id="Table-Merk" width="100%" cellspacing="0">
+            <table class="table table-bordered text-light" id="Table-Merk" width="100%" cellspacing="0">
                 <thead>
                     <tr>
                         <th class="text-center" width="3%" scope="col">No</th>
