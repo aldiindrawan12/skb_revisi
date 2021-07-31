@@ -1190,7 +1190,7 @@
                     $('.btn-alert-update-jo-1').click(function() {
                         Swal.fire({
                             title: 'Ubah Status Job Order',
-                            text:'Maaf Anda Uang Jalan Job Order Masih Belum Lunas',
+                            text:'Maaf Uang Jalan Job Order Masih Belum Lunas',
                             icon: "warning",
                             time: 2000
                         })
