@@ -12,14 +12,14 @@
         $jo .= $invoice[$i]["Jo_id"].",";
     }
 ?>
-<div class="container">
+<div class="mt-5 p-1">
     <!-- form invoice -->
-    <div class="card shadow mb-2">
+    <div class="card shadow mb-2 mt-3">
         <div class="card-header ">
             <h6 class="m-0 font-weight-bold text-primary">Buat Invoice</h6>
         </div>
         <div class="card-body">
-        <form action="<?=base_url("index.php/form/update_invoice")?>" method="POST">
+        <form action="<?=base_url("index.php/form/update_invoice")?>" method="POST" id="form-edit-invoice">
             <div class="row">
                 <div class="col-md-6 border rounded">
                     <div class="form-group">
@@ -169,6 +169,30 @@
     </div>
 </div>
 <!-- end table invoice -->
+<script src="<?=base_url("assets/vendor/jquery/jquery.min.js")?>"></script>
+
+<script>
+        var data_invoice_now = [];
+        var data_invoice_new = [];
+        data_invoice_now = new Object();
+        data_invoice_now.tanggal="<?= change_tanggal($invoice[0]["tanggal_invoice"])?>";
+        data_invoice_now.top="<?= $invoice[0]["batas_pembayaran"]?>";
+        data_invoice_now.grand="<?= number_format($invoice[0]["grand_total"],2,',','.')?>";
+        data_invoice_now.keterangan="<?= $invoice[0]["invoice_keterangan"]?>";
+        $( "#form-edit-invoice" ).submit(function( event ) {
+            data_invoice_new = new Object();
+            data_invoice_new.tanggal=$("#invoice_tgl_edit").val();
+            data_invoice_new.top=$("#invoice_payment").val();
+            data_invoice_new.grand=$("#invoice_grand_total").val();
+            data_invoice_new.keterangan=$("#invoice_keterangan").val();
+            if(JSON.stringify(data_invoice_now) == JSON.stringify(data_invoice_new)){
+                alert( "Anda Belum Mengubah Data" );
+                return false;
+            }else{
+                return true;
+            }
+        });
+</script>
 <script>
     function customer(){
         var nama_customer = $("#customer_id option:selected").text();

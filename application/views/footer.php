@@ -501,7 +501,9 @@
     <!-- end kendaraan -->
 
     <!-- merk -->
-     <script> //script datatables merk
+    <script> //script datatables merk
+        var data_merk_now = [];
+        var data_merk_new = [];
         $(document).ready(function() {
             var table = null;
             table = $('#Table-Merk').DataTable({
@@ -625,6 +627,7 @@
                         let pk = $(this).data('pk');
                         $.ajax({ //ajax ambil data bon
                             type: "GET",
+                            async:false,
                             url: "<?php echo base_url('index.php/detail/getmerk') ?>",
                             dataType: "JSON",
                             data: {
@@ -636,6 +639,11 @@
                                 $('#merk_type_update').val(data["merk_type"]); //set value
                                 $('#merk_jenis_update').val(data["merk_jenis"]); //set value
                                 $('#merk_dump_update').val(data["merk_dump"]); //set value
+                                data_merk_now = new Object();
+                                data_merk_now.nama=data["merk_nama"];
+                                data_merk_now.type=data["merk_type"];
+                                data_merk_now.jenis=data["merk_jenis"];
+                                data_merk_now.dump=data["merk_dump"];
                             }
                         });
                     });
@@ -752,6 +760,19 @@
                 },
                 
             });
+        });
+        $( "#form-edit-merk" ).submit(function( event ) {
+            data_merk_new = new Object();
+            data_merk_new.nama=$("#merk_nama_update").val();
+            data_merk_new.type=$("#merk_type_update").val();
+            data_merk_new.jenis=$("#merk_jenis_update").val();
+            data_merk_new.dump=$("#merk_dump_update").val();
+            if(JSON.stringify(data_merk_now) == JSON.stringify(data_merk_new)){
+                alert( "Anda Belum Mengubah Data" );
+                return false;
+            }else{
+                return true;
+            }
         });
         function acc_edit_merk(id){
             $.ajax({
@@ -1304,6 +1325,8 @@
 
     <!-- bon -->
     <script> //script datatables bon
+        var data_bon_now = [];
+        var data_bon_new = [];
         $(document).ready(function() {
             var table = null;
             table = $('#Table-Bon').DataTable({
@@ -1474,16 +1497,33 @@
                                 id: pk
                             },
                             success: function(data) { //jika ambil data sukses
-                                $("#bon_edit").val(data["bon_id"]);
-                                $("#Supir_edit").val(data["supir_name"]);
+                                $("#bon_edit").val(data["bon_id"]);//
+                                $("#Supir_edit").val(data["supir_name"]);//
                                 $("#Tanggal_edit").val(change_tanggal(data["bon_tanggal"]));
                                 $("#Jenis_edit").val(data["bon_jenis"]);
                                 $("#Nominal_edit").val(rupiah(data["bon_nominal"]));
-                                $("#Jenis_edit").val(data["bon_jenis"]);
                                 $("#Keterangan_edit").val(data["bon_keterangan"]);
+                                data_bon_now = new Object();
+                                data_bon_now.tanggal=change_tanggal(data["bon_tanggal"]);
+                                data_bon_now.jenis=data["bon_jenis"];
+                                data_bon_now.nominal=rupiah(data["bon_nominal"]);
+                                data_bon_now.keterangan=data["bon_keterangan"];
                             }
                         });
                     });
+                }
+            });
+            $( "#form-edit-bon" ).submit(function( event ) {
+                data_bon_new = new Object();
+                data_bon_new.tanggal=$("#Tanggal_edit").val();
+                data_bon_new.jenis=$("#Jenis_edit").val();
+                data_bon_new.nominal=$("#Nominal_edit").val();
+                data_bon_new.keterangan=$("#Keterangan_edit").val();
+                if(JSON.stringify(data_bon_now) == JSON.stringify(data_bon_new)){
+                    alert( "Anda Belum Mengubah Data" );
+                    return false;
+                }else{
+                    return true;
                 }
             });
             $("#btn-cari-bon").click(function() {
@@ -1547,6 +1587,8 @@
 
     <!-- Customer -->
     <script> //script datatables customer
+        var data_customer_now = [];
+        var data_customer_new = [];
         $(document).ready(function() {
             var table = null;
             table = $('#Table-Customer').DataTable({
@@ -1664,8 +1706,13 @@
                                 $("#customer_telp_update").val(data["customer_telp"]);
                                 $("#customer_alamat_update").val(data["customer_alamat"]);
                                 $("#customer_kontak_person_update").val(data["customer_kontak_person"]);
-                                $("#customer_telp_update").val(data["customer_telp"]);
                                 $("#customer_keterangan_update").val(data["customer_keterangan"]);
+                                data_customer_now = new Object();
+                                data_customer_now.nama=data["customer_name"];
+                                data_customer_now.telp=data["customer_telp"];
+                                data_customer_now.alamat=data["customer_alamat"];
+                                data_customer_now.kontak=data["customer_kontak_person"];
+                                data_customer_now.keterangan=data["customer_keterangan"];
                             }
                         });
                     });
@@ -1828,6 +1875,20 @@
                     });
                 }
             });
+        });
+        $( "#form-edit-customer" ).submit(function( event ) {
+            data_customer_new = new Object();
+            data_customer_new.nama=$("#customer_name_update").val();
+            data_customer_new.telp=$("#customer_telp_update").val();
+            data_customer_new.alamat=$("#customer_alamat_update").val();
+            data_customer_new.kontak=$("#customer_kontak_person_update").val();
+            data_customer_new.keterangan=$("#customer_keterangan_update").val();
+            if(JSON.stringify(data_customer_now) == JSON.stringify(data_customer_new)){
+                alert( "Anda Belum Mengubah Data" );
+                return false;
+            }else{
+                return true;
+            }
         });
         function acc_edit_customer(id){
             $.ajax({
@@ -2712,6 +2773,8 @@
 
     <!-- rute -->
     <script> //script datatables rute
+        var data_rute_now = [];
+        var data_rute_new = [];
         $(document).ready(function() {
             var table = null;
             table = $('#Table-rute').DataTable({
@@ -2828,22 +2891,27 @@
                                 id: pk
                             },
                             success: function(data) {
-                                // alert(data["customer_name"]);
-                                $("#rute_id_update").val(data["rute_id"]);
-                                $("#customer_id_update").val(data["customer_id"]);
-                                $("#customer_name_update").val(data["customer_name"]);
+                                $("#rute_id_update").val(data["rute_id"]);//
+                                $("#customer_id_update").val(data["customer_id"]);//
+                                $("#customer_name_update").val(data["customer_name"]);//
+                                $("#jenis_mobil_update").val(data["jenis_mobil"]);//
+                                $("#Ritase_update").val(data["ritase"]);//
+
                                 $("#rute_dari_update").val(data["rute_dari"]);
                                 $("#rute_ke_update").val(data["rute_ke"]);
                                 $("#rute_muatan_update").val(data["rute_muatan"]);
-                                $("#jenis_mobil_update").val(data["jenis_mobil"]);
                                 $("#rute_uj_engkel_update").val(rupiah(data["rute_uj_engkel"]));
-                                // $("#rute_uj_tronton_update").val(rupiah(data["rute_uj_tronton"]));
-                                $("#Ritase_update").val(data["ritase"]);
                                 $("#rute_tagihan_update").val(rupiah(data["rute_tagihan"]));
                                 $("#rute_gaji_engkel_update").val(rupiah(data["rute_gaji_engkel"]));
-                                // $("#rute_gaji_tronton_update").val(rupiah(data["rute_gaji_tronton"]));
-                                // $("#rute_gaji_tronton_rumusan_update").val(rupiah(data["rute_gaji_tronton_rumusan"]));
                                 $("#rute_keterangan_update").val(data["rute_keterangan"]);
+                                data_rute_now = new Object();
+                                data_rute_now.dari=data["rute_dari"];
+                                data_rute_now.ke=data["rute_ke"];
+                                data_rute_now.muatan=data["rute_muatan"];
+                                data_rute_now.uj=data["rute_uj_engkel"];
+                                data_rute_now.tagihan=data["rute_tagihan"];
+                                data_rute_now.gaji=data["rute_gaji_engkel"];
+                                data_rute_now.keterangan=data["rute_keterangan"];
                             }
                         });
                     });
@@ -3027,6 +3095,22 @@
                     });
                 }
             });
+        });
+        $( "#form-edit-rute" ).submit(function( event ) {
+            data_rute_new = new Object();
+            data_rute_new.dari=$("#rute_dari_update").val();
+            data_rute_new.ke=$("#rute_ke_update").val();
+            data_rute_new.muatan=$("#rute_muatan_update").val();
+            data_rute_new.uj=$("#rute_uj_engkel_update").val().replaceAll(".","");
+            data_rute_new.tagihan=$("#rute_tagihan_update").val().replaceAll(".","");
+            data_rute_new.gaji=$("#rute_gaji_engkel_update").val().replaceAll(".","");
+            data_rute_new.keterangan=$("#rute_keterangan_update").val();
+            if(JSON.stringify(data_rute_now) == JSON.stringify(data_rute_new)){
+                alert( "Anda Belum Mengubah Data" );
+                return false;
+            }else{
+                return true;
+            }
         });
         function acc_edit_rute(id){
             $.ajax({

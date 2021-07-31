@@ -10,8 +10,8 @@ function change_tanggal($tanggal){
 
 ?>
 <!-- tampilan detail penggajian supir -->
-<div class="container small">
-    <div class="card shadow mb-4">
+<div class="mt-5 p-1 small">
+    <div class="card shadow mb-4 mt-3">
         <div class="card-header py-3 mb-3">
             <h6 class="m-0 font-weight-bold text-primary">Buat Slip Gaji</h6>
         </div>
@@ -22,7 +22,7 @@ function change_tanggal($tanggal){
                     <div class="col-md-6">
                         <div class="form-group row">
                             <label for="tanggal_gaji" class="col-form-label col-sm-7 font-weight-bold">Tanggal</label>
-                            <input autocomplete="off" type="text" class="form-control col-md-5" id="tanggal_gajii" name="tanggal_gaji" value="<?= change_tanggal($slip[0]["pembayaran_upah_tanggal"])?>" onclick="tanggal_berlaku(this)" required>
+                            <input autocomplete="off" type="text" class="form-control col-md-5" id="tanggal_gaji" name="tanggal_gaji" value="<?= change_tanggal($slip[0]["pembayaran_upah_tanggal"])?>" onclick="tanggal_berlaku(this)" required>
                         </div>
                         <div class="form-group row">
                             <label for="no_gaji" class="col-form-label col-sm-7 font-weight-bold">No Gaji</label>
@@ -72,7 +72,7 @@ function change_tanggal($tanggal){
                         </div>
                         <div class="form-group row">
                             <label for="keterangan" class="col-form-label col-sm-7 font-weight-bold">Keterangan</label>
-                            <textarea name="Keterangan" id="Keterangan" class="form-control col-md-5" rows="3"></textarea>
+                            <textarea name="Keterangan" id="Keterangan" class="form-control col-md-5" rows="3"><?= $slip[0]["keterangan"]?></textarea>
                         </div>
                     </div>
                 </div>
@@ -225,6 +225,32 @@ function change_tanggal($tanggal){
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/js/bootstrap-select.min.js"></script>
     <script src="<?php echo base_url('assets/datepicker/js/bootstrap-datepicker.js')?>"></script>
     <script>
+        var data_slip_now = [];
+        var data_slip_new = [];
+        data_slip_now = new Object();
+        data_slip_now.tanggal="<?= change_tanggal($slip[0]["pembayaran_upah_tanggal"])?>";
+        data_slip_now.total="<?= number_format($slip[0]["pembayaran_upah_nominal"],0,",",".")?>";
+        data_slip_now.bon="<?= number_format($slip[0]["pembayaran_upah_bon"],0,",",".")?>";
+        data_slip_now.bonus="<?= number_format($slip[0]["pembayaran_upah_bonus"],0,",",".")?>";
+        data_slip_now.grand="<?= number_format($slip[0]["pembayaran_upah_total"],0,",",".")?>";
+        data_slip_now.keterangan="<?= $slip[0]["keterangan"]?>";
+        $( "#form-pilih-jo" ).submit(function( event ) {
+            data_slip_new = new Object();
+            data_slip_new.tanggal=$("#tanggal_gaji").val();
+            data_slip_new.total=$("#gaji_total").val();
+            data_slip_new.bon=$("#kasbon").val();
+            data_slip_new.bonus=$("#bonus").val();
+            data_slip_new.grand=$("#gaji_grand_total").val();
+            data_slip_new.keterangan=$("#Keterangan").val();
+            if(JSON.stringify(data_slip_now) == JSON.stringify(data_slip_new)){
+                alert( "Anda Belum Mengubah Data" );
+                return false;
+            }else{
+                return true;
+            }
+        });
+    </script>
+    <script>
         isi_jo = $("#jo").val().split(",");
         var data_jo = [];     
         for(i=0;i<isi_jo.length;i++){
@@ -291,6 +317,12 @@ function change_tanggal($tanggal){
             });
         }
         function batas_kasbon(a){
+            if($("#"+a.id).val().length>1){
+                if($("#"+a.id).val()[0]=="0"){
+                    var string_now = $("#"+a.id).val().replace("0","");
+                    $("#"+a.id).val(string_now);
+                }
+            }
             kasbon_slip = '<?= $slip[0]["pembayaran_upah_bon"]?>';
             var bonus = 0;
             if($("#bonus").val().replaceAll(".","") == ""){
@@ -336,6 +368,12 @@ function change_tanggal($tanggal){
             }
         }
         function bonus_nilai(a){
+            if($("#"+a.id).val().length>1){
+                if($("#"+a.id).val()[0]=="0"){
+                    var string_now = $("#"+a.id).val().replace("0","");
+                    $("#"+a.id).val(string_now);
+                }
+            }
             var kasbon = 0;
             if($("#kasbon").val().replaceAll(".","") == ""){
                 kasbon = 0;

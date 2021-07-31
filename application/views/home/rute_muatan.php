@@ -141,13 +141,13 @@
     <div class="modal-dialog modal-xl" role="document">
         <div class="modal-content">
             <div class="modal-header bg-primary-dark">
-                <h5 class="font-weight-bold">Update Rute dan Muatan Baru</h5>
+                <h5 class="font-weight-bold">Update Rute dan Muatan</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="font-size-sm m-3 text-justify">
-                <form action="<?= base_url("index.php/form/update_rute")?>" method="POST">
+                <form action="<?= base_url("index.php/form/update_rute")?>" method="POST" id="form-edit-rute">
                     <div class="row">
                         <div class="col border rounded mr-3 ml-3 mb-3 mt-3">
                             <input type="text" name="rute_id_update" id="rute_id_update" hidden>

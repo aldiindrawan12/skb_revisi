@@ -1,6 +1,6 @@
 <body style='background-color:#182039';> 
 
-<div class="container-fluid mt-5 p-5" style='background-color:#182039';>
+<div class="container-fluid small mt-5 p-5" style='background-color:#182039';>
     <div class="card shadow mb-4" >
     <div class="card-header py-3" style='background-color:#212B4E';>
         <h6 class="m-2 font-weight-bold text-light float-left">Seluruh Data Merk</h6>
@@ -24,7 +24,7 @@
                         <th class="text-center" width="15%" scope="col">Jenis</th>
                         <th class="text-center" width="6%" scope="col">Dump</th>
                         <th class="text-center" width="10%" scope="col">Status Validasi</th>
-                        <th class="text-center" width="7%" scope="col">Aksi</th>
+                        <th class="text-center" width="17%" scope="col">Aksi</th>
                         <th class="text-center" width="8%" scope="col">Validasi</th>
                     </tr>
                 </thead>
@@ -79,7 +79,6 @@
 </div>
 </div>
 </div>
-
 <!-- end pop up add merk -->
 
 <!-- pop up update merk -->
@@ -93,7 +92,7 @@
                 </button>
             </div>
             <div class="font-size-sm ml-3 mr-3 mb-3 text-justify">
-                    <form action="<?= base_url("index.php/form/update_merk")?>" method="POST">
+                    <form action="<?= base_url("index.php/form/update_merk")?>" method="POST" id="form-edit-merk">
                         <input autocomplete="off" type="text" class="form-control" id="merk_id_update" name="merk_id_update" required hidden>
                         <div class="form-group mt-2">
                             <label for="merk_nama_update" class="form-label font-weight-bold">Merk</label>

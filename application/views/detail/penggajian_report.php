@@ -6,27 +6,11 @@
     }
 ?>
 <!-- tampilan detail penggajian supir -->
-<div class="container small">
-    <div class="card shadow mb-4">
+<div class="mt-5 p-1 small">
+    <div class="card shadow mb-4 mt-3">
         <div class="card-header py-3 row">
             <h6 class="m-0 font-weight-bold text-primary col-md-8">Seluruh Data Slip Gaji</h6>
         </div>
-        <!-- <div class="card-body">
-            <table class="w-50">
-                <tbody>
-                    <tr>
-                        <td width="25%">Id Supir</td>
-                        <td width="5%">:</td>
-                        <td><?= $supir["supir_id"]?></td>
-                    </tr>
-                    <tr>
-                        <td width="25%">Nama Supir</td>
-                        <td width="5%">:</td>
-                        <td><?= $supir["supir_name"]?></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div> -->
           <div class="conatiner w-50 m-auto">
                 <div class="mb-2 mt-3 form-group row">
                     <label for="Status" class="form-label font-weight-bold col-md-4">Status</label>

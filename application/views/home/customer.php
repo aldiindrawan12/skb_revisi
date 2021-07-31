@@ -118,7 +118,7 @@
             <div class="container mt-3">
                 <div class="row">
                     <div class="col table-bordered">
-                        <form action="<?= base_url("index.php/form/update_customer")?>" method="POST">
+                        <form action="<?= base_url("index.php/form/update_customer")?>" method="POST" id="form-edit-customer">
                             <input type="text" name="customer_id_update" id="customer_id_update" hidden>
                             <div class="form-group mt-1">
                                 <label for="customer_name_update" class="form-label font-weight-bold">Nama Customer</label>

@@ -190,7 +190,7 @@
                 </button>
             </div>
             <div class="font-size-sm m-3 text-justify">
-                <form action="<?=base_url("index.php/form/update_bon")?>" method="POST" class="row">
+                <form action="<?=base_url("index.php/form/update_bon")?>" method="POST" class="row" id="form-edit-bon">
                     <div class="col-md-4 col-md-offset-4 mb-4">
                         <label for="bon_id_edit" class="form-label font-weight-bold">No Bon</label>
                         <input autocomplete="off" type="text" class="form-control" id="bon_edit" name="bon_edit" required readonly>
@@ -209,7 +209,6 @@
                             <option class="font-w700" disabled="disabled" selected value="">Jenis Transaksi</option>
                             <option value="Pengajuan">Pengajuan</option>
                             <option value="Pembayaran">Pembayaran</option>
-                            <option value="Pembatalan JO">Pembatalan JO</option>
                             <option value="Potong Gaji">Potong Gaji</option>
                         </select>
                     </div>
@@ -222,8 +221,7 @@
                         <textarea class="form-control" name="Keterangan_edit" id="Keterangan_edit" rows="3"></textarea>
                     </div>
                     <div class="col-md-12 col-md-offset-4 mt-5 ">
-                        <button type="submit" class="btn btn-success mb-3 ml-3 float-right">Simpan</button>    
-                        <button type="reset" class="btn btn-outline-danger mb-3 float-right">Reset</button> 
+                        <button type="submit" class="btn btn-success mb-3 ml-3 float-right">Simpan</button> 
                     </div>
                 </form>
             </div>
