@@ -581,10 +581,10 @@
                                     html +="<a class='btn btn-danger btn-sm btn-tolak-merk' href='javascript:void(0)' data-pk='"+data+"'><i class='fas fa-times'></i></a><br>";
                                 }
                                 if(row["validasi_edit"]=="Pending"){
-                                    html += "<a class='btn btn-primary btn-sm btn-acc-edit-merk' href='javascript:void(0)' data-pk='"+data+"' data-toggle='modal' data-target='#popup-acc-edit-merk'>ACC Edit<i class='fas fa-check-circle'></i></a><br>";
+                                    html += "<a class='btn btn-primary btn-sm btn-acc-edit-merk' href='javascript:void(0)' data-pk='"+data+"' data-toggle='modal' data-target='#popup-acc-edit-merk'>ACC Edit <i class='fas fa-check-circle'></i></a><br>";
                                 }
                                 if(row["validasi_delete"]=="Pending"){
-                                    html += "<a class='btn btn-danger btn-sm btn-acc-delete-merk' href='javascript:void(0)' data-pk='"+data+"'>ACC Delete<i class='fas fa-check-circle'></i></a><br>";    
+                                    html += "<a class='btn btn-danger btn-sm btn-acc-delete-merk' href='javascript:void(0)' data-pk='"+data+"'>ACC Delete <i class='fas fa-check-circle'></i></a><br>";    
                                 }
                                 return html;
                             }else{

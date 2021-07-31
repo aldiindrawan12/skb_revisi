@@ -1,3 +1,6 @@
+
+
+<body style='background-color:#182039';> 
 <?php
     function change_tanggal($data){
         if($data==""){
@@ -10,8 +13,6 @@
     }
     $array_keterangan = explode("===",$jo["keterangan"]);
 ?>
-
-
 <div class="container-fluid mt-5 p-5" style='background-color:#182039';>
         <!-- Basic Card Example -->
         <div class="card shadow mx-5 " style='background-color:#212B4E';>
@@ -182,7 +183,7 @@
         </div>
 </div>
 
-
+</body>
 
 
 <script src="<?=base_url("assets/vendor/jquery/jquery.min.js")?>"></script>

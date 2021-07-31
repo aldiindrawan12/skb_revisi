@@ -1,3 +1,5 @@
+<body style='background-color:#182039';> 
+
 <div class="container-fluid mt-5 p-5" style='background-color:#182039';>
     <div class="card shadow mb-4" >
     <div class="card-header py-3" style='background-color:#212B4E';>
@@ -23,7 +25,7 @@
                         <th class="text-center" width="6%" scope="col">Dump</th>
                         <th class="text-center" width="10%" scope="col">Status Validasi</th>
                         <th class="text-center" width="7%" scope="col">Aksi</th>
-                        <th class="text-center" width="5%" scope="col">Validasi</th>
+                        <th class="text-center" width="8%" scope="col">Validasi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -32,6 +34,8 @@
         </div>
     </div>
 </div>
+</body>
+
 
 <!-- pop up add merk -->
 <div class="modal fade mt-3 py-3 " id="popup-merk" tabindex="0" role="dialog" aria-labelledby="modal-block-large" aria-hidden="true">

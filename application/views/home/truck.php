@@ -1,5 +1,5 @@
-<div class="container">
-    <div class="card shadow mb-4">
+<div class="container-fluid" style='background-color:#182039';>
+    <div class="card shadow mb-4" style='background-color:#212B4E';>
     <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary float-left">Seluruh Data Kendaraan</h6>
         <a class="btn btn-primary btn-icon-split float-right btn-sm" data-toggle='modal' data-target='#popup-truck'>

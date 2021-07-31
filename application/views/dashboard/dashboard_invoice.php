@@ -1,3 +1,6 @@
+<body style='background-color:#182039';> 
+
+
 <div class="info-supir mt-5"  style='background-color:#182039';>
     <div class=" p-5 " style='background-color:#182039';> 
     <div class="card shadow mb-4 bg-black " style='background-color:#212B4E';>
@@ -166,7 +169,9 @@
         </div>
     </div>
     <!-- end pop up add detail rute paketan -->
-    <!-- Bootstrap core JavaScript-->
+
+</body>
+
     <script src="<?=base_url("assets/vendor/jquery/jquery.min.js")?>"></script>
     <script src="<?=base_url("assets/vendor/jquery/jquery.mask.min.js")?>"></script>
     <script src="<?=base_url("assets/vendor/bootstrap/js/bootstrap.bundle.min.js")?>"></script>    

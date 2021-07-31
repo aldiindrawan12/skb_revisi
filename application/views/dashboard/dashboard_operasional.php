@@ -1,3 +1,5 @@
+<body style='background-color:#182039';> 
+
 <div class="info-supir mt-5"  style='background-color:#182039';>
     <div class="container p-5 " style='background-color:#182039';> 
     <div class="card shadow mb-4 bg-black " style='background-color:#212B4E';>
@@ -57,10 +59,6 @@
     </div>
     </div> 
 
-    
-   
-  
-        
 
         </div>
         <!-- End of Content Wrapper -->
@@ -156,7 +154,11 @@
         </div>
     </div>
     <!-- end pop up add detail rute paketan -->
-    <!-- Bootstrap core JavaScript-->
+
+</div>
+
+
+  
     
     <script src="<?=base_url("assets/vendor/jquery/jquery.min.js")?>"></script>
     <script src="<?=base_url("assets/vendor/jquery/jquery.mask.min.js")?>"></script>
