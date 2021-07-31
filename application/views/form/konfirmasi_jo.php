@@ -8,8 +8,8 @@ function change_tanggal($tanggal){
     }
 }
 ?>
-            <div class="container mt-3">
-                <div class="row">
+            <div class="mt-5 p-1">
+                <div class="row mt-5">
                     <div class="col-md-6">
                         <table class="table table-bordered">
                             <tbody>
@@ -49,6 +49,9 @@ function change_tanggal($tanggal){
                                 <tr>
                                     <td class="font-weight-bold" style="width: 30%;">Total UJ</td>
                                     <td name="uang"><span>Rp.<?= number_format($data_jo["uang_jalan"],0,',','.')?></span></td>
+                                </tr>                                <tr>
+                                    <td class="font-weight-bold" style="width: 30%;">Jenis Muatan</td>
+                                    <td name="tipe_muatan"><span><?= $data_jo["tipe_tonase"]?></span></td>
                                 </tr>
                             </tbody>
                         </table>                

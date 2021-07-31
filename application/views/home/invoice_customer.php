@@ -1,5 +1,5 @@
-<div class="container">
-    <div class="card shadow mb-4">
+<div class="p-1 mt-5">
+    <div class="card shadow mt-5 mb-4">
         <div class="card-header py-3 row">
             <h6 class="m-0 font-weight-bold text-primary col-md-8">Seluruh Data Invoice</h6>
             <form method="POST" action="<?= base_url("index.php/print_berkas/invoice_excel/")?>" id="convert_form" class="col-md-2">
@@ -18,7 +18,7 @@
                 <span class="text">Print/PDF</span>
             </a>
         </div>
-            <div class="conatiner w-50 m-auto">
+            <div class="conatiner w-75 m-auto">
                 <div class="mb-2 mt-3 form-group row">
                     <label for="Status" class="form-label font-weight-bold col-md-3">Status</label>
                     <select name="Status" id="Status" class="form-control selectpicker col-md-9" data-live-search="true">
@@ -88,12 +88,12 @@
                 </div>
             </div>
             <hr>
-            <div class="container">
+            <div class="w-75 m-auto">
                 <span>Total Data Invoice Yang Ditemukan : </span><span id="ditemukan"><?= count($invoice)?></span><br>
                 <span>Total Invoice Belum Dibayar : </span>Rp.<span id="tagihan"><?= number_format($tagihan,2,",",".")?></span>
             </div>
             <hr>
-        <div class="container small" id="Table-Seluruh-Invoice-Print">
+        <div class="w-75 small m-auto" id="Table-Seluruh-Invoice-Print">
             <div class="card shadow mb-4 mt-3">
                 <!-- tabel Seluruh invoice-->
                 <div class="card-body">

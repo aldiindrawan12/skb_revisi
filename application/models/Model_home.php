@@ -40,6 +40,12 @@ class Model_Home extends CI_model
             return $this->db->get_where("skb_customer",array("validasi"=>"ACC","validasi_edit"=>"ACC","validasi_delete"=>"ACC","status_hapus"=>"NO"))->result_array();
         }
 
+        public function getcustomerall() //all customer
+        {
+            $this->db->order_by("customer_name","ASC");
+            return $this->db->get_where("skb_customer",array("status_hapus"=>"NO"))->result_array();
+        }
+
         public function getallcustomer() //all customer
         {
             $this->db->order_by("customer_name","ASC");
@@ -70,6 +76,9 @@ class Model_Home extends CI_model
 
         public function getjo() //all JO
         {
+            $this->db->join("skb_customer", "skb_customer.customer_id = skb_job_order.customer_id", 'left');
+            $this->db->join("skb_supir", "skb_supir.supir_id = skb_job_order.supir_id", 'left');
+            $this->db->join("skb_mobil", "skb_mobil.mobil_no = skb_job_order.mobil_no", 'left');
             return $this->db->get("skb_job_order")->result_array();
         }
 
@@ -489,7 +498,7 @@ class Model_Home extends CI_model
             }
 
             ## Total record with filtering
-            $this->db->select('count(*) as allcount');
+            // $this->db->select('count(*) as allcount');
             if($searchQuery != ''){
                 $this->db->where($searchQuery);
             }
@@ -499,8 +508,8 @@ class Model_Home extends CI_model
             if($data["Jenis"]!=""){
                 $this->db->where("skb_mobil.mobil_jenis",$data["Jenis"]);
             }
-            $records = $this->db->get('skb_job_order')->result();
-            return $records[0]->allcount;
+            $records = $this->db->get('skb_job_order')->result_array();
+            return $records;
         }
      //akhir function-fiunction datatable JO
 
@@ -865,6 +874,7 @@ class Model_Home extends CI_model
             if($searchValue != ''){
                 $search_arr[] = " (rute_id like '%".$searchValue."%' or 
                     rute_dari like '%".$searchValue."%' or 
+                    skb_customer.customer_name like '%".$searchValue."%' or 
                     rute_muatan like '%".$searchValue."%' or 
                     rute_ke like '%".$searchValue."%') ";
             }

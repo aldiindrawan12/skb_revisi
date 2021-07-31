@@ -97,7 +97,7 @@ class Home extends CI_Controller {
                 "Status" => $this->input->post('Status')
             );
             $data_filter = $this->model_home->getDitemukanJo($data);
-            echo $data_filter;
+            echo json_encode($data_filter);
         }
     //end fungsi untuk JO
 
@@ -479,7 +479,7 @@ class Home extends CI_Controller {
             $data["page"] = "Invoice_page";
             $data["collapse_group"] = "Invoice";
             $data["akun_akses"] = $this->model_form->getakunbyid($_SESSION["user_id"]);
-            $data["customer"] = $this->model_home->getcustomer();
+            $data["customer"] = $this->model_home->getcustomerall();
             if(json_decode($data["akun_akses"]["akses"])[3]==0){
                 redirect(base_url());
             }

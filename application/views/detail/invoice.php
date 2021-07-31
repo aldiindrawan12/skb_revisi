@@ -34,8 +34,8 @@
     }
 ?>
 <!-- Basic Card Example -->
-<div class="card shadow mb-4 ml-5 mr-5 py-2 px-2">
-    <div class="card-header py-3 row">
+<div class="card shadow mb-4 ml-5 mr-5 p-1 mt-5">
+    <div class="card-header py-3 row mt-3">
         <h6 class="m-0 font-weight-bold text-primary col-md-6">Detail Invoice</h6>
         <span class="mr-3"><small><?= $invoice[0]["user_invoice"]?></small></span>
         <a class="btn btn-primary btn-sm mr-3 btn-icon-split" onclick="cetak_invoice()">

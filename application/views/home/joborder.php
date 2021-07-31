@@ -1,5 +1,5 @@
-<div class="container">
-    <div class="card shadow mb-4">
+<div class="mt-5 p-1">
+    <div class="card shadow mt-3 mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Seluruh Data Job Order</h6>
         </div>
@@ -10,9 +10,8 @@
                     <label for="Status" class="form-label font-weight-bold col-md-3">Status</label>
                     <select name="Status" id="Status" class="form-control selectpicker col-md-9" data-live-search="true">
                         <option class="font-w700" selected value="">Semua Status</option>
-                        <option value="Dibatalkan">Dibatalkan</option>
-                        <option value="Dalam Perjalanan">Dalam Perjalanan</option>
-                        <option value="Sampai Tujuan">Sampai Tujuan</option>
+                        <option value="Dalam Perjalanan">ONGOING</option>
+                        <option value="Sampai Tujuan">DONE</option>
                     </select>
                 </div>
                 <div class="mb-2 form-group row">
@@ -67,18 +66,24 @@
                     <input autocomplete="off" type="text" class="form-control col-md-9" id="Jo_id" name="Jo_id">
                 </div>
                 <div class="mb-2 form-group text-center">
-                    <button class="btn btn-primary" id="btn-cari">Cari</button>
+                    <button class="btn btn-primary" id="btn-cari" onclick="ditemukan()">Cari</button>
                     <button class="btn btn-danger" onclick="reset_form()">Reset</button>
                 </div>
             </div>
             <hr>
-            <div class="container">
-                <span>Total Data JO Yang Ditemukan : </span><span id="ditemukan"><?= count($jo)?></span>
+            <div class="w-50">
+                <label class="sr-only" for="inlineFormInputGroup">Username</label>
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                    <div class="input-group-text">Total Data JO Yang Ditemukan</div>
+                    </div>
+                    <input type="text" class="form-control" id="ditemukan" readonly value="<?= count($jo).' Data' ?>">
+                </div>
             </div>
             <hr>
-            <div class="container">
+            <div class="">
                     <form method="POST" action="<?= base_url("index.php/print_berkas/jo_excel_data/")?>" id="convert_form" class="col-md-2 float-right">
-                        <input type="hidden" name="file_content" id="file_content">
+                        <textarea cols="30" rows="10" name="file_content" id="file_content" hidden><?= json_encode($jo)?></textarea>
                         <button type="submit" name="convert" id="convert" class="btn btn-primary btn-sm btn-icon-split">
                             <span class="icon text-white-100">  
                                 <i class="fas fa-print"></i>
@@ -106,7 +111,7 @@
                             <th class="text-center" scope="col">Sisa UJ</th>
                             <th class="text-center" scope="col">Biaya Lain</th>
                             <th class="text-center" scope="col">Payment</th>
-                            <th scope="col">Aksi</th>
+                            <th scope="col" width="15%" >Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -249,20 +254,20 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        $('#convert').click(function() {
-            var tabel = document.getElementById("Table-Job-Order").rows;
-            var bacabaris = tabel.length;
-            for(var i=0;i<bacabaris;i++){
-                tabel[i].deleteCell(-1);
-                tabel[i].deleteCell(-1);
-            }
-            var table_content = '<table>';
-            table_content += $("head").html()+$('#Table-Job-Order').html();
-            table_content += '</table>';
-            $('#file_content').val(table_content);
-            $('#convert_form').html();
-            location.reload();
-        });
+        // $('#convert').click(function() {
+        //     var tabel = document.getElementById("Table-Job-Order").rows;
+        //     var bacabaris = tabel.length;
+        //     for(var i=0;i<bacabaris;i++){
+        //         tabel[i].deleteCell(-1);
+        //         tabel[i].deleteCell(-1);
+        //     }
+        //     var table_content = '<table>';
+        //     table_content += $("head").html()+$('#Table-Job-Order').html();
+        //     table_content += '</table>';
+        //     $('#file_content').val(table_content);
+        //     $('#convert_form').html();
+        //     location.reload();
+        // });
     });
     function pdf(){
         var tabel = document.getElementById("Table-Job-Order").rows;
@@ -333,5 +338,32 @@
             $( '#uang_jalan_total_update' ).val(rupiah(parseInt(uj)+parseInt(uj_tambahan)));
         }
     }
+    function ditemukan(){
+        if($("#Jo_id").val().length != 6 && $("#Jo_id").val().length != 0){
+            alert("silakan Isi Jo Id 6 Digit Atau Tidak Diisi");
+            $("#Jo_id").val("");
+        }else{
+            $.ajax({
+                    type: "POST",
+                    url: "<?php echo base_url('index.php/home/getditemukanjo') ?>",
+                    dataType: "text",
+                    data: {
+                        Status : $('#Status').val(),
+                        Supir : $('#Supir').val(),
+                        Kendaraan : $('#Kendaraan').val(),
+                        Jenis : $('#Jenis').val(),
+                        Customer : $('#Customer').val(),
+                        Jo_id : $('#Jo_id').val(),
+                        Tanggal1 : $('#Tanggal1').val(),
+                        Tanggal2 : $('#Tanggal2').val(),
+                    },
+                    success: function(data) { //jika ambil data sukses
+                        var ditemukan = JSON.parse(data).length;
+                        $("#ditemukan").val(ditemukan+" Data");
+                        $('#file_content').val(data);
+                    }
+                });
+            }
+        }
 </script>
 

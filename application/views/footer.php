@@ -1205,36 +1205,8 @@
                     });
                 },
             });
-            // $("#Status").change(function() {
-            //     table.ajax.reload();
-            //     $('#link_cetaklaporanpdf').attr('href','<?=base_url("index.php/print_berkas/cetaklaporanpdf/")?>'+$('#Tanggal').val()+'/'+$('#Bulan').val()+'/'+$('#Tahun').val()+'/'+$('#status-JO').val());
-            //     $('#link_cetaklaporanexcel').attr('href','<?=base_url("index.php/print_berkas/cetaklaporanexcel/")?>'+$('#Tanggal').val()+'/'+$('#Bulan').val()+'/'+$('#Tahun').val()+'/'+$('#status-JO').val());
-            // });
             $("#btn-cari").click(function() {
-                if($("#Jo_id").val().length != 6 && $("#Jo_id").val().length != 0){
-                    alert("silakan Isi Jo Id 6 Digit Atau Tidak Diisi");
-                    $("#Jo_id").val("");
-                }else{
-                    table.ajax.reload();
-                    $.ajax({
-                        type: "POST",
-                        url: "<?php echo base_url('index.php/home/getditemukanjo') ?>",
-                        dataType: "text",
-                        data: {
-                            Status : $('#Status').val(),
-                            Supir : $('#Supir').val(),
-                            Kendaraan : $('#Kendaraan').val(),
-                            Jenis : $('#Jenis').val(),
-                            Customer : $('#Customer').val(),
-                            Jo_id : $('#Jo_id').val(),
-                            Tanggal1 : $('#Tanggal1').val(),
-                            Tanggal2 : $('#Tanggal2').val(),
-                        },
-                        success: function(data) { //jika ambil data sukses
-                            $("#ditemukan").text(data);
-                        }
-                    });
-                }
+                table.ajax.reload();
             });
         });
     </script>
@@ -3534,7 +3506,7 @@
                         }
                     },
                     {
-                        "data":"ritase"
+                        "data":"tipe_tonase"
                     }
                 ],   
                 drawCallback: function() {
