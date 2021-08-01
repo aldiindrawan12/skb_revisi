@@ -104,7 +104,7 @@
 
 
 
-                <table class="table table-bordered text-light " id="Table-Job-Order" width="100%" cellspacing="0">
+                <table class="table table-bordered text-light small" id="Table-Job-Order" width="100%" cellspacing="0">
                     <thead>
                         <tr>
                             <th  class="text-center" scope="col">ID JO</th>
