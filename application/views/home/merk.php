@@ -1,9 +1,9 @@
 <body style='background-color:#182039';> 
 
-<div class="container-fluid small mt-5 p-5" style='background-color:#182039';>
+<div class="container-fluid mt-5 p-5" style='background-color:#182039';>
     <div class="card shadow mb-4" >
     <div class="card-header py-3" style='background-color:#212B4E';>
-        <h6 class="m-2 font-weight-bold text-light float-left">Seluruh Data Merk</h6>
+        <h6 class="m-2 font-weight-bold text-light float-left" >Seluruh Data Merk</h6>
         <a class="btn btn-primary btn-icon-split float-right btn-sm" data-toggle='modal' data-target='#popup-merk'>
             <span class="icon text-white-100">
                 <i class="fas fa-plus"></i> 
@@ -19,13 +19,13 @@
                 <thead>
                     <tr>
                         <th class="text-center" width="3%" scope="col">No</th>
-                        <th class="text-center" width="15%" scope="col">Merk</th>
-                        <th class="text-center" width="15%" scope="col">Type</th>
-                        <th class="text-center" width="15%" scope="col">Jenis</th>
+                        <th class="text-center" width="17%" scope="col">Merk</th>
+                        <th class="text-center" width="17%" scope="col">Type</th>
+                        <th class="text-center" width="17%" scope="col">Jenis</th>
                         <th class="text-center" width="6%" scope="col">Dump</th>
-                        <th class="text-center" width="10%" scope="col">Status Validasi</th>
-                        <th class="text-center" width="17%" scope="col">Aksi</th>
-                        <th class="text-center" width="8%" scope="col">Validasi</th>
+                        <th class="text-center" width="12%" scope="col">Status Validasi</th>
+                        <th class="text-center" width="8%" scope="col">Aksi</th>
+                        <th class="text-center" width="10%" scope="col">Validasi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -40,10 +40,10 @@
 <!-- pop up add merk -->
 <div class="modal fade mt-3 py-3 " id="popup-merk" tabindex="0" role="dialog" aria-labelledby="modal-block-large" aria-hidden="true">
     <div class="modal-dialog modal-md" role="document">
-        <div class="modal-content">
+        <div class="modal-content text-light border-light" style='background-color:#212B4E';>
             <div class="modal-header bg-primary-dark">
                 <h5 class="font-weight-bold">Menambah Merk</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <button class="close text-light" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -84,7 +84,7 @@
 <!-- pop up update merk -->
 <div class="modal fade mt-5 px-5 py-2" id="popup-update-merk" tabindex="0" role="dialog" aria-labelledby="modal-block-large" aria-hidden="true">
     <div class="modal-dialog modal-md" role="document">
-        <div class="modal-content">
+    <div class="modal-content text-light border-light" style='background-color:#212B4E';>
             <div class="modal-header bg-primary-dark">
                 <h5 class="font-weight-bold">Update Merk</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
@@ -126,7 +126,7 @@
 
 <div class="modal fade mt-3 py-3 " id="popup-acc-edit-merk" tabindex="0" role="dialog" aria-labelledby="modal-block-large" aria-hidden="true">
     <div class="modal-dialog modal-md" role="document">
-        <div class="modal-content">
+    <div class="modal-content text-light border-light" style='background-color:#212B4E';>
             <div class="modal-header bg-primary-dark">
                 <h5 class="font-weight-bold">Data Edit Merk</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">

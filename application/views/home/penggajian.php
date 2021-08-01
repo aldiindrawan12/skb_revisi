@@ -1,7 +1,9 @@
-<div class="mt-5 p-5">
-    <div class="card shadow mb-4">
-    <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary float-left">Seluruh Data Driver</h6>
+<body style='background-color:#182039';> 
+
+<div class="container-fluid p-5 mt-5" style='background-color:#182039';>
+    <div class="card shadow mb-4" style='background-color:#212B4E';>
+    <div class="card-header py-3" style='background-color:#212B4E';>
+        <h6 class="m-0 font-weight-bold text-light float-left">Seluruh Data Driver</h6>
         <a class="btn btn-primary btn-icon-split float-right btn-sm" data-toggle='modal' data-target='#popup-supir'>
             <span class="icon text-white-100">
                 <i class="fas fa-plus"></i> 
@@ -14,19 +16,19 @@
     <!-- tabel supir -->
     <div class="card-body">
         <div class="table-responsive">
-            <table class="table table-bordered" id="Table-Supir" width="100%" cellspacing="0">
+            <table class="table table-bordered text-light small" id="Table-Supir" width="100%" cellspacing="0">
                 <thead>
                     <tr>        
-                        <th class="text-center" width="1%" scope="col">ID Driver</th>
-                        <th class="text-center" width="13%" scope="col">Nama Lengkap</th>
-                        <th class="text-center" width="14%" scope="col">Nama Panggilan</th>
-                        <th class="text-center" width="14%" scope="col">No. HP</th>
+                        <th class="text-center"  scope="col">ID Driver</th>
+                        <th class="text-center"  scope="col">Nama Lengkap</th>
+                        <th class="text-center"  scope="col">Nama Panggilan</th>
+                        <th class="text-center" scope="col">No. HP</th>
                         <!-- <th width="12%" scope="col">Berlaku SIM</th> -->
                         <!-- <th width="13%" scope="col">Status Jalan</th> -->
-                        <th width="13%" scope="col">Status</th>
-                        <th class="text-center" width="15%" scope="col">Status Validasi</th>
-                        <th width="20%" scope="col">Aksi</th>
-                        <th width="20%" scope="col">Validasi</th>
+                        <th width="12%" scope="col">Status</th>
+                        <th class="text-center" width="12%" scope="col">Status Validasi</th>
+                        <th width="14%" scope="col">Aksi</th>
+                        <th width="11%" scope="col">Validasi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -40,7 +42,7 @@
 <!-- pop up add supir -->
 <div class="modal fade" id="popup-supir" tabindex="0" role="dialog" aria-labelledby="modal-block-large" aria-hidden="true">
     <div class="modal-dialog modal-xl" role="document">
-        <div class="modal-content">
+    <div class="modal-content text-light border-light" style='background-color:#212B4E';>
             <div class="modal-header bg-primary-dark">
                 <h5 class="font-weight-bold">Menambah Driver</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
@@ -58,14 +60,14 @@
                                 <label for="Supir" class="form-label font-weight-bold col-md-12">Nama Driver</label>
                                 <input autocomplete="off" type="text" class="form-control col-md-12" id="Supir" name="Supir" required placeholder="Nama Driver">
                             </div>
-                            <div class="col row">
+                            <div class="col row ml-1">
                                 <label for="Supir" class="form-label font-weight-bold col-md-12">Nama Panggilan Driver</label>
                                 <input autocomplete="off" type="text" class="form-control col-md-12" id="supir_panggilan" name="supir_panggilan" placeholder="Panggilan">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="supir_ttl" class="form-label font-weight-bold col-md-12">Alamat</label>
-                            <input autocomplete="off" type="text" class="form-control col" id="supir_tempat_lahir" name="supir_tempat_lahir" placeholder="Tempat Lahir">
+                            <label for="supir_ttl" class="form-label font-weight-bold col-md-12">Tempat & Tanggal Lahir</label>
+                            <input autocomplete="off" type="text" class="form-control col mr-2" id="supir_tempat_lahir" name="supir_tempat_lahir" placeholder="Tempat Lahir">
                             <input autocomplete="off" type="text" class="form-control col" id="supir_tgl_lahir" name="supir_tgl_lahir" placeholder="Tanggal Lahir" onclick="tanggal_berlaku(this)">
                         </div>
                         <div class="form-group">
@@ -143,7 +145,7 @@
 <!-- pop up update status supir -->
 <div class="modal fade mt-5" id="update_status_aktif_supir" tabindex="0" role="dialog" aria-labelledby="modal-block-large" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
+    <div class="modal-content text-light border-light" style='background-color:#212B4E';>
             <div class="modal-header bg-primary-dark">
                 <h5 class="font-weight-bold">Update Status Aktif Driver</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
@@ -182,7 +184,7 @@
 <!-- pop up update data supir -->
 <div class="modal fade" id="popup-update-supir" tabindex="-1" role="dialog" aria-labelledby="modal-block-large" aria-hidden="true">
     <div class="modal-dialog modal-xl" role="document">
-        <div class="modal-content">
+    <div class="modal-content text-light border-light" style='background-color:#212B4E';>
             <div class="modal-header bg-primary-dark">
                 <h5 class="font-weight-bold">Update Data Driver</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
@@ -282,7 +284,7 @@
 <!-- pop up detail supir -->
 <div class="modal fade" id="popup-detail-supir" tabindex="-1" role="dialog" aria-labelledby="modal-block-large" aria-hidden="true">
     <div class="modal-dialog modal-xl" role="document">
-        <div class="modal-content">
+    <div class="modal-content text-light border-light" style='background-color:#212B4E';>
             <div class="modal-header bg-primary-dark">
                 <h5 class="block-title">Detail Driver</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
@@ -296,7 +298,7 @@
                     <strong><span id="aktif">Aktif</span></strong>
                     <span id="tgl-aktif">2021-01-22-sekarang</span>
                 </div>
-                    <table class="table table-bordered">
+                    <table class="table table-bordered text-light">
                         <tbody>
                             <tr>
                                 <td class="font-weight-bold" style="width: 40%;">Nama</td>
@@ -381,7 +383,7 @@
 <!-- pop up detail supir -->
 <div class="modal fade" id="popup-acc-edit-supir" tabindex="0" role="dialog" aria-labelledby="modal-block-large" aria-hidden="true">
     <div class="modal-dialog modal-xl" role="document">
-        <div class="modal-content">
+        <div class="modal-content text-light border-light" style='background-color:#212B4E';>
             <div class="modal-header bg-primary-dark">
                 <h5 class="block-title">Data Edit Driver</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
@@ -391,7 +393,7 @@
             <div class="font-size-sm text-justify">
             <div class="row">
                 <div class="col">
-                    <table class="table table-bordered">
+                    <table class="table table-bordered text-light">
                         <tbody>
                             <tr>
                                 <td class="font-weight-bold" style="width: 40%;">Nama</td>
@@ -466,3 +468,5 @@
     </div>
 </div>
 <!-- end pop up detail supir -->
+
+</body>

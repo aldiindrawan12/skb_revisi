@@ -1615,27 +1615,23 @@
                 "columns": [
                     {
                         "data": "customer_id",
-                        className: 'text-center small',
+                        className: 'text-center',
                         render: function(data, type, row) {
                             let html = row["nomor"];
                             return html;
                         }
                     },
                     {
-                        "data": "customer_name",
-                        className: 'text-center small'
+                        "data": "customer_name"
                     },
                     {
-                        "data": "customer_alamat",
-                        className: 'text-center small'
+                        "data": "customer_alamat"
                     },
                     {
-                        "data": "customer_kontak_person",
-                        className: 'text-center small'
+                        "data": "customer_kontak_person"    
                     },
                     {
-                        "data": "customer_telp",
-                        className: 'text-center small'
+                        "data": "customer_telp"
                     },
                     {
                         "data": "validasi",
@@ -1650,14 +1646,14 @@
                     },
                     {
                         "data": "customer_id",
-                        className: 'text-center small',
+                        className: 'text-center',
                         "orderable": false,
                         render: function(data, type, row) {
                             var role_user = "<?=$_SESSION['role']?>";
                             let html = "";
-                            html += "<a class='btn btn-light btn-detail-customer' href='javascript:void(0)' data-toggle='modal' data-target='#popup-detail-customer' data-pk='"+data+"'><i class='fas fa-eye'></i></a>";
+                            html += "<a class='btn btn-light btn-detail-customer mr-1' href='javascript:void(0)' data-toggle='modal' data-target='#popup-detail-customer' data-pk='"+data+"'><i class='fas fa-eye'></i></a>";
                             if(row["validasi"]!="Pending" && row["validasi_edit"]!="Pending" && row["validasi_delete"]!="Pending"){
-                                html += "<a class='btn btn-light btn-update-customer' data-toggle='modal' data-target='#popup-update-customer' href='javascript:void(0)' data-pk="+data+"><i class='fas fa-pen-square'></i></a>"+
+                                html += "<a class='btn btn-light btn-update-customer mr-1' data-toggle='modal' data-target='#popup-update-customer' href='javascript:void(0)' data-pk="+data+"><i class='fas fa-pen-square'></i></a>"+
                                 "<a class='btn btn-light btn-delete-customer' href='javascript:void(0)' data-pk="+data+"><i class='fas fa-trash-alt'></i></a>";
                                 return html;
                             }
@@ -1666,7 +1662,7 @@
                     },
                     {
                         "data": "customer_id",
-                        className: 'text-center small',
+                        className: 'text-center',
                         "orderable": false,
                         render: function(data, type, row) {
                             var role_user = "<?=$_SESSION['role']?>";
@@ -1994,9 +1990,9 @@
                         "orderable": false,
                         render: function(data, type, row) {
                             let html = "";
-                            html += "<a class='btn btn-light btn-detail-supir' href='javascript:void(0)' data-toggle='modal' data-target='#popup-detail-supir' data-pk='"+data+"'><i class='fas fa-eye'></i></a>";
+                            html += "<a class='btn btn-light btn-detail-supir mr-1' href='javascript:void(0)' data-toggle='modal' data-target='#popup-detail-supir' data-pk='"+data+"'><i class='fas fa-eye'></i></a>";
                             if(row["validasi"]!="Pending" && row["validasi_edit"]!="Pending" && row["validasi_delete"]!="Pending"){
-                                html += "<a class='btn btn-light btn-update-supir' data-toggle='modal' data-target='#popup-update-supir' href='javascript:void(0)' data-pk="+data+"><i class='fas fa-pen-square'></i></a>"+
+                                html += "<a class='btn btn-light btn-update-supir mr-1' data-toggle='modal' data-target='#popup-update-supir' href='javascript:void(0)' data-pk="+data+"><i class='fas fa-pen-square'></i></a>"+
                                 "<a class='btn btn-light btn-delete-supir' href='javascript:void(0)' data-pk="+data+"><i class='fas fa-trash-alt'></i></a>";
                                 return html;
                             }
@@ -2016,10 +2012,10 @@
                                     html +="<a class='btn btn-danger btn-sm btn-tolak-supir' href='javascript:void(0)' data-pk='"+data+"'><i class='fas fa-times'></i></a><br>";
                                 }
                                 if(row["validasi_edit"]=="Pending"){
-                                    html += "<a class='btn btn-primary btn-sm btn-acc-edit-supir' href='javascript:void(0)' data-pk='"+data+"' data-toggle='modal' data-target='#popup-acc-edit-supir'>ACC Edit<i class='fas fa-check-circle'></i></a><br>";
+                                    html += "<a class='btn btn-primary btn-sm btn-acc-edit-supir' href='javascript:void(0)' data-pk='"+data+"' data-toggle='modal' data-target='#popup-acc-edit-supir'>ACC Edit <i class='fas fa-check-circle'></i></a><br>";
                                 }
                                 if(row["validasi_delete"]=="Pending"){
-                                    html += "<a class='btn btn-danger btn-sm btn-acc-delete-supir' href='javascript:void(0)' data-pk='"+data+"'>ACC Delete<i class='fas fa-check-circle'></i></a><br>";    
+                                    html += "<a class='btn btn-danger btn-sm btn-acc-delete-supir' href='javascript:void(0)' data-pk='"+data+"'>ACC Delete <i class='fas fa-check-circle'></i></a><br>";    
                                 }
                                 return html;
                             }else{
@@ -2700,10 +2696,13 @@
                         "orderable": false,
                         render: function(data, type, row) {
                             if (data == "Super User") {
-                                    let html = "<span class='btn-sm btn-block active btn-dark'></i>" + data + "</span>";
+                                    let html = "<span class='btn-sm btn-block active btn-info'></i>" + data + "</span>";
                                     return html;
-                                } else {
+                                } else if (data == "Operator"){
                                     let html = "<span class='btn-sm btn-block active btn-light'>" + data + "</span>";
+                                    return html;
+                                }else {
+                                    let html = "<span class='btn-sm btn-block active btn-success'>" + data + "</span>";
                                     return html;
                                 }
                         }
@@ -2866,9 +2865,9 @@
                         "orderable": false,
                         render: function(data, type, row) {
                             let html = "";
-                            html += "<a class='btn btn-light btn-detail-rute' href='javascript:void(0)' data-toggle='modal' data-target='#popup-detail-rute' data-pk='"+data+"'><i class='fas fa-eye'></i></a>";
+                            html += "<a class='btn btn-light btn-detail-rute mr-1' href='javascript:void(0)' data-toggle='modal' data-target='#popup-detail-rute' data-pk='"+data+"'><i class='fas fa-eye'></i></a>";
                             if(row["validasi_rute"]!="Pending" && row["validasi_rute_edit"]!="Pending" && row["validasi_rute_delete"]!="Pending"){
-                                html += "<a class='btn btn-light btn-update-rute' data-toggle='modal' data-target='#popup-update-rute' href='javascript:void(0)' data-pk="+data+"><i class='fas fa-pen-square'></i></a>"+
+                                html += "<a class='btn btn-light btn-update-rute mr-1' data-toggle='modal' data-target='#popup-update-rute' href='javascript:void(0)' data-pk="+data+"><i class='fas fa-pen-square'></i></a>"+
                                 "<a class='btn btn-light btn-delete-rute' href='javascript:void(0)' data-pk="+data+"><i class='fas fa-trash-alt'></i></a>";
                                 return html;
                             }
@@ -3079,7 +3078,7 @@
                         Swal.fire({
                             title: 'ACC Hapus Rute dan Muatan',
                             icon: "question",
-                            text: 'Yakin anda ingin ACC Hapsu Data Rute dan Muatan ini?',
+                            text: 'Yakin anda ingin ACC Hapus Data Rute dan Muatan ini?',
                             showDenyButton: true,
                             showCancelButton:true,
                             denyButtonText: `Tolak`,

@@ -1,7 +1,9 @@
-<div class="mt-5 p-5">
-    <div class="card shadow mb-4">
-    <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary float-left">Seluruh Data Customer</h6>
+<body style='background-color:#182039';> 
+
+<div class="container-fluid p-5 mt-5" style='background-color:#182039';>
+    <div class="card shadow mb-4" style='background-color:#212B4E';>
+    <div class="card-header py-3" style='background-color:#212B4E';>
+        <h6 class="m-0 font-weight-bold text-light float-left">Seluruh Data Customer</h6>
         <a class="btn btn-primary btn-icon-split float-right btn-sm" data-toggle='modal' data-target='#popup-customer'>
             <span class="icon text-white-100">
                 <i class="fas fa-plus"></i> 
@@ -14,7 +16,7 @@
     <!-- tabel data cutomer -->
     <div class="card-body">
         <div class="table-responsive">
-            <table class="table table-bordered" id="Table-Customer" width="100%" cellspacing="0">
+            <table class="table table-bordered text-light small" id="Table-Customer" width="100%" cellspacing="0">
                 <thead>
                     <tr>
                         <th class="text-center" scope="col">ID</th>
@@ -22,9 +24,9 @@
                         <th class="text-center" scope="col">Alamat</th>
                         <th class="text-center" scope="col">Contact Person</th>
                         <th class="text-center" scope="col">Telp./HP</th>
-                        <th class="text-center" width="15%" scope="col">Status Validasi</th>
-                        <th class="text-center" width="15%" scope="col">Aksi</th>
-                        <th class="text-center" width="15%" scope="col">Validasi</th>
+                        <th class="text-center" width="9%" scope="col">Status Validasi</th>
+                        <th class="text-center" width="13%" scope="col">Aksi</th>
+                        <th class="text-center" width="11%" scope="col">Validasi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -39,17 +41,17 @@
 <!-- pop up add customer -->
 <div class="modal fade mt-4" id="popup-customer" tabindex="-1" role="dialog" aria-labelledby="modal-block-large" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
+    <div class="modal-content text-light border-light" style='background-color:#212B4E';>
             <div class="modal-header bg-primary-dark">
                 <h5 class="font-weight-bold">Menambah Customer Baru</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <button class="close text-light" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             
             <div class="container mt-3">
                 <div class="row">
-                    <div class="col table-bordered rounded">
+                    <div class="col table-bordered rounded text-light">
                         <form action="<?= base_url("index.php/form/insert_customerMenu")?>" method="POST">
                             <input type="text" name="customer_id" id="customer_id" hidden>
                             <div class="form-group mt-1">
@@ -107,7 +109,7 @@
 <!-- pop up update customer -->
 <div class="modal fade mt-4" id="popup-update-customer" tabindex="-1" role="dialog" aria-labelledby="modal-block-large" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
+    <div class="modal-content text-light border-light" style='background-color:#212B4E';>
             <div class="modal-header bg-primary-dark">
                 <h5 class="font-weight-bold">Update Customer</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
@@ -117,7 +119,7 @@
             
             <div class="container mt-3">
                 <div class="row">
-                    <div class="col table-bordered">
+                    <div class="col table-bordered text-light">
                         <form action="<?= base_url("index.php/form/update_customer")?>" method="POST" id="form-edit-customer">
                             <input type="text" name="customer_id_update" id="customer_id_update" hidden>
                             <div class="form-group mt-1">
@@ -172,7 +174,7 @@
 <!-- pop up detail customer -->
 <div class="modal fade mt-5" id="popup-detail-customer" tabindex="-1" role="dialog" aria-labelledby="modal-block-large" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
+    <div class="modal-content text-light border-light" style='background-color:#212B4E';>
             <div class="modal-header bg-primary-dark">
                 <h5 class="block-title">Detail Customer</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
@@ -182,7 +184,7 @@
             <div class="font-size-sm m-3 text-justify">
             <div class="">
                 <div class="">
-                    <table class="table table-bordered">
+                    <table class="table table-bordered text-light">
                         <tbody>
                             <tr>
                                 <td class="font-weight-bold" style="width: 20%;">Nama Customer</td>
@@ -239,7 +241,7 @@
 
 <div class="modal fade mt-5" id="popup-acc-edit-customer" tabindex="0" role="dialog" aria-labelledby="modal-block-large" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
+    <div class="modal-content text-light border-light" style='background-color:#212B4E';>
             <div class="modal-header bg-primary-dark">
                 <h5 class="block-title">Data Edit Customer</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
@@ -249,7 +251,7 @@
             <div class="font-size-sm m-3 text-justify">
             <div class="">
                 <div class="">
-                    <table class="table table-bordered">
+                    <table class="table table-bordered text-light">
                         <tbody>
                             <tr>
                                 <td class="font-weight-bold" style="width: 20%;">Nama Customer</td>
@@ -281,3 +283,5 @@
         </div>
     </div>
 </div>
+
+</body>

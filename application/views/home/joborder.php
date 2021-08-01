@@ -1,12 +1,13 @@
+<body style='background-color:#182039';> 
 
-<div class="mt-5 p-1">
-    <div class="card shadow mt-3 mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Seluruh Data Job Order</h6>
+<div class="mt-5 p-1" style='background-color:#182039';>
+    <div class="card shadow mt-3 mb-4" style='background-color:#182039'; >
+        <div class="card-header py-3 " style='background-color:#182039';  >
+            <h6 class="m-0 font-weight-bold text-light">Seluruh Data Job Order</h6>
         </div>
         <!-- tabel JO -->
-        <div class="card-body">
-            <div class="conatiner w-50 m-auto">
+        <div class="card-body text-light mt-3 ">
+            <div class="conatiner w-50 m-auto ">
                 <div class="mb-2 form-group row">
                     <label for="Status" class="form-label font-weight-bold col-md-3">Status</label>
                     <select name="Status" id="Status" class="form-control selectpicker col-md-9" data-live-search="true">
@@ -66,35 +67,43 @@
                     <label for="Jo_id" class="form-label font-weight-bold col-md-3">ID JO</label>
                     <input autocomplete="off" type="text" class="form-control col-md-9" id="Jo_id" name="Jo_id">
                 </div>
-                <div class="mb-2 form-group text-center">
-                    <button class="btn btn-primary" id="btn-cari" onclick="ditemukan()">Cari</button>
+                <div class="row float-right form-group mt-3 mb-5">
+                    <button class="btn btn-primary mr-2" id="btn-cari" onclick="ditemukan()">Cari</button>
                     <button class="btn btn-danger" onclick="reset_form()">Reset</button>
                 </div>
             </div>
-            <hr>
-            <div class="w-50 m-auto">
-                <div class="input-group mb-2">
-                    <div class="input-group-prepend">
-                    <div class="input-group-text">Total Data JO Yang Ditemukan</div>
+          
+            
+           
+            
+            <div class="table-responsive thead-dark small" id="print_jo">
+                            
+                    <div class="conatiner w-25 mb-2 ">
+                        <label class="sr-only" for="inlineFormInputGroup">Username</label>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                            <div class="input-group-text">Total Data JO Yang Ditemukan</div>
+                            </div>
+                            <input type="text" class="form-control font-weight-bolder" id="ditemukan" readonly value="<?= count($jo).' Data' ?>">
+                        </div>
                     </div>
-                    <input type="text" class="form-control" id="ditemukan" readonly value="<?= count($jo).' Data' ?>">
-                </div>
-            </div>
-            <hr>
-            <div class="">
+
+                    <div class="col float-right">
                     <form method="POST" action="<?= base_url("index.php/print_berkas/jo_excel_data/")?>" id="convert_form" class="col-md-2 float-right">
                         <textarea cols="30" rows="10" name="file_content" id="file_content" hidden><?= json_encode($jo)?></textarea>
-                        <button type="submit" name="convert" id="convert" class="btn btn-primary btn-sm btn-icon-split">
+                        <button type="submit" name="convert" id="convert" class="btn btn-success btn-sm btn-icon-split">
                             <span class="icon text-white-100">  
                                 <i class="fas fa-print"></i>
                             </span>
                             <span class="text">Excel</span>
                         </button>
                     </form>
-                    <button class="btn btn-primary btn-sm float-right mr-3" onclick="pdf()">Print/Export PDF</button>
+                    <button class="btn btn-info btn-sm float-right mr-3" onclick="pdf()">Print/Export PDF</button>
                 </div>
-            <div class="table-responsive thead-dark small" id="print_jo">
-                <table class="table table-bordered  small" id="Table-Job-Order" width="100%" cellspacing="0">
+
+
+
+                <table class="table table-bordered text-light " id="Table-Job-Order" width="100%" cellspacing="0">
                     <thead>
                         <tr>
                             <th  class="text-center" scope="col">ID JO</th>
@@ -111,7 +120,7 @@
                             <th class="text-center" scope="col">Sisa UJ</th>
                             <th class="text-center" scope="col">Biaya Lain</th>
                             <th class="text-center" scope="col">Payment</th>
-                            <th scope="col" width="15%" >Aksi</th>
+                            <th class="text-center" scope="col" width="15%" >Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -132,8 +141,7 @@
                 </button>
             </div>
             <div class="font-size-sm m-3 text-justify">
-            <!-- <?=base_url("index.php/form/update_JO")?> -->
-                <form action="#" method="POST" id="form-edit-jo">
+                <form action="<?=base_url("index.php/form/update_JO")?>" method="POST">
                     <div class="row">
                         <div class="col-md-4">
                             <div class="mb-4">
@@ -159,10 +167,6 @@
                             <div class="mb-4 mb-4">
                                 <label class="form-label font-weight-bold" for="Tujuan">Ke</label>
                                 <input type="text" name="Tujuan" id="Tujuan" class="form-control" required readonly>
-                            </div>
-                            <div class="mb-4">
-                                <label for="Keterangan_update" class="form-label font-weight-bold">Keterangan/Catatan</label>
-                                <textarea class="form-control" name="Keterangan_update" id="Keterangan_update" rows="3"></textarea>
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -219,69 +223,48 @@
                                <label for="status_update" class="form-label">Status Saat Ini</label>
                                 <select name="status_update" id="status_update" class="form-control custom-select " required>
                                     <option class="font-w700" disabled="disabled" selected value="">Status JO</option>
-                                    <option value="Sampai Tujuan">Done</option>
-                                    <option value="Dalam Perjalanan">Ongoing</option>
+                                    <option value="Sampai Tujuan">Sampai Tujuan</option>
+                                    <option value="Dibatalkan">Dibatalkan</option>
+                                    <option value="Dalam Perjalanan">Dalam Perjalanan</option>
                                 </select>
                             </div>
-                            <div class="form-group">
-                                <label for="tgl_muat_update" class="form-label">Tanggal Muat</label>
-                                <input autocomplete="off" class="form-control" type="text" name="tgl_muat_update" id="tgl_muat_update" onclick="tanggal_berlaku(this)">    
-                            </div>
-                            <div class="form-group">
-                                <label for="tgl_bongkar_update" class="form-label">Tanggal Bongkar</label>
-                                <input autocomplete="off" class="form-control" type="text" name="tgl_bongkar_update" id="tgl_bongkar_update" onclick="tanggal_berlaku(this)">    
-                            </div>
-                            <div class="form-group">
-                                <label for="tonase_update" class="form-label">Muatan akhir (Tonase)</label>
-                                <input autocomplete="off" class="form-control" type="text" name="tonase_update" id="tonase_update" onkeyup="uang()">    
-                            </div>
-                            <div class="form-group">
-                                <label for="biaya_lain_update" class="form-label">Biaya Lain</label>
-                                <input autocomplete="off" class="form-control" type="text" name="biaya_lain_update" id="biaya_lain_update" onkeyup="uang()">    
-                            </div>
+                                <div class="form-group">
+                                    <label for="tgl_muat_update" class="form-label">Tanggal Muat</label>
+                                    <input autocomplete="off" class="form-control" type="text" name="tgl_muat_update" id="tgl_muat_update" onclick="tanggal_berlaku(this)">    
+                                </div>
+                                <div class="form-group">
+                                    <label for="tgl_bongkar_update" class="form-label">Tanggal Bongkar</label>
+                                    <input autocomplete="off" class="form-control" type="text" name="tgl_bongkar_update" id="tgl_bongkar_update" onclick="tanggal_berlaku(this)">    
+                                </div>
+                                <div class="form-group">
+                                    <label for="tonase_update" class="form-label">Muatan akhir (Tonase)</label>
+                                    <input autocomplete="off" class="form-control" type="text" name="tonase_update" id="tonase_update" onkeyup="uang()">    
+                                </div>
+                                <div class="form-group">
+                                    <label for="biaya_lain_update" class="form-label">Biaya Lain</label>
+                                    <input autocomplete="off" class="form-control" type="text" name="biaya_lain_update" id="biaya_lain_update" onkeyup="uang()">    
+                                </div>
                             <div class="mb-4">
-                                <label for="Keterangan_status_update" class="form-label font-weight-bold">Keterangan Ubah Status</label>
-                                <textarea class="form-control" name="Keterangan_status_update" id="Keterangan_status_update" rows="3"></textarea>
+                                <label for="Keterangan_update" class="form-label font-weight-bold">Keterangan/Catatan</label>
+                                <textarea class="form-control" name="Keterangan_update" id="Keterangan_update" rows="3"></textarea>
                             </div>
                         </div>
                     </div>
                     <div class="">
-                        <button type="submit" class="btn btn-success ml-3 mt-5 float-md-right">Simpan</button>
+                        <button type="submit" class="btn btn-success ml-3 mt-5 float-md-right">Simpan dan Cetak</button>
+                        <button type="reset" class="btn btn-outline-danger mb-3 mt-5  float-md-right" onclick="reset_form()">Reset</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
+
+
+                                    </body>
+
 <script src="<?=base_url("assets/vendor/jquery/jquery.min.js")?>"></script>
-<script>
-        $( "#form-edit-jo" ).submit(function( event ) {
-            //jika status done ke ongoing
-            var status = $("#status_update").val();
-            if(status == "Dalam Perjalanan"){
-                var konfirm = false;
-                Swal.fire({
-                    title: 'Ubah Data Jo',
-                    text:'Yakin Anda Ingin Menghapus JO dari Done ke Ongoing?',
-                    showDenyButton: true,
-                    denyButtonText: `No`,
-                    confirmButtonText: 'Yes',
-                    denyButtonColor: '#808080',
-                    confirmButtonColor: '#FF0000',
-                    icon: "warning",
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        konfirm = true;
-                    }else{
-                        konfirm = false;
-                    }
-                })
-                return konfirm;
-            }else{
-                return true;
-            }
-        });
-    </script>
+
 <script type="text/javascript">
     $(document).ready(function() {
         // $('#convert').click(function() {

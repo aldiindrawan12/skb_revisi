@@ -1,8 +1,10 @@
+<body style='background-color:#182039';> 
+
 <!-- MENGGUNAKAN NAMA KOLOM YANG ENGKEL AJA -->
-<div class="mt-5 p-5">
-    <div class="card shadow mb-4">
-    <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary float-left">Seluruh Data Rute dan Muatan</h6>
+<div class="container-fluid p-5 mt-5" style='background-color:#182039';>
+    <div class="card shadow mb-4" style='background-color:#212B4E';>
+    <div class="card-header py-3" style='background-color:#212B4E';>
+        <h6 class="m-0 font-weight-bold text-light float-left">Seluruh Data Rute dan Muatan</h6>
         <a class="btn btn-primary btn-icon-split float-right btn-sm" data-toggle='modal' data-target='#popup-rute' onclick="mobil()">
             <span class="icon text-white-100">
                 <i class="fas fa-plus"></i> 
@@ -12,9 +14,9 @@
             </span>
         </a>
     </div>
-    <div class="card-body small">
-        <div class="table-responsive">
-            <table class="table table-bordered" id="Table-rute" width="100%" cellspacing="0">
+    <div class="card-body small ">
+        <div class="table-responsive ">
+            <table class="table table-bordered text-light" id="Table-rute" width="100%" cellspacing="0">
                 <thead>
                     <tr>
                         <th class="text-center" scope="col">No</th>
@@ -26,9 +28,9 @@
                         <th class="text-center" scope="col">Jenis Mobil</th>
                         <th class="text-center" scope="col">Uang Jalan</th>
                         <!-- <th class="text-center" scope="col">Inv./Tagihan</th> -->
-                        <th class="text-center" scope="col">Status Validasi</th>
-                        <th class="text-center" width="15%" scope="col">Aksi</th>
-                        <th class="text-center" width="15%" scope="col">Validasi</th>
+                        <th class="text-center" width="5%" scope="col">Status Validasi</th>
+                        <th class="text-center" width="12%" scope="col">Aksi</th>
+                        <th class="text-center" width="10%" scope="col">Validasi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -41,7 +43,7 @@
 <!-- pop up add rute dan muatan -->
 <div class="modal fade" id="popup-rute" tabindex="-1" role="dialog" aria-labelledby="modal-block-large" aria-hidden="true">
     <div class="modal-dialog modal-xl"  role="document"  >
-        <div class="modal-content">
+    <div class="modal-content text-light border-light" style='background-color:#212B4E';>
             <div class="modal-header bg-primary-dark">
                 <h5 class="font-weight-bold">Tambah Rute dan Muatan Baru</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
@@ -139,7 +141,7 @@
 <!-- pop up update rute dan muatan -->
 <div class="modal fade" id="popup-update-rute" tabindex="-1" role="dialog" aria-labelledby="modal-block-large" aria-hidden="true">
     <div class="modal-dialog modal-xl" role="document">
-        <div class="modal-content">
+    <div class="modal-content text-light border-light" style='background-color:#212B4E';>
             <div class="modal-header bg-primary-dark">
                 <h5 class="font-weight-bold">Update Rute dan Muatan</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
@@ -229,7 +231,7 @@
 <!-- pop up detail rute -->
 <div class="modal fade" id="popup-detail-rute" tabindex="-1" role="dialog" aria-labelledby="modal-block-large" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
+    <div class="modal-content text-light border-light" style='background-color:#212B4E';>
             <div class="modal-header bg-primary-dark">
                 <h5 class="block-title">Detail Rute</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
@@ -314,7 +316,7 @@
 
 <div class="modal fade" id="popup-acc-edit-rute" tabindex="0" role="dialog" aria-labelledby="modal-block-large" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
+    <div class="modal-content text-light border-light" style='background-color:#212B4E';>
             <div class="modal-header bg-primary-dark">
                 <h5 class="block-title">Data Edit Rute</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
@@ -384,6 +386,8 @@
         </div>
     </div>
 </div>
+
+                                    </body>
 
 <script>
     function uang(a){

@@ -18,8 +18,8 @@
             <table class="table table-bordered text-light" id="Table-Truck" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                        <th class="text-center" width="3%" scope="col">No</th>
-                        <th class="text-center" width="8%" scope="col">No Polisi</th>
+                        <th class="text-center" width="5%" scope="col">No</th>
+                        <th class="text-center" width="10%" scope="col">No Polisi</th>
                         <th class="text-center" width="12%" scope="col">Merk</th>
                         <th class="text-center" width="12%" scope="col">Tipe</th>
                         <th class="text-center" width="10%" scope="col">Jenis</th>
@@ -40,7 +40,7 @@
 <!-- pop up add truck -->
 <div class="modal fade " id="popup-truck" tabindex="0" role="dialog" aria-labelledby="modal-block-large" aria-hidden="true">
     <div class="modal-dialog modal-xl" role="document">
-        <div class="modal-content">
+    <div class="modal-content text-light border-light" style='background-color:#212B4E';>
             <div class="modal-header bg-primary-dark">
                 <h5 class="font-weight-bold">Menambah Kendaraan</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
@@ -51,7 +51,7 @@
             <div class="container">
             <?php echo form_open_multipart('form/insert_truck'); ?>
             <div class="table-responsive py-2 mb-3">
-                <table class="table table-bordered " id="Table-Pilih-Merk" width="100%" cellspacing="0">
+                <table class="table table-bordered text-light" id="Table-Pilih-Merk" width="100%" cellspacing="0">
                     <thead>
                         <tr>    
                             <th class="text-center" width="5%" scope="col">No</th>
@@ -172,7 +172,7 @@
 <!-- pop up update truck -->
 <div class="modal fade" id="popup-update-truck" tabindex="0" role="dialog" aria-labelledby="modal-block-large" aria-hidden="true">
     <div class="modal-dialog modal-xl" role="document">
-        <div class="modal-content">
+    <div class="modal-content text-light border-light" style='background-color:#212B4E';>
             <div class="modal-header bg-primary-dark">
                 <h5 class="font-weight-bold">Update Kendaraan</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
@@ -182,7 +182,7 @@
             <div class="font-size-sm m-3 text-justify">
                 <?php echo form_open_multipart('form/update_truck'); ?>
                 <div class="table-responsive py-2 mb-3">
-                    <table class="table table-bordered " id="Table-Pilih-Merk-Edit" width="100%" cellspacing="0">
+                    <table class="table table-bordered text-light" id="Table-Pilih-Merk-Edit" width="100%" cellspacing="0">
                         <thead>
                             <tr>    
                                 <th class="text-center" width="5%" scope="col">No</th>
@@ -303,7 +303,7 @@
 <!-- pop up detail kendaraan -->
 <div class="modal fade " id="popup-kendaraan" tabindex="0" role="dialog" aria-labelledby="modal-block-large" aria-hidden="true">
     <div class="modal-dialog modal-xl" role="document">
-        <div class="modal-content">
+    <div class="modal-content text-light border-light" style='background-color:#212B4E';>
             <div class="modal-header bg-primary-dark">
                 <h5 class="block-title">Detail Kendaraan</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
@@ -312,7 +312,7 @@
             </div>
             <div class="font-size-sm m-3 text-justify row">
                 <div class="col">
-                    <table class="table table-bordered">
+                    <table class="table table-bordered text-light">
                         <tbody>
                             <tr>
                                 <td class="font-weight-bold" width= "35%">No Polisi</td>
@@ -366,7 +366,7 @@
                     </table>
                 </div>
                 <div class="col">
-                    <table class="table table-bordered">
+                    <table class="table table-bordered text-light">
                         <tbody>
                             <tr>
                                 <td class="font-weight-bold">No BPKB</td>
@@ -422,7 +422,7 @@
 
 <div class="modal fade " id="popup-acc-edit-truck" tabindex="0" role="dialog" aria-labelledby="modal-block-large" aria-hidden="true">
     <div class="modal-dialog modal-xl" role="document">
-        <div class="modal-content">
+    <div class="modal-content text-light border-light" style='background-color:#212B4E';>
             <div class="modal-header bg-primary-dark">
                 <h5 class="block-title">Data Edit Kendaraan</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
@@ -431,7 +431,7 @@
             </div>
             <div class="font-size-sm m-3 text-justify row">
                 <div class="col">
-                    <table class="table table-bordered">
+                    <table class="table table-bordered text-light">
                         <tbody>
                             <tr>
                                 <td class="font-weight-bold" width= "35%">No Polisi</td>
@@ -485,7 +485,7 @@
                     </table>
                 </div>
                 <div class="col">
-                    <table class="table table-bordered">
+                    <table class="table table-bordered text-light">
                         <tbody>
                             <tr>
                                 <td class="font-weight-bold">No BPKB</td>
