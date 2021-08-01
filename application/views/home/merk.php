@@ -1,6 +1,6 @@
 <body style='background-color:#182039';> 
 
-<div class="container-fluid small mt-5 p-5" style='background-color:#182039';>
+<div class="container-fluid mt-5 p-5" style='background-color:#182039';>
     <div class="card shadow mb-4" >
     <div class="card-header py-3" style='background-color:#212B4E';>
         <h6 class="m-2 font-weight-bold text-light float-left">Seluruh Data Merk</h6>
@@ -19,13 +19,13 @@
                 <thead>
                     <tr>
                         <th class="text-center" width="3%" scope="col">No</th>
-                        <th class="text-center" width="15%" scope="col">Merk</th>
-                        <th class="text-center" width="15%" scope="col">Type</th>
-                        <th class="text-center" width="15%" scope="col">Jenis</th>
+                        <th class="text-center" width="17%" scope="col">Merk</th>
+                        <th class="text-center" width="17%" scope="col">Type</th>
+                        <th class="text-center" width="17%" scope="col">Jenis</th>
                         <th class="text-center" width="6%" scope="col">Dump</th>
-                        <th class="text-center" width="10%" scope="col">Status Validasi</th>
-                        <th class="text-center" width="17%" scope="col">Aksi</th>
-                        <th class="text-center" width="8%" scope="col">Validasi</th>
+                        <th class="text-center" width="12%" scope="col">Status Validasi</th>
+                        <th class="text-center" width="8%" scope="col">Aksi</th>
+                        <th class="text-center" width="10%" scope="col">Validasi</th>
                     </tr>
                 </thead>
                 <tbody>
