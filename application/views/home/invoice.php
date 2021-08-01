@@ -1,6 +1,6 @@
-<div class="p-5 w-75 m-auto">
+<div class="p-1 mt-5">
     <!-- form invoice -->
-    <div class="card shadow mb-2 mt-5">
+    <div class="card shadow mb-2 mt-3">
         <div class="card-header ">
             <h6 class="m-0 font-weight-bold text-primary">Buat Invoice</h6>
         </div>

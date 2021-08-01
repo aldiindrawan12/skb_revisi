@@ -83,13 +83,13 @@
                 </div>
             </div>
             <hr>
-            <div class="container">
+            <div class="w-50 m-auto">
                 <span>Total Data Slip Gaji Yang Ditemukan : </span><span id="ditemukan"><?= count($pembayaran_upah)?></span><br>
                 <span>Total Slip Gaji Belum Dibayar : </span>Rp.<span id="tagihan"><?= number_format($gaji,2,",",".")?></span>
             </div>
             <hr>
-        <div class="container row">
-            <form method="POST" action="<?= base_url("index.php/print_berkas/gaji_excel/")?>" id="convert_form" class="col-md-2">
+        <div class="p-1 d-flex justify-content-end">
+            <form method="POST" action="<?= base_url("index.php/print_berkas/gaji_excel/")?>" id="convert_form" class="mr-3">
                 <input type="hidden" name="file_content" id="file_content">
                 <button type="submit" name="convert" id="convert" class="btn btn-primary btn-sm btn-icon-split">
                     <span class="icon text-white-100">  
@@ -110,16 +110,16 @@
                 <table class="table table-bordered table-striped" id="Table-Penggajian" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th class="text-center" width="5%" scope="col">No. Slip Gaji</th>
+                            <th class="text-center" width="10%" scope="col">No. Slip Gaji</th>
                             <th class="text-center" width="10%" scope="col">Tgl Slip Gaji</th>
                             <th class="text-center" width="10%" scope="col">Driver</th>
-                            <th class="text-center" width="10%" scope="col">No Polisi</th>
-                            <th class="text-center" width="10%" scope="col">Bulan Kerja</th>
+                            <th class="text-center" width="8%" scope="col">No Polisi</th>
+                            <th class="text-center" width="8%" scope="col">Bulan Kerja</th>
                             <th class="text-center" width="10%" scope="col">Total Gaji</th>
                             <th class="text-center" width="10%" scope="col">Sisa Gaji</th>
-                            <th class="text-center" width="10%" scope="col">Status</th>
-                            <th class="text-center" width="10%" scope="col">Payment</th>
-                            <th class="text-center" width="10%" scope="col">Detail</th>
+                            <th class="text-center" width="8%" scope="col">Status</th>
+                            <th class="text-center" width="5%" scope="col">Payment</th>
+                            <th class="text-center" width="15%" scope="col">Detail</th>
                         </tr>
                     </thead>
                     <tbody>

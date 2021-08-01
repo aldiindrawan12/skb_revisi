@@ -1,6 +1,6 @@
 <!-- tampilan detail penggajian supir -->
-<div class="container small">
-    <div class="card shadow mb-4">
+<div class="mt-5 p-1 small">
+    <div class="card shadow mb-4 mt-3">
         <div class="card-header py-3 mb-3">
             <h6 class="m-0 font-weight-bold text-primary">Buat Slip Gaji</h6>
         </div>

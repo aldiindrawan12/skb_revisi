@@ -10,8 +10,8 @@
     $tanggal_now = date("d-m-Y");
     $tgl_invoice = strtotime($invoice["tanggal_invoice"]);
 ?>
-<div class="container">
-    <div class="card shadow mb-2">
+<div class="mt-5 p-1">
+    <div class="card shadow mb-2 mt-3">
         <div class="card-header ">
             <h6 class="m-0 font-weight-bold text-primary">Payment Invoice</h6>
         </div>
@@ -108,7 +108,7 @@
         </div>
     </div>
 </div>
-<div class="container">
+<div class="w-100">
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary float-left">Data Pembayaran Invoice <?= $invoice["invoice_kode"]?></h6>

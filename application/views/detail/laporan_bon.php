@@ -5,9 +5,9 @@
         return $tanggal;
     }
 ?>
-<div class="container">
-    <div class="card shadow mb-4">
-        <div class="card-header py-3 mb-4 row">
+<div class="mt-5 p-1">
+    <div class="card shadow mb-4 mt-3">
+        <div class="card-header py-3 mb-4 d-flex justify-content-end">
             <h6 class="m-0 col-md-8 font-weight-bold text-primary">Mutasi Kasbon Supir</h6>
             <div class="col-md-2">
                 <a href="" class="btn btn-sm btn-primary btn-icon-split mr-3" onclick="print_bon()">

@@ -1077,9 +1077,9 @@
                         render: function(data, type, row) {
                             let html = "";
                                     if(<?= $_SESSION["payment_jo"]?>==0){
-                                        html += "<a class='btn btn-sm btn-light btn-alert-payment-jo'><i class='fas fa-file-invoice-dollar'></i></a>";
+                                        html += "<a class='btn btn-light btn-alert-payment-jo'><i class='fas fa-file-invoice-dollar'></i></a>";
                                     }else{
-                                        html += "<a class='btn btn-sm btn-light' href='<?= base_url('index.php/payment/payment_jo/"+data+"')?>'><i class='fas fa-file-invoice-dollar'></i></a>";
+                                        html += "<a class='btn btn-light' href='<?= base_url('index.php/payment/payment_jo/"+data+"')?>'><i class='fas fa-file-invoice-dollar'></i></a>";
                                     }
                             return html;
                         }
@@ -1090,8 +1090,7 @@
                         render: function(data, type, row) {
                             var role_user = "<?=$_SESSION['role']?>";
                             let html = "";
-                            html += "<a class='btn btn-sm btn-light' target='_blank' href='<?= base_url('index.php/detail/detail_jo/"+data+"/JO')?>'><i class='fas fa-eye'></i></a>";
-                            // html += "<a class='btn btn-sm ' href='<?= base_url('index.php/print_berkas/uang_jalan/')?>"+data+"/home'><i class='fas fa-print'></i></a>";
+                            html += "<a class='btn btn-sm' target='_blank' href='<?= base_url('index.php/detail/detail_jo/"+data+"/JO')?>'><i class='fas fa-eye'></i></a>";
                             if(role_user=="Supervisor"){
                                 $.ajax({
                                     type: "GET",
@@ -1102,11 +1101,11 @@
                                         id : data,
                                     },
                                     success: function(data_hasil) { //jika ambil data_hasil sukses
-                                        if(data_hasil>0){
-                                            html += "<a class='btn btn-sm btn-light btn-alert-edit-jo' href='javascript:void(0)' data-pk="+data+"><i class='fas fa-pen-square'></i></a>";
-                                        }else{
+                                        // if(data_hasil>0){
+                                            // html += "<a class='btn btn-light btn-alert-edit-jo' href='javascript:void(0)' data-pk="+data+"><i class='fas fa-pen-square'></i></a>";
+                                        // }else{
                                             html += "<a class='btn btn-light btn-update-jo' data-toggle='modal' data-target='#popup-update-jo' href='javascript:void(0)' data-pk="+data+"><i class='fas fa-pen-square'></i></a>";
-                                        }
+                                        // }
                                     }
                                 })
                                 
@@ -1170,7 +1169,9 @@
 
                                     $("#Jenis_update").val(data["mobil_jenis"]);
                                     $("#tanggal_jo_update").val(change_tanggal(data["tanggal_surat"]));
-                                    $("#Keterangan_update").text(data["keterangan"].replaceAll("<br>",""));
+                                    var keterangan = data["keterangan"].split("===");
+                                    $("#Keterangan_update").text(keterangan[0].replaceAll("<br>",""));
+                                    $("#Keterangan_status_update").text(keterangan[1].replaceAll("<br>",""));
                                     $("#jenis_tambahan_update").val(data["jenis_tambahan"]);
                                     $("#nominal_tambahan_update").val(data["nominal_tambahan"]);
                                     $("#uang_jalan_total_update").val(rupiah(data["uang_total"]));
