@@ -121,7 +121,7 @@
                             <th class="text-center" scope="col">Sisa UJ</th>
                             <th class="text-center" scope="col">Biaya Lain</th>
                             <th class="text-center" scope="col">Payment</th>
-                            <th class="text-center" scope="col" width="15%" >Aksi</th>
+                            <th class="text-center" scope="col" width="10%" >Aksi</th>
                         </tr>
                     </thead>
                     <tbody>

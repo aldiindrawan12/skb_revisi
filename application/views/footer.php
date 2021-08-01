@@ -1077,20 +1077,21 @@
                         render: function(data, type, row) {
                             let html = "";
                                     if(<?= $_SESSION["payment_jo"]?>==0){
-                                        html += "<a class='btn btn-light btn-alert-payment-jo'><i class='fas fa-file-invoice-dollar'></i></a>";
+                                        html += "<a class='btn btn-sm btn-light btn-alert-payment-jo'><i class='fas fa-file-invoice-dollar'></i></a>";
                                     }else{
-                                        html += "<a class='btn btn-light' href='<?= base_url('index.php/payment/payment_jo/"+data+"')?>'><i class='fas fa-file-invoice-dollar'></i></a>";
+                                        html += "<a class='btn btn-sm btn-light' href='<?= base_url('index.php/payment/payment_jo/"+data+"')?>'><i class='fas fa-file-invoice-dollar'></i></a>";
                                     }
                             return html;
                         }
                     },
                     {
                         "data": "Jo_id",
+                        className: 'text-center',
                         "orderable": false,
                         render: function(data, type, row) {
                             var role_user = "<?=$_SESSION['role']?>";
                             let html = "";
-                            html += "<a class='btn btn-sm' target='_blank' href='<?= base_url('index.php/detail/detail_jo/"+data+"/JO')?>'><i class='fas fa-eye'></i></a>";
+                            html += "<a class='btn btn-light btn-sm mr-1' target='_blank' href='<?= base_url('index.php/detail/detail_jo/"+data+"/JO')?>'><i class='fas fa-eye'></i></a>";
                             if(role_user=="Supervisor"){
                                 $.ajax({
                                     type: "GET",
@@ -1104,12 +1105,12 @@
                                         // if(data_hasil>0){
                                             // html += "<a class='btn btn-light btn-alert-edit-jo' href='javascript:void(0)' data-pk="+data+"><i class='fas fa-pen-square'></i></a>";
                                         // }else{
-                                            html += "<a class='btn btn-light btn-update-jo' data-toggle='modal' data-target='#popup-update-jo' href='javascript:void(0)' data-pk="+data+"><i class='fas fa-pen-square'></i></a>";
+                                            html += "<a class='btn btn-sm mr-1 btn-light btn-update-jo' data-toggle='modal' data-target='#popup-update-jo' href='javascript:void(0)' data-pk="+data+"><i class='fas fa-pen-square'></i></a>";
                                         // }
                                     }
                                 })
                                 
-                                html += "<a class='btn btn-light btn-delete-jo' href='javascript:void(0)' data-pk="+data+"><i class='fas fa-trash-alt'></i></a>";
+                                html += "<a class='btn btn-sm btn-light btn-delete-jo' href='javascript:void(0)' data-pk="+data+"><i class='fas fa-trash-alt'></i></a>";
                             }
                             return html;
                         }
