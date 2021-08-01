@@ -1,10 +1,12 @@
-<div class="container mt-5 p-1 dark-theme">
+<body style='background-color:#182039';> 
+
+<div class="container-float mt-5 p-5" style='background-color:#182039'; >
         <!-- Card Formulir JO -->
-        <div class="card shadow mt-3 mb-4">
-            <div class="card-header ">
-                <h6 class="m-0 font-weight-bold text-primary">Form Buat Job Order</h6>
+        <div class="container card shadow mt-3 mb-4" style='background-color:#212B4E';>
+            <div class="card-header text-light" style='background-color:#212B4E';>
+                <h6 class="m-0 font-weight-bold p-2 ">Form Buat Job Order</h6>
             </div>
-            <div class="card-body">
+            <div class="card-body text-light">
                 <!-- form Job Order Baru -->
                 <!-- <small>Pilih Rute Yang Tersedia Pada Tabel Rute Dibawah</small> -->
                 <form action="<?=base_url("index.php/form/insert_JO")?>" method="POST" class="row">
@@ -113,6 +115,10 @@
             </div>
         </div>
     </div>
+                        </body>
+
+
+
     <script>
     function reset_form(){
         location.reload();
