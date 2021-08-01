@@ -41,17 +41,17 @@
 <!-- pop up add customer -->
 <div class="modal fade mt-4" id="popup-customer" tabindex="-1" role="dialog" aria-labelledby="modal-block-large" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
+    <div class="modal-content text-light border-light" style='background-color:#212B4E';>
             <div class="modal-header bg-primary-dark">
                 <h5 class="font-weight-bold">Menambah Customer Baru</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <button class="close text-light" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             
             <div class="container mt-3">
                 <div class="row">
-                    <div class="col table-bordered rounded">
+                    <div class="col table-bordered rounded text-light">
                         <form action="<?= base_url("index.php/form/insert_customerMenu")?>" method="POST">
                             <input type="text" name="customer_id" id="customer_id" hidden>
                             <div class="form-group mt-1">
@@ -109,7 +109,7 @@
 <!-- pop up update customer -->
 <div class="modal fade mt-4" id="popup-update-customer" tabindex="-1" role="dialog" aria-labelledby="modal-block-large" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
+    <div class="modal-content text-light border-light" style='background-color:#212B4E';>
             <div class="modal-header bg-primary-dark">
                 <h5 class="font-weight-bold">Update Customer</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
@@ -119,7 +119,7 @@
             
             <div class="container mt-3">
                 <div class="row">
-                    <div class="col table-bordered">
+                    <div class="col table-bordered text-light">
                         <form action="<?= base_url("index.php/form/update_customer")?>" method="POST" id="form-edit-customer">
                             <input type="text" name="customer_id_update" id="customer_id_update" hidden>
                             <div class="form-group mt-1">
@@ -174,7 +174,7 @@
 <!-- pop up detail customer -->
 <div class="modal fade mt-5" id="popup-detail-customer" tabindex="-1" role="dialog" aria-labelledby="modal-block-large" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
+    <div class="modal-content text-light border-light" style='background-color:#212B4E';>
             <div class="modal-header bg-primary-dark">
                 <h5 class="block-title">Detail Customer</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
@@ -184,7 +184,7 @@
             <div class="font-size-sm m-3 text-justify">
             <div class="">
                 <div class="">
-                    <table class="table table-bordered">
+                    <table class="table table-bordered text-light">
                         <tbody>
                             <tr>
                                 <td class="font-weight-bold" style="width: 20%;">Nama Customer</td>
