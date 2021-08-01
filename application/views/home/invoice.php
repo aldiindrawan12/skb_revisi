@@ -73,7 +73,7 @@
                 </div>
             </div>
             <div class="col-auto float-right mr-5">
-                <button type="reset" class="btn btn-outline-danger mt-3 mr-3" onclick="reset_form()">Reset</button>
+                <button type="reset" class="btn btn-danger mt-3 mr-3" onclick="reset_form()">Reset</button>
                 <button type="submit" class="btn btn-success mt-3">Simpan</button>
             </div>
         </form>

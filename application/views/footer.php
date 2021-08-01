@@ -2495,7 +2495,7 @@
                         render: function(data, type, row) {
                             var role_user = "<?=$_SESSION['role']?>";
                             let html = "";
-                            html += "<a class='btn btn-light' target='_blank' href='<?= base_url('index.php/detail/detail_invoice/"+data+"')?>'><i class='fas fa-eye'></i></a>";
+                            html += "<a class='btn btn-light mr-1' target='_blank' href='<?= base_url('index.php/detail/detail_invoice/"+data+"')?>'><i class='fas fa-eye'></i></a>";
                             if(role_user=="Supervisor"){
                                 $.ajax({
                                     type: "GET",
@@ -2507,13 +2507,13 @@
                                     },
                                     success: function(hasil) { //jika ambil hasil sukses
                                         if(hasil>0){
-                                            html += "<a class='btn btn-light btn-alert-edit-invoice'><i class='fas fa-pen-square'></i></a>";
+                                            html += "<a class='btn btn-light btn-alert-edit-invoice mr-1'><i class='fas fa-pen-square'></i></a>";
                                         }else{
-                                            html += "<a class='btn btn-light btn-update-invoice' href='<?= base_url("index.php/form/edit_invoice/")?>"+data+"'><i class='fas fa-pen-square'></i></a>";
+                                            html += "<a class='btn btn-light btn-update-invoice mr-1' href='<?= base_url("index.php/form/edit_invoice/")?>"+data+"'><i class='fas fa-pen-square'></i></a>";
                                         }
                                     }
                                 });
-                                html += "<a class='btn btn-light btn-delete-invoice' href='javascript:void(0)' data-pk="+data+"><i class='fas fa-trash-alt'></i></a>";
+                                html += "<a class='btn btn-light btn-delete-invoice ' href='javascript:void(0)' data-pk="+data+"><i class='fas fa-trash-alt'></i></a>";
                             }
                             return html;
                         }
