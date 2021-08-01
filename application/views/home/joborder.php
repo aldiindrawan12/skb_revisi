@@ -89,7 +89,7 @@
                         </div>
                     </div>
 
-                    <div class="col float-right">
+                    <div class="w-50 float-right">
                     <form method="POST" action="<?= base_url("index.php/print_berkas/jo_excel_data/")?>" id="convert_form" class="col-md-2 float-right">
                         <textarea cols="30" rows="10" name="file_content" id="file_content" hidden><?= json_encode($jo)?></textarea>
                         <button type="submit" name="convert" id="convert" class="btn btn-success btn-sm btn-icon-split">
