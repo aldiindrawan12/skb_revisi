@@ -1,10 +1,12 @@
-<div class="mt-5 p-1">
-    <div class="card shadow mt-3 mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Seluruh Data Job Order</h6>
+<body style='background-color:#182039';> 
+
+<div class="mt-5 p-1" style='background-color:#182039';>
+    <div class="card shadow mt-3 mb-4" style='background-color:#182039'; >
+        <div class="card-header py-3" style='background-color:#182039';  >
+            <h6 class="m-0 font-weight-bold text-light">Seluruh Data Job Order</h6>
         </div>
         <!-- tabel JO -->
-        <div class="card-body">
+        <div class="card-body text-light">
             <div class="conatiner w-50 m-auto">
                 <div class="mb-2 form-group row">
                     <label for="Status" class="form-label font-weight-bold col-md-3">Status</label>
@@ -65,12 +67,12 @@
                     <label for="Jo_id" class="form-label font-weight-bold col-md-3">ID JO</label>
                     <input autocomplete="off" type="text" class="form-control col-md-9" id="Jo_id" name="Jo_id">
                 </div>
-                <div class="mb-2 form-group text-center">
-                    <button class="btn btn-primary" id="btn-cari" onclick="ditemukan()">Cari</button>
+                <div class="row float-right form-group mt-2">
+                    <button class="btn btn-primary mr-2" id="btn-cari" onclick="ditemukan()">Cari</button>
                     <button class="btn btn-danger" onclick="reset_form()">Reset</button>
                 </div>
             </div>
-            <hr>
+            <hr class="border border-light">
             <div class="w-50">
                 <label class="sr-only" for="inlineFormInputGroup">Username</label>
                 <div class="input-group mb-2">
@@ -250,6 +252,10 @@
         </div>
     </div>
 </div>
+
+
+                                    </body>
+
 <script src="<?=base_url("assets/vendor/jquery/jquery.min.js")?>"></script>
 
 <script type="text/javascript">
