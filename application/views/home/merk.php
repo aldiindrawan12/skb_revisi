@@ -40,10 +40,10 @@
 <!-- pop up add merk -->
 <div class="modal fade mt-3 py-3 " id="popup-merk" tabindex="0" role="dialog" aria-labelledby="modal-block-large" aria-hidden="true">
     <div class="modal-dialog modal-md" role="document">
-        <div class="modal-content">
+        <div class="modal-content text-light border-light" style='background-color:#182039';>
             <div class="modal-header bg-primary-dark">
                 <h5 class="font-weight-bold">Menambah Merk</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <button class="close text-light" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
