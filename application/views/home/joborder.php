@@ -121,7 +121,7 @@
                             <th class="text-center" scope="col">Sisa UJ</th>
                             <th class="text-center" scope="col">Biaya Lain</th>
                             <th class="text-center" scope="col">Payment</th>
-                            <th class="text-center" scope="col" width="15%" >Aksi</th>
+                            <th class="text-center" scope="col" width="10%" >Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -134,8 +134,8 @@
 </div>
 <div class="modal fade" id="popup-update-jo" tabindex="0" role="dialog" aria-labelledby="modal-block-large" aria-hidden="true">
     <div class="modal-dialog modal-xl"  role="document"  >
-        <div class="modal-content">
-            <div class="modal-header bg-primary-dark">
+        <div class="modal-content text-light" style='background-color:#182039';>
+            <div class="modal-header ">
                 <h5 class="font-weight-bold">Update Data Job Order</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>

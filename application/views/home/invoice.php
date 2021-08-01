@@ -1,13 +1,15 @@
-<div class="p-1 mt-5">
+<body style='background-color:#182039';> 
+
+<div class="container-fluid p-1 mt-5" style='background-color:#182039';>
     <!-- form invoice -->
-    <div class="card shadow mb-2 mt-3">
-        <div class="card-header ">
-            <h6 class="m-0 font-weight-bold text-primary">Buat Invoice</h6>
+    <div class="card shadow mb-2 mt-5" style='background-color:#182039';>
+        <div class="card-header "style='background-color:#182039';>
+            <h6 class="m-0 font-weight-bold text-light p-2">Buat Invoice</h6>
         </div>
-        <div class="card-body">
+        <div class="card-body text-light m-4" >
         <form action="<?=base_url("index.php/form/insert_invoice")?>" method="POST">
             <div class="row">
-                <div class="col-md-6 border rounded">
+                <div class="col-md-6 ">
                     <div class="form-group row mt-3">
                         <label for="invoice_tgl" class="form-label font-weight-bold col-md-5">Tgl.Invoice</label>
                         <input autocomplete="off" type="text" class="form-control col-md-7" id="invoice_tgl" name="invoice_tgl" value="<?= date("d-m-Y")?>" required readonly>
@@ -38,7 +40,7 @@
                         <input autocomplete="off" type="text" class="form-control col-md-7" id="invoice_payment" name="invoice_payment" required onkeyup="hanyaangka(this)">
                     </div>          
                 </div>
-                <div class="col-md-6 border rounded">
+                <div class="col-md-5 ml-5">
                     <div class="form-group row mt-3">
                         <label for="invoice_tonase" class="col-form-label col-sm-5 font-weight-bold">Total Tonase</label>
                         <div class="col-sm-7">
@@ -70,9 +72,9 @@
                     </div>
                 </div>
             </div>
-            <div class="col text-center">
+            <div class="col-auto float-right mr-5">
+                <button type="reset" class="btn btn-danger mt-3 mr-3" onclick="reset_form()">Reset</button>
                 <button type="submit" class="btn btn-success mt-3">Simpan</button>
-                <button type="reset" class="btn btn-danger mt-3" onclick="reset_form()">Reset</button>
             </div>
         </form>
     </div>
@@ -80,10 +82,10 @@
 </div>
 
 <!-- table invoice -->
-<div class="card shadow mb-5 small">
+<div class="card shadow mb-5 small mt-3 " style='background-color:#182039';>
     <div class="card-body">
         <div class="table-responsive">
-            <table class="table table-bordered" id="pilih-jo" width="100%" cellspacing="0">
+            <table class="table table-bordered text-light" id="pilih-jo" width="100%" cellspacing="0">
                 <thead>
                     <tr>
                         <th class="text-center" width="" scope="col">ID JO</th>
@@ -109,6 +111,9 @@
 </div>
 <!-- end table invoice -->
 </div>
+
+                            </body>
+
 <script>
     function customer(){
         var nama_customer = $("#customer_id option:selected").text();
