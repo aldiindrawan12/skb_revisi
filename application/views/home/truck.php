@@ -40,7 +40,7 @@
 <!-- pop up add truck -->
 <div class="modal fade " id="popup-truck" tabindex="0" role="dialog" aria-labelledby="modal-block-large" aria-hidden="true">
     <div class="modal-dialog modal-xl" role="document">
-        <div class="modal-content">
+    <div class="modal-content text-light border-light" style='background-color:#182039';>
             <div class="modal-header bg-primary-dark">
                 <h5 class="font-weight-bold">Menambah Kendaraan</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
@@ -51,7 +51,7 @@
             <div class="container">
             <?php echo form_open_multipart('form/insert_truck'); ?>
             <div class="table-responsive py-2 mb-3">
-                <table class="table table-bordered " id="Table-Pilih-Merk" width="100%" cellspacing="0">
+                <table class="table table-bordered text-light" id="Table-Pilih-Merk" width="100%" cellspacing="0">
                     <thead>
                         <tr>    
                             <th class="text-center" width="5%" scope="col">No</th>
