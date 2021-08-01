@@ -18,8 +18,8 @@
             <table class="table table-bordered text-light" id="Table-Truck" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                        <th class="text-center" width="3%" scope="col">No</th>
-                        <th class="text-center" width="8%" scope="col">No Polisi</th>
+                        <th class="text-center" width="5%" scope="col">No</th>
+                        <th class="text-center" width="10%" scope="col">No Polisi</th>
                         <th class="text-center" width="12%" scope="col">Merk</th>
                         <th class="text-center" width="12%" scope="col">Tipe</th>
                         <th class="text-center" width="10%" scope="col">Jenis</th>
