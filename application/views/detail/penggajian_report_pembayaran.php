@@ -6,13 +6,13 @@
     }
 ?>
 <!-- tampilan detail penggajian supir -->
-<div class="container small">
-    <div class="card shadow mb-4">
-        <div class="card-header py-3 ">
-            <h6 class="m-0 col-md-4 font-weight-bold text-primary">Detail Slip Gaji</h6>
-            <div class="d-flex justify-content-end">
+<div class="mt-5 p-1 small">
+    <div class="card shadow mb-4 mt-3">
+        <div class="card-header d-flex">
+            <h6 class="m-0 col-md-7 font-weight-bold text-primary">Detail Slip Gaji</h6>
+            <div class="d-flex justify-content-end col-md-5">
                 <span><?= $pembayaran_upah[0]["user_upah"]?></span>
-                <form method="POST" action="<?= base_url("index.php/print_berkas/detail_gaji_excel/")?>" id="convert_form" class="col-md-2">
+                <form method="POST" action="<?= base_url("index.php/print_berkas/detail_gaji_excel/")?>" id="convert_form" class="ml-2 mr-2">
                     <input type="hidden" name="file_content" id="file_content">
                     <button type="submit" name="convert" id="convert" class="btn btn-primary btn-sm btn-icon-split">
                         <span class="icon text-white-100">  

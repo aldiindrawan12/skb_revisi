@@ -1,5 +1,5 @@
-<div class="container">
-    <div class="text-center mb-4">
+<div class="mt-5 p-1">
+    <div class="text-center mb-4 mt-3">
         <!-- <h1 class="h3 mb-0 text-gray-800 mt-3 mb-3">Data Nota Kasbon</h1> -->
             <!-- <a href="<?=base_url("index.php/form/bon")?>" class="btn btn-primary btn-icon-split">
             <span class="icon text-white-100">
@@ -73,12 +73,12 @@
                 </div>
             </div>
             <hr>
-            <div class="container">
+            <div class="container w-50 m-auto">
                 <span>Total Data Nota Kasbon Yang Ditemukan : </span><span id="ditemukan"><?= count($bon)?></span><br>
             </div>
             <hr>
-            <div class="container w-50 row m-auto ">
-                <form method="POST" action="<?= base_url("index.php/print_berkas/bon_excel/")?>" id="convert_form" class="col-md-2">
+            <div class="d-flex justify-content-end mr-3">
+                <form method="POST" action="<?= base_url("index.php/print_berkas/bon_excel/")?>" id="convert_form" class="">
                     <input type="hidden" name="file_content" id="file_content">
                     <button type="submit" name="convert" id="convert" class="btn btn-primary btn-icon-split btn-sm">
                         <span class="icon text-white-100">  

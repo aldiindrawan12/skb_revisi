@@ -1,8 +1,8 @@
 <div class="p-1 mt-5">
-    <div class="card shadow mt-5 mb-4">
+    <div class="card shadow mt-3 mb-4">
         <div class="card-header py-3 row">
-            <h6 class="m-0 font-weight-bold text-primary col-md-8">Seluruh Data Invoice</h6>
-            <form method="POST" action="<?= base_url("index.php/print_berkas/invoice_excel/")?>" id="convert_form" class="col-md-2">
+            <h6 class="m-0 font-weight-bold text-primary col-md-10">Seluruh Data Invoice</h6>
+            <form method="POST" action="<?= base_url("index.php/print_berkas/invoice_excel/")?>" id="convert_form" class="mr-3">
                 <input type="hidden" name="file_content" id="file_content">
                 <button type="submit" name="convert" id="convert" class="btn btn-primary btn-sm btn-icon-split">
                     <span class="icon text-white-100">  
@@ -18,7 +18,7 @@
                 <span class="text">Print/PDF</span>
             </a>
         </div>
-            <div class="conatiner w-75 m-auto">
+            <div class="conatiner w-50 m-auto">
                 <div class="mb-2 mt-3 form-group row">
                     <label for="Status" class="form-label font-weight-bold col-md-3">Status</label>
                     <select name="Status" id="Status" class="form-control selectpicker col-md-9" data-live-search="true">
@@ -47,10 +47,10 @@
                     </select>
                 </div>
                 <div class="mb-2 form-group row">
-                    <label for="No_Invoice" class="form-label font-weight-bold col-md-4">No Invoice</label>
+                    <label for="No_Invoice" class="form-label font-weight-bold col-md-3">No Invoice</label>
                     <input autocomplete="off" type="text" class="form-control col-md-2" id="No_Invoice1" name="No_Invoice1" value="x">
                     <input autocomplete="off" type="text" class="form-control col-md-2" id="No_Invoice2" name="No_Invoice2" value="SKB" readonly>
-                    <select class="form-control col-md-2" id="No_Invoice3" name="No_Invoice3">
+                    <select class="form-control col-md-3" id="No_Invoice3" name="No_Invoice3">
                         <option value="x">Bulan</option>
                         <option value="01">Januari</option>
                         <option value="02">Februari</option>
@@ -88,12 +88,12 @@
                 </div>
             </div>
             <hr>
-            <div class="w-75 m-auto">
+            <div class="w-50 m-auto">
                 <span>Total Data Invoice Yang Ditemukan : </span><span id="ditemukan"><?= count($invoice)?></span><br>
                 <span>Total Invoice Belum Dibayar : </span>Rp.<span id="tagihan"><?= number_format($tagihan,2,",",".")?></span>
             </div>
             <hr>
-        <div class="w-75 small m-auto" id="Table-Seluruh-Invoice-Print">
+        <div class="w-100 small m-auto" id="Table-Seluruh-Invoice-Print">
             <div class="card shadow mb-4 mt-3">
                 <!-- tabel Seluruh invoice-->
                 <div class="card-body">

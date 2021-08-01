@@ -1,5 +1,6 @@
 <!-- Basic Card Example -->
-    <div class="card shadow mb-4 ml-5 mr-5 py-2 px-2">
+<div class="mt-5 p-1"></div>
+    <div class="card shadow mt-3">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Buat Transaksi BON</h6>
         </div>
@@ -54,7 +55,7 @@
             <!-- end form transaksi bon -->
         </div>
     </div>
-    </div>
+</div>
     
 
 

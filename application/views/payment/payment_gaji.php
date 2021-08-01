@@ -8,8 +8,8 @@
         }
     }
 ?>
-<div class="container">
-    <div class="card shadow mb-2">
+<div class="mt-5 p-1">
+    <div class="card shadow mb-2 mt-3">
         <div class="card-header ">
             <h6 class="m-0 font-weight-bold text-primary">Payment Slip Gaji</h6>
         </div>
@@ -112,7 +112,7 @@
         </form>
     </div>
 </div>
-<div class="container">
+<div class="">
     <div class="card shadow mb-4">
     <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary float-left">Data Pembayaran Slip Gaji <?= $pembayaran_upah_id?></h6>

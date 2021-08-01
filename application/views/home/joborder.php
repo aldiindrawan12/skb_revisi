@@ -1,3 +1,4 @@
+
 <div class="mt-5 p-1">
     <div class="card shadow mt-3 mb-4">
         <div class="card-header py-3">
@@ -71,8 +72,7 @@
                 </div>
             </div>
             <hr>
-            <div class="w-50">
-                <label class="sr-only" for="inlineFormInputGroup">Username</label>
+            <div class="w-50 m-auto">
                 <div class="input-group mb-2">
                     <div class="input-group-prepend">
                     <div class="input-group-text">Total Data JO Yang Ditemukan</div>
@@ -132,7 +132,8 @@
                 </button>
             </div>
             <div class="font-size-sm m-3 text-justify">
-                <form action="<?=base_url("index.php/form/update_JO")?>" method="POST">
+            <!-- <?=base_url("index.php/form/update_JO")?> -->
+                <form action="#" method="POST" id="form-edit-jo">
                     <div class="row">
                         <div class="col-md-4">
                             <div class="mb-4">
@@ -158,6 +159,10 @@
                             <div class="mb-4 mb-4">
                                 <label class="form-label font-weight-bold" for="Tujuan">Ke</label>
                                 <input type="text" name="Tujuan" id="Tujuan" class="form-control" required readonly>
+                            </div>
+                            <div class="mb-4">
+                                <label for="Keterangan_update" class="form-label font-weight-bold">Keterangan/Catatan</label>
+                                <textarea class="form-control" name="Keterangan_update" id="Keterangan_update" rows="3"></textarea>
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -214,36 +219,34 @@
                                <label for="status_update" class="form-label">Status Saat Ini</label>
                                 <select name="status_update" id="status_update" class="form-control custom-select " required>
                                     <option class="font-w700" disabled="disabled" selected value="">Status JO</option>
-                                    <option value="Sampai Tujuan">Sampai Tujuan</option>
-                                    <option value="Dibatalkan">Dibatalkan</option>
-                                    <option value="Dalam Perjalanan">Dalam Perjalanan</option>
+                                    <option value="Sampai Tujuan">Done</option>
+                                    <option value="Dalam Perjalanan">Ongoing</option>
                                 </select>
                             </div>
-                                <div class="form-group">
-                                    <label for="tgl_muat_update" class="form-label">Tanggal Muat</label>
-                                    <input autocomplete="off" class="form-control" type="text" name="tgl_muat_update" id="tgl_muat_update" onclick="tanggal_berlaku(this)">    
-                                </div>
-                                <div class="form-group">
-                                    <label for="tgl_bongkar_update" class="form-label">Tanggal Bongkar</label>
-                                    <input autocomplete="off" class="form-control" type="text" name="tgl_bongkar_update" id="tgl_bongkar_update" onclick="tanggal_berlaku(this)">    
-                                </div>
-                                <div class="form-group">
-                                    <label for="tonase_update" class="form-label">Muatan akhir (Tonase)</label>
-                                    <input autocomplete="off" class="form-control" type="text" name="tonase_update" id="tonase_update" onkeyup="uang()">    
-                                </div>
-                                <div class="form-group">
-                                    <label for="biaya_lain_update" class="form-label">Biaya Lain</label>
-                                    <input autocomplete="off" class="form-control" type="text" name="biaya_lain_update" id="biaya_lain_update" onkeyup="uang()">    
-                                </div>
+                            <div class="form-group">
+                                <label for="tgl_muat_update" class="form-label">Tanggal Muat</label>
+                                <input autocomplete="off" class="form-control" type="text" name="tgl_muat_update" id="tgl_muat_update" onclick="tanggal_berlaku(this)">    
+                            </div>
+                            <div class="form-group">
+                                <label for="tgl_bongkar_update" class="form-label">Tanggal Bongkar</label>
+                                <input autocomplete="off" class="form-control" type="text" name="tgl_bongkar_update" id="tgl_bongkar_update" onclick="tanggal_berlaku(this)">    
+                            </div>
+                            <div class="form-group">
+                                <label for="tonase_update" class="form-label">Muatan akhir (Tonase)</label>
+                                <input autocomplete="off" class="form-control" type="text" name="tonase_update" id="tonase_update" onkeyup="uang()">    
+                            </div>
+                            <div class="form-group">
+                                <label for="biaya_lain_update" class="form-label">Biaya Lain</label>
+                                <input autocomplete="off" class="form-control" type="text" name="biaya_lain_update" id="biaya_lain_update" onkeyup="uang()">    
+                            </div>
                             <div class="mb-4">
-                                <label for="Keterangan_update" class="form-label font-weight-bold">Keterangan/Catatan</label>
-                                <textarea class="form-control" name="Keterangan_update" id="Keterangan_update" rows="3"></textarea>
+                                <label for="Keterangan_status_update" class="form-label font-weight-bold">Keterangan Ubah Status</label>
+                                <textarea class="form-control" name="Keterangan_status_update" id="Keterangan_status_update" rows="3"></textarea>
                             </div>
                         </div>
                     </div>
                     <div class="">
-                        <button type="submit" class="btn btn-success ml-3 mt-5 float-md-right">Simpan dan Cetak</button>
-                        <button type="reset" class="btn btn-outline-danger mb-3 mt-5  float-md-right" onclick="reset_form()">Reset</button>
+                        <button type="submit" class="btn btn-success ml-3 mt-5 float-md-right">Simpan</button>
                     </div>
                 </form>
             </div>
@@ -251,7 +254,34 @@
     </div>
 </div>
 <script src="<?=base_url("assets/vendor/jquery/jquery.min.js")?>"></script>
-
+<script>
+        $( "#form-edit-jo" ).submit(function( event ) {
+            //jika status done ke ongoing
+            var status = $("#status_update").val();
+            if(status == "Dalam Perjalanan"){
+                var konfirm = false;
+                Swal.fire({
+                    title: 'Ubah Data Jo',
+                    text:'Yakin Anda Ingin Menghapus JO dari Done ke Ongoing?',
+                    showDenyButton: true,
+                    denyButtonText: `No`,
+                    confirmButtonText: 'Yes',
+                    denyButtonColor: '#808080',
+                    confirmButtonColor: '#FF0000',
+                    icon: "warning",
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        konfirm = true;
+                    }else{
+                        konfirm = false;
+                    }
+                })
+                return konfirm;
+            }else{
+                return true;
+            }
+        });
+    </script>
 <script type="text/javascript">
     $(document).ready(function() {
         // $('#convert').click(function() {
