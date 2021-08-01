@@ -60,8 +60,9 @@
                 </div>
                 <div class="mb-2 form-group row">
                     <label for="Tanggal" class="form-label font-weight-bold col-md-3">Tanggal JO</label>
-                    <input autocomplete="off" type="text" class="form-control col-md-4 mr-4" id="Tanggal1" name="Tanggal1" onclick="tanggal_berlaku(this)">
-                    <input autocomplete="off" type="text" class="form-control col-md-4" id="Tanggal2" name="Tanggal2" onclick="tanggal_berlaku(this)">
+                    <input autocomplete="off" type="text" class="form-control col-md-3" id="Tanggal1" name="Tanggal1" onclick="tanggal_berlaku(this)">
+                    <span class="p-2 mr-2 ml-2">Sampai</span>
+                    <input autocomplete="off" type="text" class="form-control col-md-3" id="Tanggal2" name="Tanggal2" onclick="tanggal_berlaku(this)">
                 </div>
                 <div class="mb-2 form-group row">
                     <label for="Jo_id" class="form-label font-weight-bold col-md-3">ID JO</label>
