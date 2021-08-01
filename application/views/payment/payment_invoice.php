@@ -10,15 +10,16 @@
     $tanggal_now = date("d-m-Y");
     $tgl_invoice = strtotime($invoice["tanggal_invoice"]);
 ?>
-<div class="mt-5 p-1">
-    <div class="card shadow mb-2 mt-3">
-        <div class="card-header ">
-            <h6 class="m-0 font-weight-bold text-primary">Payment Invoice</h6>
+<body style='background-color:#182039';> 
+<div class="mt-5 p-5" style='background-color:#182039';>
+    <div class="card shadow mb-2 mt-3"  style='background-color:#182039';>
+        <div class="card-header " style='background-color:#182039';>
+            <h6 class="m-0 font-weight-bold text-light">Payment Invoice</h6>
         </div>
-        <div class="card-body small">
+        <div class="card-body text-light">
             <form action="<?=base_url("index.php/form/insert_payment_invoice/").$invoice_kode?>" method="POST">
                 <div class="row">
-                    <div class="col-md-6 border rounded">
+                    <div class="col-md-6 ">
                         <div class="form-group row mt-3">
                             <label for="invoice_kode" class="form-label col-sm-5 font-weight-bold">NO Invoice</label>
                             <div class="col-sm-7">
@@ -63,7 +64,7 @@
                         </div>          
                         
                     </div>
-                    <div class="col-md-6 border rounded">
+                    <div class="col-md-6 ">
                         <div class="form-group row mt-3">
                             <label for="payment_invoice_tgl" class="form-label font-weight-bold col-sm-5">Tgl.Pembayaran</label>
                             <div class="col-sm-7">
@@ -95,28 +96,29 @@
                     </div>
                 </div>
                 <?php if($invoice["status_bayar"]!="Lunas"){?>
-                    <div class="col text-center">
-                        <button type="submit" class="btn btn-success mt-3">Simpan</button>
-                        <button type="reset" class="btn btn-danger mt-3" onclick="reset_form()">Batal</button>
+                    <div class="row float-right">
+                        <button type="reset" class="btn btn-danger mt-3 mr-2" onclick="reset_form()">Batal</button>
+                        <button type="submit" class="btn btn-success mt-3 mr-3">Simpan</button>
+                   
                     </div>
                 <?php }else{?>
-                    <div class="col text-center">
-                        <span class="btn btn-success">Invoice Sudah Lunas</span>
+                    <div class="row text-center mt-2 mb-2 large">
+                        <span class="btn btn-success p-4  w-100 font-weight-bolder active">Invoice Sudah Lunas</span>
                     </div>
                 <?php } ?>
             </form>
         </div>
     </div>
 </div>
-<div class="w-100">
-    <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary float-left">Data Pembayaran Invoice <?= $invoice["invoice_kode"]?></h6>
+<div class="col-12" style='background-color:#182039';>
+    <div class="card shadow text-light" style='background-color:#182039';>
+        <div class="card-header py-3" style='background-color:#182039';>
+            <h6 class="m-0 font-weight-bold text-light float-left">Data Pembayaran Invoice <?= $invoice["invoice_kode"]?></h6>
         </div>
         <!-- tabel data cutomer -->
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered" id="" width="100%" cellspacing="0">
+                <table class="table table-bordered text-light" id="" width="100%" cellspacing="0">
                     <thead>
                         <tr>
                             <th class="text-center" width="3%" scope="col">Tanggal</th>
@@ -129,11 +131,11 @@
                     <tbody>
                         <?php foreach($payment_invoice as $value){?>
                             <tr>
-                                <td><?= change_tanggal($value["payment_invoice_tgl"])?></td>
+                                <td class="text-center"><?= change_tanggal($value["payment_invoice_tgl"])?></td>
                                 <td>Rp.<?= number_format($value["payment_invoice_nominal"],0,',','.')?></td>
-                                <td><?= $value["payment_invoice_jenis"]?></td>
+                                <td class="text-center"><?= $value["payment_invoice_jenis"]?></td>
                                 <td><?= $value["payment_invoice_keterangan"]?></td>
-                                <td>
+                                <td class="text-center">
                                 <?php if($_SESSION['role']=="Supervisor"){?>
                                     <a class='btn btn-light' id="<?= $value["payment_invoice_id"]?>" onclick="edit_payment_invoice(this)" data-toggle="modal" data-target="#popup-edit-payment-invoice"><i class='fas fa-pen-square'></i></a>
                                     <a class='btn btn-light' id="<?= $value["payment_invoice_id"]?>" onclick="delete_payment_invoice(this)"><i class='fas fa-trash-alt'></i></a>
@@ -150,7 +152,7 @@
 </div>
 <div class="modal fade mt-3" id="popup-edit-payment-invoice" tabindex="0" role="dialog" aria-labelledby="modal-block-large" aria-hidden="true">
     <div class="modal-dialog modal-md" role="document">
-        <div class="modal-content">
+        <div class="modal-content text-light" style='background-color:#212B4E';>
             <div class="modal-header bg-primary-dark">
                 <h5 class="font-weight-bold">Edit Data Payment Invoice</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
@@ -204,15 +206,7 @@
     </div>
 </div>
 
-        <!-- Footer -->
-        <footer class="sticky-footer bg-dark">
-            <div class="container my-auto">
-                <div class="copyright text-center my-auto">
-                    <span class="text-light">Copyright &copy; 2021 PT.Sumber Karya Berkah</span>
-                </div>
-            </div>
-        </footer>
-        <!-- End of Footer -->
+        
 
         </div>
         <!-- End of Content Wrapper -->
@@ -279,6 +273,10 @@
         </div>
     </div>
     <!-- Bootstrap core JavaScript-->
+
+
+                                </body>
+
     <script src="<?=base_url("assets/vendor/jquery/jquery.min.js")?>"></script>
     <script src="<?=base_url("assets/vendor/jquery/jquery.mask.min.js")?>"></script>
     <script src="<?=base_url("assets/vendor/bootstrap/js/bootstrap.bundle.min.js")?>"></script>    
