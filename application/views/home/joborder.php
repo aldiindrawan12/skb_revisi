@@ -2,12 +2,12 @@
 
 <div class="mt-5 p-1" style='background-color:#182039';>
     <div class="card shadow mt-3 mb-4" style='background-color:#182039'; >
-        <div class="card-header py-3" style='background-color:#182039';  >
+        <div class="card-header py-3 " style='background-color:#182039';  >
             <h6 class="m-0 font-weight-bold text-light">Seluruh Data Job Order</h6>
         </div>
         <!-- tabel JO -->
-        <div class="card-body text-light">
-            <div class="conatiner w-50 m-auto">
+        <div class="card-body text-light mt-3 ">
+            <div class="conatiner w-50 m-auto ">
                 <div class="mb-2 form-group row">
                     <label for="Status" class="form-label font-weight-bold col-md-3">Status</label>
                     <select name="Status" id="Status" class="form-control selectpicker col-md-9" data-live-search="true">
@@ -67,36 +67,43 @@
                     <label for="Jo_id" class="form-label font-weight-bold col-md-3">ID JO</label>
                     <input autocomplete="off" type="text" class="form-control col-md-9" id="Jo_id" name="Jo_id">
                 </div>
-                <div class="row float-right form-group mt-2">
+                <div class="row float-right form-group mt-3 mb-5">
                     <button class="btn btn-primary mr-2" id="btn-cari" onclick="ditemukan()">Cari</button>
                     <button class="btn btn-danger" onclick="reset_form()">Reset</button>
                 </div>
             </div>
-            <hr class="border border-light">
-            <div class="w-50">
-                <label class="sr-only" for="inlineFormInputGroup">Username</label>
-                <div class="input-group mb-2">
-                    <div class="input-group-prepend">
-                    <div class="input-group-text">Total Data JO Yang Ditemukan</div>
+          
+            
+           
+            
+            <div class="table-responsive thead-dark small" id="print_jo">
+                            
+                    <div class="conatiner w-25 mb-2 ">
+                        <label class="sr-only" for="inlineFormInputGroup">Username</label>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                            <div class="input-group-text">Total Data JO Yang Ditemukan</div>
+                            </div>
+                            <input type="text" class="form-control font-weight-bolder" id="ditemukan" readonly value="<?= count($jo).' Data' ?>">
+                        </div>
                     </div>
-                    <input type="text" class="form-control" id="ditemukan" readonly value="<?= count($jo).' Data' ?>">
-                </div>
-            </div>
-            <hr>
-            <div class="">
+
+                    <div class="col float-right">
                     <form method="POST" action="<?= base_url("index.php/print_berkas/jo_excel_data/")?>" id="convert_form" class="col-md-2 float-right">
                         <textarea cols="30" rows="10" name="file_content" id="file_content" hidden><?= json_encode($jo)?></textarea>
-                        <button type="submit" name="convert" id="convert" class="btn btn-primary btn-sm btn-icon-split">
+                        <button type="submit" name="convert" id="convert" class="btn btn-success btn-sm btn-icon-split">
                             <span class="icon text-white-100">  
                                 <i class="fas fa-print"></i>
                             </span>
                             <span class="text">Excel</span>
                         </button>
                     </form>
-                    <button class="btn btn-primary btn-sm float-right mr-3" onclick="pdf()">Print/Export PDF</button>
+                    <button class="btn btn-info btn-sm float-right mr-3" onclick="pdf()">Print/Export PDF</button>
                 </div>
-            <div class="table-responsive thead-dark small" id="print_jo">
-                <table class="table table-bordered  small" id="Table-Job-Order" width="100%" cellspacing="0">
+
+
+
+                <table class="table table-bordered text-light " id="Table-Job-Order" width="100%" cellspacing="0">
                     <thead>
                         <tr>
                             <th  class="text-center" scope="col">ID JO</th>
@@ -113,7 +120,7 @@
                             <th class="text-center" scope="col">Sisa UJ</th>
                             <th class="text-center" scope="col">Biaya Lain</th>
                             <th class="text-center" scope="col">Payment</th>
-                            <th scope="col" width="15%" >Aksi</th>
+                            <th class="text-center" scope="col" width="15%" >Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
