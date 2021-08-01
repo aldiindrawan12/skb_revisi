@@ -241,7 +241,7 @@
 
 <div class="modal fade mt-5" id="popup-acc-edit-customer" tabindex="0" role="dialog" aria-labelledby="modal-block-large" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
+    <div class="modal-content text-light border-light" style='background-color:#212B4E';>
             <div class="modal-header bg-primary-dark">
                 <h5 class="block-title">Data Edit Customer</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
@@ -251,7 +251,7 @@
             <div class="font-size-sm m-3 text-justify">
             <div class="">
                 <div class="">
-                    <table class="table table-bordered">
+                    <table class="table table-bordered text-light">
                         <tbody>
                             <tr>
                                 <td class="font-weight-bold" style="width: 20%;">Nama Customer</td>
