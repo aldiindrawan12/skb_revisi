@@ -1,7 +1,9 @@
-<div class="container">
-    <div class="card shadow mb-4">
-    <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary float-left">Seluruh Data Driver</h6>
+<body style='background-color:#182039';> 
+
+<div class="container-fluid p-5 mt-5" style='background-color:#182039';>
+    <div class="card shadow mb-4" style='background-color:#212B4E';>
+    <div class="card-header py-3" style='background-color:#212B4E';>
+        <h6 class="m-0 font-weight-bold text-light float-left">Seluruh Data Driver</h6>
         <a class="btn btn-primary btn-icon-split float-right btn-sm" data-toggle='modal' data-target='#popup-supir'>
             <span class="icon text-white-100">
                 <i class="fas fa-plus"></i> 
@@ -14,19 +16,19 @@
     <!-- tabel supir -->
     <div class="card-body">
         <div class="table-responsive">
-            <table class="table table-bordered" id="Table-Supir" width="100%" cellspacing="0">
+            <table class="table table-bordered text-light" id="Table-Supir" width="100%" cellspacing="0">
                 <thead>
                     <tr>        
-                        <th class="text-center" width="1%" scope="col">ID Driver</th>
-                        <th class="text-center" width="13%" scope="col">Nama Lengkap</th>
-                        <th class="text-center" width="14%" scope="col">Nama Panggilan</th>
-                        <th class="text-center" width="14%" scope="col">No. HP</th>
+                        <th class="text-center"  scope="col">ID Driver</th>
+                        <th class="text-center"  scope="col">Nama Lengkap</th>
+                        <th class="text-center"  scope="col">Nama Panggilan</th>
+                        <th class="text-center" scope="col">No. HP</th>
                         <!-- <th width="12%" scope="col">Berlaku SIM</th> -->
                         <!-- <th width="13%" scope="col">Status Jalan</th> -->
-                        <th width="13%" scope="col">Status</th>
-                        <th class="text-center" width="15%" scope="col">Status Validasi</th>
-                        <th width="20%" scope="col">Aksi</th>
-                        <th width="20%" scope="col">Validasi</th>
+                        <th width="9%" scope="col">Status</th>
+                        <th class="text-center" width="12%" scope="col">Status Validasi</th>
+                        <th width="14%" scope="col">Aksi</th>
+                        <th width="11%" scope="col">Validasi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -466,3 +468,5 @@
     </div>
 </div>
 <!-- end pop up detail supir -->
+
+</body>
