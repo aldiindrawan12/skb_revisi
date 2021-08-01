@@ -1614,27 +1614,23 @@
                 "columns": [
                     {
                         "data": "customer_id",
-                        className: 'text-center small',
+                        className: 'text-center',
                         render: function(data, type, row) {
                             let html = row["nomor"];
                             return html;
                         }
                     },
                     {
-                        "data": "customer_name",
-                        className: 'text-center small'
+                        "data": "customer_name"
                     },
                     {
-                        "data": "customer_alamat",
-                        className: 'text-center small'
+                        "data": "customer_alamat"
                     },
                     {
-                        "data": "customer_kontak_person",
-                        className: 'text-center small'
+                        "data": "customer_kontak_person"    
                     },
                     {
-                        "data": "customer_telp",
-                        className: 'text-center small'
+                        "data": "customer_telp"
                     },
                     {
                         "data": "validasi",
@@ -1649,14 +1645,14 @@
                     },
                     {
                         "data": "customer_id",
-                        className: 'text-center small',
+                        className: 'text-center',
                         "orderable": false,
                         render: function(data, type, row) {
                             var role_user = "<?=$_SESSION['role']?>";
                             let html = "";
-                            html += "<a class='btn btn-light btn-detail-customer' href='javascript:void(0)' data-toggle='modal' data-target='#popup-detail-customer' data-pk='"+data+"'><i class='fas fa-eye'></i></a>";
+                            html += "<a class='btn btn-light btn-detail-customer mr-1' href='javascript:void(0)' data-toggle='modal' data-target='#popup-detail-customer' data-pk='"+data+"'><i class='fas fa-eye'></i></a>";
                             if(row["validasi"]!="Pending" && row["validasi_edit"]!="Pending" && row["validasi_delete"]!="Pending"){
-                                html += "<a class='btn btn-light btn-update-customer' data-toggle='modal' data-target='#popup-update-customer' href='javascript:void(0)' data-pk="+data+"><i class='fas fa-pen-square'></i></a>"+
+                                html += "<a class='btn btn-light btn-update-customer mr-1' data-toggle='modal' data-target='#popup-update-customer' href='javascript:void(0)' data-pk="+data+"><i class='fas fa-pen-square'></i></a>"+
                                 "<a class='btn btn-light btn-delete-customer' href='javascript:void(0)' data-pk="+data+"><i class='fas fa-trash-alt'></i></a>";
                                 return html;
                             }
@@ -1665,7 +1661,7 @@
                     },
                     {
                         "data": "customer_id",
-                        className: 'text-center small',
+                        className: 'text-center',
                         "orderable": false,
                         render: function(data, type, row) {
                             var role_user = "<?=$_SESSION['role']?>";
@@ -2699,10 +2695,13 @@
                         "orderable": false,
                         render: function(data, type, row) {
                             if (data == "Super User") {
-                                    let html = "<span class='btn-sm btn-block active btn-dark'></i>" + data + "</span>";
+                                    let html = "<span class='btn-sm btn-block active btn-info'></i>" + data + "</span>";
                                     return html;
-                                } else {
+                                } else if (data == "Operator"){
                                     let html = "<span class='btn-sm btn-block active btn-light'>" + data + "</span>";
+                                    return html;
+                                }else {
+                                    let html = "<span class='btn-sm btn-block active btn-success'>" + data + "</span>";
                                     return html;
                                 }
                         }

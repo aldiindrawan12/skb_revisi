@@ -1,3 +1,5 @@
+<body style='background-color:#182039';> 
+
 <div class="container-fluid mt-5 p-5" style='background-color:#182039';>
     <div class="card shadow mx-5">
     <div class="card-header py-3" style='background-color:#212B4E';>
@@ -126,3 +128,5 @@
 <!-- end pop up update akun -->
 </div>
 </div>
+
+        </body>
