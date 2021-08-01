@@ -40,7 +40,7 @@
 <!-- pop up add truck -->
 <div class="modal fade " id="popup-truck" tabindex="0" role="dialog" aria-labelledby="modal-block-large" aria-hidden="true">
     <div class="modal-dialog modal-xl" role="document">
-    <div class="modal-content text-light border-light" style='background-color:#182039';>
+    <div class="modal-content text-light border-light" style='background-color:#212B4E';>
             <div class="modal-header bg-primary-dark">
                 <h5 class="font-weight-bold">Menambah Kendaraan</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
