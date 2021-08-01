@@ -43,7 +43,7 @@
 <!-- pop up add rute dan muatan -->
 <div class="modal fade" id="popup-rute" tabindex="-1" role="dialog" aria-labelledby="modal-block-large" aria-hidden="true">
     <div class="modal-dialog modal-xl"  role="document"  >
-        <div class="modal-content">
+    <div class="modal-content text-light border-light" style='background-color:#212B4E';>
             <div class="modal-header bg-primary-dark">
                 <h5 class="font-weight-bold">Tambah Rute dan Muatan Baru</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
@@ -141,7 +141,7 @@
 <!-- pop up update rute dan muatan -->
 <div class="modal fade" id="popup-update-rute" tabindex="-1" role="dialog" aria-labelledby="modal-block-large" aria-hidden="true">
     <div class="modal-dialog modal-xl" role="document">
-        <div class="modal-content">
+    <div class="modal-content text-light border-light" style='background-color:#212B4E';>
             <div class="modal-header bg-primary-dark">
                 <h5 class="font-weight-bold">Update Rute dan Muatan</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
@@ -231,7 +231,7 @@
 <!-- pop up detail rute -->
 <div class="modal fade" id="popup-detail-rute" tabindex="-1" role="dialog" aria-labelledby="modal-block-large" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
+    <div class="modal-content text-light border-light" style='background-color:#212B4E';>
             <div class="modal-header bg-primary-dark">
                 <h5 class="block-title">Detail Rute</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
@@ -316,7 +316,7 @@
 
 <div class="modal fade" id="popup-acc-edit-rute" tabindex="0" role="dialog" aria-labelledby="modal-block-large" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
+    <div class="modal-content text-light border-light" style='background-color:#212B4E';>
             <div class="modal-header bg-primary-dark">
                 <h5 class="block-title">Data Edit Rute</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">

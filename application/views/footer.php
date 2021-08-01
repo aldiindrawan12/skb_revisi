@@ -3077,7 +3077,7 @@
                         Swal.fire({
                             title: 'ACC Hapus Rute dan Muatan',
                             icon: "question",
-                            text: 'Yakin anda ingin ACC Hapsu Data Rute dan Muatan ini?',
+                            text: 'Yakin anda ingin ACC Hapus Data Rute dan Muatan ini?',
                             showDenyButton: true,
                             showCancelButton:true,
                             denyButtonText: `Tolak`,
