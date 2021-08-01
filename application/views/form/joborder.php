@@ -1,4 +1,4 @@
-<div class="container mt-5 p-1">
+<div class="container mt-5 p-1 dark-theme">
         <!-- Card Formulir JO -->
         <div class="card shadow mt-3 mb-4">
             <div class="card-header ">
