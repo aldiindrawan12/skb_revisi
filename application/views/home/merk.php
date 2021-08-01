@@ -84,7 +84,7 @@
 <!-- pop up update merk -->
 <div class="modal fade mt-5 px-5 py-2" id="popup-update-merk" tabindex="0" role="dialog" aria-labelledby="modal-block-large" aria-hidden="true">
     <div class="modal-dialog modal-md" role="document">
-        <div class="modal-content">
+    <div class="modal-content text-light border-light" style='background-color:#212B4E';>
             <div class="modal-header bg-primary-dark">
                 <h5 class="font-weight-bold">Update Merk</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
@@ -126,7 +126,7 @@
 
 <div class="modal fade mt-3 py-3 " id="popup-acc-edit-merk" tabindex="0" role="dialog" aria-labelledby="modal-block-large" aria-hidden="true">
     <div class="modal-dialog modal-md" role="document">
-        <div class="modal-content">
+    <div class="modal-content text-light border-light" style='background-color:#212B4E';>
             <div class="modal-header bg-primary-dark">
                 <h5 class="font-weight-bold">Data Edit Merk</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
