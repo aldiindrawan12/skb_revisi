@@ -10,12 +10,13 @@ function change_tanggal($tanggal){
 $keterangan = explode("===",$jo["keterangan"]);
 ?>
 <!-- tampilan detail penggajian supir -->
-<div class="mt-5 p-1 small">
-    <div class="card shadow mb-4 mt-3">
-        <div class="card-header py-3 mb-3">
-            <h6 class="m-0 font-weight-bold text-primary">Edit Job Order</h6>
+<body style='background-color:#182039';> 
+<div class="mt-5 p-3 small" style='background-color:#182039';>
+    <div class="card shadow mb-4 mt-3"style='background-color:#182039';>
+        <div class="card-header py-3 mb-3" style='background-color:#182039';>
+            <h6 class="m-0 font-weight-bold text-light">Edit Job Order</h6>
         </div>
-        <div class="m-3" id="rincian">
+        <div class="m-3 text-light" id="rincian">
             <form action="<?=base_url("index.php/form/update_JO")?>" method="POST" id="form-edit-jo">
                 <div class="row">
                     <div class="col-md-4">
@@ -146,16 +147,7 @@ $keterangan = explode("===",$jo["keterangan"]);
 </div>
 <!-- end tampilan detail penggajian supir -->
    
-  
-        <!-- Footer -->
-        <footer class="sticky-footer bg-white">
-            <div class="container my-auto">
-                <div class="copyright text-center my-auto">
-                    <span>Copyright &copy; 2021 PT.Sumber Karya Berkah</span>
-                </div>
-            </div>
-        </footer>
-        <!-- End of Footer -->
+
 
         </div>
         <!-- End of Content Wrapper -->
@@ -189,6 +181,9 @@ $keterangan = explode("===",$jo["keterangan"]);
         </div>
     </div>
     <!-- Bootstrap core JavaScript-->
+
+
+                                </body>
     <script src="<?=base_url("assets/vendor/jquery/jquery.min.js")?>"></script>
     <script src="<?=base_url("assets/vendor/jquery/jquery.mask.min.js")?>"></script>
     <script src="<?=base_url("assets/vendor/bootstrap/js/bootstrap.bundle.min.js")?>"></script>    
