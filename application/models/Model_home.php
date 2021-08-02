@@ -121,8 +121,6 @@ class Model_Home extends CI_model
         
             ## Read value
             $draw = $postData['draw'];
-            $start = $postData['start']; // mulai display per page
-            $rowperpage = $postData['length']; // Rows display per page
             $columnIndex = $postData['order'][0]['column']; // Column index untuk sorting
             $columnName = $postData['columns'][$columnIndex]['data']; // Column name untuk sorting
             $columnSortOrder = $postData['order'][0]['dir']; // asc or desc
@@ -173,7 +171,6 @@ class Model_Home extends CI_model
             }
             $this->db->order_by("validasi DESC,validasi_edit DESC,validasi_delete DESC");
             $this->db->order_by($columnName, $columnSortOrder);
-            $this->db->limit($rowperpage, $start);
             $records = $this->db->get('skb_mobil')->result();
         
             $data = array();
@@ -675,7 +672,7 @@ class Model_Home extends CI_model
             }
             $this->db->order_by("validasi DESC,validasi_edit DESC,validasi_delete DESC");
             $this->db->order_by($order_field, $order_ascdesc);
-            $this->db->limit($limit, $start);
+            // $this->db->limit($limit, $start);
             return $this->db->get('skb_customer')->result_array();
         }
 
@@ -710,7 +707,7 @@ class Model_Home extends CI_model
             }
             $this->db->order_by("validasi DESC,validasi_edit DESC,validasi_delete DESC");
             $this->db->order_by($order_field, $order_ascdesc);
-            $this->db->limit($limit, $start);
+            // $this->db->limit($limit, $start);
             return $this->db->get('skb_supir')->result_array();
         }
 
@@ -861,8 +858,6 @@ class Model_Home extends CI_model
         
             ## Read value
             $draw = $postData['draw'];
-            $start = $postData['start']; // mulai display per page
-            $rowperpage = $postData['length']; // Rows display per page
             $columnIndex = $postData['order'][0]['column']; // Column index untuk sorting
             $columnName = $postData['columns'][$columnIndex]['data']; // Column name untuk sorting
             $columnSortOrder = $postData['order'][0]['dir']; // asc or desc
@@ -915,7 +910,6 @@ class Model_Home extends CI_model
             }
             $this->db->order_by("validasi_rute DESC,validasi_rute_edit DESC,validasi_rute_delete DESC");
             $this->db->order_by($columnName, $columnSortOrder);
-            $this->db->limit($rowperpage, $start);
             $this->db->join("skb_customer", "skb_customer.customer_id = skb_rute.customer_id", 'left');
             if($customer!="x"){
                 $this->db->where("skb_customer.customer_id",$customer);
@@ -1010,8 +1004,6 @@ class Model_Home extends CI_model
         
             ## Read value
             $draw = $postData['draw'];
-            $start = $postData['start']; // mulai display per page
-            $rowperpage = $postData['length']; // Rows display per page
             $columnIndex = $postData['order'][0]['column']; // Column index untuk sorting
             $columnName = $postData['columns'][$columnIndex]['data']; // Column name untuk sorting
             $columnSortOrder = $postData['order'][0]['dir']; // asc or desc
@@ -1062,7 +1054,6 @@ class Model_Home extends CI_model
             }
             $this->db->order_by("validasi DESC,validasi_edit DESC,validasi_delete DESC");
             $this->db->order_by($columnName, $columnSortOrder);
-            $this->db->limit($rowperpage, $start);
             $records = $this->db->get('skb_merk_kendaraan')->result();
         
             $data = array();

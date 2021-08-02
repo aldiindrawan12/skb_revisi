@@ -194,7 +194,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col">
-                    <?php echo form_open_multipart('form/update_supir'); ?>
+                    <!-- <?php echo form_open_multipart('form/update_supir'); ?> -->
+                    <form action="<?= base_url('index.php/form/update_supir'); ?>" method="POST" enctype="multipart/form-data" id="form-edit-supir">
                         <input type="text" name=supir_id id=supir_id hidden>
                         <div class="form-group row">
                             <div class="col row">
@@ -270,7 +271,8 @@
                     <div class="form-group col-md-12">
                         <button type="submit" class="btn btn-success mb-3 float-right">Simpan</button>
                     </div>
-                    <?php echo form_close();?>
+                    </form>
+                    <!-- <?php echo form_close();?> -->
                 </div>
             </div>
 

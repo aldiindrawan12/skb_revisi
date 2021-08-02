@@ -131,12 +131,17 @@
 
     <!-- kendaraan -->
     <script> //script datatables kendaraan
+        var data_truck_now = [];
+        var data_truck_new = [];
         $(document).ready(function() {
             var table = null;
             table = $('#Table-Truck').DataTable({
                 "processing": true,
                 "serverSide": true,
                 "ordering": true,
+                "lengthChange": false,
+                "paging":false,
+                "info":false,
                 "order": [
                     [5, 'desc']
                 ],
@@ -145,10 +150,6 @@
                     "type": "POST",
                 },
                 "deferRender": true,
-                "aLengthMenu": [
-                    [10, 30, 50, 100],
-                    [10, 30, 50, 100]
-                ],
                 "columns": [
                     {
                         "data": "mobil_no",
@@ -325,7 +326,6 @@
                                 $('#mobil_bpkb_update').val(data["mobil_bpkb"]); //set value
                                 $('#mobil_usaha_update').val(data["mobil_usaha"]); //set value
                                 $('#mobil_berlaku_usaha_update').val(change_tanggal(data["mobil_berlaku_usaha"])); //set value
-
                                 $('#mobil_stnk_update').val(data["mobil_stnk"]); //set value
                                 $('#mobil_berlaku_update').val(change_tanggal(data["mobil_berlaku"])); //set value
                                 $('#mobil_pajak_update').val(change_tanggal(data["mobil_pajak"])); //set value
@@ -334,6 +334,27 @@
                                 $('#mobil_berlaku_kir_update').val(change_tanggal(data["mobil_berlaku_kir"])); //set value
                                 $('#mobil_berlaku_ijin_bongkar_update').val(change_tanggal(data["mobil_berlaku_ijin_bongkar"])); //set value
                                 $('#mobil_keterangan_update').val(data["mobil_keterangan"]); //set value
+
+                                data_truck_now = new Object();
+                                data_truck_now.no=data["mobil_no"];
+                                data_truck_now.rangka=data["mobil_no_rangka"];
+                                data_truck_now.mesin=data["mobil_no_mesin"];
+                                data_truck_now.merk=data["mobil_merk"];
+                                data_truck_now.tipe=data["mobil_type"];
+                                data_truck_now.jenis=data["mobil_jenis"];
+                                data_truck_now.dump=data["mobil_dump"];
+                                data_truck_now.tahun=data["mobil_tahun"];
+                                data_truck_now.bpkb=data["mobil_bpkb"];
+                                data_truck_now.usaha=data["mobil_usaha"];
+                                data_truck_now.usaha1=change_tanggal(data["mobil_berlaku_usaha"]);
+                                data_truck_now.stnk=data["mobil_stnk"];
+                                data_truck_now.stnk1=change_tanggal(data["mobil_berlaku"]);
+                                data_truck_now.pajak=change_tanggal(data["mobil_pajak"]);
+                                data_truck_now.kir=data["mobil_kir"];
+                                data_truck_now.ijin=data["mobil_ijin_bongkar"];
+                                data_truck_now.kir1=change_tanggal(data["mobil_berlaku_kir"]);
+                                data_truck_now.ijin1=change_tanggal(data["mobil_berlaku_ijin_bongkar"]);
+                                data_truck_now.keterangan=data["mobil_keterangan"];
                             }
                         });
                     });
@@ -468,8 +489,40 @@
                         })
                     });
                 },
-                
             });
+        });
+        $( "#form-edit-truck" ).submit(function( event ) {
+            data_truck_new = new Object();
+            data_truck_new.no=$('#mobil_no_update').val();
+            data_truck_new.rangka=$('#mobil_no_rangka_update').val();
+            data_truck_new.mesin=$('#mobil_no_mesin_update').val();
+            data_truck_new.merk=$('#mobil_merk_update').val();
+            data_truck_new.tipe=$('#mobil_type_update').val();
+            data_truck_new.jenis=$('#mobil_jenis_update').val();
+            data_truck_new.dump=$('#mobil_dump_update').val();
+            data_truck_new.tahun=$('#mobil_tahun_update').val();
+            data_truck_new.bpkb=$('#mobil_bpkb_update').val();
+            data_truck_new.usaha=$('#mobil_usaha_update').val();
+            data_truck_new.usaha1=$('#mobil_berlaku_usaha_update').val();
+            data_truck_new.stnk=$('#mobil_stnk_update').val();
+            data_truck_new.stnk1=$('#mobil_berlaku_update').val();
+            data_truck_new.pajak=$('#mobil_pajak_update').val();
+            data_truck_new.kir=$('#mobil_kir_update').val();
+            data_truck_new.ijin=$('#mobil_ijin_bongkar_update').val();
+            data_truck_new.kir1=$('#mobil_berlaku_kir_update').val();
+            data_truck_new.ijin1=$('#mobil_berlaku_ijin_bongkar_update').val();
+            data_truck_new.keterangan=$('#mobil_keterangan_update').text();
+            // alert(JSON.stringify(data_truck_now)+"=="+JSON.stringify(data_truck_new));
+            if(JSON.stringify(data_truck_now) == JSON.stringify(data_truck_new)){
+                if($("#file_foto_update").val()=="" && $("#file_STNK_update").val()==""){
+                    alert( "Anda Belum Mengubah Data" );
+                    return false;
+                }else{
+                    return true;
+                }
+            }else{
+                return true;
+            }
         });
         function acc_edit_truck(id){
             $.ajax({
@@ -510,6 +563,9 @@
                 "processing": true,
                 "serverSide": true,
                 "ordering": true,
+                "lengthChange": false,
+                "paging":false,
+                "info":false,
                 "order": [
                     [0, 'desc']
                 ],
@@ -518,10 +574,6 @@
                     "type": "POST",
                 },
                 "deferRender": true,
-                "aLengthMenu": [
-                    [10, 30, 50, 100],
-                    [10, 30, 50, 100]
-                ],
                 "columns": [
                     {
                         "data": "merk_id",
@@ -1605,6 +1657,9 @@
                 "processing": true,
                 "serverSide": true,
                 "ordering": true,
+                "lengthChange": false,
+                "paging":false,
+                "info":false,
                 "order": [
                     [0, 'desc']
                 ],
@@ -1614,10 +1669,6 @@
                     
                 },
                 "deferRender": true,
-                "aLengthMenu": [
-                    [10, 30, 50, 100],
-                    [10, 30, 50, 100]
-                ],
                 "columns": [
                     {
                         "data": "customer_id",
@@ -1924,6 +1975,8 @@
 
     <!-- Supir -->
     <script> //script datatables Supir
+        var data_supir_now = [];
+        var data_supir_new = [];
         $(document).ready(function() {
             var table = null;
             table = $('#Table-Supir').DataTable({
@@ -1933,6 +1986,9 @@
                 "processing": true,
                 "serverSide": true,
                 "ordering": true,
+                "lengthChange": false,
+                "paging":false,
+                "info":false,
                 "order": [
                     [0, 'desc']
                 ],
@@ -1942,10 +1998,6 @@
                     
                 },
                 "deferRender": true,
-                "aLengthMenu": [
-                    [10, 30, 50, 100],
-                    [10, 30, 50, 100]
-                ],
                 "columns": [
                     {
                         "data": "supir_id",
@@ -2056,6 +2108,21 @@
                                 $("#darurat_telp_update").val(data["darurat_telp"]);
                                 $("#darurat_referensi_update").val(data["darurat_referensi"]);
                                 $("#supir_keterangan_update").val(data["supir_keterangan"]);
+                                data_supir_now = new Object();
+                                data_supir_now.nama=data["supir_name"];
+                                data_supir_now.panggilan=data["supir_panggilan"];
+                                data_supir_now.ttl=data["supir_tempat_lahir"];
+                                data_supir_now.tgl=change_tanggal(data["supir_tgl_lahir"]);
+                                data_supir_now.alamat=data["supir_alamat"];
+                                data_supir_now.telp=data["supir_telp"];
+                                data_supir_now.ktp=data["supir_ktp"];
+                                data_supir_now.sim=data["supir_sim"];
+                                data_supir_now.tgl_sim=change_tanggal(data["supir_tgl_sim"]);
+                                data_supir_now.tgl_aktif=change_tanggal(data["supir_tgl_aktif"]);
+                                data_supir_now.drnama=data["darurat_nama"];
+                                data_supir_now.drtelp=data["darurat_telp"];
+                                data_supir_now.drref=data["darurat_referensi"];
+                                data_supir_now.keterangan=data["supir_keterangan"];
                             }
                         });
                     });
@@ -2257,6 +2324,33 @@
                     });
                 }
             });
+        });
+        $( "#form-edit-supir" ).submit(function( event ) {
+            data_supir_new = new Object();
+            data_supir_new.nama=$("#supir_name").val();;
+            data_supir_new.panggilan=$("#supir_panggilan_update").val();
+            data_supir_new.ttl=$("#supir_tempat_lahir_update").val();
+            data_supir_new.tgl=$("#supir_tgl_lahir_update").val();
+            data_supir_new.alamat=$("#supir_alamat_update").val();
+            data_supir_new.telp=$("#supir_telp_update").val();
+            data_supir_new.ktp=$("#supir_ktp_update").val();
+            data_supir_new.sim=$("#supir_sim_update").val();
+            data_supir_new.tgl_sim=$("#supir_tgl_sim_update").val();
+            data_supir_new.tgl_aktif=$("#supir_tgl_aktif_update").val();
+            data_supir_new.drnama=$("#darurat_nama_update").val();
+            data_supir_new.drtelp=$("#darurat_telp_update").val();
+            data_supir_new.drref=$("#darurat_referensi_update").val();
+            data_supir_new.keterangan=$("#supir_keterangan_update").val();
+            if(JSON.stringify(data_supir_now) == JSON.stringify(data_supir_new)){
+                if($("#file_foto_update").val()=="" && $("#file_sim_update").val()=="" && $("#file_ktp_update").val()==""){
+                    alert( "Anda Belum Mengubah Data" );
+                    return false;
+                }else{
+                    return true;
+                }
+            }else{
+                return true;
+            }
         });
         function acc_edit_supir(id){
             $.ajax({
@@ -2807,6 +2901,9 @@
                 "processing": true,
                 "serverSide": true,
                 "ordering": true,
+                "lengthChange": false,
+                "paging":false,
+                "info":false,
                 "order": [
                     [0, 'desc']
                 ],
@@ -2818,10 +2915,6 @@
                     }
                 },
                 "deferRender": true,
-                "aLengthMenu": [
-                    [10, 30, 50, 100],
-                    [10, 30, 50, 100]
-                ],
                 "columns": [
                     {
                         "data": "rute_id",

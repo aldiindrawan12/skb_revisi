@@ -180,7 +180,8 @@
                 </button>
             </div>
             <div class="font-size-sm m-3 text-justify">
-                <?php echo form_open_multipart('form/update_truck'); ?>
+                <!-- <?php echo form_open_multipart('form/update_truck'); ?> -->
+                <form action="<?= base_url('index.php/form/update_truck'); ?>" method="POST" enctype="multipart/form-data" id="form-edit-truck">
                 <div class="table-responsive py-2 mb-3">
                     <table class="table table-bordered text-light" id="Table-Pilih-Merk-Edit" width="100%" cellspacing="0">
                         <thead>
@@ -211,7 +212,7 @@
                             <input autocomplete="off" type="text" class="form-control" id="mobil_no_mesin_update" name="mobil_no_mesin_update">
                         </div>
                         <div class="form-group">
-                            <input autocomplete="off" type="text" class="form-control" id="merk_id_update" name="merk_id_update">
+                            <!-- <input autocomplete=s"off" type="text" class="form-control" id="merk_id_update" name="merk_id_update"> -->
                             <label for="mobil_merk_update" class="form-label font-weight-bold" onclick="merk()"">Merk</label>
                             <input autocomplete="off" type="text" class="form-control" id="mobil_merk_update" name="mobil_merk_update" readonly>
                         </div>
@@ -293,7 +294,8 @@
             <div class="form-group mt-1 mr-4 ">
                 <button type="submit" class="btn btn-success float-right">Simpan</button>
             </div>
-            <?php echo form_close();?>
+            </form>
+            <!-- <?php echo form_close();?> -->
             </div>
         </div>
     </div>
