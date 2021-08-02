@@ -8,15 +8,16 @@
         }
     }
 ?>
-<div class="mt-5 p-1">
-    <div class="card shadow mb-2 mt-3">
-        <div class="card-header ">
-            <h6 class="m-0 font-weight-bold text-primary">Payment Job Order</h6>
+<body style='background-color:#182039';> 
+<div class="mt-5 p-3" style='background-color:#182039';>
+    <div class="card shadow mb-2 mt-3" style='background-color:#182039';>
+        <div class="card-header " style='background-color:#182039';>
+            <h6 class="m-0 font-weight-bold text-light">Payment Job Order</h6>
         </div>
-        <div class="card-body small">
+        <div class="card-body text-light">
         <form action="<?=base_url("index.php/form/insert_payment_jo/").$jo_id?>" method="POST">
             <div class="row">
-                <div class="col-md-6 border rounded">
+                <div class="col-md-6 ">
                     <div class="form-group row mt-3">
                         <label for="jo_id" class="form-label col-sm-5 font-weight-bold">ID Job Order(JO)</label>
                         <div class="col-sm-7">  
@@ -78,7 +79,7 @@
                         </div>
                     </div>   
                 </div>                
-                <div class="col-md-6 border rounded">
+                <div class="col-md-6 ">
                     <div class="form-group row mt-3">
                         <label for="payment_jo_tgl" class="form-label font-weight-bold col-sm-5">Tgl.Pembayaran</label>
                         <div class="col-sm-7">
@@ -115,30 +116,30 @@
                     <button type="reset" class="btn btn-danger mt-3" onclick="reset_form()">Batal</button>
                 </div>
             <?php }else{?>
-                <div class="col text-center">
-                    <span class="btn btn-success">Uang Jalan Sudah Lunas</span>
+                <div class="row text-center mt-2 mb-2 large">
+                    <span class="btn btn-success p-4  w-100 font-weight-bolder active">Uang Jalan Sudah Lunas</span>
                 </div>
             <?php } ?>
         </form>
         </div>
     </div>
 </div>
-<div class="">
-    <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary float-left">Data Pembayaran Uang Jalan Untuk Job Order #<?= $jo_id?></h6>
+<div class="p-3 " style='background-color:#182039';>
+    <div class="card shadow mb-4" style='background-color:#182039';>
+        <div class="card-header py-3" style='background-color:#182039';>
+            <h6 class="m-0 font-weight-bold text-light float-left">Data Pembayaran Uang Jalan Untuk Job Order #<?= $jo_id?></h6>
         </div>
         <!-- tabel data cutomer -->
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered" id="" width="100%" cellspacing="0">
+                <table class="table table-bordered text-light" id="" width="100%" cellspacing="0">
                     <thead>
                         <tr>
                             <th class="text-center" width="3%" scope="col">Tanggal</th>
                             <th class="text-center" width="10%" scope="col">Nominal</th>
                             <th class="text-center" width="5%" scope="col">Jenis Pembayaran</th>
                             <th class="text-center" width="10%" scope="col">Keterangan</th>
-                            <th class="text-center" width="10%" scope="col">Aksi</th>
+                            <th class="text-center" width="5%" scope="col">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -226,15 +227,7 @@
     </div>
 </div>
 
-        <!-- Footer -->
-        <footer class="sticky-footer bg-dark">
-            <div class="container my-auto">
-                <div class="copyright text-center my-auto">
-                    <span class="text-light">Copyright &copy; 2021 PT.Sumber Karya Berkah</span>
-                </div>
-            </div>
-        </footer>
-        <!-- End of Footer -->
+      
 
         </div>
         <!-- End of Content Wrapper -->
@@ -300,6 +293,8 @@
             </div>
         </div>
     </div>
+
+                                        </body>
     <!-- Bootstrap core JavaScript-->
     <script src="<?=base_url("assets/vendor/jquery/jquery.min.js")?>"></script>
     <script src="<?=base_url("assets/vendor/jquery/jquery.mask.min.js")?>"></script>
