@@ -2512,9 +2512,9 @@
                                     },
                                     success: function(hasil) { //jika ambil hasil sukses
                                         if(hasil>0){
-                                            html += "<a class='btn btn-light btn-alert-edit-invoice'><i class='fas fa-pen-square'></i></a>";
+                                            html += "<a class='btn btn-light btn-alert-edit-invoice mr-1 ml-1'><i class='fas fa-pen-square'></i></a>";
                                         }else{
-                                            html += "<a class='btn btn-light btn-update-invoice' href='<?= base_url("index.php/form/edit_invoice/")?>"+data+"'><i class='fas fa-pen-square'></i></a>";
+                                            html += "<a class='btn btn-light btn-update-invoice mr-1 ml-1' href='<?= base_url("index.php/form/edit_invoice/")?>"+data+"'><i class='fas fa-pen-square'></i></a>";
                                         }
                                     }
                                 });
