@@ -18,7 +18,7 @@ $keterangan = explode("===",$jo["keterangan"]);
         </div>
         <div class="m-3 text-light" id="rincian">
             <form action="<?=base_url("index.php/form/update_JO")?>" method="POST" id="form-edit-jo">
-                <div class="row">
+                <div class="row mr-2 ml-2">
                     <div class="col-md-4">
                         <div class="mb-4 row">
                             <label for="Jo_id_update" class="form-label col-md-4 font-weight-bold">ID Job Order(JO)</label>
@@ -135,7 +135,7 @@ $keterangan = explode("===",$jo["keterangan"]);
                             <label for="Keterangan_status_update" class="form-label col-md-4 font-weight-bold">Keterangan Ubah Status</label>
                             <textarea class="form-control col-md-8" name="Keterangan_status_update" id="Keterangan_status_update" rows="3"><?php if(count($keterangan)>1){echo $keterangan[1];}?></textarea>
                         </div>
-                        <div class="d-flex justify-content-end">
+                        <div class="row d-flex justify-content-end ">
                             <button type="submit" class="btn btn-success">Simpan</button>
                         </div>
                     </div>
