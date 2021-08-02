@@ -34,31 +34,40 @@
     }
 ?>
 <!-- Basic Card Example -->
-<div class="card shadow mb-4 ml-5 mr-5 p-1 mt-5">
-    <div class="card-header py-3 row mt-3">
-        <h6 class="m-0 font-weight-bold text-primary col-md-6">Detail Invoice</h6>
+<body class=" p-5 mt-5" style='background-color:#182039';> 
+<div class="card shadow text-light" style='background-color:#182039';> 
+    <div class="card-header py-3 mt-3" style='background-color:#182039';>
+    <a href="<?= base_url("index.php/home/invoice_customer")?>" class="btn btn-danger btn-circle btn-sm">
+            <i class="fas fa-times"></i>
+        </a>
+        <h6 class="m-0 font-weight-bold text-light ">Detail Invoice</h6>
         <span class="mr-3"><small><?= $invoice[0]["user_invoice"]?></small></span>
-        <a class="btn btn-primary btn-sm mr-3 btn-icon-split" onclick="cetak_invoice()">
+        <a class="btn btn-primary btn-sm mr-3 btn-icon-split float-right" onclick="cetak_invoice()">
             <span class="icon text-white-100">  
                 <i class="fas fa-print"></i>
             </span>
             <span class="text">Print/PDF</span>
         </a>
+        <a class="float-right">
         <form method="POST" action="<?= base_url("index.php/print_berkas/detail_invoice_excel/")?>" id="convert_form" class="mr-3">
             <input type="hidden" name="file_content" id="file_content">
-            <button type="submit" name="convert" id="convert" class="btn btn-primary btn-sm btn-icon-split">
+            <button type="submit" name="convert" id="convert" class="btn btn-success btn-sm btn-icon-split">
                 <span class="icon text-white-100">  
                     <i class="fas fa-print"></i>
                 </span>
                 <span class="text">Excel</span>
             </button>
         </form>
-        <a href="<?= base_url("index.php/home/invoice_customer")?>" class="btn btn-danger btn-circle btn-sm">
-            <i class="fas fa-times"></i>
         </a>
+
+        
+        
+
+
+    
     </div>
     <div class="card-body">
-            <div class="container small">
+            <div class="container small ">
                 <div class="py-3">
                     <h6 class="m-0 font-weight-bold text-center">Invoice</h6>
                 </div>
@@ -115,7 +124,7 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered" width="100%" cellspacing="0" id="Table-Data-Invoice">
+                        <table class="table table-bordered text-light" width="100%" cellspacing="0" id="Table-Data-Invoice">
                             <thead>
                                 <tr>
                                     <th class="text-center" width="25%" scope="col">No</th>
@@ -204,8 +213,10 @@
                     </div>
                 </div>
                 <!-- end pop up update status invoice -->
-
+                                </body>
                 <script src="<?=base_url("assets/vendor/jquery/jquery.min.js")?>"></script>
+
+
 
 <script type="text/javascript">
     $(document).ready(function() {
