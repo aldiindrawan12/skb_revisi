@@ -792,6 +792,15 @@ class Form extends CI_Controller {
                     "tanggal_bongkar"=>null,
                     "tonase"=>null,
                     "biaya_lain"=>null,
+                    "muatan"=>$this->input->post("Muatan"),
+                    "asal"=>$this->input->post("Asal"),
+                    "tujuan"=>$this->input->post("Tujuan"),
+                    "customer_id"=>$this->input->post("Customer_update"),
+                    "uang_jalan"=>str_replace(".","",$this->input->post("Uang_update")),
+                    "upah"=>str_replace(".","",$this->input->post("Upah_update")),
+                    "tagihan"=>str_replace(".","",$this->input->post("Tagihan_update")),
+                    "tipe_tonase"=>$this->input->post("Tipe_Tonase_update"),
+                    "sisa"=>str_replace(".","",$this->input->post("uang_jalan_total"))
                 );
             }else{
                 $data=array(
@@ -807,6 +816,15 @@ class Form extends CI_Controller {
                     "tanggal_bongkar"=>$this->change_tanggal($this->input->post("tgl_bongkar_update")),
                     "tonase"=>str_replace(".","",$this->input->post("tonase_update")),
                     "biaya_lain"=>str_replace(".","",$this->input->post("biaya_lain_update")),
+                    "muatan"=>$this->input->post("Muatan"),
+                    "asal"=>$this->input->post("Asal"),
+                    "tujuan"=>$this->input->post("Tujuan"),
+                    "customer_id"=>$this->input->post("Customer_update"),
+                    "uang_jalan"=>str_replace(".","",$this->input->post("Uang_update")),
+                    "upah"=>str_replace(".","",$this->input->post("Upah_update")),
+                    "tagihan"=>str_replace(".","",$this->input->post("Tagihan_update")),
+                    "tipe_tonase"=>$this->input->post("Tipe_Tonase_update"),
+                    "sisa"=>str_replace(".","",$this->input->post("uang_jalan_total"))
                 );
             }
             $this->session->set_flashdata('status-edit-jo', 'Berhasil');
