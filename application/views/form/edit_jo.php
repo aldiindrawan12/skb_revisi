@@ -28,22 +28,30 @@ $keterangan = explode("===",$jo["keterangan"]);
                             <label for="tanggal_jo_update" class="form-label col-md-4 font-weight-bold">Tanggal</label>
                             <input autocomplete="off" type="text" class="form-control col-md-8" id="tanggal_jo_update" name="tanggal_jo_update" value="<?= change_tanggal($jo["tanggal_surat"])?>" required onclick="tanggal_berlaku(this)">
                         </div>
-                        <div class="mb-4 row">
-                            <label class="form-label col-md-4 font-weight-bold " for="Customer_update">Customer</label>
-                            <input type="text" name="Customer_update" id="Customer_update" class="form-control col-md-8" required readonly value="<?= $jo["customer_id"]?>">
-                        </div>
-                        <div class="mb-4 row">
-                            <label for="Muatan" class="form-label col-md-4 font-weight-bold ">Muatan</label> 
-                            <input type="text" name="Muatan" id="Muatan" class="form-control col-md-8" required readonly value="<?= $jo["muatan"]?>">
-                        </div>
-                        <div class="mb-4 row">
-                            <label class="form-label col-md-4 font-weight-bold" for="Asal ">Dari</label>
-                            <input type="text" name="Asal" id="Asal" class="form-control col-md-8" required readonly value="<?= $jo["asal"]?>">
-                        </div>
-                        <div class="mb-4 row">
-                            <label class="form-label col-md-4 font-weight-bold" for="Tujuan">Ke</label>
-                            <input type="text" name="Tujuan" id="Tujuan" class="form-control col-md-8" required readonly value="<?= $jo["tujuan"]?>">
-                        </div>
+                            <div class="mb-4 row">
+                                <label class="form-label font-weight-bold col-md-4 " for="Customer_update">Customer</label>
+                                <select name="Customer_update" value="DESC" id="Customer_update" class="form-control col-md-8" required onchange="set_muatan(this)">
+                                    <option class="font-w700" selected value="<?= $jo["customer_id"]?>"><?= $jo["customer_name"]?></option>
+                                </select>
+                            </div>
+                            <div class="mb-4 row">
+                                <label for="Muatan" class="form-label font-weight-bold col-md-4 ">Muatan</label> 
+                                <select name="Muatan" id="Muatan" class="form-control col-md-8" onchange="set_asal(this)"  required>
+                                    <option class="font-w700" selected value="<?= $jo["muatan"]?>"><?= $jo["muatan"]?></option>
+                                </select>
+                            </div>
+                            <div class="mb-4 row">
+                                <label class="form-label font-weight-bold col-md-4" for="Asal ">Dari</label>
+                                <select name="Asal" id="Asal" class="form-control col-md-8" onchange="set_tujuan(this)" required>
+                                    <option class="font-w700" selected value="<?= $jo["asal"]?>"><?= $jo["asal"]?></option>
+                                </select>
+                            </div>
+                            <div class="mb-4 row">
+                                <label class="form-label font-weight-bold col-md-4" for="Tujuan">Ke</label>
+                                <select name="Tujuan" id="Tujuan" class="form-control col-md-8" onchange="set_uj(this)" required>
+                                    <option class="font-w700" selected value="<?= $jo["tujuan"]?>"><?= $jo["tujuan"]?></option>
+                                </select>
+                            </div>
                         <div class="mb-4 row">
                             <label for="Keterangan_update" class="form-label col-md-4 font-weight-bold">Keterangan/Catatan</label>
                             <textarea class="form-control col-md-8" name="Keterangan_update" id="Keterangan_update" rows="3"><?= $keterangan[0]?></textarea>
@@ -99,8 +107,9 @@ $keterangan = explode("===",$jo["keterangan"]);
                             <label for="uang_jalan_total_update" class="form-label col-md-4 font-weight-bold">Total Uang Jalan</label>
                             <input autocomplete="off" type="text" class="form-control col-md-8" id="uang_jalan_total_update" name="uang_jalan_total_update" readonly value="<?= number_format($jo["uang_total"],0,",",".")?>">
                         </div>
-                        <input autocomplete="off" type="text" class="form-control" id="Upah_update" name="Upah_update" readonly hidden>
-                        <input autocomplete="off" type="text" class="form-control" id="Tagihan_update" name="Tagihan_update" readonly hidden>
+                        <input autocomplete="off" type="text" class="form-control" id="Upah_update" name="Upah_update" readonly value="<?= $jo["uang_jalan"]?>" hidden>
+                        <input autocomplete="off" type="text" class="form-control" id="Tagihan_update" name="Tagihan_update" readonly value="<?= $jo["tagihan"]?>" hidden>
+                        <input autocomplete="off" type="text" class="form-control col-md-7" id="Tipe_Tonase_update" name="Tipe_Tonase_update" required readonly value="<?= $jo["tipe_tonase"]?>" hidden>
                     </div>
                     <div class="col-md-4">
                        <div class="form-group mb-4 row">
@@ -201,6 +210,72 @@ $keterangan = explode("===",$jo["keterangan"]);
     <script src="<?=base_url("assets/vendor/datatables/dataTables.bootstrap4.min.js")?>"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/js/bootstrap-select.min.js"></script>
     <script src="<?php echo base_url('assets/datepicker/js/bootstrap-datepicker.js')?>"></script>
+    <script>
+        customer_id = $("#Customer_update").val();
+        muatan = $("#Muatan").val();
+        asal = $("#Asal").val();
+        mobil_no = $("#Jenis_update").val();
+        <?php for($i=0;$i<count($customer);$i++){?>
+            $('#Customer_update').append('<option value="'+'<?= $customer[$i]["customer_id"]?>'+'">'+'<?= $customer[$i]["customer_name"]?>'+'</option>'); 
+        <?php }?>
+        isi_muatan = [];
+        $.ajax({ //ajax set option kendaraan
+            type: "POST",
+            url: "<?php echo base_url('index.php/form/getrutebycustomer/') ?>",
+            dataType: "JSON",
+            data: {
+                customer_id: customer_id,
+                mobil_no: mobil_no,
+            },
+            success: function(data) {
+                    for(i=0;i<data.length;i++){
+                        if(!isi_muatan.includes(data[i]["rute_muatan"])){
+                            $('#Muatan').append('<option value="'+data[i]["rute_muatan"]+'">'+data[i]["rute_muatan"]+'</option>'); 
+                            isi_muatan.push(data[i]["rute_muatan"]);
+                        }
+                    }
+            }
+        });
+        isi_asal = [];
+        $.ajax({ //ajax set option kendaraan
+            type: "POST",
+            url: "<?php echo base_url('index.php/form/getrutebymuatan') ?>",
+            dataType: "JSON",
+            data: {
+                customer_id: customer_id,
+                mobil_no: mobil_no,
+                rute_muatan: muatan,
+            },
+            success: function(data) {
+                    for(i=0;i<data.length;i++){
+                        if(!isi_asal.includes(data[i]["rute_dari"])){
+                            $('#Asal').append('<option value="'+data[i]["rute_dari"]+'">'+data[i]["rute_dari"]+'</option>'); 
+                            isi_asal.push(data[i]["rute_dari"]);
+                        }
+                    }
+            }
+        });
+        isi_tujuan = [];
+        $.ajax({ //ajax set option kendaraan
+            type: "POST",
+            url: "<?php echo base_url('index.php/form/getrutebyasal') ?>",
+            dataType: "JSON",
+            data: {
+                customer_id: customer_id,
+                rute_muatan: muatan,
+                rute_asal: asal,
+                mobil_no: mobil_no,
+            },
+            success: function(data) {
+                    for(i=0;i<data.length;i++){
+                        if(!isi_tujuan.includes(data[i]["rute_dari"])){
+                            $('#Tujuan').append('<option value="'+data[i]["rute_ke"]+'">'+data[i]["rute_ke"]+'</option>'); 
+                            isi_tujuan.push(data[i]["rute_ke"]);
+                        }
+                    }
+            }
+        });
+    </script>
     <script>
         var data_jo_now = [];
         var data_jo_new = [];
@@ -312,48 +387,212 @@ $keterangan = explode("===",$jo["keterangan"]);
             }
         }
     </script>
+    <script>    
+        function uang_format(a){
+            $( '#'+a.id ).mask('000.000.000', {reverse: true});
+        }
+        function set_uj_tambahan(){
+            var uj = $("#Uang_update").val().replaceAll(".","");
+            var uj_tambahan = $("#nominal_tambahan_update").val().replaceAll(".","");
+            if(uj_tambahan==""){
+                uj_tambahan = 0;
+            }
+            if($("#jenis_tambahan_update").val()=="Potongan"){
+                if(parseInt(uj)<parseInt(uj_tambahan)){
+                    alert("Potongan Tidak boleh Lebih Dari Rp."+rupiah(uj));
+                    $("#nominal_tambahan_update").val("");
+                    $( '#uang_jalan_total_update' ).val(rupiah(uj));
+                }else{
+                    $( '#uang_jalan_total_update' ).val(rupiah(parseInt(uj)-parseInt(uj_tambahan)));
+                }
+            }else if($("#jenis_tambahan_update").val()=="Tambahan"){
+                $( '#uang_jalan_total_update' ).val(rupiah(parseInt(uj)+parseInt(uj_tambahan)));
+            }else{
+                $("#nominal_tambahan_update").val(0);
+                $( '#uang_jalan_total_update' ).val(rupiah(parseInt(uj)));
+            }
+        }
+        function tambahan(a){
+            var uj = $("#Uang_update").val().replaceAll(".","");
+            var uj_tambahan = $("#nominal_tambahan_update").val().replaceAll(".","");
+            if(uj_tambahan==""){
+                uj_tambahan = 0;
+            }
+            if($("#"+a.id).val()=="Potongan"){
+                if(parseInt(uj)<parseInt(uj_tambahan)){
+                    alert("Potongan Tidak boleh Lebih Dari Rp."+rupiah(uj));
+                    $("#nominal_tambahan_update").val("");
+                    $( '#uang_jalan_total_update' ).val(rupiah(uj));
+                }else{
+                    $( '#uang_jalan_total_update' ).val(rupiah(parseInt(uj)-parseInt(uj_tambahan)));
+                }
+            }else{
+                $( '#uang_jalan_total_update' ).val(rupiah(parseInt(uj)+parseInt(uj_tambahan)));
+            }
+        }
+    </script>
     <script>
-        
-    function uang_format(a){
-        $( '#'+a.id ).mask('000.000.000', {reverse: true});
-    }
-    function set_uj_tambahan(){
-        var uj = $("#Uang_update").val().replaceAll(".","");
-        var uj_tambahan = $("#nominal_tambahan_update").val().replaceAll(".","");
-        if(uj_tambahan==""){
-            uj_tambahan = 0;
+        function set_jenis_mobil(a){
+            $('#Muatan').find('option').remove().end();
+            $('#Asal').find('option').remove().end();
+            $('#Tujuan').find('option').remove().end();
+            $('#Customer_update').find('option').remove().end();
+            $("#Uang_update").val("");
+            $("#Upah_update").val("");
+            $("#Tagihan_update").val("");
+            $("#Tipe_Tonase_update").val("");
+            $.ajax({
+                type: "POST",
+                url: "<?php echo base_url('index.php/form/getmobilbyno') ?>",
+                dataType: "JSON",
+                data: {
+                    mobil_no: $("#"+a.id).val(),
+                },
+                success: function(data) {   
+                    $("#Jenis_update").val(data["mobil_jenis"]);
+                }
+            });
+            $('#Customer_update').append('<option class="font-w700" disabled="disabled" selected value="">Customer</option>'); 
+            <?php for($i=0;$i<count($customer);$i++){?>
+                $('#Customer_update').append('<option value="'+'<?= $customer[$i]["customer_id"]?>'+'">'+'<?= $customer[$i]["customer_name"]?>'+'</option>'); 
+            <?php }?>
         }
-        if($("#jenis_tambahan_update").val()=="Potongan"){
-            if(parseInt(uj)<parseInt(uj_tambahan)){
-                alert("Potongan Tidak boleh Lebih Dari Rp."+rupiah(uj));
-                $("#nominal_tambahan_update").val("");
-                $( '#uang_jalan_total_update' ).val(rupiah(uj));
-            }else{
-                $( '#uang_jalan_total_update' ).val(rupiah(parseInt(uj)-parseInt(uj_tambahan)));
-            }
-        }else if($("#jenis_tambahan_update").val()=="Tambahan"){
-            $( '#uang_jalan_total_update' ).val(rupiah(parseInt(uj)+parseInt(uj_tambahan)));
-        }else{
-            $("#nominal_tambahan_update").val(0);
-            $( '#uang_jalan_total_update' ).val(rupiah(parseInt(uj)));
+        function set_muatan(a){
+            customer_id = $("#"+a.id).val();
+            mobil_no = $("#Jenis_update").val();
+            $('#Muatan').find('option').remove().end();
+            $('#Asal').find('option').remove().end();
+            $('#Tujuan').find('option').remove().end();
+            $("#Uang_update").val("");
+            $("#Upah_update").val("");
+            $("#Tagihan_update").val("");
+            $("#Tipe_Tonase_update").val("");
+            isi_muatan = [];
+            $.ajax({ //ajax set option kendaraan
+                type: "POST",
+                url: "<?php echo base_url('index.php/form/getrutebycustomer/') ?>",
+                dataType: "JSON",
+                data: {
+                    customer_id: customer_id,
+                    mobil_no: mobil_no,
+                },
+                success: function(data) {
+                    if(data.length==0){
+                        $('#Muatan').append('<option class="font-w700" disabled="disabled" selected value="">Kosong</option>'); 
+                    }else{
+                        $('#Muatan').append('<option class="font-w700" disabled="disabled" selected value="">Muatan</option>'); 
+                        for(i=0;i<data.length;i++){
+                            if(!isi_muatan.includes(data[i]["rute_muatan"])){
+                                $('#Muatan').append('<option value="'+data[i]["rute_muatan"]+'">'+data[i]["rute_muatan"]+'</option>'); 
+                                isi_muatan.push(data[i]["rute_muatan"]);
+                            }
+                        }
+                    }
+                }
+            });
         }
-    }
-    function tambahan(a){
-        var uj = $("#Uang_update").val().replaceAll(".","");
-        var uj_tambahan = $("#nominal_tambahan_update").val().replaceAll(".","");
-        if(uj_tambahan==""){
-            uj_tambahan = 0;
+        function set_asal(a){
+            customer_id = $("#Customer_update").val();
+            mobil_no = $("#Jenis_update").val();
+            muatan = $("#"+a.id).val();
+            $('#Asal').find('option').remove().end();
+            $('#Tujuan').find('option').remove().end();
+            $("#Uang_update").val("");
+            $("#Upah_update").val("");
+            $("#Tagihan_update").val("");
+            $("#Tipe_Tonase_update").val("");
+            isi_asal = [];
+            $.ajax({ //ajax set option kendaraan
+                type: "POST",
+                url: "<?php echo base_url('index.php/form/getrutebymuatan') ?>",
+                dataType: "JSON",
+                data: {
+                    customer_id: customer_id,
+                    mobil_no: mobil_no,
+                    rute_muatan: muatan,
+                },
+                success: function(data) {
+                    if(data.length==0){
+                        $('#Asal').append('<option class="font-w700" disabled="disabled" selected value="">Kosong</option>'); 
+                    }else{
+                        $('#Asal').append('<option class="font-w700" disabled="disabled" selected value="">Asal</option>'); 
+                        for(i=0;i<data.length;i++){
+                            if(!isi_asal.includes(data[i]["rute_dari"])){
+                                $('#Asal').append('<option value="'+data[i]["rute_dari"]+'">'+data[i]["rute_dari"]+'</option>'); 
+                                isi_asal.push(data[i]["rute_dari"]);
+                            }
+                        }
+                    }
+                }
+            });
+        }    
+        function set_tujuan(a){
+            customer_id = $("#Customer_update").val();
+            muatan = $("#Muatan").val();
+            asal = $("#"+a.id).val();
+            mobil_no = $("#Jenis_update").val();
+            $('#Tujuan').find('option').remove().end();
+            $("#Uang_update").val("");
+            $("#Upah_update").val("");
+            $("#Tagihan_update").val("");
+            $("#Tipe_Tonase_update").val("");
+            isi_tujuan = [];
+            $.ajax({ //ajax set option kendaraan
+                type: "POST",
+                url: "<?php echo base_url('index.php/form/getrutebyasal') ?>",
+                dataType: "JSON",
+                data: {
+                    customer_id: customer_id,
+                    rute_muatan: muatan,
+                    rute_asal: asal,
+                    mobil_no: mobil_no,
+                },
+                success: function(data) {
+                    if(data.length==0){
+                        $('#Tujuan').append('<option class="font-w700" disabled="disabled" selected value="">Kosong</option>'); 
+                    }else{
+                        $('#Tujuan').append('<option class="font-w700" disabled="disabled" selected value="">Tujuan</option>'); 
+                        for(i=0;i<data.length;i++){
+                            if(!isi_tujuan.includes(data[i]["rute_dari"])){
+                                $('#Tujuan').append('<option value="'+data[i]["rute_ke"]+'">'+data[i]["rute_ke"]+'</option>'); 
+                                isi_tujuan.push(data[i]["rute_ke"]);
+                            }
+                        }
+                    }
+                }
+            });
         }
-        if($("#"+a.id).val()=="Potongan"){
-            if(parseInt(uj)<parseInt(uj_tambahan)){
-                alert("Potongan Tidak boleh Lebih Dari Rp."+rupiah(uj));
-                $("#nominal_tambahan_update").val("");
-                $( '#uang_jalan_total_update' ).val(rupiah(uj));
-            }else{
-                $( '#uang_jalan_total_update' ).val(rupiah(parseInt(uj)-parseInt(uj_tambahan)));
-            }
-        }else{
-            $( '#uang_jalan_total_update' ).val(rupiah(parseInt(uj)+parseInt(uj_tambahan)));
+        function set_uj(a){
+            customer_id = $("#Customer_update").val();
+            muatan = $("#Muatan").val();
+            asal = $("#Asal").val();
+            ke = $("#"+a.id).val();
+            mobil_no = $("#Jenis_update").val();
+            $.ajax({ //ajax set option kendaraan
+                type: "POST",
+                url: "<?php echo base_url('index.php/form/getrutefix') ?>",
+                dataType: "JSON",
+                data: {
+                    customer_id: customer_id,
+                    rute_muatan: muatan,
+                    rute_asal: asal,
+                    rute_ke: ke,
+                    mobil_no: mobil_no,
+                },
+                success: function(data) {
+                    if($("#jenis_tambahan_update").val()=="Potongan"){
+                        total = rupiah( parseInt(data["rute_uj_engkel"])-parseInt($("#uang_jalan_total_update").val().replaceAll(".","")) ) ;
+                    }else if($("#jenis_tambahan_update").val()=="Tambahan"){
+                        total = rupiah( parseInt(data["rute_uj_engkel"])+parseInt($("#uang_jalan_total_update").val().replaceAll(".","")) ) ;
+                    }else{
+                        total = rupiah( parseInt(data["rute_uj_engkel"])) ;
+                    }
+                    $( '#uang_jalan_total_update' ).val(total);
+                    $("#Tipe_Tonase_update").val(data["ritase"]);
+                    $("#Uang_update").val(rupiah(data["rute_uj_engkel"]));
+                    $("#Upah_update").val(rupiah(data["rute_gaji_engkel"]));
+                    $("#Tagihan_update").val(rupiah(data["rute_tagihan"]));
+                }
+            });
         }
-    }
     </script>
