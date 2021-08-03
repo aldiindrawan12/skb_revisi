@@ -3644,22 +3644,26 @@
                 "deferRender": true,
                 "columns": [
                     {
-                        "data": "Jo_id"
+                        "data": "Jo_id",
+                        className: 'text-center'
                     },
                     {
                         "data": "tanggal_muat",
+                        className: 'text-center',
                         render: function(data, type, row) {
                             return change_tanggal(data);
                         }
                     },
                     {
                         "data": "tanggal_bongkar",
+                        className: 'text-center',
                         render: function(data, type, row) {
                             return change_tanggal(data);
                         }
                     },
                     {
-                        "data": "mobil_no"
+                        "data": "mobil_no",
+                        className: 'text-center'
                     },
                     {
                         "data": "muatan"
@@ -3702,9 +3706,10 @@
                     },
                     {
                         "data": "Jo_id",
+                        className: 'text-center',
                         "orderable": false,
                         render: function(data, type, row) {
-                            let html = "<a class='btn btn-light' target='_blank'  href='<?= base_url('index.php/detail/detail_jo/"+data+"/JO')?>'><i class='fas fa-eye'></i></a>";
+                            let html = "<a class='btn btn-light btn-sm' target='_blank'  href='<?= base_url('index.php/detail/detail_jo/"+data+"/JO')?>'><i class='fas fa-eye'></i></a>";
                             return html;
                         }
                     },

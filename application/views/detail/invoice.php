@@ -36,10 +36,11 @@
 <!-- Basic Card Example -->
 <body class=" p-5 mt-5" style='background-color:#182039';> 
 <div class="card shadow text-light" style='background-color:#182039';> 
-    <div class="card-header py-3 mt-3" style='background-color:#182039';>
-    <a href="<?= base_url("index.php/home/invoice_customer")?>" class="btn btn-danger btn-circle btn-sm">
+<a href="<?= base_url("index.php/home/invoice_customer")?>" class="btn btn-danger btn-circle m-2">
             <i class="fas fa-times"></i>
         </a>
+    <div class="card-header py-3 mt-3" style='background-color:#182039';>
+   
         <h6 class="m-0 font-weight-bold text-light ">Detail Invoice</h6>
         <span class="mr-3"><small><?= $invoice[0]["user_invoice"]?></small></span>
         <a class="btn btn-primary btn-sm mr-3 btn-icon-split float-right" onclick="cetak_invoice()">

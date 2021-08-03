@@ -12,16 +12,17 @@
         $jo .= $invoice[$i]["Jo_id"].",";
     }
 ?>
-<div class="mt-5 p-1">
+<body class=" p-5 mt-5" style='background-color:#182039';> 
+<div class="container-fluid"style='background-color:#182039'; >
     <!-- form invoice -->
-    <div class="card shadow mb-2 mt-3">
-        <div class="card-header ">
-            <h6 class="m-0 font-weight-bold text-primary">Buat Invoice</h6>
+    <div class="card shadow " style='background-color:#212B4E';>
+        <div class="card-header " style='background-color:#212B4E';>
+            <h6 class="m-0 font-weight-bold text-light">Buat Invoice</h6>
         </div>
-        <div class="card-body">
+        <div class="card-body text-light">
         <form action="<?=base_url("index.php/form/update_invoice")?>" method="POST" id="form-edit-invoice">
             <div class="row">
-                <div class="col-md-6 border rounded">
+                <div class="col-md-6 ">
                     <div class="form-group">
                         <label for="invoice_tgl_edit" class="form-label font-weight-bold">Tgl.Invoice</label>
                         <input autocomplete="off" type="text" class="form-control col-md-10" id="invoice_tgl_edit" name="invoice_tgl_edit" required value="<?= change_tanggal($invoice[0]["tanggal_invoice"])?>" onclick="tanggal_berlaku(this)">
@@ -52,7 +53,7 @@
                         <input autocomplete="off" type="text" class="form-control col-md-10" id="invoice_payment" name="invoice_payment" required onkeyup="hanyaangka(this)" value="<?= $invoice[0]["batas_pembayaran"]?>">
                     </div>          
                 </div>
-                <div class="col-md-6 border rounded">
+                <div class="col-md-6 ">
                     <div class="form-group row mt-3">
                         <label for="invoice_tonase" class="col-form-label col-sm-5 font-weight-bold">Total Tonase</label>
                         <div class="col-sm-7">
@@ -84,19 +85,20 @@
                     </div>
                 </div>
             </div>
-            <div class="col text-center">
-                <button type="submit" class="btn btn-success mt-3">Simpan</button>
-                <button type="reset" class="btn btn-danger mt-3" onclick="reset_form()">Reset</button>
+            <div class="row float-right mb-5">
+                
+                <button type="reset" class="btn btn-danger mr-3" onclick="reset_form()">Reset</button>
+                <button type="submit" class="btn btn-success mr-3">Simpan</button>
             </div>
         </form>
         <!-- table invoice -->
-        <div class="card shadow mt-3 mb-3 small">
+        <div class="container-fluid card shadow mt-3 mb-3 small" style='background-color:#212B4E';>
             <div class="card-body">
-                <div class="container">
-                    <strong>Data JO Dalam Invoice Saat Ini</strong>
+                <div class="row float-left ml-1" >
+                    <h6 class="font-weight-bolder">Data JO Dalam Invoice Saat Ini</h6>
                 </div>
                 <div class="table-responsive">
-                    <table class="table table-bordered" id="pilih-jo-saat-ini" width="100%" cellspacing="0">
+                    <table class="table table-bordered  text-light" id="pilih-jo-saat-ini" width="100%" cellspacing="0">
                         <thead>
                             <tr>
                                 <th class="text-center" width="" scope="col">ID JO</th>
@@ -116,18 +118,18 @@
                         <tbody>
                             <?php foreach($invoice as $value){?>
                                 <tr>
-                                    <td><?= $value["Jo_id"]?></td>
-                                    <td><?= change_tanggal($value["tanggal_muat"])?></td>
-                                    <td><?= change_tanggal($value["tanggal_bongkar"])?></td>
-                                    <td><?= $value["mobil_no"]?></td>
+                                    <td class="text-center"><?= $value["Jo_id"]?></td>
+                                    <td class="text-center"><?= change_tanggal($value["tanggal_muat"])?></td>
+                                    <td class="text-center"><?= change_tanggal($value["tanggal_bongkar"])?></td>
+                                    <td class="text-center"><?= $value["mobil_no"]?></td>
                                     <td><?= $value["muatan"]?></td>
                                     <td><?= $value["asal"]?></td>
                                     <td><?= $value["tujuan"]?></td>
                                     <td><?= number_format($value["tonase"],0,',','.')?></td>
                                     <td><?= number_format($value["tagihan"],2,',','.')?></td>
                                     <td><?= number_format($value["total_tagihan"],2,",",".")?></td>
-                                    <td><input class='btn-check-invoice' data-pk='<?= $value["Jo_id"]?>' type='checkbox' checked></td>
-                                    <td><a class='btn btn-light' target='_blank'  href='<?= base_url('index.php/detail/detail_jo/'.$value['Jo_id'].'/JO')?>'><i class='fas fa-eye'></i></a></td>
+                                    <td class="text-center"><input class='btn-check-invoice' data-pk='<?= $value["Jo_id"]?>' type='checkbox' checked></td>
+                                    <td class="text-center"><a class='btn btn-sm btn-light' target='_blank'  href='<?= base_url('index.php/detail/detail_jo/'.$value['Jo_id'].'/JO')?>'><i class='fas fa-eye'></i></a></td>
                                 </tr>
                             <?php }?>
                         </tbody>
@@ -141,10 +143,10 @@
 </div>
 
 <!-- table invoice -->
-<div class="card shadow mb-5 small">
+<div class="card shadow small mt-4" style='background-color:#212B4E';>
     <div class="card-body">
-        <div class="table-responsive">
-            <table class="table table-bordered" id="pilih-jo" width="100%" cellspacing="0">
+        <div class="table-responsive ">
+            <table class="table table-bordered text-light"  id="pilih-jo" width="100%" cellspacing="0">
                 <thead>
                     <tr>
                         <th class="text-center" width="" scope="col">ID JO</th>
@@ -168,6 +170,7 @@
         </div>
     </div>
 </div>
+                            </body>
 <!-- end table invoice -->
 <script src="<?=base_url("assets/vendor/jquery/jquery.min.js")?>"></script>
 
