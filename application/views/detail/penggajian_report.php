@@ -6,10 +6,11 @@
     }
 ?>
 <!-- tampilan detail penggajian supir -->
-<div class="mt-5 p-1 small">
-    <div class="card shadow mb-4 mt-3">
-        <div class="card-header py-3 row">
-            <h6 class="m-0 font-weight-bold text-primary col-md-8">Seluruh Data Slip Gaji</h6>
+<body style='background-color:#182039';> 
+<div class="mt-5 p-1 text-light" style='background-color:#182039'; >
+    <div class="card shadow mb-4 mt-5" style='background-color:#182039';>
+        <div class="card-header m-2 " style='background-color:#182039';>
+            <h6 class="font-weight-bold text-light ">Seluruh Data Slip Gaji</h6>
         </div>
           <div class="conatiner w-50 m-auto">
                 <div class="mb-2 mt-3 form-group row">
@@ -77,9 +78,10 @@
                         <option value="2023">2023</option>
                     </select>
                 </div>
-                <div class="mb-2 form-group text-center">
+                <div class="row float-right form-group text-center mt-4">
+                <button class="btn btn-danger mr-2" onclick="reset_form()">Reset</button>
                     <button class="btn btn-primary" id="btn-cari">Cari</button>
-                    <button class="btn btn-danger" onclick="reset_form()">Reset</button>
+                    
                 </div>
             </div>
             <hr>
@@ -88,10 +90,12 @@
                 <span>Total Slip Gaji Belum Dibayar : </span>Rp.<span id="tagihan"><?= number_format($gaji,2,",",".")?></span>
             </div>
             <hr>
-        <div class="p-1 d-flex justify-content-end">
+        
+        <div class="card-body" id="Table-Penggajian-Print">
+        <div class=" d-flex justify-content-end mr-3 ">
             <form method="POST" action="<?= base_url("index.php/print_berkas/gaji_excel/")?>" id="convert_form" class="mr-3">
                 <input type="hidden" name="file_content" id="file_content">
-                <button type="submit" name="convert" id="convert" class="btn btn-primary btn-sm btn-icon-split">
+                <button type="submit" name="convert" id="convert" class="btn btn-success btn-sm btn-icon-split">
                     <span class="icon text-white-100">  
                         <i class="fas fa-print"></i>
                     </span>
@@ -105,9 +109,8 @@
                 <span class="text">Print/PDF</span>
             </button>
         </div>
-        <div class="card-body" id="Table-Penggajian-Print">
             <div class="table-responsive">
-                <table class="table table-bordered table-striped" id="Table-Penggajian" width="100%" cellspacing="0">
+                <table class="table table-bordered table-striped text-light" id="Table-Penggajian" width="100%" cellspacing="0">
                     <thead>
                         <tr>
                             <th class="text-center" width="10%" scope="col">No. Slip Gaji</th>
@@ -132,15 +135,7 @@
 </div>  
 <!-- end tampilan detail penggajian supir -->
 
-        <!-- Footer -->
-        <footer class="sticky-footer bg-dark">
-            <div class="container my-auto">
-                <div class="copyright text-center my-auto">
-                    <span class="text-light">Copyright &copy; 2021 PT.Sumber Karya Berkah</span>
-                </div>
-            </div>
-        </footer>
-        <!-- End of Footer -->
+     
 
         </div>
         <!-- End of Content Wrapper -->
@@ -207,7 +202,8 @@
             </div>
         </div>
     </div>
-    
+                        </body>
+
     <!-- Bootstrap core JavaScript-->
     <script src="<?=base_url("assets/vendor/jquery/jquery.min.js")?>"></script>
     <script src="<?=base_url("assets/vendor/jquery/jquery.mask.min.js")?>"></script>
@@ -372,9 +368,9 @@
                                     },
                                     success: function(hasil) { //jika ambil hasil sukses
                                         if(hasil>0){
-                                            html += "<a class='btn btn-light btn-alert-edit-slip'><i class='fas fa-pen-square'></i></a>";
+                                            html += "<a class='btn btn-light mr-1 ml-1 btn-alert-edit-slip'><i class='fas fa-pen-square'></i></a>";
                                         }else{
-                                            html += "<a class='btn btn-light btn-update-slip' href='<?= base_url("index.php/form/edit_slip/")?>"+data+"'><i class='fas fa-pen-square'></i></a>";
+                                            html += "<a class='btn btn-light mr-1 ml-1 btn-update-slip' href='<?= base_url("index.php/form/edit_slip/")?>"+data+"'><i class='fas fa-pen-square'></i></a>";
                                         }
                                     }
                                 });

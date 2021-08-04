@@ -6,10 +6,11 @@
     }
 ?>
 <!-- tampilan detail penggajian supir -->
-<div class="mt-5 p-1 small">
-    <div class="card shadow mb-4 mt-3">
-        <div class="card-header d-flex">
-            <h6 class="m-0 col-md-7 font-weight-bold text-primary">Detail Slip Gaji</h6>
+<body style='background-color:#182039';> 
+<div class="mt-5 p-1 small text-light" style='background-color:#182039';>
+    <div class="card shadow mb-4 mt-3" style='background-color:#182039';>
+        <div class="card-header d-flex" style='background-color:#182039';>
+            <h6 class="m-0 col-md-7 font-weight-bold text-light">Detail Slip Gaji</h6>
             <div class="d-flex justify-content-end col-md-5">
                 <span><?= $pembayaran_upah[0]["user_upah"]?></span>
                 <form method="POST" action="<?= base_url("index.php/print_berkas/detail_gaji_excel/")?>" id="convert_form" class="ml-2 mr-2">
@@ -29,7 +30,7 @@
                 </a>
             </div>
         </div>
-        <div class="card-body">
+        <div class="card-body ">
             <table class="w-50" >
                 <tr id="status">
                     <td width="25%">Status</td>
@@ -168,6 +169,9 @@
         </table>
     </div>
 </div>
+
+                            </body>
+
 <script>
     function isi_rekening(){
         $("#form-rekening").show();
