@@ -1,8 +1,9 @@
+<body style='background-color:#182039';> 
 <!-- tampilan detail penggajian supir -->
-<div class="mt-5 p-1 small">
-    <div class="card shadow mb-4 mt-3">
-        <div class="card-header py-3 mb-3">
-            <h6 class="m-0 font-weight-bold text-primary">Buat Slip Gaji</h6>
+<div class="mt-5 p-1 text-light" style='background-color:#182039';>
+    <div class="card shadow mb-4 mt-3" style='background-color:#182039';>
+        <div class="card-header py-3 mb-3" style='background-color:#182039';>
+            <h6 class="m-0 font-weight-bold text-light  ">Buat Slip Gaji</h6>
         </div>
         <div class="container m-auto" id="rincian">
             <form action="<?= base_url("index.php/detail/insert_upah/").$supir["supir_id"]?>" method="POST" id="form-pilih-jo">
@@ -120,14 +121,15 @@
                         </div>
                     </div>
                 </div>
-                <div class="container-fluid text-center px-0 mb-3">
+                <div class="row text-center float-right mb-3">
+                   
+                    <button type="reset" class="btn btn-danger mr-2" onclick="reset_form()">Reset</button>
                     <button type="submit" class="btn btn-success" onclick="cek_jo()">Simpan</button>
-                    <button type="reset" class="btn btn-danger" onclick="reset_form()">Reset</button>
                 </div>
             </form>
         </div>
-        <div class="table-responsive">
-                <table class="table table-bordered table-striped" id="Table-Penggajian" width="100%" cellspacing="0">
+        <div class="table-responsive mt-2">
+                <table class="table table-bordered table-striped text-light" id="Table-Penggajian" width="100%" cellspacing="0">
                     <thead>
                         <tr>
                             <th class="text-center" width="10%" scope="col">JO ID</th>
@@ -140,25 +142,25 @@
                             <th class="text-center" width="10%" scope="col">Ke</th>
                             <th class="text-center" width="10%" scope="col">Tonase</th>
                             <th class="text-center" width="10%" scope="col">Gaji</th>
-                            <th class="text-center" width="10%" scope="col">Detail</th>
+                            <th class="text-center" width="5%" scope="col">Detail</th>
                             <th class="text-center" width="10%" scope="col">Pilih</th>
                         </tr>
                     </thead>
                     <tbody>
                     <?php foreach($jo as $value){?>
                         <tr>
-                            <td><?= $value["Jo_id"]?></td>
-                            <td><?= $value["mobil_no"]?></td>
-                            <td><?= $value["tanggal_muat"]?></td>
-                            <td><?= $value["tanggal_bongkar"]?></td>
+                            <td class="text-center"><?= $value["Jo_id"]?></td>
+                            <td class="text-center"><?= $value["mobil_no"]?></td>
+                            <td class="text-center"><?= $value["tanggal_muat"]?></td>
+                            <td class="text-center"><?= $value["tanggal_bongkar"]?></td>
                             <td><?= $value["customer_name"]?></td>
                             <td><?= $value["muatan"]?></td>
                             <td><?= $value["asal"]?></td>
                             <td><?= $value["tujuan"]?></td>
                             <td><?= $value["tonase"]?></td>
                             <td>Rp.<?= number_format($value["upah"],2,',','.')?></td>
-                            <td><a class='btn btn-light' target="_blank" href='<?= base_url('index.php/detail/detail_jo/'.$value["Jo_id"].'/JO')?>'><i class='fas fa-eye'></i></a></td>
-                            <td><input class='' id="<?= $value["Jo_id"]?>" type='checkbox' onchange="pilih_gaji(this)"></td>
+                            <td class="text-center"><a class='btn btn-sm btn-light' target="_blank" href='<?= base_url('index.php/detail/detail_jo/'.$value["Jo_id"].'/JO')?>'><i class='fas fa-eye'></i></a></td>
+                            <td class="text-center"><input class='' id="<?= $value["Jo_id"]?>" type='checkbox' onchange="pilih_gaji(this)"></td>
                         </tr>
                     <?php } ?>
                     </tbody>
@@ -170,15 +172,7 @@
 <!-- end tampilan detail penggajian supir -->
    
   
-        <!-- Footer -->
-        <footer class="sticky-footer bg-dark">
-            <div class="container my-auto">
-                <div class="copyright text-center my-auto">
-                    <span class="text-light">Copyright &copy; 2021 PT.Sumber Karya Berkah</span>
-                </div>
-            </div>
-        </footer>
-        <!-- End of Footer -->
+      
 
         </div>
         <!-- End of Content Wrapper -->
@@ -211,6 +205,9 @@
             </div>
         </div>
     </div>
+    
+                    </body>
+
     <!-- Bootstrap core JavaScript-->
     <script src="<?=base_url("assets/vendor/jquery/jquery.min.js")?>"></script>
     <script src="<?=base_url("assets/vendor/jquery/jquery.mask.min.js")?>"></script>

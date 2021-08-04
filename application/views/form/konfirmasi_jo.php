@@ -8,10 +8,12 @@ function change_tanggal($tanggal){
     }
 }
 ?>
-            <div class="mt-5 p-1">
+<body style='background-color:#182039';> 
+            <div class="mt-5 p-1 text-light" style='background-color:#182039';>
+            <h4 class=" p-2 mt-5 font-weight-bold text-light  ">Konfirmasi Job Order</h4>
                 <div class="row mt-5">
                     <div class="col-md-6">
-                        <table class="table table-bordered">
+                        <table class="table table-bordered text-light">
                             <tbody>
                                 <tr>
                                     <td class="font-weight-bold" style="width: 30%;">ID Job Order</td>
@@ -92,7 +94,7 @@ function change_tanggal($tanggal){
                 </div>
                 </form>
             </div>
-
+</body>
 <script>
     function uang(){
         $( '#tonase' ).mask('000.000.000', {reverse: true});

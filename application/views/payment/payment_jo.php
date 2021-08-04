@@ -111,9 +111,10 @@
                 </div>
             </div>
             <?php if($jo["sisa"]!=0){?>
-                <div class="col text-center">
-                    <button type="submit" class="btn btn-success mt-3">Simpan</button>
-                    <button type="reset" class="btn btn-danger mt-3" onclick="reset_form()">Batal</button>
+                <div class="row float-right mr-3">
+                   
+                    <button type="reset" class="btn btn-danger mr-2" onclick="reset_form()">Batal</button>
+                    <button type="submit" class="btn btn-success ">Simpan</button>
                 </div>
             <?php }else{?>
                 <div class="row text-center mt-2 mb-2 large">
@@ -173,7 +174,7 @@
 </div>
 <div class="modal fade mt-3" id="popup-edit-payment-jo" tabindex="0" role="dialog" aria-labelledby="modal-block-large" aria-hidden="true">
     <div class="modal-dialog modal-md" role="document">
-        <div class="modal-content">
+        <div class="modal-content text-light" style='background-color:#182039';>
             <div class="modal-header bg-primary-dark">
                 <h5 class="font-weight-bold">Edit Data Payment Job Order</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
