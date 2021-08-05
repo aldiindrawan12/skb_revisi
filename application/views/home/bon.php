@@ -1,5 +1,7 @@
-<div class="mt-5 p-1">
-    <div class="text-center mb-4 mt-3">
+<body style='background-color:#182039';> 
+
+<div class="mt-5 p-1" style='background-color:#182039';>
+    <div class="text-center mb-4 mt-3" style='background-color:#182039';>
         <!-- <h1 class="h3 mb-0 text-gray-800 mt-3 mb-3">Data Nota Kasbon</h1> -->
             <!-- <a href="<?=base_url("index.php/form/bon")?>" class="btn btn-primary btn-icon-split">
             <span class="icon text-white-100">
@@ -11,14 +13,15 @@
             </a> -->
     </div> 
     <!-- tabel transaksi bon -->
-    <div class="card shadow mb-4">
-        <div class="card-header py-3 row">
-            <h6 class="m-0 col-md-8 font-weight-bold text-primary">Seluruh Data Nota Kasbon</h6>
+    <div class="card shadow mb-4 text-light mt-5" style='background-color:#182039';>
+        <div class="card-header" style='background-color:#182039';>
+            <h6 class="m-0 font-weight-bold text-light">Seluruh Data Nota Kasbon</h6>
         </div>
-            <div class="conatiner w-50 m-auto">
+            <div class="conatainer w-50 m-auto p-3">
                 <div class="mb-2 form-group row mt-3">
                     <label for="Tanggal" class="form-label font-weight-bold col-md-3">Tanggal Bon</label>
-                    <input autocomplete="off" type="text" class="form-control col-md-4 mr-4" id="Tanggal1" name="Tanggal1" onclick="tanggal_berlaku(this)">
+                    <input autocomplete="off" type="text" class="form-control col-md-4 " id="Tanggal1" name="Tanggal1" onclick="tanggal_berlaku(this)">
+                    <h5 class="mr-2 mt-1 ml-2">s/d</h5>
                     <input autocomplete="off" type="text" class="form-control col-md-4" id="Tanggal2" name="Tanggal2" onclick="tanggal_berlaku(this)">
                 </div>
                 <div class="mb-2 form-group row">
@@ -229,7 +232,7 @@
     </div>
 </div>
 <!-- end pop up edit bon -->
-
+                        </body>
 <script src="<?=base_url("assets/vendor/jquery/jquery.min.js")?>"></script>
 
 <script type="text/javascript">
