@@ -1,10 +1,12 @@
+<body style='background-color:#182039';> 
+
 <!-- Basic Card Example -->
-<div class="mt-5 p-1"></div>
-    <div class="card shadow mt-3">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Buat Transaksi BON</h6>
+<div class="mt-5 p-4" style='background-color:#182039';></div>
+    <div class="card shadow " style='background-color:#212B4E';> 
+        <div class="card-header " style='background-color:#212B4E';>
+            <h6 class="m-0 font-weight-bold text-light">Buat Transaksi BON</h6>
         </div>
-        <div class="card-body">
+        <div class="card-body p-2 text-light mt-5 ">
             <!-- form transaksi bon -->
             <div class="container">
                 <form action="<?=base_url("index.php/form/insert_bon")?>" method="POST" class="row">
@@ -57,7 +59,7 @@
     </div>
 </div>
     
-
+                            </body>
 
 
 

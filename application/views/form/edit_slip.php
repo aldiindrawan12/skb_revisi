@@ -10,10 +10,11 @@ function change_tanggal($tanggal){
 
 ?>
 <!-- tampilan detail penggajian supir -->
-<div class="mt-5 p-1 small">
-    <div class="card shadow mb-4 mt-3">
-        <div class="card-header py-3 mb-3">
-            <h6 class="m-0 font-weight-bold text-primary">Buat Slip Gaji</h6>
+<body style='background-color:#182039';> 
+<div class="mt-5 p-1 text-light" style='background-color:#182039';>
+    <div class="card shadow mb-4 mt-3" style='background-color:#182039';>
+        <div class="card-header py-3 mb-3"style='background-color:#182039';>
+            <h6 class="m-0 font-weight-bold text-light">Buat Slip Gaji</h6>
         </div>
         <div class="container m-auto" id="rincian">
             <form action="<?= base_url("index.php/detail/update_slip/").$slip[0]["pembayaran_upah_id"]?>" method="POST" id="form-pilih-jo">
@@ -76,17 +77,18 @@ function change_tanggal($tanggal){
                         </div>
                     </div>
                 </div>
-                <div class="container-fluid text-center px-0 mb-3">
+                <div class="row float-right text-center mb-5 mt-4">
+                <button type="reset" class="btn btn-danger mr-2" onclick="reset_form()">Reset</button>
                     <button type="submit" class="btn btn-success" onclick="cek_jo()">Simpan</button>
-                    <button type="reset" class="btn btn-danger" onclick="reset_form()">Reset</button>
+                 
                 </div>
             </form>
         </div>
         <div class="container">
             <strong>Data JO Dalam Slip Gaji Saat Ini</strong>
-        </div>
-        <div class="table-responsive">
-                <table class="table table-bordered table-striped" id="Table-Penggajian-Now" width="100%" cellspacing="0">
+        </div> 
+        <div class="table-responsive p-1">
+                <table class="table table-bordered table-striped text-light" id="Table-Penggajian-Now" width="100%" cellspacing="0">
                     <thead>
                         <tr>
                             <th class="text-center" width="10%" scope="col">JO ID</th>
@@ -115,15 +117,15 @@ function change_tanggal($tanggal){
                             <td><?= $value["tonase"]?></td>
                             <td>Rp.<?= number_format($value["upah"],2,',','.')?></td>
                             <td><a class='btn btn-light' target="_blank" href='<?= base_url('index.php/detail/detail_jo/'.$value["Jo_id"].'/JO')?>'><i class='fas fa-eye'></i></a></td>
-                            <td><input class='' id="<?= $value["Jo_id"]?>" type='checkbox' checked onchange="pilih_gaji(this)"></td>
+                            <td class="text-center"><input class='' id="<?= $value["Jo_id"]?>" type='checkbox' checked onchange="pilih_gaji(this)"></td>
                         </tr>
                     <?php } ?>
                     </tbody>
                 </table>
         </div>
-        <hr class="mt-3 mb-3">
+        <hr class="mt-3 ">
         <div class="table-responsive">
-                <table class="table table-bordered table-striped" id="Table-Penggajian" width="100%" cellspacing="0">
+                <table class="table table-bordered table-striped text-light" id="Table-Penggajian" width="100%" cellspacing="0">
                     <thead>
                         <tr>
                             <th class="text-center" width="10%" scope="col">JO ID</th>
@@ -164,15 +166,7 @@ function change_tanggal($tanggal){
 <!-- end tampilan detail penggajian supir -->
    
   
-        <!-- Footer -->
-        <footer class="sticky-footer bg-white">
-            <div class="container my-auto">
-                <div class="copyright text-center my-auto">
-                    <span>Copyright &copy; 2021 PT.Sumber Karya Berkah</span>
-                </div>
-            </div>
-        </footer>
-        <!-- End of Footer -->
+       
 
         </div>
         <!-- End of Content Wrapper -->
@@ -205,6 +199,8 @@ function change_tanggal($tanggal){
             </div>
         </div>
     </div>
+
+                    </body>
     <!-- Bootstrap core JavaScript-->
     <script src="<?=base_url("assets/vendor/jquery/jquery.min.js")?>"></script>
     <script src="<?=base_url("assets/vendor/jquery/jquery.mask.min.js")?>"></script>
