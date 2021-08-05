@@ -70,9 +70,10 @@
                         <option value="2023">2023</option>
                     </select>
                 </div>
-                <div class="mb-2 form-group text-center">
+                <div class="row float-right mt-3 form-group text-center">
+                    
+                    <button class="btn btn-danger mr-2" onclick="reset_form()">Reset</button>
                     <button class="btn btn-primary" id="btn-cari-bon">Cari</button>
-                    <button class="btn btn-danger" onclick="reset_form()">Reset</button>
                 </div>
             </div>
             <hr>
@@ -83,7 +84,7 @@
             <div class="d-flex justify-content-end mr-3">
                 <form method="POST" action="<?= base_url("index.php/print_berkas/bon_excel/")?>" id="convert_form" class="">
                     <input type="hidden" name="file_content" id="file_content">
-                    <button type="submit" name="convert" id="convert" class="btn btn-primary btn-icon-split btn-sm">
+                    <button type="submit" name="convert" id="convert" class="btn btn-success btn-icon-split btn-sm">
                         <span class="icon text-white-100">  
                             <i class="fas fa-print"></i>
                         </span>
@@ -102,7 +103,7 @@
             </div>
         <div class="card-body" id="Table-Bon-Print">
             <div class="table-responsive">
-                <table border="1" class="table table-bordered" id="Table-Bon" width="100%" cellspacing="0">
+                <table border="1" class="table table-bordered text-light" id="Table-Bon" width="100%" cellspacing="0">
                     <thead>
                         <tr>
                             <th width="15%" class="text-center" scope="col">Tgl. Transaksi</th>
