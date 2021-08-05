@@ -15,7 +15,7 @@
                 <span><?= $pembayaran_upah[0]["user_upah"]?></span>
                 <form method="POST" action="<?= base_url("index.php/print_berkas/detail_gaji_excel/")?>" id="convert_form" class="ml-2 mr-2">
                     <input type="hidden" name="file_content" id="file_content">
-                    <button type="submit" name="convert" id="convert" class="btn btn-primary btn-sm btn-icon-split">
+                    <button type="submit" name="convert" id="convert" class="btn btn-success btn-sm btn-icon-split">
                         <span class="icon text-white-100">  
                             <i class="fas fa-print"></i>
                         </span>
@@ -81,7 +81,7 @@
         </div>
         <div class="card-body" id="rincian">
             <div class="table-responsive">
-                <table class="table table-bordered table-striped" id="Table-Penggajian" width="100%" cellspacing="0">
+                <table class="table table-bordered table-striped text-light" id="Table-Penggajian" width="100%" cellspacing="0">
                     <thead>
                         <tr>
                             <th class="text-center" width="10%" scope="col">JO ID</th>

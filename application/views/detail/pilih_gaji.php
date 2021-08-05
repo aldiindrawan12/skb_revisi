@@ -90,7 +90,7 @@
                             <input autocomplete="off" type="text" class="form-control col-md-5" id="bon_supir" name="bon_supir" value="Rp.<?= number_format($supir["supir_kasbon"],2,",",".")?>" readonly>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-5 ml-5">
                         <div class="form-group row">
                             <label for="gaji_total" class="col-form-label col-sm-7 font-weight-bold">Total</label>
                             <div class="col-sm-5">
@@ -121,7 +121,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row text-center float-right mb-3">
+                <div class="row text-center float-right mb-3 mr-4 p-2 mt-3">
                    
                     <button type="reset" class="btn btn-danger mr-2" onclick="reset_form()">Reset</button>
                     <button type="submit" class="btn btn-success" onclick="cek_jo()">Simpan</button>

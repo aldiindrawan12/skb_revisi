@@ -8,15 +8,16 @@
         }
     }
 ?>
-<div class="mt-5 p-1">
-    <div class="card shadow mb-2 mt-3">
-        <div class="card-header ">
-            <h6 class="m-0 font-weight-bold text-primary">Payment Slip Gaji</h6>
+<body style='background-color:#182039';> 
+<div class="mt-5 p-4" style='background-color:#182039';>
+    <div class="card shadow mb-2 mt-3" style='background-color:#182039';>
+        <div class="card-header " style='background-color:#182039';>
+            <h6 class="m-0 font-weight-bold text-light">Payment Slip Gaji</h6>
         </div>
-        <div class="card-body small">
+        <div class="card-body text-light">
         <form action="<?=base_url("index.php/form/insert_payment_gaji/").$pembayaran_upah_id?>" method="POST">
             <div class="row">
-                <div class="col-md-6 border rounded">
+                <div class="col-md-6">
                     <div class="form-group row mt-3">
                         <label for="pembayaran_upah_id" class="form-label col-sm-5 font-weight-bold">NO Slip Gaji</label>
                         <div class="col-sm-7">
@@ -68,7 +69,7 @@
                     </div>          
                     
                 </div>                
-                <div class="col-md-6 border rounded">
+                <div class="col-md-6 ">
                     <div class="form-group row mt-3">
                         <label for="payment_upah_tgl" class="form-label font-weight-bold col-sm-5">Tgl.Pembayaran</label>
                         <div class="col-sm-7">
@@ -100,27 +101,28 @@
                 </div>
             </div>
             <?php if($pembayaran_upah["pembayaran_upah_status"]!="Lunas"){?>
-                <div class="col text-center">
-                    <button type="submit" class="btn btn-success mt-3">Simpan</button>
-                    <button type="reset" class="btn btn-danger mt-3" onclick="reset_form()">Batal</button>
+                <div class="row float-right mr-2 text-center">
+                    
+                    <button type="reset" class="btn btn-danger mr-2" onclick="reset_form()">Batal</button>
+                    <button type="submit" class="btn btn-success ">Simpan</button>
                 </div>
             <?php }else{?>
                 <div class="col text-center">
-                    <span class="btn btn-success">Slip Gaji Lunas</span>
+                    <span class="btn-block p-3 mt-2 active btn-success">Slip Gaji Lunas</span>
                 </div>
             <?php } ?>
         </form>
     </div>
 </div>
-<div class="">
-    <div class="card shadow mb-4">
-    <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary float-left">Data Pembayaran Slip Gaji <?= $pembayaran_upah_id?></h6>
+
+    <div class="card shadow mb-4 mt-5" style='background-color:#182039';>
+    <div class="card-header py-3" style='background-color:#182039';>
+        <h6 class="m-0 font-weight-bold text-light float-left">Data Pembayaran Slip Gaji <?= $pembayaran_upah_id?></h6>
     </div>
     <!-- tabel data cutomer -->
     <div class="card-body">
         <div class="table-responsive">
-            <table class="table table-bordered" id="" width="100%" cellspacing="0">
+            <table class="table table-bordered text-light" id="" width="100%" cellspacing="0">
                 <thead>
                     <tr>
                         <th class="text-center" width="3%" scope="col">Tanggal</th>
@@ -133,11 +135,11 @@
                 <tbody>
                     <?php foreach($payment_pembayaran_upah as $value){?>
                         <tr>
-                            <td><?= change_tanggal($value["payment_upah_tgl"])?></td>
+                            <td class="text-center" width="5%"><?= change_tanggal($value["payment_upah_tgl"])?></td>
                             <td>Rp.<?= number_format($value["payment_upah_nominal"],0,',','.')?></td>
-                            <td><?= $value["payment_upah_jenis"]?></td>
-                            <td><?= $value["payment_upah_keterangan"]?></td>
-                            <td>
+                            <td class="text-center" width="5%"><?= $value["payment_upah_jenis"]?></td>
+                            <td class="text-center" width="5%"><?= $value["payment_upah_keterangan"]?></td>
+                            <td class="text-center" width="5%">
                             <?php if($_SESSION['role']=="Supervisor"){?>
                                 <a class='btn btn-light' id="<?= $value["payment_upah_id"]?>" onclick="edit_payment_upah(this)" data-toggle="modal" data-target="#popup-edit-payment-upah"><i class='fas fa-pen-square'></i></a>
                                 <a class='btn btn-light' id="<?= $value["payment_upah_id"]?>" onclick="delete_payment_upah(this)"><i class='fas fa-trash-alt'></i></a>
@@ -154,7 +156,7 @@
 </div>
 <div class="modal fade mt-3" id="popup-edit-payment-upah" tabindex="0" role="dialog" aria-labelledby="modal-block-large" aria-hidden="true">
     <div class="modal-dialog modal-md" role="document">
-        <div class="modal-content">
+        <div class="modal-content text-white" style='background-color:#182039';>
             <div class="modal-header bg-primary-dark">
                 <h5 class="font-weight-bold">Edit Data Payment Slip Gaji</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
@@ -208,15 +210,7 @@
     </div>
 </div>
 
-        <!-- Footer -->
-        <footer class="sticky-footer bg-dark">
-            <div class="container my-auto">
-                <div class="copyright text-center my-auto">
-                    <span class="text-light">Copyright &copy; 2021 PT.Sumber Karya Berkah</span>
-                </div>
-            </div>
-        </footer>
-        <!-- End of Footer -->
+      
 
         </div>
         <!-- End of Content Wrapper -->
@@ -282,6 +276,7 @@
             </div>
         </div>
     </div>
+                            </body>
     <!-- Bootstrap core JavaScript-->
     <script src="<?=base_url("assets/vendor/jquery/jquery.min.js")?>"></script>
     <script src="<?=base_url("assets/vendor/jquery/jquery.mask.min.js")?>"></script>
