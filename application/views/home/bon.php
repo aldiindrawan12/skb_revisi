@@ -81,7 +81,7 @@
                 <span>Total Data Nota Kasbon Yang Ditemukan : </span><span id="ditemukan"><?= count($bon)?></span><br>
             </div>
             <hr>
-            <div class="d-flex justify-content-end mr-3">
+            <div class="d-flex justify-content-end">
                 <form method="POST" action="<?= base_url("index.php/print_berkas/bon_excel/")?>" id="convert_form" class="">
                     <input type="hidden" name="file_content" id="file_content">
                     <button type="submit" name="convert" id="convert" class="btn btn-success btn-icon-split btn-sm">
@@ -91,7 +91,7 @@
                         <span class="text">Excel</span>
                     </button>
                 </form>
-                <a href="" class="ml-5 btn btn-sm btn-primary btn-icon-split " onclick="print_pdf()">
+                <a href="" class="mr-4 ml-2 btn btn-sm btn-primary btn-icon-split " onclick="print_pdf()">
                     <span class="icon text-white-100">
                         <i class="fas fa-print"></i> 
                     </span>
@@ -126,9 +126,9 @@
 <!-- pop up detail bon -->
 <div class="modal fade " id="popup-bon" tabindex="-1" role="dialog" aria-labelledby="modal-block-large" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
+        <div class="modal-content" style='background-color:#212B4E';>
             <div class="modal-header bg-primary-dark">
-                <h5 class="block-title">Detail Transaksi Kasbon</h5>
+                <h5 class="block-title text-light">Detail Transaksi Kasbon</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times</span>
                 </button>
@@ -137,7 +137,7 @@
             <a class='btn btn-primary btn-sm ' id="link_print_bon">
                 <span>Cetak Nota Kasbon</span>
             </a>
-            <table class="table table-bordered">
+            <table class="table table-bordered text-light mt-2">
                 <tbody>
                     <tr>
                         <td class="font-weight-bold" style="width: 20%;">Tanggal Transaksi</td>
@@ -186,14 +186,14 @@
 <!-- pop up edit bon -->
 <div class="modal fade mt-5 px-5 py-5 " id="popup-update-bon" tabindex="-1" role="dialog" aria-labelledby="modal-block-large" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
+        <div class="modal-content" style='background-color:#212B4E';>
             <div class="modal-header bg-primary-dark">
-                <h5 class="block-title">Edit Data Nota Kasbon</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <h5 class="block-title text-light">Edit Data Nota Kasbon</h5>
+                <button class="close text-light" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times</span>
                 </button>
             </div>
-            <div class="font-size-sm m-3 text-justify">
+            <div class="font-size-sm m-3 text-justify text-light">
                 <form action="<?=base_url("index.php/form/update_bon")?>" method="POST" class="row" id="form-edit-bon">
                     <div class="col-md-4 col-md-offset-4 mb-4">
                         <label for="bon_id_edit" class="form-label font-weight-bold">No Bon</label>
