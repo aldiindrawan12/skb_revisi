@@ -44,7 +44,7 @@
                     </div>
                 </form>
             </div>
-            <div class="container-fluid" id="detail-bon-supir">
+            <div class="container-fluid mb-5" id="detail-bon-supir">
                 <div class="text-center mb-5 " id="supirnya">
                     <h3 class="font-weight-bolder text-light">Nama Supir: <?=$supir?></h3>
                 </div>
@@ -104,7 +104,9 @@
                     </tbody>
                 </table>
                 
-                <div class="container m-auto w-50">
+                
+            </div>
+            <div class="container-fluid ">
                     <table class="table table-bordered text-light" id="Table-Detail-Mutasi">
                         <tr>
                             <td>Saldo Bon Awal</td>
@@ -128,7 +130,6 @@
                         </tr>
                     </table>                            
                 </div>
-            </div>
             <!-- end tampilan detail transaksi bon -->
         </div>
     </div>
