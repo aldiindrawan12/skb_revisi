@@ -86,14 +86,14 @@
 <!-- pop up update akun -->
 <div class="modal fade mt-3" id="popup-update-akun" tabindex="-1" role="dialog" aria-labelledby="modal-block-large" aria-hidden="true">
     <div class="modal-dialog modal-md" role="document">
-        <div class="modal-content">
+        <div class="modal-content" style='background-color:#212B4E';>
             <div class="modal-header bg-primary-dark">
-                <h5 class="font-weight-bold">Update Data Akun</h5>
+                <h5 class="font-weight-bold text-light">Update Data Akun</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="font-size-sm m-3 text-justify">
+            <div class="font-size-sm m-3 text-justify text-light">
                 <form action="<?= base_url("index.php/form/update_akun")?>" method="POST" id="form-edit-akun">
                     <input type="text" name=akun_id id=akun_id hidden>
                     <div class="form-group">

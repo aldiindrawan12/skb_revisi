@@ -3,7 +3,7 @@
     <div class="container mb-4 text-center" >
         <h1 class="h3 mb-0 text-light">Konfigurasi Hak Akses</h1>
     </div> 
-    <div class="card shadow mb-4" style='background-color:#212B4E';>
+    <div class="card shadow mb-4 col-auto " style='background-color:#212B4E';>
         <div class="card-body text-light">
             <div class="table-responsive" >
                 <table cellspacing="0">
