@@ -1,12 +1,13 @@
-<div class="mt-5 p-1">
-    <div class="card shadow mb-4 mt-3">
-    <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Data Mutasi Kasbon Supir <small>(Pilih Nama Supir)</small></h6>
+<body style='background-color:#182039';> 
+<div class="mt-5 p-5" style='background-color:#182039';>
+    <div class="card shadow mb-4 mt-3" style='background-color:#182039';>
+    <div class="card-header py-3" style='background-color:#182039';>
+        <h6 class="m-0 font-weight-bold text-light">Data Mutasi Kasbon Supir <small>(Pilih Nama Supir)</small></h6>
     </div>
     <!-- tabel supir -->
     <div class="card-body">
-        <div class="table-responsive">
-            <table class="table table-bordered" id="Table-Report-Bon-Supir" width="100%" cellspacing="0">
+        <div class="table-responsive ">
+            <table class="table table-bordered text-light" id="Table-Report-Bon-Supir" width="100%" cellspacing="0">
                 <thead>
                     <tr>        
                         <th class="text-center" width="3%" scope="col">ID Supir</th>
@@ -25,3 +26,4 @@
     
     <!-- end tabel supir -->
 </div>
+</body>
