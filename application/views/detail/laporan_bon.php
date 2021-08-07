@@ -5,11 +5,12 @@
         return $tanggal;
     }
 ?>
-<div class="mt-5 p-1">
-    <div class="card shadow mb-4 mt-3">
-        <div class="card-header py-3 mb-4 d-flex justify-content-end">
-            <h6 class="m-0 col-md-8 font-weight-bold text-primary">Mutasi Kasbon Supir</h6>
-            <div class="col-md-2">
+<body style='background-color:#182039';> 
+<div class="mt-5 p-5" style='background-color:#182039';>
+    <div class="card shadow mb-4 mt-3" style='background-color:#182039';>
+        <div class="card-header py-3 mb-4 d-flex justify-content-end" style='background-color:#182039';>
+            <h6 class="container-fluid  float-left font-weight-bold text-light">Mutasi Kasbon Supir</h6>
+            <div class="row float-right mr-3">
                 <a href="" class="btn btn-sm btn-primary btn-icon-split mr-3" onclick="print_bon()">
                         <span class="icon text-white-100">
                             <i class="fas fa-print"></i> 
@@ -19,10 +20,10 @@
                         </span>
                 </a>
             </div>
-            <div class="col-md-2">
+            <div class="row float-right mr-3">
                 <form method="POST" action="<?= base_url("index.php/print_berkas/mutasi_excel/")?>" id="convert_form">
                     <input type="hidden" name="file_content" id="file_content">
-                    <button type="submit" name="convert" id="convert" class="btn btn-primary btn-sm btn-icon-split">
+                    <button type="submit" name="convert" id="convert" class="btn btn-success btn-sm btn-icon-split">
                         <span class="icon text-white-100">  
                             <i class="fas fa-print"></i>
                         </span>
@@ -33,28 +34,28 @@
         </div>
         <div class="card-body">
             <!-- tampilan detail transaksi bon -->
-            <div class="container w-50 ml-0 mb-5">
+            <div class="container w-50 ml-2 mb-5">
                 <form action="<?= base_url("index.php/detail/detail_report_bon/").$supir_id."/periode"?>" method="POST">
                     <div class="row">
-                    <input autocomplete="off" type="text" class="form-control col-md-4" id="tanggal1" name="tanggal1" value="<?= $tanggal1?>" required onclick="tanggal_berlaku(this)">
-                    <span class="col-md-1 text-center">sd</span>
-                    <input autocomplete="off" type="text" class="form-control col-md-4" id="tanggal2" name="tanggal2" value="<?= $tanggal2?>" required onclick="tanggal_berlaku(this)">
-                    <button type="submit" class="col-md-3 btn btn-primary">Terapkan</button>
+                    <input autocomplete="off" type="text" class="form-control col-md-3" id="tanggal1" name="tanggal1" value="<?= $tanggal1?>" required onclick="tanggal_berlaku(this)">
+                    <span class="m-2 accordiontext-center text-light ">sd</span>
+                    <input autocomplete="off" type="text" class="form-control col-md-3" id="tanggal2" name="tanggal2" value="<?= $tanggal2?>" required onclick="tanggal_berlaku(this)">
+                    <button type="submit" class="col-md-2 btn btn-primary ml-3">Terapkan</button>
                     </div>
                 </form>
             </div>
-            <div class="container" id="detail-bon-supir">
-                <div class="text-center mb-4 " id="supirnya">
-                    <h5 class="font-weight-bolder"><?=$supir?></h5>
+            <div class="container-fluid" id="detail-bon-supir">
+                <div class="text-center mb-5 " id="supirnya">
+                    <h3 class="font-weight-bolder text-light">Nama Supir: <?=$supir?></h3>
                 </div>
-                <div class="container w-100 ml-0 mb-3" id="tanggalnya">
+                <div class="ml-2 mb-3" id="tanggalnya">
                         <div class="row">
-                            <input autocomplete="off" type="text" class="form-control col-md-4" id="tanggal1" name="tanggal1" value="<?= $tanggal1?>" readonly>
-                            <span class="col-md-1 text-center">sd</span>
-                            <input autocomplete="off" type="text" class="form-control col-md-4" id="tanggal2" name="tanggal2" value="<?= $tanggal2?>" readonly>
+                            <input autocomplete="off" type="text" class="form-control col-md-2 " id="tanggal1" name="tanggal1" value="<?= $tanggal1?>" readonly>
+                            <span class="m-2 text-center text-light">sd</span>
+                            <input autocomplete="off" type="text" class="form-control col-md-2" id="tanggal2" name="tanggal2" value="<?= $tanggal2?>" readonly>
                         </div>
                 </div>
-                <table class="table table-bordered" id="Table-Mutasi">
+                <table class="table table-bordered text-light" id="Table-Mutasi">
                     <thead>
                         <tr>
                             <th class="text-center">Tanggal Transaksi</th>
@@ -78,10 +79,10 @@
                                 $kredit = 0;
                         foreach($transaksi_bon as $value){?>
                             <tr>
-                                <td class=""><?= change_tanggal($value["bon_tanggal"])?></td>
-                                <td class=""><?= $value["bon_id"]?></td>
-                                <td class=""><?= $value["pembayaran_upah_id"]?></td>
-                                <td class=""><?= $value["bon_keterangan"]?></td>
+                                <td class="text-center" width="12%"><?= change_tanggal($value["bon_tanggal"])?></td>
+                                <td class="text-center"><?= $value["bon_id"]?></td>
+                                <td class="text-center"><?= $value["pembayaran_upah_id"]?></td>
+                                <td class="" width="27%"><?= $value["bon_keterangan"]?></td>
                                 <?php if($value["bon_jenis"]=="Pembayaran" || $value["bon_jenis"]=="Potong Gaji"){
                                     $saldo-=$value["bon_nominal"];
                                     $debit+=$value["bon_nominal"];?>
@@ -102,8 +103,9 @@
                         <?php }?>
                     </tbody>
                 </table>
+                
                 <div class="container m-auto w-50">
-                    <table class="table table-bordered" id="Table-Detail-Mutasi">
+                    <table class="table table-bordered text-light" id="Table-Detail-Mutasi">
                         <tr>
                             <td>Saldo Bon Awal</td>
                             <td>Rp.<?= number_format($saldo_awal,2,',','.')?></td>
@@ -132,6 +134,7 @@
     </div>
 </div>
 
+                            </body>
 <script src="<?=base_url("assets/vendor/jquery/jquery.min.js")?>"></script>
 
 <script type="text/javascript">
