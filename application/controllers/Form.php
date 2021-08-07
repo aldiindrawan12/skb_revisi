@@ -40,7 +40,7 @@ class Form extends CI_Controller {
             $this->load->view('header',$data);
             $this->load->view('sidebar');
             $this->load->view('form/edit_jo');
-            $this->load->view('footer');
+            // $this->load->view('footer');
         }
         public function joborder(){
             $jo_id = $this->model_form->getjoid();
@@ -170,7 +170,7 @@ class Form extends CI_Controller {
             $this->load->view('header',$data);
             $this->load->view('sidebar');
             $this->load->view('form/edit_slip');
-            $this->load->view('footer');
+            // $this->load->view('footer');
         }
     // end fungsi view form
 

@@ -191,21 +191,58 @@ $keterangan = explode("===",$jo["keterangan"]);
     </div>
     <!-- Bootstrap core JavaScript-->
 
+    <div class="modal fade" id="popup-ubah-password" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog mt-5 py-5" role="document">
+            <div class="modal-content ">
+                <div class="modal-header mb-3">
+                    <h5 class="modal-title" id="exampleModalLabel">Ubah Password</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times</span>
+                    </button>
+                </div>
+                <div class="container mb-3">
+                    <form action="<?= base_url('index.php/login/ubah_password')?>" method="POST" onsubmit="return cek_password();">
+                        <div class="form-group row">
+                            <label for="password_old" class="form-label col">Password Lama</label>
+                            <input type="password" id="password_old" name="password_old" required class="form-control col">
+                        </div>
+                        <div class="form-group row">
+                            <label for="password_new" class="form-label col">Password Baru</label>
+                            <input type="password" id="password_new" name="password_new" required class="form-control col">
+                        </div>
+                        <div class="form-group row">
+                            <label for="password_fix" class="form-label col">Konfirmasi Password Baru</label>
+                            <input type="password" id="password_fix" name="password_fix" required class="form-control col">
+                        </div>
+                        <div class="form-group mt-1 mr-4 ">
+                            <button type="submit" class="btn btn-success float-right" >Simpan</button>
+                            <button type="reset" class="btn btn-outline-danger mr-3 float-md-right">Reset</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
                                 </body>
+    <!-- Bootstrap core JavaScript-->
     <script src="<?=base_url("assets/vendor/jquery/jquery.min.js")?>"></script>
     <script src="<?=base_url("assets/vendor/jquery/jquery.mask.min.js")?>"></script>
     <script src="<?=base_url("assets/vendor/bootstrap/js/bootstrap.bundle.min.js")?>"></script>    
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     
+    
     <!-- Core plugin JavaScript-->
     <script src="<?=base_url("assets/vendor/jquery-easing/jquery.easing.min.js")?>"></script>
-    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+    <!-- data toggle bawah -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap4-toggle/3.6.1/bootstrap4-toggle.min.js" integrity="sha512-bAjB1exAvX02w2izu+Oy4J96kEr1WOkG6nRRlCtOSQ0XujDtmAstq5ytbeIxZKuT9G+KzBmNq5d23D6bkGo8Kg==" crossorigin="anonymous"></script>
 
     <!-- Custom scripts for all pages-->
     <script src="<?=base_url("assets/js/sb-admin-2.min.js")?>"></script>
-
     <!-- Page level plugins -->
+    <script src="<?=base_url("assets/vendor/chart.js/Chart.min.js")?>"></script>
     <script src="<?=base_url("assets/vendor/datatables/jquery.dataTables.min.js")?>"></script>
     <script src="<?=base_url("assets/vendor/datatables/dataTables.bootstrap4.min.js")?>"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/js/bootstrap-select.min.js"></script>

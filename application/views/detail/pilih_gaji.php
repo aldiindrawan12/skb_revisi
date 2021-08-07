@@ -41,7 +41,7 @@
                                 <?php }else{?>
                                     <option value="<?= $mobil["mobil_no"]?>"><?= $mobil["mobil_no"]?></option>
                                 <?php }?>
-                                <option class="font-w700" value="No Polisi">No Polisi</option>
+                                <option class="font-w700" value="x">No Polisi</option>
                                 <?php foreach($all_mobil as $value){?>
                                         <option value="<?=$value["mobil_no"]?>"><?=$value["mobil_no"]?></option>
                                 <?php }?>
@@ -353,12 +353,17 @@
             // document.getElementById("form-pilih-jo").reset();
             tahun = $("#tahun_kerja").val();
             bulan = $("#bulan_kerja").val();
-            location.replace('<?= base_url("index.php/detail/pilih_gaji/").$supir["supir_id"]."/form/"?>'+bulan+"/"+tahun);
+            if(bulan<10){
+                if(bulan[0]!="0"){
+                    bulan = "0"+bulan;
+                }
+            }
+            location.replace('<?= base_url("index.php/detail/pilih_gaji/").$supir["supir_id"]."/".$mobil["mobil_no"]."/form/"?>'+bulan+"/"+tahun);
         }
     </script>
     <script>
         function reset_form(){
-            location.replace('<?= base_url("index.php/detail/pilih_gaji/").$supir["supir_id"]."/form/".date('m').'/'.date('Y')?>');
+            location.replace('<?= base_url("index.php/detail/pilih_gaji/")."x/x/form/".date('m').'/'.date('Y')?>');
         }
     </script>
     <script> //script set tanggal saat ini
@@ -415,6 +420,9 @@
         function redirect_url(a){
             var id_supir = $("#nama_supir").val();
             var nopol = $("#nopol").val();
-            location.replace("<?= base_url('index.php/detail/pilih_gaji/"+id_supir+"/"+nopol+"/home/').date('m').'/'.date('Y')?>");
+            <?php if($bulan_index<10){
+                $bulan_index = "0".$bulan_index;
+            }?>
+            location.replace("<?= base_url('index.php/detail/pilih_gaji/"+id_supir+"/"+nopol+"/home/').$bulan_index.'/'.$tahun?>");
         }
     </script>

@@ -306,7 +306,7 @@
                         render: function(data, type, row) {
                             let html = row["no"];
                             return html;
-                        }
+                        },
                     },
                     {
                         "data": "Jo_id",
@@ -324,7 +324,8 @@
                     },
                     {
                         "data": "mobil_no",
-                        className: 'text-center'
+                        className: 'text-center',
+                        "orderable": false,
                     },
                     {
                         "data": "mobil_jenis"

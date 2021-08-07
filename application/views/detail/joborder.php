@@ -133,7 +133,11 @@
                             </tr>
                             <tr>
                                 <td class="font-weight-bold" style="width: 20%;">Keterangan Ubah Status</td>
-                                <td colspan=3><?= $array_keterangan[1]?></td>
+                                <?php if(count($array_keterangan)==1){
+                                    echo "<td colspan=3></td>";
+                                }else{
+                                    echo "<td colspan=3><?= $array_keterangan[1]?></td>";
+                                }?>
                             </tr>
                             <tr>
                                 <td class="font-weight-bold" style="width: 25%;">No Slip Gaji</td>
