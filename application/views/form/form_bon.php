@@ -79,7 +79,12 @@
         // alert(uang_fix);
         if($("#Jenis").val()=='Pembayaran'){
             if(parseInt(uang_fix)>parseInt($("#bon-saat-ini").val())){
-                alert('Jumlah Pembayaran Harus Lebih Kecil Dari Rp.'+ rupiah($("#bon-saat-ini").val()));
+                Swal.fire({
+                    title: "Peringatan",
+                    icon: "error",
+                    text: 'Jumlah Pembayaran Harus Lebih Kecil Dari Rp.'+ rupiah($("#bon-saat-ini").val()),
+                    type: "error"
+                });
                 $( '#Nominal' ).val("");
             }
         }

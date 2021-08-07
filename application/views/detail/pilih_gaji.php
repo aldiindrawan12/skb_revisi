@@ -288,7 +288,12 @@
                 kasbon_bayar = 0;
             }
             if(parseInt(kasbon)<parseInt(kasbon_bayar)){
-                alert('Jumlah Potong Kasbon Harus Lebih Kecil Dari Rp.'+ rupiah(kasbon));
+                Swal.fire({
+                    title: "Peringatan",
+                    icon: "error",
+                    text: 'Jumlah Potong Kasbon Harus Lebih Kecil Dari Rp.'+ rupiah(kasbon),
+                    type: "error"
+                });
                 $( '#kasbon' ).val("");
                 $("#gaji_grand_total").val(rupiah(total));
             }else{
@@ -297,7 +302,12 @@
             }
             
             if(parseInt(total)<parseInt(kasbon_bayar)){
-                alert('Jumlah Potong Kasbon Harus Lebih Kecil Dari Rp.'+ rupiah(kasbon));
+                Swal.fire({
+                    title: "Peringatan",
+                    icon: "error",
+                    text: 'Jumlah Potong Kasbon Harus Lebih Kecil Dari Rp.'+ rupiah(kasbon),
+                    type: "error"
+                });
                 $( '#kasbon' ).val("");
                 $("#gaji_grand_total").val(rupiah(total));
             }else{
@@ -342,7 +352,12 @@
         }
         function cek_jo(){
             if($("#jo").val()==""){
-                alert("silakan pilih perjalanan supir");
+                Swal.fire({
+                    title: "Peringatan",
+                    icon: "error",
+                    text: "silakan pilih perjalanan supir",
+                    type: "error"
+                });
             }
         }
     </script>

@@ -386,7 +386,12 @@
                 bayar = 0;
             }
             if(parseInt(sisa)<parseInt(bayar)){
-                alert('Jumlah Pembayaran Harus Lebih Kecil Dari Rp.'+ rupiah(sisa));
+                Swal.fire({
+                    title: "Peringatan",
+                    icon: "error",
+                    text: 'Jumlah Pembayaran Harus Lebih Kecil Dari Rp.'+ rupiah(sisa),
+                    type: "error"
+                });
                 $( '#'+a.id ).val("");
             }
         }
@@ -398,7 +403,12 @@
                 bayar = 0;
             }
             if(parseInt(bayar_saat_ini)<parseInt(bayar)){
-                alert('Jumlah Pembayaran Harus Lebih Kecil Dari Rp.'+ rupiah(bayar_saat_ini));
+                Swal.fire({
+                    title: "Peringatan",
+                    icon: "error",
+                    text: 'Jumlah Pembayaran Harus Lebih Kecil Dari Rp.'+ rupiah(bayar_saat_ini),
+                    type: "error"
+                });
                 $( '#'+a.id ).val("");
             }
         }

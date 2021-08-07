@@ -134,7 +134,12 @@
         }
         if($("#jenis_tambahan").val()=="Potongan"){
             if(parseInt(uj)<parseInt(uj_tambahan)){
-                alert("Potongan Tidak boleh Lebih Dari Rp."+rupiah(uj));
+                Swal.fire({
+                    title: "Peringatan",
+                    icon: "error",
+                    text: "Potongan Tidak boleh Lebih Dari Rp."+rupiah(uj),
+                    type: "error"
+                });
                 $("#nominal_tambahan").val("");
                 $( '#uang_jalan_total' ).val(rupiah(uj));
             }else{
@@ -160,7 +165,18 @@
         }
 
         if($("#"+a.id).val()=="Potongan"){
-            $( '#uang_jalan_total' ).val(rupiah(parseInt(uj)-parseInt(uj_tambahan)));
+            if(parseInt(uj)<parseInt(uj_tambahan)){
+                Swal.fire({
+                    title: "Peringatan",
+                    icon: "error",
+                    text: "Potongan Tidak boleh Lebih Dari Rp."+rupiah(uj),
+                    type: "error"
+                });
+                $("#nominal_tambahan").val("");
+                $( '#uang_jalan_total' ).val(rupiah(uj));
+            }else{
+                $( '#uang_jalan_total' ).val(rupiah(parseInt(uj)-parseInt(uj_tambahan)));
+            }
         }else{
             $( '#uang_jalan_total' ).val(rupiah(parseInt(uj)+parseInt(uj_tambahan)));
         }
