@@ -85,7 +85,7 @@
                 </div>
                 <div class="mt-5" >
                     <button type="submit" class="btn btn-primary mr-2">Simpan</button>
-                    <button type="reset" class="btn btn-danger" onclick="reset_konfigurasi()">Batal</button>
+                    <a href="<?= base_url("index.php/home/akun")?>" class="btn btn-danger" >Batal</a>
                 </div>
             </form>
         </div>
