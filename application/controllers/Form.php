@@ -23,7 +23,7 @@ class Form extends CI_Controller {
     // fungsi view form
         public function edit_jo($jo_id){
             //end generate jo id
-            if(!$_SESSION["user"]){
+            if(!isset($_SESSION["user"])){
                 $this->session->set_flashdata('status-login', 'False');
                 redirect(base_url());
             }
@@ -58,7 +58,7 @@ class Form extends CI_Controller {
             }
             $data["new_jo_id"] = $new_jo_id.(max($isi_jo_id)+1);
             //end generate jo id
-            if(!$_SESSION["user"]){
+            if(!isset($_SESSION["user"])){
     			$this->session->set_flashdata('status-login', 'False');
                 redirect(base_url());
             }
@@ -91,7 +91,7 @@ class Form extends CI_Controller {
             if(count($isi_bon_id)==0){
                 $isi_bon_id[]=0;
             }
-            if(!$_SESSION["user"]){
+            if(!isset($_SESSION["user"])){
     			$this->session->set_flashdata('status-login', 'False');
                 redirect(base_url());
             }
@@ -130,7 +130,7 @@ class Form extends CI_Controller {
         }
         public function edit_invoice($invoice_id)
         {
-            if(!$_SESSION["user"]){
+            if(!isset($_SESSION["user"])){
     			$this->session->set_flashdata('status-login', 'False');
                 redirect(base_url());
             }
@@ -157,7 +157,7 @@ class Form extends CI_Controller {
             }
             $data["jo"] = $this->model_detail->getjobbysupirbulan($data["slip"][0]["supir_id"],"x","x","x");
             $data["supir"] = $this->model_home->getsupirbyid($data["slip"][0]["supir_id"]);
-            if(!$_SESSION["user"]){
+            if(!isset($_SESSION["user"])){
     			$this->session->set_flashdata('status-login', 'False');
                 redirect(base_url());
             }
@@ -1186,7 +1186,7 @@ class Form extends CI_Controller {
     }
 
     public function konfigurasi($akun_id){
-        if(!$_SESSION["user"]){
+        if(!isset($_SESSION["user"])){
             $this->session->set_flashdata('status-login', 'False');
             redirect(base_url());
         }
@@ -1204,7 +1204,7 @@ class Form extends CI_Controller {
     }
     
     public function konfirmasi_jo($jo_id){
-        if(!$_SESSION["user"]){
+        if(!isset($_SESSION["user"])){
             $this->session->set_flashdata('status-login', 'False');
             redirect(base_url());
         }

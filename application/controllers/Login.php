@@ -14,7 +14,7 @@ class Login extends CI_Controller {
     }
 
     public function logout(){
-        if($_SESSION["user_aktif"]){
+        if(isset($_SESSION["user_aktif"])){
             $this->model_login->update_tidak_aktif($_SESSION["user_aktif"]);
         }
         session_destroy();

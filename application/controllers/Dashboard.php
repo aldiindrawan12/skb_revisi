@@ -14,7 +14,7 @@ class Dashboard extends CI_Controller {
 
     public function index()
     {
-        if(!$_SESSION["user"]){
+        if(!isset($_SESSION["user"])){
     		$this->session->set_flashdata('status-login', 'False');
             redirect(base_url());
         }
@@ -27,7 +27,7 @@ class Dashboard extends CI_Controller {
     }    
     public function dashboard_operasional()
     {
-        if(!$_SESSION["user"]){
+        if(!isset($_SESSION["user"])){
     		$this->session->set_flashdata('status-login', 'False');
             redirect(base_url());
         }
@@ -40,7 +40,7 @@ class Dashboard extends CI_Controller {
     }    
     public function dashboard_invoice()
     {
-        if(!$_SESSION["user"]){
+        if(!isset($_SESSION["user"])){
     		$this->session->set_flashdata('status-login', 'False');
             redirect(base_url());
         }

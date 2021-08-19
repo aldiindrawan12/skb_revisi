@@ -43,7 +43,7 @@ class Detail extends CI_Controller {
         }
         public function detail_jo($Jo_id,$asal)
         {
-            if(!$_SESSION["user"]){
+            if(!isset($_SESSION["user"])){
     			$this->session->set_flashdata('status-login', 'False');
                 redirect(base_url());
             }
@@ -86,7 +86,7 @@ class Detail extends CI_Controller {
         }
         public function detail_invoice($invoice_id)
         {
-            if(!$_SESSION["user"]){
+            if(!isset($_SESSION["user"])){
     			$this->session->set_flashdata('status-login', 'False');
                 redirect(base_url());
             }
@@ -134,7 +134,7 @@ class Detail extends CI_Controller {
         public function detail_customer($customer_id)
         {
             
-            if(!$_SESSION["user"]){
+            if(!isset($_SESSION["user"])){
     			$this->session->set_flashdata('status-login', 'False');
                 redirect(base_url());
             }
@@ -176,7 +176,7 @@ class Detail extends CI_Controller {
     //fungsi untuk Detail report bon
         function detail_report_bon($supir_id,$asal)
         {
-            if(!$_SESSION["user"]){
+            if(!isset($_SESSION["user"])){
     			$this->session->set_flashdata('status-login', 'False');
                 redirect(base_url());
             }
@@ -243,7 +243,7 @@ class Detail extends CI_Controller {
     //fungsi untuk Detail penggajian
         public function detail_penggajian($supir_id)
         {
-            if(!$_SESSION["user"]){
+            if(!isset($_SESSION["user"])){
     			$this->session->set_flashdata('status-login', 'False');
                 redirect(base_url());
             }
@@ -302,7 +302,7 @@ class Detail extends CI_Controller {
                 $isi_slip_id[]=0;
             }
             $data["no_slip_gaji"]=(max($isi_slip_id)+1)."-GAJI-".date("m")."-".date('Y');
-            if(!$_SESSION["user"]){
+            if(!isset($_SESSION["user"])){
     			$this->session->set_flashdata('status-login', 'False');
                 redirect(base_url());
             }
@@ -339,7 +339,7 @@ class Detail extends CI_Controller {
 
         public function detail_penggajian_report($supir_id)
         {
-            if(!$_SESSION["user"]){
+            if(!isset($_SESSION["user"])){
     			$this->session->set_flashdata('status-login', 'False');
                 redirect(base_url());
             }
@@ -397,7 +397,7 @@ class Detail extends CI_Controller {
 
         public function detail_penggajian_report_pembayaran($supir_id,$pembayaran_id)
         {
-            if(!$_SESSION["user"]){
+            if(!isset($_SESSION["user"])){
     			$this->session->set_flashdata('status-login', 'False');
                 redirect(base_url());
             }

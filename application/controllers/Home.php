@@ -15,7 +15,7 @@ class Home extends CI_Controller {
     //fungsi untuk JO
         public function index()
         {
-            if(!$_SESSION["user"]){
+            if(!isset($_SESSION["user"])){
     			$this->session->set_flashdata('status-login', 'False');
                 redirect(base_url());
             }
@@ -37,7 +37,7 @@ class Home extends CI_Controller {
 
         public function konfirmasi_jo()
         {
-            if(!$_SESSION["user"]){
+            if(!isset($_SESSION["user"])){
     			$this->session->set_flashdata('status-login', 'False');
                 redirect(base_url());
             }
@@ -135,7 +135,7 @@ class Home extends CI_Controller {
         }
         public function customer()
         {
-            if(!$_SESSION["user"]){
+            if(!isset($_SESSION["user"])){
     			$this->session->set_flashdata('status-login', 'False');
                 redirect(base_url());
             }
@@ -241,7 +241,7 @@ class Home extends CI_Controller {
         }
         public function penggajian()
         {
-            if(!$_SESSION["user"]){
+            if(!isset($_SESSION["user"])){
     			$this->session->set_flashdata('status-login', 'False');
                 redirect(base_url());
             }
@@ -261,7 +261,7 @@ class Home extends CI_Controller {
     //buat slip gaji
         public function gaji()
         {
-            if(!$_SESSION["user"]){
+            if(!isset($_SESSION["user"])){
                 $this->session->set_flashdata('status-login', 'False');
                 redirect(base_url());
             }
@@ -281,7 +281,7 @@ class Home extends CI_Controller {
     //data slip gaji
         public function report_gaji()
         {
-            if(!$_SESSION["user"]){
+            if(!isset($_SESSION["user"])){
                 $this->session->set_flashdata('status-login', 'False');
                 redirect(base_url());
             }
@@ -310,7 +310,7 @@ class Home extends CI_Controller {
     //Mutasi bon supir
         public function report_bon()
         {
-            if(!$_SESSION["user"]){
+            if(!isset($_SESSION["user"])){
     			$this->session->set_flashdata('status-login', 'False');
                 redirect(base_url());
             }
@@ -330,7 +330,7 @@ class Home extends CI_Controller {
     //Saldo bon supir
         public function saldo_bon()
         {
-            if(!$_SESSION["user"]){
+            if(!isset($_SESSION["user"])){
                 $this->session->set_flashdata('status-login', 'False');
                 redirect(base_url());
             }
@@ -351,7 +351,7 @@ class Home extends CI_Controller {
     // bon
         public function bon()
         {
-            if(!$_SESSION["user"]){
+            if(!isset($_SESSION["user"])){
     			$this->session->set_flashdata('status-login', 'False');
                 redirect(base_url());
             }
@@ -411,7 +411,7 @@ class Home extends CI_Controller {
     //fungsi untuk truk
         public function truck()
         {
-            if(!$_SESSION["user"]){
+            if(!isset($_SESSION["user"])){
     			$this->session->set_flashdata('status-login', 'False');
                 redirect(base_url());
             }
@@ -472,7 +472,7 @@ class Home extends CI_Controller {
         
         public function invoice()
         {
-            if(!$_SESSION["user"]){
+            if(!isset($_SESSION["user"])){
     			$this->session->set_flashdata('status-login', 'False');
                 redirect(base_url());
             }
@@ -491,7 +491,7 @@ class Home extends CI_Controller {
 
         public function invoice_customer()
         {
-            if(!$_SESSION["user"]){
+            if(!isset($_SESSION["user"])){
     			$this->session->set_flashdata('status-login', 'False');
                 redirect(base_url());
             }
@@ -536,7 +536,7 @@ class Home extends CI_Controller {
     //Akun
         public function akun()
         {
-            if(!$_SESSION["user"]){
+            if(!isset($_SESSION["user"])){
     			$this->session->set_flashdata('status-login', 'False');
                 redirect(base_url());
             }
@@ -579,7 +579,7 @@ class Home extends CI_Controller {
     //rute dan muatan
         public function satuan()
         {
-            if(!$_SESSION["user"]){
+            if(!isset($_SESSION["user"])){
                 $this->session->set_flashdata('status-login', 'False');
                 redirect(base_url());
             }
@@ -607,7 +607,7 @@ class Home extends CI_Controller {
     //fungsi untuk merk
         public function merk()
         {
-            if(!$_SESSION["user"]){
+            if(!isset($_SESSION["user"])){
                 $this->session->set_flashdata('status-login', 'False');
                 redirect(base_url());
             }

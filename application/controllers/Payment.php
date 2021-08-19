@@ -14,7 +14,7 @@ class Payment extends CI_Controller {
 
     public function payment_invoice($invoice_kode)
     {
-        if(!$_SESSION["user"]){
+        if(!isset($_SESSION["user"])){
     		$this->session->set_flashdata('status-login', 'False');
             redirect(base_url());
         }
@@ -31,7 +31,7 @@ class Payment extends CI_Controller {
 
     public function payment_gaji($gaji_id)
     {
-        if(!$_SESSION["user"]){
+        if(!isset($_SESSION["user"])){
     		$this->session->set_flashdata('status-login', 'False');
             redirect(base_url());
         }
@@ -48,7 +48,7 @@ class Payment extends CI_Controller {
 
     public function payment_jo($jo_id)
     {
-        if(!$_SESSION["user"]){
+        if(!isset($_SESSION["user"])){
     		$this->session->set_flashdata('status-login', 'False');
             redirect(base_url());
         }
