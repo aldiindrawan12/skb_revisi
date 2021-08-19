@@ -1,8 +1,8 @@
-<body style='background-color:#182039';> 
+<body class="mt-5" style='background-color:#182039';> 
 
-<div class="container-fluid mt-5 p-5" style='background-color:#182039';>
-    <div class="card shadow mx-5">
-    <div class="card-header py-3" style='background-color:#212B4E';>
+<div class="container-fluid mt-5" style='background-color:#182039';>
+    <div class="card shadow " style='background-color:#212B4E';>
+    <div class="card-header " style='background-color:#212B4E';>
         <h6 class="m-0 font-weight-bold text-light float-left" >Seluruh Data Akun</h6>
         <?php if($_SESSION["role"] == "Super User"){?>
             <a class="btn btn-primary btn-icon-split float-right" data-toggle="modal" data-target="#popup-tambah-akun">

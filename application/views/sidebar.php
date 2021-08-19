@@ -1,10 +1,10 @@
 <body id="page-top" onload="asd()">
     <!-- Page Wrapper -->
-    <div id="wrapper">
+    <div id="wrapper" >
         <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column bg-light">
+        <div id="content-wrapper" class="d-flex flex-column bg-light" >
             <!-- Main Content -->
-            <div id="content">
+            <div id="content" style='background-color:#182039'>
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand-lg navbar-light bg-black fixed-top mb-5" style='background-color:#212B4E' >
                   <a class="sidebar-brand d-flex align-items-center justify-content-center">               
