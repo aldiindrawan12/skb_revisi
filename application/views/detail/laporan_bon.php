@@ -8,20 +8,22 @@
 <body class="mt-5" style='background-color:#182039';> 
 <div class="mt-5 p-2" style='background-color:#182039';>
     <div class="card shadow " style='background-color:#182039';>
-        <div class="card-header py-3 mb-4 d-flex justify-content-end" style='background-color:#182039';>
-            <h6 class="container-fluid  float-left font-weight-bold text-light">Mutasi Kasbon Supir</h6>
+        <div class="card-header " style='background-color:#182039';>
+            <h6 class="container float-left font-weight-bold text-light">Mutasi Kasbon Supir</h6>
             <div class="row float-right mr-3">
                 <a href="" class="btn btn-sm btn-primary btn-icon-split mr-3" onclick="print_bon()">
                         <span class="icon text-white-100">
                             <i class="fas fa-print"></i> 
                         </span>
-                        <span class="text">Print/PDF</span>
+                        <span class="text">
+                            Print/PDF
+                        </span>
                 </a>
             </div>
             <div class="row float-right mr-3">
                 <form method="POST" action="<?= base_url("index.php/print_berkas/mutasi_excel/")?>" id="convert_form">
                     <input type="hidden" name="file_content" id="file_content">
-                    <button type="submit" name="convert" id="convert" class="btn btn-success btn-sm btn-icon-split">
+                    <button type="submit" name="convert" id="convert" class="btn btn-success btn-sm btn-icon-split mr-3">
                         <span class="icon text-white-100">  
                             <i class="fas fa-print"></i>
                         </span>
