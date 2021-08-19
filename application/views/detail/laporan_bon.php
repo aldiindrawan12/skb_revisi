@@ -5,9 +5,9 @@
         return $tanggal;
     }
 ?>
-<body style='background-color:#182039';> 
-<div class="mt-5 p-5" style='background-color:#182039';>
-    <div class="card shadow mb-4 mt-3" style='background-color:#182039';>
+<body class="mt-5" style='background-color:#182039';> 
+<div class="mt-5 p-2" style='background-color:#182039';>
+    <div class="card shadow " style='background-color:#182039';>
         <div class="card-header py-3 mb-4 d-flex justify-content-end" style='background-color:#182039';>
             <h6 class="container-fluid  float-left font-weight-bold text-light">Mutasi Kasbon Supir</h6>
             <div class="row float-right mr-3">
@@ -15,9 +15,7 @@
                         <span class="icon text-white-100">
                             <i class="fas fa-print"></i> 
                         </span>
-                        <span class="text">
-                            Print/PDF
-                        </span>
+                        <span class="text">Print/PDF</span>
                 </a>
             </div>
             <div class="row float-right mr-3">
@@ -55,55 +53,56 @@
                             <input autocomplete="off" type="text" class="form-control col-md-2" id="tanggal2" name="tanggal2" value="<?= $tanggal2?>" readonly>
                         </div>
                 </div>
-                <table class="table table-bordered text-light" id="Table-Mutasi">
-                    <thead>
-                        <tr>
-                            <th class="text-center">Tanggal Transaksi</th>
-                            <th class="text-center">No.Bon</th>
-                            <th class="text-center">No.Slip Gaji</th>
-                            <th class="text-center">Keterangan</th>
-                            <th class="text-center">Debit</th>
-                            <th class="text-center">Kredit</th>
-                            <th class="text-center">Saldo Kasbon</th>
-                        </tr>    
-                    </thead>
-                    <tbody>  
-                        <?php  
-                                $saldo=0;
-                                if(count($transaksi_bon)==0){
-                                    $saldo_awal = 0;
-                                }else{
-                                    $saldo_awal = $transaksi_bon[0]["bon_nominal"];                                
-                                }
-                                $debit = 0;
-                                $kredit = 0;
-                        foreach($transaksi_bon as $value){?>
-                            <tr>
-                                <td class="text-center" width="12%"><?= change_tanggal($value["bon_tanggal"])?></td>
-                                <td class="text-center"><?= $value["bon_id"]?></td>
-                                <td class="text-center"><?= $value["pembayaran_upah_id"]?></td>
-                                <td class="" width="27%"><?= $value["bon_keterangan"]?></td>
-                                <?php if($value["bon_jenis"]=="Pembayaran" || $value["bon_jenis"]=="Potong Gaji"){
-                                    $saldo-=$value["bon_nominal"];
-                                    $debit+=$value["bon_nominal"];?>
-                                    <td class="">Rp.<?= number_format($value["bon_nominal"],2,',','.')?></td>
-                                    <td class="">Rp.0</td>
-                                <?php }else{
-                                    $saldo+=$value["bon_nominal"];
-                                    $kredit+=$value["bon_nominal"];?>
-                                    <td class="">Rp.0</td>
-                                    <td class="">Rp.<?= number_format($value["bon_nominal"],2,',','.')?></td>
-                                <?php }
-                                if($saldo==0){?>
-                                    <td class="">Lunas</td>
-                                <?php }else{?>
-                                    <td class="">Rp.<?= number_format($saldo,2,',','.')?></td>
-                                <?php }?>
-                            </tr>
-                        <?php }?>
-                    </tbody>
-                </table>
-                
+                                <div class="table-responsive text-light">
+                                        <table class="table table-bordered text-light" id="Table-Mutasi">
+                                            <thead>
+                                                <tr>
+                                                    <th class="text-center">Tanggal Transaksi</th>
+                                                    <th class="text-center">No.Bon</th>
+                                                    <th class="text-center">No.Slip Gaji</th>
+                                                    <th class="text-center">Keterangan</th>
+                                                    <th class="text-center">Debit</th>
+                                                    <th class="text-center">Kredit</th>
+                                                    <th class="text-center">Saldo Kasbon</th>
+                                                </tr>    
+                                            </thead>
+                                            <tbody>  
+                                                <?php  
+                                                        $saldo=0;
+                                                        if(count($transaksi_bon)==0){
+                                                            $saldo_awal = 0;
+                                                        }else{
+                                                            $saldo_awal = $transaksi_bon[0]["bon_nominal"];                                
+                                                        }
+                                                        $debit = 0;
+                                                        $kredit = 0;
+                                                foreach($transaksi_bon as $value){?>
+                                                    <tr>
+                                                        <td class="text-center" width="12%"><?= change_tanggal($value["bon_tanggal"])?></td>
+                                                        <td class="text-center"><?= $value["bon_id"]?></td>
+                                                        <td class="text-center"><?= $value["pembayaran_upah_id"]?></td>
+                                                        <td class="" width="27%"><?= $value["bon_keterangan"]?></td>
+                                                        <?php if($value["bon_jenis"]=="Pembayaran" || $value["bon_jenis"]=="Potong Gaji"){
+                                                            $saldo-=$value["bon_nominal"];
+                                                            $debit+=$value["bon_nominal"];?>
+                                                            <td class="">Rp.<?= number_format($value["bon_nominal"],2,',','.')?></td>
+                                                            <td class="">Rp.0</td>
+                                                        <?php }else{
+                                                            $saldo+=$value["bon_nominal"];
+                                                            $kredit+=$value["bon_nominal"];?>
+                                                            <td class="">Rp.0</td>
+                                                            <td class="">Rp.<?= number_format($value["bon_nominal"],2,',','.')?></td>
+                                                        <?php }
+                                                        if($saldo==0){?>
+                                                            <td class="">Lunas</td>
+                                                        <?php }else{?>
+                                                            <td class="">Rp.<?= number_format($saldo,2,',','.')?></td>
+                                                        <?php }?>
+                                                    </tr>
+                                                <?php }?>
+                                            </tbody>
+                                        </table>
+                                </div>
                 
             </div>
             <div class="container-fluid ">
