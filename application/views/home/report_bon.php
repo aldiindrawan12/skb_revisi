@@ -1,5 +1,5 @@
-<body style='background-color:#182039';> 
-<div class="mt-5 p-5" style='background-color:#182039';>
+<body class="mt-5" style='background-color:#182039';> 
+<div class="mt-2 p-2" style='background-color:#182039';>
     <div class="card shadow mb-4 mt-3" style='background-color:#182039';>
     <div class="card-header py-3" style='background-color:#182039';>
         <h6 class="m-0 font-weight-bold text-light">Data Mutasi Kasbon Supir <small>(Pilih Nama Supir)</small></h6>
