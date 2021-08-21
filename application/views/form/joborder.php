@@ -1,11 +1,12 @@
-<body style='background-color:#182039';> 
+<body class="mt-5"  style='background-color:#182039';> 
 
-<div class="container-float mt-5 p-5" style='background-color:#182039'; >
+<div class="container mt-5 " style='background-color:#182039'; >
         <!-- Card Formulir JO -->
-        <div class="container card shadow mt-3 mb-4" style='background-color:#212B4E';>
-            <div class="card-header text-light" style='background-color:#212B4E';>
-                <h6 class="m-0 font-weight-bold p-2 ">Form Buat Job Order</h6>
+        <div class="card-header text-light" style='background-color:#212B4E';>
+                <h5 class="font-weight-bold m-4 ">Form Buat Job Order</h5>
             </div>
+        <div class="container card shadow mt-3 mb-4" style='background-color:#212B4E';>
+            
             <div class="card-body text-light">
                 <!-- form Job Order Baru -->
                 <!-- <small>Pilih Rute Yang Tersedia Pada Tabel Rute Dibawah</small> -->
@@ -107,8 +108,8 @@
                     <input autocomplete="off" type="text" class="form-control col-md-7" id="Upah" name="Upah" required hidden>
                     <input autocomplete="off" type="text" class="form-control col-md-7" id="Tagihan" name="Tagihan" required hidden>
                     <div class="col-md-12 ">
-                        <button type="submit" class="btn btn-success ml-3 mt-5 float-md-right">Simpan</button>
-                        <button type="reset" class="btn btn-outline-danger mb-3 mt-5  float-md-right" onclick="reset_form()">Reset</button>
+                        <button type="submit" class="btn btn-success float-right  mr-3">Simpan</button>
+                        <button type="reset" class="btn btn-outline-danger float-right mr-2" onclick="reset_form()">Reset</button>
                     </div>
                 </form>
                 <!-- end form Job Order Baru -->

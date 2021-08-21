@@ -69,8 +69,9 @@
                     <input autocomplete="off" type="text" class="form-control col-md-9" id="Jo_id" name="Jo_id">
                 </div>
                 <div class="row float-right form-group mt-3 mb-5">
-                    <button class="btn btn-primary mr-2" id="btn-cari" onclick="ditemukan()">Cari</button>
-                    <button class="btn btn-danger" onclick="reset_form()">Reset</button>
+                <button class="btn btn-danger mr-2" onclick="reset_form()">Reset</button>
+                <button class="btn btn-primary " id="btn-cari" onclick="ditemukan()">Cari</button>
+                    
                 </div>
             </div>
           
@@ -100,7 +101,7 @@
                         </button>
                     </form>
                     <button class="btn btn-info btn-sm float-right mr-3" onclick="pdf()">Print/Export PDF</button>
-                </div>
+                    </div>
 
 
 

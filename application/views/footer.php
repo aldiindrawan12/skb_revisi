@@ -1147,7 +1147,7 @@
                         render: function(data, type, row) {
                             var role_user = "<?=$_SESSION['role']?>";
                             let html = "";
-                            html += "<a class='btn btn-light btn-sm' target='_blank' href='<?= base_url('index.php/detail/detail_jo/"+data+"/JO')?>'><i class='fas fa-eye'></i></a>";
+                            html += "<a class='btn btn-light btn-sm mb-1 mr-md-1 mb-md-0' target='_blank' href='<?= base_url('index.php/detail/detail_jo/"+data+"/JO')?>'><i class='fas fa-eye'></i></a>";
                             if(role_user=="Supervisor"){
                                 $.ajax({
                                     type: "GET",
@@ -1162,12 +1162,12 @@
                                             // html += "<a class='btn btn-light btn-alert-edit-jo' href='javascript:void(0)' data-pk="+data+"><i class='fas fa-pen-square'></i></a>";
                                         // }else{
                                                 // html += "<a class='btn btn-light btn-update-jo' data-toggle='modal' data-target='#popup-update-jo' href='javascript:void(0)' data-pk="+data+"><i class='fas fa-pen-square'></i></a>";
-                                            html += "<a class='btn btn-light btn-sm ml-1 mr-1' href='<?= base_url('index.php/form/edit_jo/')?>"+data+"'><i class='fas fa-pen-square'></i></a>";
+                                            html += "<a class='btn btn-light btn-sm mb-1 mr-md-1 mb-md-0' href='<?= base_url('index.php/form/edit_jo/')?>"+data+"'><i class='fas fa-pen-square'></i></a>";
                                         // }
                                     }
                                 })
                                 
-                                html += "<a class='btn btn-light btn-delete-jo btn-sm' href='javascript:void(0)' data-pk="+data+"><i class='fas fa-trash-alt'></i></a>";
+                                html += "<a class='btn btn-light btn-delete-jo btn-sm mb-1 mr-md-1 mb-md-0' href='javascript:void(0)' data-pk="+data+"><i class='fas fa-trash-alt'></i></a>";
                             }
                             return html;
                         }
