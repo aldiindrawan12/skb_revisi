@@ -1,6 +1,6 @@
 
 
-<body style='background-color:#182039';> 
+<body class="mt-5" style='background-color:#182039';> 
 <?php
     function change_tanggal($data){
         if($data==""){
@@ -13,9 +13,9 @@
     }
     $array_keterangan = explode("===",$jo["keterangan"]);
 ?>
-<div class="container-fluid mt-5 p-5" style='background-color:#182039';>
+<div class="container mt-5" style='background-color:#182039';>
         <!-- Basic Card Example -->
-        <div class="card shadow mx-5 " style='background-color:#212B4E';>
+        <div class="card shadow " style='background-color:#212B4E';>
             <div class="card-header " style='background-color:#212B4E';>
                 <h6 class="mt-2 font-weight-bold text-light float-left ">Detail Job Order</h6>
                 <div class="float-right ml-3">
@@ -32,21 +32,21 @@
                     </form>
                 </div>
             </div>
-            <div class="card-body text-light" style='background-color:#212B4E';>
+     
                 <!-- tampilan detail jo -->
-                <div class="container" id="detail-jo">
-                    <table class="table table-bordered text-light" id="Table-JO">
+                <div class="mt-3" id="detail-jo">
+                    <table class="table table-responsive table-bordered text-light" id="Table-JO">
                         <tbody>     
                             <tr>
-                                <td class="font-weight-bold" style="width: 25%;">ID JO</td>
+                                <td class="font-weight-bold">ID JO</td>
                                 <td colspan=3><?= $jo["Jo_id"] ?></td>
                             </tr>
                             <tr>
-                                <td class="font-weight-bold" style="width: 25%;">Tanggal JO</td>
+                                <td class="font-weight-bold">Tanggal JO</td>
                                 <td colspan=3><?= change_tanggal($jo["tanggal_surat"]) ?></td>
                             </tr>
                             <tr>
-                                <td class="font-weight-bold" style="width: 25%;">Supir</td>                
+                                <td class="font-weight-bold">Supir</td>                
                                     <?php if($jo["status"]=="Dalam Perjalanan"){?>
                                         <td colspan=3>
                                             <div class="row ">
@@ -61,7 +61,7 @@
                                     <?php }?>
                             </tr>
                             <tr>
-                                <td class="font-weight-bold" style="width: 25%;">Kendaraan</td>
+                                <td class="font-weight-bold">Kendaraan</td>
                                     <?php if($jo["status"]=="Dalam Perjalanan"){?>
                                         <td colspan=3>
                                             <div class="row ">
@@ -76,59 +76,59 @@
                                     <?php }?>
                             </tr>
                             <tr>
-                                <td class="font-weight-bold" style="width: 25%;">Customer</td>
+                                <td class="font-weight-bold" >Customer</td>
                                 <td colspan=3><?= $customer["customer_name"] ?></td>
                             </tr>
                             <tr>
-                                <td class="font-weight-bold" style="width: 25%;">Muatan</td>
+                                <td class="font-weight-bold" >Muatan</td>
                                 <td colspan=3><?= $jo["muatan"] ?></td>
                             </tr>
                             <tr>
-                                <td class="font-weight-bold" style="width: 25%;">Dari</td>
+                                <td class="font-weight-bold" >Dari</td>
                                 <td colspan=3><?= $jo["asal"] ?></td>
                             </tr>
                             <tr>
-                                <td class="font-weight-bold" style="width: 25%;">Ke</td>
+                                <td class="font-weight-bold" >Ke</td>
                                 <td colspan=3><?= $jo["tujuan"] ?></td>
                             </tr>
                             <tr>
-                                <td class="font-weight-bold " style="width: 25%;">Uang Jalan</td>
+                                <td class="font-weight-bold " >Uang Jalan</td>
                                 <td colspan=3><p>Rp.<?= number_format($jo["uang_jalan"],0,',','.') ?></p></td>
                             </tr>
                             <tr>
-                                <td class="font-weight-bold " style="width: 25%;">Tambahan/Potongan Uang Jalan</td>
+                                <td class="font-weight-bold " >Tambahan/Potongan Uang Jalan</td>
                                     <td colspan=3><p>Rp.<?= number_format($jo["nominal_tambahan"],0,',','.') ?> (<?= $jo["jenis_tambahan"]?>)</p></td>
                             </tr>
                             <tr>
-                                <td class="font-weight-bold " style="width: 25%;">Total Uang Jalan</td>
+                                <td class="font-weight-bold " >Total Uang Jalan</td>
                                 <td colspan=3><p>Rp.<?= number_format($jo["uang_total"],0,',','.')?></p></td>
                             </tr>
                             <tr>
-                                <td class="font-weight-bold " style="width: 25%;">Sisa Uang Jalan</td>
+                                <td class="font-weight-bold " >Sisa Uang Jalan</td>
                                 <td colspan=3>Rp.<?=number_format($jo["sisa"],0,',','.')?></td>
                             </tr>
                             <tr>
-                                <td class="font-weight-bold" style="width: 20%;">Keterangan</td>
+                                <td class="font-weight-bold" >Keterangan</td>
                                 <td colspan=3><?= $array_keterangan[0]?></td>
                             </tr>
                             <tr>
-                                <td class="font-weight-bold" style="width: 25%;">Status</td>
+                                <td class="font-weight-bold" >Status</td>
                                 <td colspan=3><?= $jo["status"] ?></td>
                             </tr>
                             <tr>
-                                <td class="font-weight-bold" style="width: 25%;">Tanggal Muat</td>
+                                <td class="font-weight-bold" >Tanggal Muat</td>
                                 <td colspan=3><?= change_tanggal($jo["tanggal_muat"]) ?></td>
                             </tr>
                             <tr>
-                                <td class="font-weight-bold" style="width: 25%;">Tanggal Bongkar</td>
+                                <td class="font-weight-bold" >Tanggal Bongkar</td>
                                 <td colspan=3><?= change_tanggal($jo["tanggal_bongkar"]) ?></td>
                             </tr>
                             <tr>
-                                <td class="font-weight-bold" style="width: 25%;">Berat Muatan</td>
+                                <td class="font-weight-bold" >Berat Muatan</td>
                                 <td colspan=3><?= $jo["tonase"] ?></td>
                             </tr>
                             <tr>
-                                <td class="font-weight-bold" style="width: 25%;">Biaya Lain-lain</td>
+                                <td class="font-weight-bold" >Biaya Lain-lain</td>
                                 <td colspan=3>Rp.<?= number_format($jo["biaya_lain"],0,',','.')?></td>
                             </tr>
                             <tr>
@@ -140,50 +140,50 @@
                                 }?>
                             </tr>
                             <tr>
-                                <td class="font-weight-bold" style="width: 25%;">No Slip Gaji</td>
+                                <td class="font-weight-bold" >No Slip Gaji</td>
                                 <td colspan=3><?= $slip_gaji[0]["pembayaran_upah_id"] ?></td>
                             </tr>
                             <tr>
-                                <td class="font-weight-bold" style="width: 25%;">Tanggal Slip Gaji</td>
+                                <td class="font-weight-bold" >Tanggal Slip Gaji</td>
                                 <td colspan=3><?= change_tanggal($slip_gaji[0]["pembayaran_upah_tanggal"]) ?></td>
                             </tr>
                             <tr>
-                                <td class="font-weight-bold" style="width: 25%;">Nominal Gaji</td>
+                                <td class="font-weight-bold" >Nominal Gaji</td>
                                 <td colspan=3>Rp.<?= number_format($jo["upah"],0,',','.')?></td>
                             </tr>
                             <tr>
-                                <td class="font-weight-bold" style="width: 25%;">No Invoice</td>
+                                <td class="font-weight-bold" >No Invoice</td>
                                 <td colspan=3><?= $invoice[0]["invoice_id"]?></td>
                             </tr>
                             <tr>
-                                <td class="font-weight-bold" style="width: 25%;">Tanggal Invoice</td>
+                                <td class="font-weight-bold" >Tanggal Invoice</td>
                                 <td colspan=3><?= change_tanggal($invoice[0]["tanggal_invoice"])?></td>
                             </tr>
                             <tr>
-                                <td class="font-weight-bold" style="width: 25%;">Nominal Invoice</td>
+                                <td class="font-weight-bold" >Nominal Invoice</td>
                                 <td colspan=3>Rp.<?= number_format($jo["total_tagihan"],0,',','.')?></td>
                             </tr>
                             <tr>
-                                <td class="font-weight-bold" style="width: 25%;">Pembuat JO</td>
+                                <td class="font-weight-bold" >Pembuat JO</td>
                                 <td colspan=3><?= $jo["user"]?></td>
                             </tr>
                             <tr>
-                                <td class="font-weight-bold" style="width: 25%;">Penutup JO</td>
+                                <td class="font-weight-bold" >Penutup JO</td>
                                 <td colspan=3><?= $jo["user_closing"]?></td>
                             </tr>
                             <tr>
-                                <td class="font-weight-bold" style="width: 25%;">Pembuat Slip Gaji</td>
+                                <td class="font-weight-bold" >Pembuat Slip Gaji</td>
                                 <td colspan=3><?= $slip_gaji[0]["user_upah"]?></td>
                             </tr>
                             <tr>
-                                <td class="font-weight-bold" style="width: 25%;">Pembuat Invoice</td>
+                                <td class="font-weight-bold" >Pembuat Invoice</td>
                                 <td colspan=3><?= $invoice[0]["user_invoice"]?></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
                 <!-- end tampilan detail jo -->
-            </div>
+            
         </div>
 </div>
 
