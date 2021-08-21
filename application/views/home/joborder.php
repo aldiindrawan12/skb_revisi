@@ -6,81 +6,92 @@
             <h6 class="m-0 font-weight-bold text-light">Seluruh Data Job Order</h6>
         </div>
         <!-- tabel JO -->
-        <div class="card-body text-light mt-3 ">
-            <div class="conatiner w-50 m-auto ">
-                <div class="mb-2 form-group row">
-                    <label for="Status" class="form-label font-weight-bold col-md-3">Status</label>
-                    <select name="Status" id="Status" class="form-control selectpicker col-md-9" data-live-search="true">
-                        <option class="font-w700" selected value="">Semua Status</option>
-                        <option value="Dalam Perjalanan">ONGOING</option>
-                        <option value="Sampai Tujuan">DONE</option>
-                    </select>
-                </div>
-                <div class="mb-2 form-group row">
-                    <label class="form-label font-weight-bold col-md-3" for="Supir">Driver</label>
-                    <select name="Supir" id="Supir" class="form-control selectpicker col-md-9" data-live-search="true">
-                        <option class="font-w700" disabled="disabled" selected value="">Supir Pengiriman</option>
-                        <?php foreach($supir as $value){?>
-                            <option value="<?=$value["supir_id"]?>"><?=$value["supir_name"]?></option>
-                        <?php }?>
-                    </select>
-                </div>
-                <div class="mb-2 form-group row">
-                    <label class="form-label font-weight-bold col-md-3" for="Kendaraan">No. Polisi</label>
-                    <select name="Kendaraan" id="Kendaraan" class="form-control selectpicker col-md-9" data-live-search="true">
-                        <option class="font-w700 font-weight-bold" disabled="disabled" selected value="">Kendaraan Pengiriman</option>
-                        <?php foreach($mobil as $value){?>
-                                <option value="<?=$value["mobil_no"]?>"><?=$value["mobil_no"]?></option>
-                        <?php }?>
-                    </select>
-                </div>
-                <div class="mb-2 form-group row">
-                    <label class="form-label font-weight-bold col-md-3" for="Jenis">Jenis Mobil</label>
-                    <select name="Jenis" id="Jenis" class="form-control selectpicker col-md-9" data-live-search="true">
-                        <option class="font-w700 font-weight-bold" disabled="disabled" selected value="">Jenis Mobil</option>
-                        <?php $isi_jenis = array();
-                            foreach($mobil as $value){
-                            if(!in_array($value["mobil_jenis"],$isi_jenis)){
-                                array_push($isi_jenis[] = $value["mobil_jenis"]);
-                            }
-                        }?>
-                        <?php for($i=0;$i<count($isi_jenis);$i++){?>
-                            <option value="<?= $isi_jenis[$i]?>"><?= $isi_jenis[$i]?></option>
-                        <?php }?>
-                    </select>
-                </div>
-                <div class="mb-2 form-group row">
-                    <label class="form-label font-weight-bold col-md-3" for="Customer">Customer</label>
-                    <select name="Customer" value="DESC" id="Customer" class="form-control selectpicker col-md-9" data-live-search="true">
-                        <option class="font-w700" disabled="disabled" selected value="">Customer</option>
-                        <?php foreach($customer as $value){?>
-                            <option value="<?=$value["customer_id"]?>"><?=$value["customer_name"]?></option>
-                        <?php } ?>
-                    </select>
-                </div>
-                <div class="mb-2 form-group row">
-                    <label for="Tanggal" class="form-label font-weight-bold col-md-3">Tanggal JO</label>
-                    <input autocomplete="off" type="text" class="form-control col-md-3" id="Tanggal1" name="Tanggal1" onclick="tanggal_berlaku(this)">
-                    <span class="p-2 mr-2 ml-2">Sampai</span>
-                    <input autocomplete="off" type="text" class="form-control col-md-3" id="Tanggal2" name="Tanggal2" onclick="tanggal_berlaku(this)">
-                </div>
-                <div class="mb-2 form-group row">
-                    <label for="Jo_id" class="form-label font-weight-bold col-md-3">ID JO</label>
-                    <input autocomplete="off" type="text" class="form-control col-md-9" id="Jo_id" name="Jo_id">
-                </div>
-                <div class="row float-right form-group mt-3 mb-5">
-                <button class="btn btn-danger mr-2" onclick="reset_form()">Reset</button>
-                <button class="btn btn-primary " id="btn-cari" onclick="ditemukan()">Cari</button>
-                    
+        <div class="card-body text-light mt-3">
+            <div class="row">
+                <div class="col-12 col-md-6 mx-auto">
+                            <div class="container">
+                                <div class="mb-2 form-group row">
+                                    <label for="Status" class="form-label font-weight-bold col-md-3">Status</label>
+                                    <select name="Status" id="Status" class="form-control selectpicker col-md-9" data-live-search="true">
+                                        <option class="font-w700" selected value="">Semua Status</option>
+                                        <option value="Dalam Perjalanan">ONGOING</option>
+                                        <option value="Sampai Tujuan">DONE</option>
+                                    </select>
+                                </div>
+                                <div class="mb-2 form-group row">
+                                    <label class="form-label font-weight-bold col-md-3" for="Supir">Driver</label>
+                                    <select name="Supir" id="Supir" class="form-control selectpicker col-md-9" data-live-search="true">
+                                        <option class="font-w700" disabled="disabled" selected value="">Supir Pengiriman</option>
+                                        <?php foreach($supir as $value){?>
+                                            <option value="<?=$value["supir_id"]?>"><?=$value["supir_name"]?></option>
+                                        <?php }?>
+                                    </select>
+                                </div>
+                                <div class="mb-2 form-group row">
+                                    <label class="form-label font-weight-bold col-md-3" for="Kendaraan">No. Polisi</label>
+                                    <select name="Kendaraan" id="Kendaraan" class="form-control selectpicker col-md-9" data-live-search="true">
+                                        <option class="font-w700 font-weight-bold" disabled="disabled" selected value="">Kendaraan Pengiriman</option>
+                                        <?php foreach($mobil as $value){?>
+                                                <option value="<?=$value["mobil_no"]?>"><?=$value["mobil_no"]?></option>
+                                        <?php }?>
+                                    </select>
+                                </div>
+                                <div class="mb-2 form-group row">
+                                    <label class="form-label font-weight-bold col-md-3" for="Jenis">Jenis Mobil</label>
+                                    <select name="Jenis" id="Jenis" class="form-control selectpicker col-md-9" data-live-search="true">
+                                        <option class="font-w700 font-weight-bold" disabled="disabled" selected value="">Jenis Mobil</option>
+                                        <?php $isi_jenis = array();
+                                            foreach($mobil as $value){
+                                            if(!in_array($value["mobil_jenis"],$isi_jenis)){
+                                                array_push($isi_jenis[] = $value["mobil_jenis"]);
+                                            }
+                                        }?>
+                                        <?php for($i=0;$i<count($isi_jenis);$i++){?>
+                                            <option value="<?= $isi_jenis[$i]?>"><?= $isi_jenis[$i]?></option>
+                                        <?php }?>
+                                    </select>
+                                </div>
+                                <div class="mb-2 form-group row">
+                                    <label class="form-label font-weight-bold col-md-3" for="Customer">Customer</label>
+                                    <select name="Customer" value="DESC" id="Customer" class="form-control selectpicker col-md-9" data-live-search="true">
+                                        <option class="font-w700" disabled="disabled" selected value="">Customer</option>
+                                        <?php foreach($customer as $value){?>
+                                            <option value="<?=$value["customer_id"]?>"><?=$value["customer_name"]?></option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
+                                <div class="mb-2 form-group row">
+                                    <label for="Tanggal" class="form-label font-weight-bold col-md-3">Tanggal JO</label>
+                                    <input autocomplete="off" type="text" class="form-control col-md-3" id="Tanggal1" name="Tanggal1" onclick="tanggal_berlaku(this)">
+                                    <span class="p-2 mr-2 ml-2">Sampai</span>
+                                    <input autocomplete="off" type="text" class="form-control col-md-3" id="Tanggal2" name="Tanggal2" onclick="tanggal_berlaku(this)">
+                                </div>
+                                <div class="mb-2 form-group row">
+                                    <label for="Jo_id" class="form-label font-weight-bold col-md-3">ID JO</label>
+                                    <input autocomplete="off" type="text" class="form-control col-md-9" id="Jo_id" name="Jo_id">
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col-12 text-right">
+                                        <button class="btn btn-danger mr-2" onclick="reset_form()">Reset</button>
+                                        <button class="btn btn-primary" id="btn-cari" onclick="ditemukan()">Cari</button>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <div class="">
+                                        <button class="btn btn-block btn-light" id="ditemukan">Total Data JO Yang Ditemukan : <span class="font-weight-bold"><?= count($jo).' Data' ?></span></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-          
-            
-           
-            
+                    
+                
+        <div class="container-fluid">
             <div class="table-responsive thead-dark small" id="print_jo">
                             
-                    <div class="conatiner w-25 mb-2 ">
+                    <!-- <div class="container w-50 mb-2 ">
                         <label class="sr-only" for="inlineFormInputGroup">Username</label>
                         <div class="input-group mb-2">
                             <div class="input-group-prepend">
@@ -88,19 +99,20 @@
                             </div>
                             <input type="text" class="form-control font-weight-bolder" id="ditemukan" readonly value="<?= count($jo).' Data' ?>">
                         </div>
-                    </div>
-
-                    <div class="w-50 float-right">
-                    <form method="POST" action="<?= base_url("index.php/print_berkas/jo_excel_data/")?>" id="convert_form" class="col-md-2 float-right">
-                        <textarea cols="30" rows="10" name="file_content" id="file_content" hidden><?= json_encode($jo)?></textarea>
-                        <button type="submit" name="convert" id="convert" class="btn btn-success btn-sm btn-icon-split">
+                    </div> -->
+                    <div class="d-flex justify-content-center mb-3">
+                        <button type="submit" name="convert" id="convert" class="btn btn-success btn-sm btn-icon-split mr-2">
                             <span class="icon text-white-100">  
                                 <i class="fas fa-print"></i>
                             </span>
                             <span class="text">Excel</span>
                         </button>
+                        <button class="btn btn-info btn-sm float-right mr-3" onclick="pdf()">Print/Export PDF</button>
+                    </div>
+                    <div class="w-50 float-right">
+                    <form method="POST" action="<?= base_url("index.php/print_berkas/jo_excel_data/")?>" id="convert_form" class="col-md-2 float-right">
+                        <textarea cols="30" rows="10" name="file_content" id="file_content" hidden><?= json_encode($jo)?></textarea>
                     </form>
-                    <button class="btn btn-info btn-sm float-right mr-3" onclick="pdf()">Print/Export PDF</button>
                     </div>
 
 
@@ -130,8 +142,8 @@
                 </table>
             </div>
         </div>
-        <!-- end tabel JO -->
     </div>
+        <!-- end tabel JO -->
 </div>
 <div class="modal fade" id="popup-update-jo" tabindex="0" role="dialog" aria-labelledby="modal-block-large" aria-hidden="true">
     <div class="modal-dialog modal-xl"  role="document"  >
