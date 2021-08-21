@@ -1,6 +1,6 @@
-<body style='background-color:#182039';> 
+<body class="mt-5" style='background-color:#182039';> 
 
-<div class="container-fluid p-5 mt-5" style='background-color:#182039';>
+<div class="container-fluid mt-5" style='background-color:#182039';>
     <div class="card shadow mb-4" style='background-color:#212B4E';>
     <div class="card-header py-3" style='background-color:#212B4E';> 
         <h6 class="m-2 font-weight-bold text-light float-left">Seluruh Data Kendaraan</h6>
@@ -530,7 +530,7 @@
                 <div class="container w-10 text-center">
                     <img src="" alt="foto stnk" id="file_stnk_edit" class="img-thumbnail"style="width:630px;height:900;">
                 </div>
-                <a class="btn btn-success ACC" onclick='acc_edit_truck(this)'>ACC</a>
+                <a class="btn btn-success ACC mr-2" onclick='acc_edit_truck(this)'>ACC</a>
                 <a class="btn btn-danger Tolak" onclick='tolak_edit_truck(this)'>Tolak</a>
             </div>
         </div>

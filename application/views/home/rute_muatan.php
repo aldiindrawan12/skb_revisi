@@ -1,7 +1,7 @@
-<body style='background-color:#182039';> 
+<body class="mt-5" style='background-color:#182039';> 
 
 <!-- MENGGUNAKAN NAMA KOLOM YANG ENGKEL AJA -->
-<div class="container-fluid p-5 mt-5" style='background-color:#182039';>
+<div class="container  mt-5" style='background-color:#182039';>
     <div class="card shadow mb-4" style='background-color:#212B4E';>
     <div class="card-header py-3" style='background-color:#212B4E';>
         <h6 class="m-0 font-weight-bold text-light float-left">Seluruh Data Rute dan Muatan</h6>

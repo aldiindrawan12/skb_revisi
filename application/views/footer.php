@@ -202,9 +202,9 @@
                         "orderable": false,
                         render: function(data, type, row) {
                             let html = "";
-                            html += "<a class='btn btn-light btn-detail-truck mr-2' href='javascript:void(0)' data-toggle='modal' data-target='#popup-kendaraan' data-pk='"+data+"'><i class='fas fa-eye'></i></a>"
+                            html += "<a class='btn btn-light btn-detail-truck mb-1 mr-md-1 mb-md-0' href='javascript:void(0)' data-toggle='modal' data-target='#popup-kendaraan' data-pk='"+data+"'><i class='fas fa-eye'></i></a>"
                             if(row["validasi"]!="Pending" && row["validasi_edit"]!="Pending" && row["validasi_delete"]!="Pending"){
-                                html += "<a class='btn btn-light btn-update-truck mr-2' href='javascript:void(0)' data-toggle='modal' data-target='#popup-update-truck' data-pk='"+data+"'><i class='fas fa-pen-square'></i></a>"+
+                                html += "<a class='btn btn-light btn-update-truck mb-1 mr-md-1 mb-md-0' href='javascript:void(0)' data-toggle='modal' data-target='#popup-update-truck' data-pk='"+data+"'><i class='fas fa-pen-square'></i></a>"+
                                 "<a class='btn btn-light btn-delete-truck' href='javascript:void(0)' data-pk='"+data+"'><i class='fas fa-trash-alt'></i></a>";
                                 return html;
                             }
@@ -1708,9 +1708,9 @@
                         render: function(data, type, row) {
                             var role_user = "<?=$_SESSION['role']?>";
                             let html = "";
-                            html += "<a class='btn btn-light btn-detail-customer mr-1' href='javascript:void(0)' data-toggle='modal' data-target='#popup-detail-customer' data-pk='"+data+"'><i class='fas fa-eye'></i></a>";
+                            html += "<a class='btn btn-light btn-detail-customer mb-1 mr-md-1 mb-md-0' href='javascript:void(0)' data-toggle='modal' data-target='#popup-detail-customer' data-pk='"+data+"'><i class='fas fa-eye'></i></a>";
                             if(row["validasi"]!="Pending" && row["validasi_edit"]!="Pending" && row["validasi_delete"]!="Pending"){
-                                html += "<a class='btn btn-light btn-update-customer mr-1' data-toggle='modal' data-target='#popup-update-customer' href='javascript:void(0)' data-pk="+data+"><i class='fas fa-pen-square'></i></a>"+
+                                html += "<a class='btn btn-light btn-update-customer mb-1 mr-md-1 mb-md-0' data-toggle='modal' data-target='#popup-update-customer' href='javascript:void(0)' data-pk="+data+"><i class='fas fa-pen-square'></i></a>"+
                                 "<a class='btn btn-light btn-delete-customer' href='javascript:void(0)' data-pk="+data+"><i class='fas fa-trash-alt'></i></a>";
                                 return html;
                             }
@@ -2048,9 +2048,9 @@
                         "orderable": false,
                         render: function(data, type, row) {
                             let html = "";
-                            html += "<a class='btn btn-light btn-detail-supir mr-1' href='javascript:void(0)' data-toggle='modal' data-target='#popup-detail-supir' data-pk='"+data+"'><i class='fas fa-eye'></i></a>";
+                            html += "<a class='btn btn-light btn-detail-supir mb-1 mr-md-1 mb-md-0' href='javascript:void(0)' data-toggle='modal' data-target='#popup-detail-supir' data-pk='"+data+"'><i class='fas fa-eye'></i></a>";
                             if(row["validasi"]!="Pending" && row["validasi_edit"]!="Pending" && row["validasi_delete"]!="Pending"){
-                                html += "<a class='btn btn-light btn-update-supir mr-1' data-toggle='modal' data-target='#popup-update-supir' href='javascript:void(0)' data-pk="+data+"><i class='fas fa-pen-square'></i></a>"+
+                                html += "<a class='btn btn-light btn-update-supir mb-1 mr-md-1 mb-md-0' data-toggle='modal' data-target='#popup-update-supir' href='javascript:void(0)' data-pk="+data+"><i class='fas fa-pen-square'></i></a>"+
                                 "<a class='btn btn-light btn-delete-supir' href='javascript:void(0)' data-pk="+data+"><i class='fas fa-trash-alt'></i></a>";
                                 return html;
                             }
@@ -2964,9 +2964,9 @@
                         "orderable": false,
                         render: function(data, type, row) {
                             let html = "";
-                            html += "<a class='btn btn-light btn-detail-rute mr-1' href='javascript:void(0)' data-toggle='modal' data-target='#popup-detail-rute' data-pk='"+data+"'><i class='fas fa-eye'></i></a>";
+                            html += "<a class='btn btn-light btn-detail-rute mb-1 mr-md-1 mb-md-0' href='javascript:void(0)' data-toggle='modal' data-target='#popup-detail-rute' data-pk='"+data+"'><i class='fas fa-eye'></i></a>";
                             if(row["validasi_rute"]!="Pending" && row["validasi_rute_edit"]!="Pending" && row["validasi_rute_delete"]!="Pending"){
-                                html += "<a class='btn btn-light btn-update-rute mr-1' data-toggle='modal' data-target='#popup-update-rute' href='javascript:void(0)' data-pk="+data+"><i class='fas fa-pen-square'></i></a>"+
+                                html += "<a class='btn btn-light btn-update-rute mb-1 mr-md-1 mb-md-0' data-toggle='modal' data-target='#popup-update-rute' href='javascript:void(0)' data-pk="+data+"><i class='fas fa-pen-square'></i></a>"+
                                 "<a class='btn btn-light btn-delete-rute' href='javascript:void(0)' data-pk="+data+"><i class='fas fa-trash-alt'></i></a>";
                                 return html;
                             }
