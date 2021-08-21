@@ -1,8 +1,8 @@
-<body style='background-color:#182039';> 
+<body class="mt-5" style='background-color:#182039';> 
 
 
 <div class="info-supir mt-5"  style='background-color:#182039';>
-    <div class=" p-5 " style='background-color:#182039';> 
+    <div class="" style='background-color:#182039';> 
     <div class="card shadow mb-4 bg-black " style='background-color:#212B4E';>
             <div class="card-header py-3 text-center" style='background-color:#212B4E';>
             <h6 class="m-0 font-weight-bold btn-info disabled h4 p-3" style="border-radius:10px";>Job Order Belum Ada Invoice</h6>
