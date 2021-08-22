@@ -32,11 +32,14 @@
                 </form>
             </div>
         </div>
-        <div class="card-body">
+        <div class="card-body p-4">
             <!-- tampilan detail transaksi bon -->
-            <div class="container w-50 ml-2 mb-5">
+            <div class="d-flex justify-content-start ml-2 text-light">
+                    <h5>Filter Waktu</h5>
+                </div>
+            <div class="d-flex justify-content-start ml-2 mb-5">
                 <form action="<?= base_url("index.php/detail/detail_report_bon/").$supir_id."/periode"?>" method="POST">
-                    <div class="row">
+                    <div class="d-flex justify-content-start">
                     <input autocomplete="off" type="text" class="form-control col-md-3" id="tanggal1" name="tanggal1" value="<?= $tanggal1?>" required onclick="tanggal_berlaku(this)">
                     <span class="m-2 accordiontext-center text-light ">sd</span>
                     <input autocomplete="off" type="text" class="form-control col-md-3" id="tanggal2" name="tanggal2" value="<?= $tanggal2?>" required onclick="tanggal_berlaku(this)">
@@ -45,7 +48,7 @@
                 </form>
             </div>
             <div class="container-fluid mb-5" id="detail-bon-supir">
-                <div class="text-center mb-5 " id="supirnya">
+                <div class="text-center mb-4 " id="supirnya">
                     <h3 class="font-weight-bolder text-light">Nama Supir: <?=$supir?></h3>
                 </div>
                 <div class="ml-2 mb-3" id="tanggalnya">
