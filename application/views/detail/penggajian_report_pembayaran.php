@@ -9,29 +9,35 @@
 <body style='background-color:#182039';> 
 <div class="mt-5 p-1 small text-light" style='background-color:#182039';>
     <div class="card shadow mb-4 mt-3" style='background-color:#182039';>
-        <div class="card-header d-flex" style='background-color:#182039';>
+        <div class="card-header d-flex align-items-center" style='background-color:#182039';>
             <h6 class="m-0 col-md-7 font-weight-bold text-light">Detail Slip Gaji</h6>
-            <div class="d-flex justify-content-end col-md-5">
+            <div class="d-flex justify-content-end col-md-5 align-items-center">
                 <span><?= $pembayaran_upah[0]["user_upah"]?></span>
-                <form method="POST" action="<?= base_url("index.php/print_berkas/detail_gaji_excel/")?>" id="convert_form" class="ml-2 mr-2">
-                    <input type="hidden" name="file_content" id="file_content">
-                    <button type="submit" name="convert" id="convert" class="btn btn-success btn-sm btn-icon-split">
-                        <span class="icon text-white-100">  
-                            <i class="fas fa-print"></i>
-                        </span>
-                        <span class="text">Excel</span>
-                    </button>
-                </form>
-                <a onclick="print_rincian()" class="btn btn-primary btn-sm btn-icon-split">
-                    <span class="icon text-white-100">  
-                        <i class="fas fa-print"></i>
-                    </span>
-                    <span class="text">Print/PDF</span>
-                </a>
             </div>
         </div>
         <div class="card-body ">
-            <table class="w-50" >
+        
+        <div class="d-flex justify-content-end">
+            <form method="POST" action="<?= base_url("index.php/print_berkas/detail_gaji_excel/")?>" id="convert_form" class="d-flex justify-content-end">
+                        <input type="hidden" name="file_content" id="file_content">
+                        <button type="submit" name="convert" id="convert" class="btn btn-success btn-sm btn-icon-split mr-2">
+                            <span class="icon text-white-100">  
+                                <i class="fas fa-print"></i>
+                            </span>
+                            <span class="text">Excel</span>
+                        </button>
+                        <a onclick="print_rincian()" class="btn btn-primary btn-sm btn-icon-split">
+                        <span class="icon text-white-100">  
+                            <i class="fas fa-print"></i>
+                        </span>
+                        <span class="text">Print/PDF</span>
+                    </a>
+            </form>
+        </div>
+
+
+
+            <table class="" >
                 <tr id="status">
                     <td width="25%">Status</td>
                     <td width="5%">:</td>
@@ -44,10 +50,10 @@
             </table>
         </div>
         <div class="card-body" id="identitas">
-            <table class="w-50" id="Table-Identitas">
+            <table class="" id="Table-Identitas">
                 <tbody>
                     <tr>
-                        <td width="25%">Tanggal Slip Gaji</td>
+                        <td width="50%">Tanggal Slip Gaji</td>
                         <td width="5%">:</td>
                         <td><?= change_tanggal($pembayaran_upah[0]["pembayaran_upah_tanggal"])?></td>
                     </tr>
