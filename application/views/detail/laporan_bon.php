@@ -34,28 +34,32 @@
         </div>
         <div class="card-body p-4">
             <!-- tampilan detail transaksi bon -->
-            <div class="d-flex justify-content-start ml-2 text-light">
-                    <h5>Filter Waktu</h5>
-                </div>
-            <div class="d-flex justify-content-start ml-2 mb-5">
-                <form action="<?= base_url("index.php/detail/detail_report_bon/").$supir_id."/periode"?>" method="POST">
-                    <div class="d-flex justify-content-start">
-                    <input autocomplete="off" type="text" class="form-control col-md-3" id="tanggal1" name="tanggal1" value="<?= $tanggal1?>" required onclick="tanggal_berlaku(this)">
-                    <span class="m-2 accordiontext-center text-light ">sd</span>
-                    <input autocomplete="off" type="text" class="form-control col-md-3" id="tanggal2" name="tanggal2" value="<?= $tanggal2?>" required onclick="tanggal_berlaku(this)">
-                    <button type="submit" class="col-md-2 btn btn-primary ml-3">Terapkan</button>
+            <div class="container-fluid">          
+                    <div class="d-flex justify-content-start text-light">
+                            <h5>Filter Waktu</h5>
+                        </div>
+                    <div class="d-flex justify-content-start mb-5">
+                        <form action="<?= base_url("index.php/detail/detail_report_bon/").$supir_id."/periode"?>" method="POST">
+                            <div class="d-flex justify-content-start">
+                            <input autocomplete="off" type="text" class="form-control col-md-3" id="tanggal1" name="tanggal1" value="<?= $tanggal1?>" required onclick="tanggal_berlaku(this)">
+                            <span class="m-2 accordiontext-center text-light ">sd</span>
+                            <input autocomplete="off" type="text" class="form-control col-md-3" id="tanggal2" name="tanggal2" value="<?= $tanggal2?>" required onclick="tanggal_berlaku(this)">
+                            <button type="submit" class="col-md-2 btn btn-primary ml-3">Terapkan</button>
+                            </div>
+                        </form>
                     </div>
-                </form>
             </div>
+
+
             <div class="container-fluid mb-5" id="detail-bon-supir">
-                <div class="text-center mb-4 " id="supirnya">
+                <div class="text-center mb-4 p-3" id="supirnya">
                     <h3 class="font-weight-bolder text-light">Nama Supir: <?=$supir?></h3>
                 </div>
                 <div class="ml-2 mb-3" id="tanggalnya">
                         <div class="row">
-                            <input autocomplete="off" type="text" class="form-control col-md-2 " id="tanggal1" name="tanggal1" value="<?= $tanggal1?>" readonly>
+                            <input autocomplete="off" type="text" class="d-flex form-control bg-dark text-light" style="width:155px;" id="tanggal1" name="tanggal1" value="<?= $tanggal1?>" readonly>
                             <span class="m-2 text-center text-light">sd</span>
-                            <input autocomplete="off" type="text" class="form-control col-md-2" id="tanggal2" name="tanggal2" value="<?= $tanggal2?>" readonly>
+                            <input autocomplete="off" type="text" class="d-flex form-control bg-dark text-light" style="width:155px;" id="tanggal2" name="tanggal2" value="<?= $tanggal2?>" readonly>
                         </div>
                 </div>
                                 <div class="table-responsive text-light">
