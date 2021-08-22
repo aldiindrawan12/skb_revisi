@@ -141,7 +141,7 @@
                             <td class="text-center" width="5%"><?= $value["payment_upah_keterangan"]?></td>
                             <td class="text-center" width="5%">
                             <?php if($_SESSION['role']=="Supervisor"){?>
-                                <a class='btn btn-light' id="<?= $value["payment_upah_id"]?>" onclick="edit_payment_upah(this)" data-toggle="modal" data-target="#popup-edit-payment-upah"><i class='fas fa-pen-square'></i></a>
+                                <a class='btn btn-light mb-1 mr-md-1 mb-md-0' id="<?= $value["payment_upah_id"]?>" onclick="edit_payment_upah(this)" data-toggle="modal" data-target="#popup-edit-payment-upah"><i class='fas fa-pen-square'></i></a>
                                 <a class='btn btn-light' id="<?= $value["payment_upah_id"]?>" onclick="delete_payment_upah(this)"><i class='fas fa-trash-alt'></i></a>
                             <?php }?>
                             </td>
