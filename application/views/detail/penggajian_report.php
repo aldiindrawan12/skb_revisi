@@ -52,7 +52,7 @@
                 </div>
                 <div class="mb-2 form-group row">
                     <label for="No_Slip" class="form-label font-weight-bold col-md-4">No. Slip Gaji</label>
-                    <input autocomplete="off" type="text" class="form-control col-md-2" id="No_Slip1" name="No_Slip1" value="x">
+                    <input autocomplete="off" type="text" class="form-control col-md-2 " id="No_Slip1" name="No_Slip1" value="x">
                     <input autocomplete="off" type="text" class="form-control col-md-2" id="No_Slip2" name="No_Slip2" value="Gaji" readonly>
                     <select class="form-control col-md-2" id="No_Slip3" name="No_Slip3">
                         <option value="x">Bulan</option>
@@ -356,7 +356,7 @@
                         render: function(data, type, row) {
                             var role_user = "<?=$_SESSION['role']?>";
                             let html = "";
-                            html += "<a class='btn btn-light' target='_blank' href='<?= base_url('index.php/detail/detail_penggajian_report_pembayaran/')?>"+row["supir_id"]+"/"+data+"'><i class='fas fa-eye'></i></a>";
+                            html += "<a class='btn btn-light mb-1 mr-md-1 mb-md-0' target='_blank' href='<?= base_url('index.php/detail/detail_penggajian_report_pembayaran/')?>"+row["supir_id"]+"/"+data+"'><i class='fas fa-eye'></i></a>";
                             if(role_user=="Supervisor"){
                                 $.ajax({
                                     type: "GET",
@@ -368,9 +368,9 @@
                                     },
                                     success: function(hasil) { //jika ambil hasil sukses
                                         if(hasil>0){
-                                            html += "<a class='btn btn-light mr-1 ml-1 btn-alert-edit-slip'><i class='fas fa-pen-square'></i></a>";
+                                            html += "<a class='btn btn-light mb-1 mr-md-1 mb-md-0 btn-alert-edit-slip'><i class='fas fa-pen-square'></i></a>";
                                         }else{
-                                            html += "<a class='btn btn-light mr-1 ml-1 btn-update-slip' href='<?= base_url("index.php/form/edit_slip/")?>"+data+"'><i class='fas fa-pen-square'></i></a>";
+                                            html += "<a class='btn btn-light mb-1 mr-md-1 mb-md-0 btn-update-slip' href='<?= base_url("index.php/form/edit_slip/")?>"+data+"'><i class='fas fa-pen-square'></i></a>";
                                         }
                                     }
                                 });
