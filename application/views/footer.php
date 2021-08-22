@@ -1475,7 +1475,7 @@
                             var role_user = "<?=$_SESSION['role']?>";
                             let html = "";
                             if(role_user=="Supervisor"){
-                                html += "<a class='btn btn-light btn-update-bon mr-2' data-toggle='modal' data-target='#popup-update-bon' href='javascript:void(0)' data-pk="+data+"><i class='fas fa-pen-square'></i></a>"+
+                                html += "<a class='btn btn-light btn-update-bon mb-1 mr-md-1 mb-md-0 ' data-toggle='modal' data-target='#popup-update-bon' href='javascript:void(0)' data-pk="+data+"><i class='fas fa-pen-square'></i></a>"+
                                 "<a class='btn btn-light btn-delete-bon' href='javascript:void(0)' data-pk="+data+"><i class='fas fa-trash-alt'></i></a>";
                             }
                             return html;

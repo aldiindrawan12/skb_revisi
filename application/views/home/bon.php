@@ -43,10 +43,10 @@
                     </select>
                 </div>
                 <div class="mb-2 form-group row">
-                    <label for="No_Bon" class="form-label font-weight-bold col-md-4">No. Nota Kasbon</label>
-                    <input autocomplete="off" type="text" class="form-control col-md-2" id="No_Bon1" name="No_Bon1" value="x">
-                    <input autocomplete="off" type="text" class="form-control col-md-2" id="No_Bon2" name="No_Bon2" value="BON" readonly>
-                    <select class="form-control col-md-2" id="No_Bon3" name="No_Bon3">
+                    <label for="No_Bon" class="form-label font-weight-bold col-md-3">No. Nota Kasbon</label>
+                    <input autocomplete="off" type="text" class="form-control col-md-2 mb-1 mr-md-1 mb-md-0" id="No_Bon1" name="No_Bon1" value="x">
+                    <input autocomplete="off" type="text" class="form-control col-md-2 mb-1 mr-md-1 mb-md-0" id="No_Bon2" name="No_Bon2" value="BON" readonly>
+                    <select class="form-control col-md-2 mb-1 mr-md-1 mb-md-0" id="No_Bon3" name="No_Bon3">
                         <option value="x">Bulan</option>
                         <option value="01">Januari</option>
                         <option value="02">Februari</option>
@@ -77,7 +77,7 @@
                 </div>
             </div>
             <hr>
-            <div class="container w-50 m-auto">
+            <div class="d-flex justify-content-center bg-secondary rounded-pill">
                 <span>Total Data Nota Kasbon Yang Ditemukan : </span><span id="ditemukan"><?= count($bon)?></span><br>
             </div>
             <hr>
