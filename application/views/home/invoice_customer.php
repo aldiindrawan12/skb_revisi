@@ -25,7 +25,7 @@
                         <span class="text">Print/PDF</span>
                     </a>
                 </div>
-                    <div class="container-fluid m-auto">
+                    <div class="w-50 m-auto">
                         <div class="mb-2 mt-3 form-group row">
                             <label for="Status" class="form-label font-weight-bold col-md-3">Status</label>
                             <select name="Status" id="Status" class="form-control selectpicker col-md-9" data-live-search="true">

@@ -6,7 +6,7 @@
             <h6 class="m-0 font-weight-bold text-light">Seluruh Data Job Order</h6>
         </div>
         <!-- tabel JO -->
-        <div class="card-body text-light mt-3">
+        <div class="card-body text-light">
             <div class="row">
                 <div class="col-12 col-md-6 mx-auto">
                             <div class="container">

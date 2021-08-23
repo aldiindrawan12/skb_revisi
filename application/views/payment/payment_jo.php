@@ -152,15 +152,15 @@
                                 <td><?= $value["payment_jo_keterangan"]?></td>
                                 <td>
                                 <?php if($_SESSION['role']=="Supervisor"){?>
-                                    <a class='btn btn-light' target='_blank' href='<?= base_url('index.php/detail/detail_jo/'.$jo["Jo_id"].'/JO')?>'><i class='fas fa-eye'></i></a>
-                                    <a class='btn btn-light ' href='<?= base_url('index.php/print_berkas/uang_jalan/'.$value["payment_jo_id"].'/'.$jo["Jo_id"])?>'><i class='fas fa-print'></i></a>
-                                    <a class='btn btn-light' id="<?= $value["payment_jo_id"]?>" 
+                                    <a class='btn btn-light mb-1 mr-md-1 mb-md-0' target='_blank' href='<?= base_url('index.php/detail/detail_jo/'.$jo["Jo_id"].'/JO')?>'><i class='fas fa-eye'></i></a>
+                                    <a class='btn btn-light mb-1 mr-md-1 mb-md-0' href='<?= base_url('index.php/print_berkas/uang_jalan/'.$value["payment_jo_id"].'/'.$jo["Jo_id"])?>'><i class='fas fa-print'></i></a>
+                                    <a class='btn btn-light mb-1 mr-md-1 mb-md-0' id="<?= $value["payment_jo_id"]?>" 
                                         <?php if($jo["status"]!="Sampai Tujuan"){?>
                                             data-toggle="modal" data-target="#popup-edit-payment-jo"
                                         <?php }?>
                                         onclick="edit_payment_jo(this)"
                                         ><i class='fas fa-pen-square'></i></a>
-                                    <a class='btn btn-light' id="<?= $value["payment_jo_id"]?>" onclick="delete_payment_jo(this)"><i class='fas fa-trash-alt'></i></a>
+                                    <a class='btn btn-light mb-1 mr-md-1 mb-md-0' id="<?= $value["payment_jo_id"]?>" onclick="delete_payment_jo(this)"><i class='fas fa-trash-alt'></i></a>
                                 <?php }?>
                                 </td>
                             </tr>
