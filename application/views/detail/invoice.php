@@ -40,10 +40,12 @@
         </a>
 <div class="card shadow text-light" style='background-color:#182039';> 
 
-    <div class="card-header py-3 mt-3" style='background-color:#182039';>
-   
+    <div class="card-header py-3 " style='background-color:#182039';>
         <h6 class="m-0 font-weight-bold text-light ">Detail Invoice</h6>
         <span class="mr-3"><small><?= $invoice[0]["user_invoice"]?></small></span>
+    </div>
+    <div class="card-body">
+        <div class="d-flex justify-content-end">
         <a class="btn btn-primary btn-sm mr-3 btn-icon-split float-right" onclick="cetak_invoice()">
             <span class="icon text-white-100">  
                 <i class="fas fa-print"></i>
@@ -61,39 +63,32 @@
             </button>
         </form>
         </a>
-
-        
-        
-
-
-    
-    </div>
-    <div class="card-body">
+        </div>
             <div class="container small ">
                 <div class="py-3">
                     <h6 class="m-0 font-weight-bold text-center">Invoice</h6>
                 </div>
-                <div class="card-body">
-                    <table class="w-50 mt-4" id="Table-Detail-Invoice">
+                <div class="">
+                    <table class="mt-4" id="Table-Detail-Invoice">
                         <tbody>
                             <tr>
-                                <td width="35%">Customer</td>
-                                <td width="5%">:</td>
+                                <td width="">Customer</td>
+                                <td width="">:</td>
                                 <td><?= $customer["customer_name"]?></td>
                             </tr>
                             <tr>
-                                <td width="35%">Invoice No</td>
-                                <td width="5%">:</td>
+                                <td width="">Invoice No</td>
+                                <td width="">:</td>
                                 <td><?= $invoice[0]["invoice_kode"]?></td>
                             </tr>
                             <tr>
-                                <td width="35%">Tanggal</td>
-                                <td width="5%">:</td>
+                                <td width="">Tanggal</td>
+                                <td width="">:</td>
                                 <td><?= change_tanggal($invoice[0]["tanggal_invoice"])?></td>
                             </tr>
                             <tr>
-                                <td width="35%">Batas Pembayaran</td>
-                                <td width="5%">:</td>
+                                <td width="">Batas Pembayaran</td>
+                                <td width="">:</td>
                                 <td><?= $invoice[0]["batas_pembayaran"]?> hari (<?= change_tanggal($invoice[0]["tanggal_batas_pembayaran"])?>)</td>
                             </tr>
                             <!-- <tr>
@@ -103,11 +98,11 @@
                             </tr> -->
                         </tbody>
                     </table>
-                    <table class="w-50">
+                    <table class="">
                         <tbody>
                             <tr>
-                                <td width="35%">Status Pembayaran</td>
-                                <td width="5%">:</td>
+                                <td width="">Status Pembayaran</td>
+                                <td width="">:</td>
                                 <td >
                                     <?php if($invoice[0]["status_bayar"] == "Belum Lunas"){?>
                                         <span class="text-danger"><?= $invoice[0]["status_bayar"]?></span>
@@ -117,15 +112,15 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td width="35%">Keterangan/Catatan</td>
-                                <td width="5%">:</td>
+                                <td width="">Keterangan/Catatan</td>
+                                <td width="">:</td>
                                 <td><?= $invoice[0]["invoice_keterangan"]?></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                <div class="card-body">
-                    <div class="table-responsive">
+                
+                    <div class="table-responsive mt-3">
                         <table class="table table-bordered text-light" width="100%" cellspacing="0" id="Table-Data-Invoice">
                             <thead>
                                 <tr>
@@ -183,7 +178,7 @@
                             </tbody>
                         </table>
                     </div>
-                </div>
+                
             </div>
             <!-- end detail invoice -->
 
