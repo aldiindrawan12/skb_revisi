@@ -10,8 +10,8 @@
     $tanggal_now = date("d-m-Y");
     $tgl_invoice = strtotime($invoice["tanggal_invoice"]);
 ?>
-<body style='background-color:#182039';> 
-<div class="mt-5 p-5" style='background-color:#182039';>
+<body class="mt-3" style='background-color:#182039';> 
+<div class="mt-5 p-2" style='background-color:#182039';>
     <div class="card shadow mb-2 mt-3"  style='background-color:#182039';>
         <div class="card-header " style='background-color:#182039';>
             <h6 class="m-0 font-weight-bold text-light">Payment Invoice</h6>
@@ -137,8 +137,8 @@
                                 <td><?= $value["payment_invoice_keterangan"]?></td>
                                 <td class="text-center">
                                 <?php if($_SESSION['role']=="Supervisor"){?>
-                                    <a class='btn btn-light' id="<?= $value["payment_invoice_id"]?>" onclick="edit_payment_invoice(this)" data-toggle="modal" data-target="#popup-edit-payment-invoice"><i class='fas fa-pen-square'></i></a>
-                                    <a class='btn btn-light' id="<?= $value["payment_invoice_id"]?>" onclick="delete_payment_invoice(this)"><i class='fas fa-trash-alt'></i></a>
+                                    <a class='btn btn-light mb-1 mr-md-1 mb-md-0' id="<?= $value["payment_invoice_id"]?>" onclick="edit_payment_invoice(this)" data-toggle="modal" data-target="#popup-edit-payment-invoice"><i class='fas fa-pen-square'></i></a>
+                                    <a class='btn btn-light mb-1 mr-md-1 mb-md-0' id="<?= $value["payment_invoice_id"]?>" onclick="delete_payment_invoice(this)"><i class='fas fa-trash-alt'></i></a>
                                 <?php }?>
                                 </td>
                             </tr>

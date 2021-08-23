@@ -2594,7 +2594,7 @@
                         render: function(data, type, row) {
                             var role_user = "<?=$_SESSION['role']?>";
                             let html = "";
-                            html += "<a class='btn btn-light' target='_blank' href='<?= base_url('index.php/detail/detail_invoice/"+data+"')?>'><i class='fas fa-eye'></i></a>";
+                            html += "<a class='btn btn-light mb-1 mr-md-1 mb-md-0' target='_blank' href='<?= base_url('index.php/detail/detail_invoice/"+data+"')?>'><i class='fas fa-eye'></i></a>";
                             if(role_user=="Supervisor"){
                                 $.ajax({
                                     type: "GET",
@@ -2606,9 +2606,9 @@
                                     },
                                     success: function(hasil) { //jika ambil hasil sukses
                                         if(hasil>0){
-                                            html += "<a class='btn btn-light btn-alert-edit-invoice mr-1 ml-1'><i class='fas fa-pen-square'></i></a>";
+                                            html += "<a class='btn btn-light btn-alert-edit-invoice mb-1 mr-md-1 mb-md-0'><i class='fas fa-pen-square'></i></a>";
                                         }else{
-                                            html += "<a class='btn btn-light btn-update-invoice mr-1 ml-1' href='<?= base_url("index.php/form/edit_invoice/")?>"+data+"'><i class='fas fa-pen-square'></i></a>";
+                                            html += "<a class='btn btn-light btn-update-invoice mb-1 mr-md-1 mb-md-0' href='<?= base_url("index.php/form/edit_invoice/")?>"+data+"'><i class='fas fa-pen-square'></i></a>";
                                         }
                                     }
                                 });
