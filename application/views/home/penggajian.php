@@ -198,18 +198,18 @@
                     <form action="<?= base_url('index.php/form/update_supir'); ?>" method="POST" enctype="multipart/form-data" id="form-edit-supir">
                         <input type="text" name=supir_id id=supir_id hidden>
                         <div class="form-group row">
-                            <div class="col row">
+                            <div class="col row mt-3">
                                 <label for="supir_name" class="form-label font-weight-bold col-md-12">Nama Driver</label>
                                 <input autocomplete="off" type="text" class="form-control col-md-12" id="supir_name" name="supir_name" required>
                             </div>
-                            <div class="col row">
+                            <div class="col row mt-3 ml-1">
                                 <label for="supir_name" class="form-label font-weight-bold col-md-12">Nama Panggilan Driver</label>
                                 <input autocomplete="off" type="text" class="form-control col" id="supir_panggilan_update" name="supir_panggilan_update" placeholder="Panggilan">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="supir_ttl_update" class="form-label font-weight-bold col-md-12">Tempat,Tanggal Lahir</label>
-                            <input autocomplete="off" type="text" class="form-control col" id="supir_tempat_lahir_update" name="supir_tempat_lahir_update" placeholder="Tempat Lahir">
+                            <input autocomplete="off" type="text" class="form-control col mr-2" id="supir_tempat_lahir_update" name="supir_tempat_lahir_update" placeholder="Tempat Lahir">
                             <input autocomplete="off" type="text" class="form-control col" id="supir_tgl_lahir_update" name="supir_tgl_lahir_update" placeholder="Tanggal Lahir" onclick="tanggal_berlaku(this)">
                         </div>
                         <div class="form-group">
@@ -234,7 +234,7 @@
                         </div>
                     </div>
                     <div class="col">
-                        <div class="form-group">
+                        <div class="form-group mt-3">
                             <label for="supir_tgl_aktif_update" class="form-label font-weight-bold">Tanggal Aktif Supir</label>
                             <input autocomplete="off" type="text" class="form-control" id="supir_tgl_aktif_update" name="supir_tgl_aktif_update" placeholder="Tanggal Aktif Supir" onclick="tanggal_berlaku(this)">
                         </div>
@@ -294,9 +294,9 @@
                 </button>
             </div>
             <div class="font-size-sm text-justify">
-            <div class="row">
+            <div class="container">
                 <div class="col">
-                <div class="text-center btn btn-block btn-facebook active mt-2 mb-2">
+                <div class="container-fluid btn btn-block btn-facebook active mt-2 mb-2">
                     <strong><span id="aktif">Aktif</span></strong>
                     <span id="tgl-aktif">2021-01-22-sekarang</span>
                 </div>

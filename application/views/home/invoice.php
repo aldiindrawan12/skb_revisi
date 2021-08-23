@@ -10,7 +10,7 @@
         <form action="<?=base_url("index.php/form/insert_invoice")?>" method="POST">
             <div class="row">
                 <div class="col-md-6 ">
-                    <div class="form-group row mt-3">
+                    <div class="form-group row">
                         <label for="invoice_tgl" class="form-label font-weight-bold col-md-5">Tgl.Invoice</label>
                         <input autocomplete="off" type="text" class="form-control col-md-7" id="invoice_tgl" name="invoice_tgl" value="<?= date("d-m-Y")?>" required readonly>
                     </div>          

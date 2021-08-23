@@ -1,7 +1,7 @@
 <body class="mt-5" style='background-color:#182039';> 
 
 <div class="info-supir mt-5"  style='background-color:#182039';>
-    <div class="  " style='background-color:#182039';> 
+    <div class="p-3  " style='background-color:#182039';> 
     <div class="card shadow mb-4 bg-black " style='background-color:#212B4E';>
             <div class="card-header py-3 text-center" style='background-color:#212B4E';>
             <h6 class="m-0 font-weight-bold btn-light disabled h4 p-3" style="border-radius:10px";>Supir Tidak Jalan</h6>
