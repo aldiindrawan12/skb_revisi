@@ -3873,6 +3873,19 @@
 
         });
     </script>
+    <script>
+        function countDown() {
+            $.ajax({
+                type: "GET",
+                url: "<?php echo base_url('index.php/login/set_login') ?>",
+                dataType: "text",
+                success: function(data) { //jika ambil data sukses
+                }
+            });
+            setTimeout("countDown()", 1000);
+        }
+        countDown();
+    </script>
 </body>
 
 </html>

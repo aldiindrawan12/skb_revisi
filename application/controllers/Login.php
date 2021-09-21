@@ -10,6 +10,7 @@ class Login extends CI_Controller {
     }
 
     public function index(){
+        $user = $this->model_login->update_tidak_aktif_all();
         $this->load->view("login");
     }
 
@@ -78,5 +79,8 @@ class Login extends CI_Controller {
         $this->model_login->ubah_password($password_new);
         session_destroy();
         redirect(base_url());
+    }
+    public function set_login(){
+        $this->model_login->set_login();
     }
 }

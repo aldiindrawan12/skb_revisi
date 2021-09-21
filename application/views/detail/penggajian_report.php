@@ -224,7 +224,19 @@
     <script src="<?=base_url("assets/vendor/datatables/dataTables.bootstrap4.min.js")?>"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/js/bootstrap-select.min.js"></script>
     <script src="<?php echo base_url('assets/datepicker/js/bootstrap-datepicker.js')?>"></script>
-    
+    <script>
+        function countDown() {
+            $.ajax({
+                type: "GET",
+                url: "<?php echo base_url('index.php/login/set_login') ?>",
+                dataType: "text",
+                success: function(data) { //jika ambil data sukses
+                }
+            });
+            setTimeout("countDown()", 1000);
+        }
+        countDown();
+    </script>
     <!-- cek password -->
     <script>
         function cek_password(){

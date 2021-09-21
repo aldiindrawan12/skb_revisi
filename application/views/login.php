@@ -91,9 +91,8 @@
         if(false_login == "Aktif"){
             Swal.fire({
                     title: "Gagal Masuk",
-                    text: "Anda Sedang Login Di Device Lain, Sialakan Logout Terlebih Dahulu",
+                    text: "Anda Sedang Login Di Device Lain, Sialakan Logout Terlebih Dahulu atau Tunggu 1 Menit Lagi",
                     icon: 'error',
-                    timer: 2000
                 });
         }
     </script>
