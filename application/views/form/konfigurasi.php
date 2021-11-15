@@ -24,7 +24,7 @@
         </div>
     </div>
 
-    <div class="card-footer table table-bordered text-light" style='background-color:#212B4E';>
+    <div class="card-footer " style='background-color:#212B4E';>
         <div class="" style='background-color:#212B4E';>
             <form action="<?= base_url("index.php/form/update_konfigurasi/".$akun["akun_id"])?>" method="POST">
                 <?php
